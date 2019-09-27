@@ -9,7 +9,7 @@ public class RemarkTest {
 
     @Test
     public void equals() {
-        Remark remark = new Remark("Pokemon");
+        Remark remark = new Remark("Hello");
 
         // same object -> returns true
         assertTrue(remark.equals(remark));
