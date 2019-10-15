@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Food;
 
 /**
  * Represents the in-memory model of Duke Cooks data.
@@ -21,7 +21,7 @@ public class ModelManager implements Model {
 
     private final DukeCooks dukeCooks;
     private final UserPrefs userPrefs;
-    private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Food> filteredFoods;
 
     /**
      * Initializes a ModelManager with the given dukeCooks and userPrefs.
@@ -34,7 +34,7 @@ public class ModelManager implements Model {
 
         this.dukeCooks = new DukeCooks(dukeCooks);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.dukeCooks.getPersonList());
+        filteredFoods = new FilteredList<>(this.dukeCooks.getFoodList());
     }
 
     public ModelManager() {
@@ -89,28 +89,17 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return dukeCooks.hasPerson(person);
+    public boolean hasFood(Food food) {
+        requireNonNull(food);
+        return dukeCooks.hasFood(food);
     }
 
     @Override
-    public void deletePerson(Person target) {
-        dukeCooks.removePerson(target);
+    public void addFood(Food food) {
+        dukeCooks.addFood(food);
+        updateFilteredPersonList(PREDICATE_SHOW_ALL_FOODS);
     }
 
-    @Override
-    public void addPerson(Person person) {
-        dukeCooks.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-    }
-
-    @Override
-    public void setPerson(Person target, Person editedPerson) {
-        requireAllNonNull(target, editedPerson);
-
-        dukeCooks.setPerson(target, editedPerson);
-    }
 
     //=========== Filtered Person List Accessors =============================================================
 
@@ -119,14 +108,14 @@ public class ModelManager implements Model {
      * {@code versionedDukeCooks}
      */
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
-        return filteredPersons;
+    public ObservableList<Food> getFilteredFoodList() {
+        return filteredFoods;
     }
 
     @Override
-    public void updateFilteredPersonList(Predicate<Person> predicate) {
+    public void updateFilteredPersonList(Predicate<Food> predicate) {
         requireNonNull(predicate);
-        filteredPersons.setPredicate(predicate);
+        filteredFoods.setPredicate(predicate);
     }
 
     @Override
@@ -145,7 +134,7 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return dukeCooks.equals(other.dukeCooks)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredFoods.equals(other.filteredFoods);
     }
 
 }

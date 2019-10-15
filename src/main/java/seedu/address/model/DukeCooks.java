@@ -5,8 +5,8 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.person.Food;
+import seedu.address.model.person.UniqueFoodList;
 
 /**
  * Wraps all data at the address-book level
@@ -14,7 +14,7 @@ import seedu.address.model.person.UniquePersonList;
  */
 public class DukeCooks implements ReadOnlyDukeCooks {
 
-    private final UniquePersonList persons;
+    private final UniqueFoodList foods;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -24,7 +24,7 @@ public class DukeCooks implements ReadOnlyDukeCooks {
      *   among constructors.
      */
     {
-        persons = new UniquePersonList();
+        foods = new UniqueFoodList();
     }
 
     public DukeCooks() {}
@@ -43,8 +43,8 @@ public class DukeCooks implements ReadOnlyDukeCooks {
      * Replaces the contents of the person list with {@code persons}.
      * {@code persons} must not contain duplicate persons.
      */
-    public void setPersons(List<Person> persons) {
-        this.persons.setPersons(persons);
+    public void setFoods(List<Food> foods) {
+        this.foods.setFoods(foods);
     }
 
     /**
@@ -53,68 +53,70 @@ public class DukeCooks implements ReadOnlyDukeCooks {
     public void resetData(ReadOnlyDukeCooks newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+        setFoods(newData.getFoodList());
     }
 
     //// person-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in Duke Cooks.
+     * Returns true if a food with the same identity as {@code food} exists in Duke Cooks.
      */
-    public boolean hasPerson(Person person) {
-        requireNonNull(person);
-        return persons.contains(person);
+    public boolean hasFood(Food food) {
+        requireNonNull(food);
+        return foods.contains(food);
     }
+
 
     /**
      * Adds a person to Duke Cooks.
      * The person must not already exist in Duke Cooks.
      */
-    public void addPerson(Person p) {
-        persons.add(p);
+    public void addFood(Food f) {
+        foods.add(f);
     }
 
-    /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
-     * {@code target} must exist in Duke Cooks.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in Duke Cooks.
-     */
-    public void setPerson(Person target, Person editedPerson) {
-        requireNonNull(editedPerson);
 
-        persons.setPerson(target, editedPerson);
+    /**
+     * Replaces the given food {@code target} in the list with {@code editedFood}.
+     * {@code target} must exist in Duke Cooks.
+     * The food identity of {@code editedPerson} must not be the same as another existing food in Duke Cooks.
+     */
+    public void setFood(Food target, Food editedFood) {
+        requireNonNull(editedFood);
+
+        foods.setFood(target, editedFood);
     }
 
     /**
      * Removes {@code key} from this {@code DukeCooks}.
      * {@code key} must exist in Duke Cooks.
      */
-    public void removePerson(Person key) {
-        persons.remove(key);
+    public void removeFood(Food key) {
+        foods.remove(key);
     }
 
     //// util methods
 
     @Override
     public String toString() {
-        return persons.asUnmodifiableObservableList().size() + " persons";
+        return foods.asUnmodifiableObservableList().size() + " foods";
         // TODO: refine later
     }
 
     @Override
-    public ObservableList<Person> getPersonList() {
-        return persons.asUnmodifiableObservableList();
+    public ObservableList<Food> getFoodList() {
+        return foods.asUnmodifiableObservableList();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof DukeCooks // instanceof handles nulls
-                && persons.equals(((DukeCooks) other).persons));
+                && foods.equals(((DukeCooks) other).foods));
     }
 
     @Override
     public int hashCode() {
-        return persons.hashCode();
+        return foods.hashCode();
     }
 }

@@ -7,12 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Food;
 
 /**
  * An UI component that displays information of a {@code Person}.
  */
-public class PersonCard extends UiPart<Region> {
+public class FoodCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
 
@@ -24,7 +24,7 @@ public class PersonCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Person person;
+    public final Food food;
 
     @FXML
     private HBox cardPane;
@@ -35,14 +35,11 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
 
-    public PersonCard(Person person, int displayedIndex) {
+    public FoodCard(Food food, int displayedIndex) {
         super(FXML);
-        this.person = person;
+        this.food = food;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
-        person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        name.setText(food.getFoodName());
     }
 
     @Override
@@ -53,13 +50,13 @@ public class PersonCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof PersonCard)) {
+        if (!(other instanceof FoodCard)) {
             return false;
         }
 
         // state check
-        PersonCard card = (PersonCard) other;
+        FoodCard card = (FoodCard) other;
         return id.getText().equals(card.id.getText())
-                && person.equals(card.person);
+                && food.equals(card.food);
     }
 }

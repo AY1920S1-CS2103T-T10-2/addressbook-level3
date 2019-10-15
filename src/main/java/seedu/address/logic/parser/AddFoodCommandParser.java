@@ -1,43 +1,39 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.*;
 
-import java.util.Set;
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.AddFoodCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.person.Food;
 
 /**
  * Parses input arguments and creates a new AddCommand object
  */
-public class AddCommandParser implements Parser<AddCommand> {
+public class AddFoodCommandParser implements Parser<AddFoodCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public AddCommand parse(String args) throws ParseException {
+    public AddFoodCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_FOOD, PREFIX_TIMES);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME)
+        if (!arePrefixesPresent(argMultimap, PREFIX_FOOD)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddFoodCommand.MESSAGE_USAGE));
         }
 
-        Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        String name = ParserUtil.parseFood(argMultimap.getValue(PREFIX_FOOD).get());
+        int times = ParserUtil.parseTimes(argMultimap.getValue(PREFIX_TIMES).get());
 
-        Person person = new Person(name, tagList);
+        Food food = new Food(name, times);
 
-        return new AddCommand(person);
+        return new AddFoodCommand(food);
     }
 
     /**

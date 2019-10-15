@@ -1,7 +1,7 @@
 package seedu.address.model;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Food;
 
 /**
  * Unmodifiable view of Duke Cooks
@@ -9,9 +9,9 @@ import seedu.address.model.person.Person;
 public interface ReadOnlyDukeCooks {
 
     /**
-     * Returns an unmodifiable view of the persons list.
-     * This list will not contain any duplicate persons.
+     * Returns an unmodifiable view of the foods list.
+     * This list will not contain any duplicate foods.
      */
-    ObservableList<Person> getPersonList();
+    ObservableList<Food> getFoodList();
 
 }

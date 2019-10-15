@@ -9,7 +9,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Name;
+import seedu.address.model.person.Food;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,45 +33,29 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String name} into a {@code Food}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code name} is invalid.
      */
-    public static Name parseName(String name) throws ParseException {
+    public static String parseFood(String name) throws ParseException {
         requireNonNull(name);
         String trimmedName = name.trim();
-        if (!Name.isValidName(trimmedName)) {
-            throw new ParseException(Name.MESSAGE_CONSTRAINTS);
-        }
-        return new Name(trimmedName);
+
+        return trimmedName;
     }
 
-
     /**
-     * Parses a {@code String tag} into a {@code Tag}.
+     * Parses a {@code int times} into a {@code int}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code tag} is invalid.
+     * @throws ParseException if the given {@code times} is invalid.
+     * @param times
      */
-    public static Tag parseTag(String tag) throws ParseException {
-        requireNonNull(tag);
-        String trimmedTag = tag.trim();
-        if (!Tag.isValidTagName(trimmedTag)) {
-            throw new ParseException(Tag.MESSAGE_CONSTRAINTS);
-        }
-        return new Tag(trimmedTag);
+    public static int parseTimes(String times) throws ParseException {
+        requireNonNull(times);
+
+        return Integer.parseInt(times);
     }
 
-    /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
-     */
-    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
-        requireNonNull(tags);
-        final Set<Tag> tagSet = new HashSet<>();
-        for (String tagName : tags) {
-            tagSet.add(parseTag(tagName));
-        }
-        return tagSet;
-    }
 }
