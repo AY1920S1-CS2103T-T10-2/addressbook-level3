@@ -22,7 +22,7 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#dashboard-feature">3.1. Dashboard feature</a></li>
+<li><a href="#add-delete-edit-find-list-tasks">3.1. Add/Delete/Edit/Find/List tasks</a></li>
 <li><a href="#recipebook-feature">3.2. RecipeBook feature</a></li>
 <li><a href="#exercise-feature">3.3. Exercise feature</a></li>
 <li><a href="#health-feature">3.4. Health feature</a></li>
@@ -401,57 +401,237 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="dashboard-feature"><a class="link" href="#dashboard-feature">3.1. Dashboard feature</a></h3>
+<h3 id="add-delete-edit-find-list-tasks"><a class="link" href="#add-delete-edit-find-list-tasks">3.1. Add/Delete/Edit/Find/List tasks</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
-
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The functions are found under the Dashboard.<br>
+The Dashboard in <code>DukeCooks</code> serves as a homepage which displays a list of tasks set out
+by the user. The tasks are sorted accordingly by earliest date.
+Here, a task is represented by a Dashboard object.</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
-
+<div class="paragraph">
+<p>The add/delete/edit/find/list mechanism is implemented in <code>DukeCooks v1.3</code>. It extends
+<code>DukeCooks</code> with a function to add/delete/edit/find tasks.</p>
+</div>
+<div class="paragraph">
+<p>The operations are as followed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DukeCooks v1.3#add()</code>&#8201;&#8212;&#8201;Adds and saves the task into <code>DukeCooks</code>.</p>
+</li>
+<li>
+<p><code>DukeCooks v1.3#delete()</code>&#8201;&#8212;&#8201;Removes the specified task from <code>DukeCooks</code>.</p>
+</li>
+<li>
+<p><code>DukeCooks v1.3k#edit()</code>&#8201;&#8212;&#8201;Edits the specified with a new task name and/or date.</p>
+</li>
+<li>
+<p><code>DukeCooks v1.3#find()</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
+</li>
+<li>
+<p><code>DukeCooks v1.3#list()</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the Model interface as <code>Model#addDashboard()</code>,
+<code>Model#deleteDashboard()</code>, <code>Model#setDashboard()</code>, <code>Model#hasDashboard()</code> and
+<code>Model#getDashboardRecords()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the add/delete/edit/find/list
+mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. <code>DukeCooks v1.3</code> will
+be initialized with the dashboard state, and the <code>currentStatePointer</code> pointing to
+that single dashboard state.</p>
+</div>
+<div class="paragraph">
+<p>/insert uml here</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>add task tn/bake a cake td/12/12/2019</code> command to add a new
+task into Duke Cooks. The <code>add</code> command calls <code>Model#addDashboard()</code>, causing the task to
+be added into <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
+<code>UniqueDashboardList#add()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
+stage, the list of task is sorted by date. After which, the <code>add</code> command also calls
+<code>Model#saveDashboard()</code>, causing another modified dashboard state to be saved into the
+<code>UniqueDashboardList</code>.</p>
+</div>
+<div class="paragraph">
+<p>/insert uml here</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>delete task 3</code> command to delete the 3rd task in the
+dashboard. The delete command calls <code>Model#deleteDashboard()</code> causing the specified task
+to be removed from <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
+<code>UniqueDashboardList#remove()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
+stage, the list of task is sorted by date. Also, it calls <code>Model#saveDashboard()</code>,
+causing the modified state of the dashboard after the <code>delete task 3</code> command executes
+to be saved in the <code>UniqueDashboardList</code>, and the <code>currentStatePointer</code> is shifted to the
+newly inserted dashboard state.</p>
+</div>
+<div class="paragraph">
+<p>/insert uml here</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user executes <code>edit task&#8230;&#8203;</code> command to edit a field in a task. The edit
+command calls <code>Model#setDashboard()</code> causing the edited task to be updated in
+<code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#setDashboard()</code>
+which will call <code>UniqueDashboardList#sortDashboard()</code>. At this stage, the list of task is
+sorted by date. Also, it calls <code>Model#saveDashboard()</code>, causing the modified state of the
+dashboard after the <code>edit task&#8230;&#8203;</code> command executes to <code>UniqueDashboardList</code>, and the
+<code>currentStatePointer</code> is shifted to the newly inserted dashboard state.</p>
+</div>
+<div class="paragraph">
+<p>/insert uml here</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The user executes <code>find task&#8230;&#8203;</code> command to find a list of task given a keyword.
+The find command calls <code>Model#hasDashboard()</code>, which searches through the
+<code>UniqueDashboardList</code> for tasks containing the particular keyword. The <code>currentStatePointer</code>
+remains at the same location after the step.</p>
+</div>
+<div class="paragraph">
+<p>/insert uml here</p>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>list task</code> command to view all the tasks found in <code>UniqueDashboardList</code>.
+The list command calls <code>Model#getDashboardRecords()</code>, which returns the <code>ReadOnlyDashboard</code> that
+returns the <code>UniqueDashboardList</code>, iterating over all the task and displaying it on the
+homepage. The <code>currentStatePointer</code> remains at the same location after the step.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add operation works:</p>
+</div>
+<div class="paragraph">
+<p>/insert uml here</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new
+command.</p>
+</div>
+<div class="paragraph">
+<p>/insert activity diagram here</p>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-add-delete-edit-find-list-executes"><a class="link" href="#aspect-how-add-delete-edit-find-list-executes">Aspect: How add/delete/edit/find/list executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Sort the list whenever add/delete/edit is called.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep an instance of the earliest and latest date. If dates fall
+out of range from the two dates, sorting does not happen.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Faster runtime.</p>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-add-delete-edit-find-list-commands"><a class="link" href="#aspect-data-structure-to-support-the-add-delete-edit-find-list-commands">Aspect: Data structure to support the add/delete/edit/find/list commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>Collections.sort</code> to sort by date.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Current implementations require a <code>LocalDate</code> object to be create for every
+<code>TaskDate</code> object.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>LocalDate</code> to store dates instead of creating a custom class,
+<code>TaskDate</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Since this is found in the Java API, we do not have to worry about invalid dates
+being keyed.</p>
+</li>
+<li>
+<p>Cons: As the current <code>TaskDate</code> works fine, refactoring the code to <code>LocalDate</code> might
+take some time.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="recipebook-feature"><a class="link" href="#recipebook-feature">3.2. RecipeBook feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.2.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 
 </div>
 </div>
 <div class="sect2">
 <h3 id="exercise-feature"><a class="link" href="#exercise-feature">3.3. Exercise feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">3.3.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.3.1. Proposed Implementation</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
 
 </div>
 </div>
 <div class="sect2">
 <h3 id="health-feature"><a class="link" href="#health-feature">3.4. Health feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-4"><a class="link" href="#proposed-implementation-4">3.4.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">3.4.1. Proposed Implementation</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
 
 </div>
 </div>
 <div class="sect2">
 <h3 id="diary-feature"><a class="link" href="#diary-feature">3.5. Diary feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-5"><a class="link" href="#proposed-implementation-5">3.5.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-4"><a class="link" href="#proposed-implementation-4">3.5.1. Proposed Implementation</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
 
 </div>
 </div>
@@ -1060,4 +1240,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 13:36:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 15:32:47 UTC</div></div></div></body></html>
