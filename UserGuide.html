@@ -36,6 +36,10 @@
 </li>
 <li><a href="#dashboard-analytics-suggestions">Dashboard (Analytics + Suggestions)</a>
 <ul class="sectlevel2">
+<li><a href="#adding-a-task-code-add-task-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-code-coming-in-v1-3-code">Adding a task:  <code>add task tn/</code> <em>insert task name here</em> <code>td/</code> <em>insert task date here</em> <code>[coming in v1.3]</code></a></li>
+<li><a href="#deleting-a-task-code-delete-task-code-em-insert-task-index-number-em-code-coming-in-v1-3-code">Deleting a task: <code>delete task</code> <em>insert task index number</em> <code>[coming in v1.3]</code></a></li>
+<li><a href="#editing-a-task-code-edit-task-code-em-insert-task-index-number-em-code-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-coming-in-v1-3">Editing a task: <code>edit task</code> <em>insert task index number</em> <code>tn/</code> <em>insert task name here</em> <code>td/</code> <em>insert task date here</em>`[coming in v1.3]`</a></li>
+<li><a href="#finding-a-task-code-find-task-code-em-insert-keywords-em-code-coming-in-v1-3-code">Finding a task: <code>find task</code> <em>insert keywords</em> <code>[coming in v1.3]</code></a></li>
 <li><a href="#get-suggestions-code-suggest-code-code-coming-in-v2-0-code">Get suggestions: <code>suggest</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#get-random-food-suggestions-code-suggest-food-code-code-coming-in-v2-0-code">Get random food suggestions: <code>suggest food</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#get-new-food-suggestions-code-suggest-new-food-code-code-coming-in-v2-0-code">Get new food suggestions: <code>suggest new food</code> <code>[coming in v2.0]</code></a></li>
@@ -152,8 +156,8 @@
 <div class="sect2">
 <h3 id="adding-a-recipe-code-add-recipe-code"><a class="link" href="#adding-a-recipe-code-add-recipe-code">Adding a recipe:  <code>add recipe</code></a></h3>
 <div class="paragraph">
-<p>Initializes creation of a recipe with input name. DukeCooks will prompt for ingredients. User may key in ingredients with price, in the format: <code>&lt;name&gt;</code> <code>$&lt;price&gt;</code>. Once done, user may enter <code>done</code>. DukeCooks will prompt for nutritional value in the format: <code>&lt;kcal&gt; &lt;carbs(g)&gt; &lt;fat(g)&gt; &lt;protein(g)&gt;</code>. <br>
-Format: <code>add recipe &lt;name&gt;</code></p>
+<p>Initializes creation of a recipe with input exerciseName. DukeCooks will prompt for ingredients. User may key in ingredients with price, in the format: <code>&lt;exerciseName&gt;</code> <code>$&lt;price&gt;</code>. Once done, user may enter <code>done</code>. DukeCooks will prompt for nutritional value in the format: <code>&lt;kcal&gt; &lt;carbs(g)&gt; &lt;fat(g)&gt; &lt;protein(g)&gt;</code>. <br>
+Format: <code>add recipe &lt;exerciseName&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -186,8 +190,8 @@ Output: <em>Nutritional value for “Chicken Rice” captured. “Chicken Rice�
 <div class="sect2">
 <h3 id="deleting-a-recipe-code-delete-recipe-code"><a class="link" href="#deleting-a-recipe-code-delete-recipe-code">Deleting a recipe: <code>delete recipe</code></a></h3>
 <div class="paragraph">
-<p>Deletes recipe with specified name.<br>
-Format: <code>delete recipe &lt;name&gt;</code></p>
+<p>Deletes recipe with specified exerciseName.<br>
+Format: <code>delete recipe &lt;exerciseName&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -223,7 +227,7 @@ Output: Lists all recipes.</p>
 <h3 id="viewing-a-recipe-code-view-recipe-code"><a class="link" href="#viewing-a-recipe-code-view-recipe-code">Viewing a recipe: <code>view recipe</code></a></h3>
 <div class="paragraph">
 <p>Lists ingredients of specified recipe, nutritional value, and image, difficulty and preparation time, if applicable.<br>
-Format: <code>view recipe &lt;name&gt;</code></p>
+Format: <code>view recipe &lt;exerciseName&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -240,36 +244,36 @@ Output: Shows the recipe named “Chicken Rice”, as long as it exists in the r
 <div class="sect2">
 <h3 id="giving-a-recipe-an-image-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-an-image-code-coming-in-v2-0-code">Giving a recipe an image: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Adds image of recipe by retrieving the image with the specified file name. Files are to be placed in the folder [to be implemented].<br>
-Format: <code>recipe &lt;name&gt; image &lt;filename&gt;</code></p>
+<p>Adds image of recipe by retrieving the image with the specified file exerciseName. Files are to be placed in the folder [to be implemented].<br>
+Format: <code>recipe &lt;exerciseName&gt; image &lt;filename&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="giving-a-recipe-a-difficulty-level-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-a-difficulty-level-code-coming-in-v2-0-code">Giving a recipe a difficulty level: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Tags the recipe specified with the difficulty, ranging from 1 to 3.<br>
-Format: <code>recipe &lt;name&gt; difficulty &lt;difficulty&gt;</code></p>
+Format: <code>recipe &lt;exerciseName&gt; difficulty &lt;difficulty&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="giving-a-recipe-preparation-timing-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-preparation-timing-code-coming-in-v2-0-code">Giving a recipe preparation timing: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Tags the recipe specified with the preparation time, in minutes.<br>
-Format: <code>recipe &lt;name&gt; preptime &lt;time(min)&gt;</code></p>
+Format: <code>recipe &lt;exerciseName&gt; preptime &lt;time(min)&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-shopping-list-code-coming-in-v2-0-code"><a class="link" href="#adding-a-shopping-list-code-coming-in-v2-0-code">Adding a shopping list: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Creates a new shopping list with specified name.<br>
-Format: <code>add shoplist &lt;name&gt;</code></p>
+<p>Creates a new shopping list with specified exerciseName.<br>
+Format: <code>add shoplist &lt;exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-shopping-list-code-coming-in-v2-0-code"><a class="link" href="#deleting-a-shopping-list-code-coming-in-v2-0-code">Deleting a shopping list: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Deletes specified shopping list.<br>
-Format: <code>delete shoplist &lt;name&gt;</code></p>
+Format: <code>delete shoplist &lt;exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -283,35 +287,35 @@ Format: <code>list shoplist</code></p>
 <h3 id="viewing-a-shopping-list-code-coming-in-v2-0-code"><a class="link" href="#viewing-a-shopping-list-code-coming-in-v2-0-code">Viewing a shopping list: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Collates the ingredients to be bought and returns them as a list. Also displays the total cost of the shopping list, and each ingredient’s individual price.<br>
-Format: <code>view shoplist &lt;name&gt;</code></p>
+Format: <code>view shoplist &lt;exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-recipe-to-a-shopping-list-code-coming-in-v2-0-code"><a class="link" href="#adding-recipe-to-a-shopping-list-code-coming-in-v2-0-code">Adding recipe to a shopping list: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Adds specified recipe to the shopping list.<br>
-Format: <code>shoplist &lt;name&gt; add &lt;recipe&gt;</code></p>
+Format: <code>shoplist &lt;exerciseName&gt; add &lt;recipe&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-recipe-from-a-shopping-list-code-coming-in-v2-0-code"><a class="link" href="#deleting-a-recipe-from-a-shopping-list-code-coming-in-v2-0-code">Deleting a recipe from a shopping list: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Deletes specified recipe from the shopping list.<br>
-Format: <code>shoplist &lt;name&gt; delete &lt;recipe&gt;</code></p>
+Format: <code>shoplist &lt;exerciseName&gt; delete &lt;recipe&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-a-meal-plan-code-coming-in-v2-0-code"><a class="link" href="#add-a-meal-plan-code-coming-in-v2-0-code">Add a meal plan: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Creates a new meal plan with specified name.<br>
-Format: <code>add mealplan &lt;name&gt;</code></p>
+<p>Creates a new meal plan with specified exerciseName.<br>
+Format: <code>add mealplan &lt;exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="delete-a-meal-plan-code-coming-in-v2-0-code"><a class="link" href="#delete-a-meal-plan-code-coming-in-v2-0-code">Delete a meal plan: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Deletes specified meal plan.<br>
-Format: <code>delete mealplan &lt;name&gt;</code></p>
+Format: <code>delete mealplan &lt;exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -325,21 +329,21 @@ Format: <code>list mealplan</code></p>
 <h3 id="view-a-meal-plan-code-coming-in-v2-0-code"><a class="link" href="#view-a-meal-plan-code-coming-in-v2-0-code">View a meal plan: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Displays daily nutritional value of the meal plan.<br>
-Format: <code>view mealplan &lt;name&gt;</code></p>
+Format: <code>view mealplan &lt;exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-recipe-to-a-meal-plan-code-coming-in-v2-0-code"><a class="link" href="#add-recipe-to-a-meal-plan-code-coming-in-v2-0-code">Add recipe to a meal plan: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Adds the specified recipe to the specified meal plan, according to the day listed in the <code>&lt;day&gt;</code> field. The <code>&lt;day&gt;</code> field is a number ranging from 1 to 7, for the 7 days present in the meal plan.<br>
-Format: <code>mealplan &lt;name&gt; &lt;day&gt; add &lt;recipe name&gt;</code></p>
+Format: <code>mealplan &lt;exerciseName&gt; &lt;day&gt; add &lt;recipe exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="generate-a-shopping-list-for-a-meal-plan-code-coming-in-v2-0-code"><a class="link" href="#generate-a-shopping-list-for-a-meal-plan-code-coming-in-v2-0-code">Generate a shopping list for a meal plan: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Generates a shopping list for the specified meal plan. If <code>&lt;shoplist name&gt;</code> is not specified, we use <code>&lt;name&gt;</code> by default.<br>
-Format: <code>mealplan &lt;name&gt; shoplist &lt;shoplist name&gt;</code></p>
+<p>Generates a shopping list for the specified meal plan. If <code>&lt;shoplist exerciseName&gt;</code> is not specified, we use <code>&lt;exerciseName&gt;</code> by default.<br>
+Format: <code>mealplan &lt;exerciseName&gt; shoplist &lt;shoplist exerciseName&gt;</code></p>
 </div>
 </div>
 </div>
@@ -347,6 +351,62 @@ Format: <code>mealplan &lt;name&gt; shoplist &lt;shoplist name&gt;</code></p>
 <div class="sect1">
 <h2 id="dashboard-analytics-suggestions"><a class="link" href="#dashboard-analytics-suggestions">Dashboard (Analytics + Suggestions)</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="adding-a-task-code-add-task-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-code-coming-in-v1-3-code"><a class="link" href="#adding-a-task-code-add-task-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-code-coming-in-v1-3-code">Adding a task:  <code>add task tn/</code> <em>insert task name here</em> <code>td/</code> <em>insert task date here</em> <code>[coming in v1.3]</code></a></h3>
+<div class="paragraph">
+<p>Adds a task into DukeCooks. The task consists of the task name and task date.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>add task tn/go for a run td/22/10/2019</code><br>
+Output: New task added: go for a run</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-task-code-delete-task-code-em-insert-task-index-number-em-code-coming-in-v1-3-code"><a class="link" href="#deleting-a-task-code-delete-task-code-em-insert-task-index-number-em-code-coming-in-v1-3-code">Deleting a task: <code>delete task</code> <em>insert task index number</em> <code>[coming in v1.3]</code></a></h3>
+<div class="paragraph">
+<p>Deletes a task with corresponding to the task index number given.<br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>delete task 1</code><br>
+Output: Deleted Task: 1</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-task-code-edit-task-code-em-insert-task-index-number-em-code-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-coming-in-v1-3"><a class="link" href="#editing-a-task-code-edit-task-code-em-insert-task-index-number-em-code-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-coming-in-v1-3">Editing a task: <code>edit task</code> <em>insert task index number</em> <code>tn/</code> <em>insert task name here</em> <code>td/</code> <em>insert task date here</em>`[coming in v1.3]`</a></h3>
+<div class="paragraph">
+<p>Edits the details of the task identified.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Current: 1. bake a cake 21/10/2019<br>
+<code>edit task 1 tn/bake a cake td/22/10/2019</code><br>
+Output: Edited task: 1<br>
+Updated: 1. bake a cake 22/10/2019</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-a-task-code-find-task-code-em-insert-keywords-em-code-coming-in-v1-3-code"><a class="link" href="#finding-a-task-code-find-task-code-em-insert-keywords-em-code-coming-in-v1-3-code">Finding a task: <code>find task</code> <em>insert keywords</em> <code>[coming in v1.3]</code></a></h3>
+<div class="paragraph">
+<p>Finds all tasks whose names contain any of.<br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>find task cake</code><br>
+Output:<br>
+1. bake a cake<br>
+3. carrot cake</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="get-suggestions-code-suggest-code-code-coming-in-v2-0-code"><a class="link" href="#get-suggestions-code-suggest-code-code-coming-in-v2-0-code">Get suggestions: <code>suggest</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
@@ -481,8 +541,8 @@ Records of Menstrual Cycle will only be made available for users declared as fem
 Shows user’s blood sugar records of the past 3 months as of today.</p>
 </li>
 <li>
-<p><code>view health weight</code><br>
-Shows user’s weight of the past <strong>1</strong> month as of today.</p>
+<p><code>view health exerciseWeight</code><br>
+Shows user’s exerciseWeight of the past <strong>1</strong> month as of today.</p>
 </li>
 </ul>
 </div>
@@ -599,7 +659,7 @@ Edits the existing blood pressure record from today 9am to 133/80 mmHg.</p>
 </li>
 <li>
 <p><code>edit health W000123 50</code><br>
-Edits weight record id of W000123 to 50kg.</p>
+Edits exerciseWeight record id of W000123 to 50kg.</p>
 </li>
 </ul>
 </div>
@@ -804,8 +864,8 @@ Generates a PDF copy of all the blood sugar and blood pressure records respectiv
 <p>Adds an exercise to exercise list. App will then prompt for the muscle type, level of intensity (out of 5), instructions as well as images of the steps (in directory form) (optional) in order.</p>
 </div>
 <div class="paragraph">
-<p>Once done you can add the recommended number of sets (optional), recommended number of repetitions (optional), recommended timing in minutes(optional), weight (optional) in the format: <code>s/SETS r/REPETITIONS w/WEIGHT t/TIMING</code><br>
-Format: <code>add exercise &lt;name&gt;</code></p>
+<p>Once done you can add the recommended number of sets (optional), recommended number of repetitions (optional), recommended timing in minutes(optional), exerciseWeight (optional) in the format: <code>s/SETS r/REPETITIONS w/WEIGHT t/TIMING</code><br>
+Format: <code>add exercise &lt;exerciseName&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -829,7 +889,7 @@ Output: <em>Now let’s add the instructions!</em></p>
 Output: <em>Step 1 added! Type done when you’re done with all the instructions!</em></p>
 </li>
 <li>
-<p><code>Push weight above head</code><br>
+<p><code>Push exerciseWeight above head</code><br>
 Output: <em>Step 2 added! Type done when you’re done with all the instructions!</em></p>
 </li>
 <li>
@@ -838,7 +898,7 @@ Output: <em>Almost done! If you want to add an image please specify the folder! 
 </li>
 <li>
 <p><code>/</code><br>
-Output: <em>If you want to specify your reps, sets and weight you may now do so. Otherwise type “/”.</em></p>
+Output: <em>If you want to specify your reps, sets and exerciseWeight you may now do so. Otherwise type “/”.</em></p>
 </li>
 <li>
 <p><code>w/30kg r/5 s/5 t/1:00</code><br>
@@ -878,7 +938,7 @@ Format: <code>calorie &lt;index&gt; &lt;calories&gt;</code></p>
 <div class="sect2">
 <h3 id="check-history-code-coming-in-v2-0-code"><a class="link" href="#check-history-code-coming-in-v2-0-code">Check History: <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Checks the history of all the pass workouts as well as their statistics eg. weight used, number of times exercise is carried out, workouts that use this exercise.</p>
+<p>Checks the history of all the pass workouts as well as their statistics eg. exerciseWeight used, number of times exercise is carried out, workouts that use this exercise.</p>
 </div>
 </div>
 <div class="sect2">
@@ -890,8 +950,8 @@ Format: <code>calorie &lt;index&gt; &lt;calories&gt;</code></p>
 <div class="sect2">
 <h3 id="create-workout-code-workout-code"><a class="link" href="#create-workout-code-workout-code">Create Workout: <code>workout</code></a></h3>
 <div class="paragraph">
-<p>Adds a workout to workout list. The app will then display a list of exercises to be added to the workout, you can then filter this by adding specifications such as muscle type. To add an exercise, simply specify the index on the current list that is displayed. If the exercise has a recommended number or reps, sets, weight and timing you will be asked whether to follow it. Otherwise you can specify what you wish. Once you have added all the exercises, you will then be asked to specify the amount of time for rest in between sets.<br>
-Format: <code>workout &lt;name&gt;</code></p>
+<p>Adds a workout to workout list. The app will then display a list of exercises to be added to the workout, you can then filter this by adding specifications such as muscle type. To add an exercise, simply specify the index on the current list that is displayed. If the exercise has a recommended number or reps, sets, exerciseWeight and timing you will be asked whether to follow it. Otherwise you can specify what you wish. Once you have added all the exercises, you will then be asked to specify the amount of time for rest in between sets.<br>
+Format: <code>workout &lt;exerciseName&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -911,7 +971,7 @@ Format: <code>delete workout &lt;index&gt;</code></p>
 <div class="sect2">
 <h3 id="run-workout-code-run-code"><a class="link" href="#run-workout-code-run-code">Run Workout: <code>run</code></a></h3>
 <div class="paragraph">
-<p>Runs a workout with a timer. Shows the details of the exercise: instructions, reps, sets, weight as well images if provided. After workout, stats will be automatically be updated and weights of workout will be increased accordingly.<br>
+<p>Runs a workout with a timer. Shows the details of the exercise: instructions, reps, sets, exerciseWeight as well images if provided. After workout, stats will be automatically be updated and weights of workout will be increased accordingly.<br>
 Format: <code>run &lt;index&gt;</code></p>
 </div>
 </div>
@@ -931,8 +991,8 @@ Format: <code>run &lt;index&gt;</code></p>
 <div class="sect2">
 <h3 id="create-diary-code-create-diary-code"><a class="link" href="#create-diary-code-create-diary-code">Create Diary: <code>create diary</code></a></h3>
 <div class="paragraph">
-<p>Creates a new diary with the specified name<br>
-Format: <code>create diary &lt;diary name&gt;</code></p>
+<p>Creates a new diary with the specified exerciseName<br>
+Format: <code>create diary &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -948,7 +1008,7 @@ Format: <code>create diary &lt;diary name&gt;</code></p>
 <ul>
 <li>
 <p><code>create diary Healthy Living</code><br>
-Creates a new diary with the name “Healthy Living”</p>
+Creates a new diary with the exerciseName “Healthy Living”</p>
 </li>
 </ul>
 </div>
@@ -956,13 +1016,13 @@ Creates a new diary with the name “Healthy Living”</p>
 <div class="sect2">
 <h3 id="delete-diary-code-delete-diary-code"><a class="link" href="#delete-diary-code-delete-diary-code">Delete Diary: <code>delete diary</code></a></h3>
 <div class="paragraph">
-<p>Deletes the diary with the specified name<br>
-Format: <code>delete diary &lt;diary name&gt;</code></p>
+<p>Deletes the diary with the specified exerciseName<br>
+Format: <code>delete diary &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Diary name should already exist</p>
+<p>Diary exerciseName should already exist</p>
 </li>
 </ul>
 </div>
@@ -973,7 +1033,7 @@ Format: <code>delete diary &lt;diary name&gt;</code></p>
 <ul>
 <li>
 <p><code>delete diary Healthy Living</code><br>
-Deletes the diary with the name “Healthy Living”</p>
+Deletes the diary with the exerciseName “Healthy Living”</p>
 </li>
 </ul>
 </div>
@@ -982,7 +1042,7 @@ Deletes the diary with the name “Healthy Living”</p>
 <h3 id="add-page-code-add-page-code"><a class="link" href="#add-page-code-add-page-code">Add Page: <code>add page</code></a></h3>
 <div class="paragraph">
 <p>Adds a page to the end of the specified diary<br>
-Format: <code>add page &lt;type&gt; &lt;diary name&gt;</code><br>
+Format: <code>add page &lt;type&gt; &lt;diary exerciseName&gt;</code><br>
 * Diary should already exist</p>
 </div>
 <div class="admonitionblock note">
@@ -1021,7 +1081,7 @@ Adds an exercise page to the diary named “Healthy Living”</p>
 <h3 id="delete-page-code-delete-page-code"><a class="link" href="#delete-page-code-delete-page-code">Delete Page: <code>delete page</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified page from the specified diary<br>
-Format: <code>delete page &lt;index&gt; &lt;diary name&gt;</code></p>
+Format: <code>delete page &lt;index&gt; &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1049,7 +1109,7 @@ Deletes page 2 of the diary named “Healthy Living”</p>
 <h3 id="link-recipes-code-coming-in-v2-0-code"><a class="link" href="#link-recipes-code-coming-in-v2-0-code">Link Recipes: <code>[Coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Creates a new food page in the specified diary, using pre-existing recipes<br>
-Format: <code>link recipe &lt;recipe name&gt; /to &lt;diary name&gt;</code></p>
+Format: <code>link recipe &lt;recipe exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1089,7 +1149,7 @@ Creates a food page about “Caesar Salad” and adds it to the diary named “H
 <h3 id="link-exercises-code-coming-in-v2-0-code"><a class="link" href="#link-exercises-code-coming-in-v2-0-code">Link Exercises: <code>[Coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Creates a new exercise page in the specified diary, using pre-existing exercises<br>
-Format: <code>link exercise &lt;exercise name&gt; /to &lt;diary name&gt;</code></p>
+Format: <code>link exercise &lt;exercise exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1129,7 +1189,7 @@ Creates an exercise page about “Crunch” and adds it to the diary named “He
 <h3 id="link-health-records-code-coming-in-v2-0-code"><a class="link" href="#link-health-records-code-coming-in-v2-0-code">Link Health Records: <code>[Coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Creates a new health page in the specified diary, using pre-existing records<br>
-Format: <code>link records &lt;record id&gt; /to &lt;diary name&gt;</code></p>
+Format: <code>link records &lt;record id&gt; /to &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1169,7 +1229,7 @@ Creates a health page about “BP129391” and adds it to the diary named “Hea
 <h3 id="edit-diary-code-coming-in-v2-0-code"><a class="link" href="#edit-diary-code-coming-in-v2-0-code">Edit Diary: <code>[Coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Allows user to edit some basic information in the diary<br>
-Format: <code>edit &lt;diary name&gt;</code></p>
+Format: <code>edit &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1194,7 +1254,7 @@ Users will now be able to edit basic information in the diary named “Healthy L
 <h3 id="edit-page-code-coming-in-v2-0-code"><a class="link" href="#edit-page-code-coming-in-v2-0-code">Edit Page: <code>[Coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Allows user to edit basic information in the specified page of the specified diary<br>
-Format: <code>edit page &lt;index&gt; &lt;diary name&gt;</code></p>
+Format: <code>edit page &lt;index&gt; &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1222,7 +1282,7 @@ Users will be able to edit some basic information in page 2 of the diary named �
 <h3 id="view-diary-code-coming-in-v2-0-code"><a class="link" href="#view-diary-code-coming-in-v2-0-code">View Diary: <code>[Coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Allows user to view the specified diary in a page-form<br>
-Format: <code>view  &lt;diary name&gt;</code></p>
+Format: <code>view  &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1247,7 +1307,7 @@ Users will now be able to view the diary in a page-view in the GUI</p>
 <h3 id="print-diary-code-coming-in-v2-0-code"><a class="link" href="#print-diary-code-coming-in-v2-0-code">Print Diary: <code>[Coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Allows user to print the specified diary in PDF format<br>
-Format: <code>print &lt;diary name&gt;</code></p>
+Format: <code>print &lt;diary exerciseName&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1279,11 +1339,11 @@ A PDF format of the diary named “Healthy Living” will be generated</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add recipe</strong> : <code>add recipe &lt;name&gt;</code><br>
+<p><strong>Add recipe</strong> : <code>add recipe &lt;exerciseName&gt;</code><br>
 e.g. <code>add recipe Chicken Rice</code></p>
 </li>
 <li>
-<p><strong>Delete recipe</strong> : <code>delete recipe &lt;name&gt;</code><br>
+<p><strong>Delete recipe</strong> : <code>delete recipe &lt;exerciseName&gt;</code><br>
 e.g. <code>delete recipe Chicken Rice</code></p>
 </li>
 <li>
@@ -1352,7 +1412,7 @@ e.g. <code>delete health BP129391</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Adding an exercise</strong> : <code>add exercise &lt;name&gt;</code><br>
+<p><strong>Adding an exercise</strong> : <code>add exercise &lt;exerciseName&gt;</code><br>
 e.g. <code>add exercise Inclined Bench Press</code></p>
 </li>
 <li>
@@ -1365,7 +1425,7 @@ e.g. <code>add exercise Inclined Bench Press</code></p>
 <p><strong>View exercise</strong> : <code>view exercise&lt;index&gt;</code></p>
 </li>
 <li>
-<p><strong>Create workout</strong> : <code>workout &lt;name&gt;</code></p>
+<p><strong>Create workout</strong> : <code>workout &lt;exerciseName&gt;</code></p>
 </li>
 <li>
 <p><strong>List workout</strong> : <code>list exercise [MUSCLEGROUP] [INTENSITY] [TOTALTIME]</code></p>
@@ -1388,18 +1448,18 @@ e.g. <code>add exercise Inclined Bench Press</code></p>
 e.g. <code>create diary Healthy Living</code></p>
 </li>
 <li>
-<p><strong>Delete Diary</strong> : <code>delete diary &lt;diary name&gt;</code><br>
+<p><strong>Delete Diary</strong> : <code>delete diary &lt;diary exerciseName&gt;</code><br>
 e.g. <code>delete diary Healthy Living</code></p>
 </li>
 <li>
-<p><strong>Add page</strong> : <code>add page &lt;type&gt; &lt;diary name&gt;</code><br>
+<p><strong>Add page</strong> : <code>add page &lt;type&gt; &lt;diary exerciseName&gt;</code><br>
 e.g. <code>add page health Healthy Living</code></p>
 </li>
 <li>
-<p><strong>Delete page</strong> : <code>delete page &lt;index&gt; &lt;diary name&gt;</code><br>
+<p><strong>Delete page</strong> : <code>delete page &lt;index&gt; &lt;diary exerciseName&gt;</code><br>
 e.g. <code>delete page 2 Healthy Living</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-15 13:04:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-21 23:59:39 UTC</div></div></div></body></html>
