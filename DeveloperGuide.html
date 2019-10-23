@@ -25,7 +25,7 @@
 <li><a href="#implementation-of-commands-and-parser">3.1. Implementation of Commands and Parser</a></li>
 <li><a href="#dashboard-features">3.2. Dashboard features</a></li>
 <li><a href="#recipebook-feature">3.3. RecipeBook feature</a></li>
-<li><a href="#exercise-feature">3.4. Exercise feature</a></li>
+<li><a href="#workout-planner-feature">3.4. Workout Planner feature</a></li>
 <li><a href="#health-records-feature">3.5. Health Records feature</a></li>
 <li><a href="#diary-feature">3.6. Diary feature</a></li>
 <li><a href="#logging">3.7. Logging</a></li>
@@ -311,7 +311,16 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <li>
 <p>does not depend on any of the other three components.</p>
 </li>
+<li>
+<p>BlackBox refers to the model diagram of the individual components of DukeCooks as shown below</p>
+</li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WorkoutPlannerModelClassDiagram.png" alt="WorkoutPlannerModelClassDiagram">
+</div>
+<div class="title">Figure 8. Structure of Workout Model</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -368,7 +377,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -415,7 +424,7 @@ This applies to other type of commands as well, such as Delete and Edit.</p>
 <div class="content">
 <img src="images/CommandImplementation.png" alt="CommandImplementation">
 </div>
-<div class="title">Figure 9. Structure of Commands and Parser</div>
+<div class="title">Figure 10. Structure of Commands and Parser</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -654,7 +663,7 @@ take some time.</p>
 <div class="content">
 <img src="images/RecipeClassDiagram.png" alt="RecipeClassDiagram">
 </div>
-<div class="title">Figure 10. Recipe Class Diagram</div>
+<div class="title">Figure 11. Recipe Class Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-recipe-book-commands"><a class="link" href="#implementation-of-recipe-book-commands">3.3.1. Implementation of recipe book commands</a></h4>
@@ -691,7 +700,7 @@ The input provided is <code>delete recipe 1</code>.</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 11. DeleteRecipeCommand Sequence Diagram</div>
+<div class="title">Figure 12. DeleteRecipeCommand Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>After a successful execution, the recipe with the specified index will be deleted from the recipe book.</p>
@@ -722,14 +731,106 @@ for ease of use for the user whenever the user wishes to edit <code>Ingredient</
 </div>
 </div>
 <div class="sect2">
-<h3 id="exercise-feature"><a class="link" href="#exercise-feature">3.4. Exercise feature</a></h3>
+<h3 id="workout-planner-feature"><a class="link" href="#workout-planner-feature">3.4. Workout Planner feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.4.1. Proposed Implementation</a></h4>
-
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.4.1. Implementation</a></h4>
+<div class="sect4">
+<h5 id="exercise-management"><a class="link" href="#exercise-management">Exercise Management</a></h5>
+<div class="paragraph">
+<p>Every workout comprises of varying number of exercises. Users can use existing exercises or create their own custom
+exercises. Every exercise contains the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ExerciseName</code> representing the name of the exercise</p>
+</li>
+<li>
+<p><code>MusclesTrained</code> comprising of the primary <code>MuscleType</code> as well as an ArrayList of secondary <code>MuscleType</code> trained</p>
+</li>
+<li>
+<p><code>Intensity</code> or how demanding the exercise is</p>
+</li>
+<li>
+<p>A set of <code>ExerciseDetails</code> which are optional additional information of the exercise such as <code>ExerciseWeight</code>,
+<code>Distance</code>, <code>Sets</code> and <code>Repetitions</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Exercise class is represented by the following class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-of-exercise-commands"><a class="link" href="#implementation-of-exercise-commands">Implementation of Exercise Commands</a></h5>
+<div class="paragraph">
+<div class="title">Exercise Class Diagram</div>
+<p>The <code>Exercise</code> class is managed by the following commands :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddExerciseCommand</code> - Adds a new <code>Exercise</code> into <code>WorkoutPlanner</code></p>
+</li>
+<li>
+<p><code>ClearExerciseCommand</code> - Clears all the <code>Exercise</code> objects in <code>WorkoutPlanner</code></p>
+</li>
+<li>
+<p><code>DeleteExerciseCommand</code> - Deletes an <code>Exercise</code> specified by an <code>Index</code> from <code>WorkoutPlanner</code></p>
+</li>
+<li>
+<p><code>EditExerciseCommand</code> - Edits the specified <code>Exercise</code> with newly specified information</p>
+</li>
+<li>
+<p><code>FindExerciseByIntensityCommand</code> - Lists all <code>Exercise</code> objects with the <code>Intensity</code> specified</p>
+</li>
+<li>
+<p><code>FindExerciseByMuscleCommand</code> - Lists all <code>Exercise</code> objects which trains the <code>MuscleType</code> specified</p>
+</li>
+<li>
+<p>'FindExerciseCommand' - Lists all <code>Exercise</code> objects with <code>ExerciseName</code> that contains the string specified</p>
+</li>
+<li>
+<p>'ListExercise' - Lists all 'Exercise' objects in <code>WorkoutPlanner</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All the commands listed above are parsed in <code>DukeCooksParser</code>, invoking the respective Command Parsers
+(Add, Delete, Edit etc.). The <code>Exercise</code> variant of the parser will then be instantiated
+(i.e <code>AddExerciseCommandParser</code>,<code>DeleteExerciseCommandParser</code> etc) to create the actual command objects
+(i.e AddDiaryCommand, DeleteDiaryCommand etc). These Command Objects will then execute the necessary steps
+to fulfill their functionality.</p>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.4.2. Design Considerations</a></h4>
-
+<div class="paragraph">
+<p>When coming up with the Exercise class there were various considerations as to what fields should be added. Initially,
+we had planned for MuscleType to be an enum given the limited number of muscles in the human body. However, we had
+strayed away from this implementation given the complexity of the way the muscles work as well as the numerous names
+that one muscle could be called. We instead allowed the user to define the muscles themselves which is better for their
+own understanding. We instead utilised enums for the Intensity field since it is only limited High, Medium and Low.</p>
+</div>
+<div class="sect4">
+<h5 id="alternatives-2"><a class="link" href="#alternatives-2">Alternatives</a></h5>
+<div class="paragraph">
+<p>When coming up with the optional details field, <code>ExerciseDetail</code> we had morphed the tag feature which was stored in a
+Set in AddressBook 3. The various details such as weight, distance would then be implementing the <code>ExerciseDetail</code>
+interface. After careful consideration, we had come to the conclusion that this method of storage is flawed given that
+we only intended for at most one instance of each detail and inability to call upon them at O(1) time complexity.</p>
+</div>
+<div class="paragraph">
+<p>Instead, we designed the <code>ExerciseDetails</code> to be a class with 4 Optional fields containing the various details. This
+allows for the details to be obtained more efficiently as well as limit them to only a single instance.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -748,7 +849,7 @@ for ease of use for the user whenever the user wishes to edit <code>Ingredient</
 </ul>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.5.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.5.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The commands that are callable by the user are as followed:</p>
 </div>
@@ -878,7 +979,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="sect2">
 <h3 id="diary-feature"><a class="link" href="#diary-feature">3.6. Diary feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.6.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of Diary consists of the following:</p>
 </div>
@@ -905,7 +1006,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
 </div>
-<div class="title">Figure 12. Diary Class Diagram</div>
+<div class="title">Figure 13. Diary Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -945,7 +1046,7 @@ types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be inv
 <div class="content">
 <img src="images/DeletePageSequenceDiagram.png" alt="DeletePageSequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence Diagram of DeletePageCommand</div>
+<div class="title">Figure 14. Sequence Diagram of DeletePageCommand</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -1582,4 +1683,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:34:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 16:26:12 UTC</div></div></div></body></html>
