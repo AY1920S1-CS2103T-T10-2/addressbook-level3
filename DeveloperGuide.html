@@ -23,7 +23,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#implementation-of-commands-and-parser">3.1. Implementation of Commands and Parser</a></li>
-<li><a href="#add-delete-edit-find-list-tasks">3.2. Add/Delete/Edit/Find/List tasks</a></li>
+<li><a href="#dashboard-features">3.2. Dashboard features</a></li>
 <li><a href="#recipebook-feature">3.3. RecipeBook feature</a></li>
 <li><a href="#exercise-feature">3.4. Exercise feature</a></li>
 <li><a href="#health-feature">3.5. Health feature</a></li>
@@ -442,11 +442,11 @@ reduces the amount of switch cases within <code>DukeCooksParser</code> and makes
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-delete-edit-find-list-tasks"><a class="link" href="#add-delete-edit-find-list-tasks">3.2. Add/Delete/Edit/Find/List tasks</a></h3>
+<h3 id="dashboard-features"><a class="link" href="#dashboard-features">3.2. Dashboard features</a></h3>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The functions are found under the Dashboard.<br>
+<p>The functions add/delete/edit/find/list task, are found under the Dashboard.<br>
 The Dashboard in <code>DukeCooks</code> serves as a homepage which displays a list of tasks set out
 by the user. The tasks are sorted accordingly by earliest date.
 Here, a task is represented by a Dashboard object.</p>
@@ -492,9 +492,6 @@ be initialized with the dashboard state, and the <code>currentStatePointer</code
 that single dashboard state.</p>
 </div>
 <div class="paragraph">
-<p>/insert uml here</p>
-</div>
-<div class="paragraph">
 <p>Step 2. The user executes <code>add task tn/bake a cake td/12/12/2019</code> command to add a new
 task into Duke Cooks. The <code>add</code> command calls <code>Model#addDashboard()</code>, causing the task to
 be added into <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
@@ -502,9 +499,6 @@ be added into <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</co
 stage, the list of task is sorted by date. After which, the <code>add</code> command also calls
 <code>Model#saveDashboard()</code>, causing another modified dashboard state to be saved into the
 <code>UniqueDashboardList</code>.</p>
-</div>
-<div class="paragraph">
-<p>/insert uml here</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>delete task 3</code> command to delete the 3rd task in the
@@ -517,9 +511,6 @@ to be saved in the <code>UniqueDashboardList</code>, and the <code>currentStateP
 newly inserted dashboard state.</p>
 </div>
 <div class="paragraph">
-<p>/insert uml here</p>
-</div>
-<div class="paragraph">
 <p>Step 4. The user executes <code>edit task&#8230;&#8203;</code> command to edit a field in a task. The edit
 command calls <code>Model#setDashboard()</code> causing the edited task to be updated in
 <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#setDashboard()</code>
@@ -529,16 +520,10 @@ dashboard after the <code>edit task&#8230;&#8203;</code> command executes to <co
 <code>currentStatePointer</code> is shifted to the newly inserted dashboard state.</p>
 </div>
 <div class="paragraph">
-<p>/insert uml here</p>
-</div>
-<div class="paragraph">
 <p>Step 5. The user executes <code>find task&#8230;&#8203;</code> command to find a list of task given a keyword.
 The find command calls <code>Model#hasDashboard()</code>, which searches through the
 <code>UniqueDashboardList</code> for tasks containing the particular keyword. The <code>currentStatePointer</code>
 remains at the same location after the step.</p>
-</div>
-<div class="paragraph">
-<p>/insert uml here</p>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>list task</code> command to view all the tasks found in <code>UniqueDashboardList</code>.
@@ -549,15 +534,10 @@ homepage. The <code>currentStatePointer</code> remains at the same location afte
 <div class="paragraph">
 <p>The following sequence diagram shows how the add operation works:</p>
 </div>
-<div class="paragraph">
-<p>/insert uml here</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTaskSequenceDiagram.png" alt="AddTaskSequenceDiagram">
 </div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new
-command.</p>
-</div>
-<div class="paragraph">
-<p>/insert activity diagram here</p>
 </div>
 <div class="sect4">
 <h5 id="aspect-how-add-delete-edit-find-list-executes"><a class="link" href="#aspect-how-add-delete-edit-find-list-executes">Aspect: How add/delete/edit/find/list executes</a></h5>
@@ -1369,4 +1349,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 06:24:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 10:35:17 UTC</div></div></div></body></html>
