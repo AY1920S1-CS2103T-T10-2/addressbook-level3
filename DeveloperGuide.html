@@ -22,13 +22,14 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#add-delete-edit-find-list-tasks">3.1. Add/Delete/Edit/Find/List tasks</a></li>
-<li><a href="#recipebook-feature">3.2. RecipeBook feature</a></li>
-<li><a href="#exercise-feature">3.3. Exercise feature</a></li>
-<li><a href="#health-feature">3.4. Health feature</a></li>
-<li><a href="#diary-feature">3.5. Diary feature</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#implementation-of-commands-and-parser">3.1. Implementation of Commands and Parser</a></li>
+<li><a href="#add-delete-edit-find-list-tasks">3.2. Add/Delete/Edit/Find/List tasks</a></li>
+<li><a href="#recipebook-feature">3.3. RecipeBook feature</a></li>
+<li><a href="#exercise-feature">3.4. Exercise feature</a></li>
+<li><a href="#health-feature">3.5. Health feature</a></li>
+<li><a href="#diary-feature">3.6. Diary feature</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -401,9 +402,49 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="add-delete-edit-find-list-tasks"><a class="link" href="#add-delete-edit-find-list-tasks">3.1. Add/Delete/Edit/Find/List tasks</a></h3>
+<h3 id="implementation-of-commands-and-parser"><a class="link" href="#implementation-of-commands-and-parser">3.1. Implementation of Commands and Parser</a></h3>
+<div class="paragraph">
+<p>All command variants (i.e <code>AddRecipeCommand</code>, <code>AddExerciseCommand</code>) extends from <code>AddCommand</code>,
+instead of the abstract <code>Command</code> class.
+This applies to other type of commands as well, such as Delete and Edit.</p>
+</div>
+<div class="paragraph">
+<p>The diagram below shows a simplified class diagram for Commands and Parser</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandImplementation.png" alt="CommandImplementation">
+</div>
+<div class="title">Figure 9. Structure of Commands and Parser</div>
+</div>
+<div class="paragraph">
+<p>The current implementation provides the added benefit of easier scalability. Overall, we only need to account for the
+type of command (i.e <code>AddCommand</code>, <code>DeleteCommand</code> etc). It&#8217;s corresponding variants (i.e <code>AddRecipeCommand</code>,
+<code>DeleteExerciseCommand</code>) can simply further extend from it. However, its implementation is rather complex and it increases the amount of code within the repository. For each
+command variant added, a corresponding command variant parser needs to be added as well.</p>
+</div>
+<div class="sect4">
+<h5 id="alternatives"><a class="link" href="#alternatives">Alternatives</a></h5>
+<div class="paragraph">
+<p>Another possible structure would be for all command variants to extend from the abstract <code>Command</code> class directly.
+Although this implementation is simpler, it can greatly increase the number of switch cases within <code>DukeCooksParser</code>.
+This could potentially increase the difficulty of debugging as it becomes harder to locate the bugs. Furthermore,
+this structure exposes all the different types of commands to <code>DukeCooksParser</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="our-choice"><a class="link" href="#our-choice">Our Choice</a></h5>
+<div class="paragraph">
+<p>We chose to follow the structure provided in the figure above. As our application is comprised of many different
+components with the same variants of commands (i.e Add, Delete, Edit etc), this structure is more suitable as it
+reduces the amount of switch cases within <code>DukeCooksParser</code> and makes testing more manageable.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-delete-edit-find-list-tasks"><a class="link" href="#add-delete-edit-find-list-tasks">3.2. Add/Delete/Edit/Find/List tasks</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The functions are found under the Dashboard.<br>
 The Dashboard in <code>DukeCooks</code> serves as a homepage which displays a list of tasks set out
@@ -592,58 +633,146 @@ take some time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="recipebook-feature"><a class="link" href="#recipebook-feature">3.2. RecipeBook feature</a></h3>
+<h3 id="recipebook-feature"><a class="link" href="#recipebook-feature">3.3. RecipeBook feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="exercise-feature"><a class="link" href="#exercise-feature">3.3. Exercise feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.3.1. Proposed Implementation</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="health-feature"><a class="link" href="#health-feature">3.4. Health feature</a></h3>
+<h3 id="exercise-feature"><a class="link" href="#exercise-feature">3.4. Exercise feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">3.4.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.4.1. Proposed Implementation</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="diary-feature"><a class="link" href="#diary-feature">3.5. Diary feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation-4"><a class="link" href="#proposed-implementation-4">3.5.1. Proposed Implementation</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="health-feature"><a class="link" href="#health-feature">3.5. Health feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">3.5.1. Proposed Implementation</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="diary-feature"><a class="link" href="#diary-feature">3.6. Diary feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The current implementation of Diary consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each <code>Diary</code> consists of a unique <code>DiaryName</code></p>
+</li>
+<li>
+<p>Each <code>Diary</code> contains an array list of <code>Page</code></p>
+</li>
+<li>
+<p>Each <code>Page</code> is identified by a unique <code>Title</code></p>
+</li>
+<li>
+<p>Each class has their respective getter methods</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class diagram below gives an overview of the <code>Diary</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
+</div>
+<div class="title">Figure 10. Diary Class Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-diary-commands"><a class="link" href="#implementation-of-diary-commands">3.6.2. Implementation of diary commands</a></h4>
+<div class="paragraph">
+<p><code>Diary</code> class supports multiple commands. It includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddDiaryCommand</code> - Adds a <code>Diary</code> into <code>DukeCooks</code></p>
+</li>
+<li>
+<p><code>DeleteDiaryCommand</code> - Deletes a <code>Diary</code> from <code>DukeCooks</code></p>
+</li>
+<li>
+<p><code>EditDiaryCommand</code> - Edits the specified <code>Diary</code> with a new <code>DiaryName</code></p>
+</li>
+<li>
+<p><code>AddPageCommand</code> - Adds a new <code>Page</code> to the specified <code>Diary</code></p>
+</li>
+<li>
+<p><code>DeletePageCommand</code> - Deletes the <code>Page</code> in the specified <code>Diary</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All the above diary commands behave similarly. The commands will be parsed in <code>DukeCooksParser</code> and based on their
+types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be invoked (i.e <code>AddDiaryCommandParser</code>,
+<code>DeleteDiaryCommandParser</code> etc). After which, the corresponding command will be executed (i.e <code>AddDiaryCommand</code>,
+<code>DeleteDiaryCommand</code> etc).</p>
+</div>
+<div class="paragraph">
+<p>The figure below describes the execution of an <code>AddPageCommand</code>.
+The input provided is <code>add page n/[DiaryName] t/[Title]</code>.</p>
+</div>
+<div class="paragraph">
+<p>/ insert UML diagram on AddPageCommand.</p>
+</div>
+<div class="paragraph">
+<p>After a successful execution, a new page will be added to the specific diary.</p>
+</div>
+<div class="paragraph">
+<p>/ maybe insert a screenshot to show the expected output.</p>
+</div>
+<div class="paragraph">
+<p>The current implementation makes use of an ArrayList to store the <code>Page</code> objects.
+This is the simplest implementation as most novice programmers would be familiar with ArrayLists.
+However, list operations tend to take more time to run compared to other data structures such as Sets.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="alternatives-2"><a class="link" href="#alternatives-2">3.6.3. Alternatives</a></h4>
+<div class="paragraph">
+<p>An alternative to using ArrayList would be to use Sets to store <code>Page</code> objects. This could increase the
+overall performance of the program as set operations tend to be faster than list operations. However, using sets
+does not provide an order to <code>Page</code> objects, unlike in lists.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="our-choice-2"><a class="link" href="#our-choice-2">3.6.4. Our Choice</a></h4>
+<div class="paragraph">
+<p>We chose to use ArrayLists instead as we require the <code>Page</code> objects to be ordered, so that the implementation of
+<code>DeletePageCommand</code> is simplified. An index can be provided in <code>DeletePageCommand</code> and the corresponding <code>Page</code>
+object can simply be removed from the ArrayList, using the specified index.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -674,7 +803,7 @@ take some time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1240,4 +1369,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 15:32:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 06:24:10 UTC</div></div></div></body></html>
