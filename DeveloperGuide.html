@@ -26,7 +26,7 @@
 <li><a href="#dashboard-features">3.2. Dashboard features</a></li>
 <li><a href="#recipebook-feature">3.3. RecipeBook feature</a></li>
 <li><a href="#exercise-feature">3.4. Exercise feature</a></li>
-<li><a href="#health-feature">3.5. Health feature</a></li>
+<li><a href="#health-records-feature">3.5. Health Records feature</a></li>
 <li><a href="#diary-feature">3.6. Diary feature</a></li>
 <li><a href="#logging">3.7. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
@@ -635,14 +635,144 @@ take some time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="health-feature"><a class="link" href="#health-feature">3.5. Health feature</a></h3>
+<h3 id="health-records-feature"><a class="link" href="#health-records-feature">3.5. Health Records feature</a></h3>
+<div class="paragraph">
+<p>The Health Records feature handles the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Keeping track of the health data recorded by the user</p>
+</li>
+<li>
+<p>Present the data with visual representation of a trend graph that shows the health progress of the user</p>
+</li>
+</ul>
+</div>
 <div class="sect3">
 <h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">3.5.1. Proposed Implementation</a></h4>
-
+<div class="paragraph">
+<p>The commands that are callable by the user are as followed:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>view health</code> - view the specific type of health records</p>
+</li>
+<li>
+<p><code>add health</code> - adds a new record respective to the type of health records</p>
+</li>
+<li>
+<p><code>edit health</code> - edits a existing health record</p>
+</li>
+<li>
+<p><code>delete health</code> - deletes a existing health record</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The class diagram below illustrates the structure of a Health Record class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HealthRecordsClassDiagram.png" alt="HealthRecordsClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Each Health Record object consist of a Type, Timestamp and Value. The current implementation stores 6 key areas:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Weight</p>
+</li>
+<li>
+<p>Height</p>
+</li>
+<li>
+<p>Calories</p>
+</li>
+<li>
+<p>Glucose</p>
+</li>
+<li>
+<p>Blood Pressure</p>
+</li>
+<li>
+<p>Menstrual Cycle (for Females)</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The types available are stored in a list named <code>TYPE_UTIL</code>. This means that the validity check of <code>Type</code> Object will be checked against <code>TYPE_UTIL</code> list. If type does not exist, the record will fail to construct.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In future implementations (possibly in v2.0), the <code>TYPE_UTIL</code> list will accommodate more record types defined by the user. This means that there will not be a restriction imposed in health types that can be recorded. User can create a new health type to start health tracking (eg. Sodium level).</p>
+</div>
+<div class="sect4">
+<h5 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command"><code>add health</code> Command</a></h5>
+<div class="paragraph">
+<p><code>add health t/[type] [inputs]</code> is parsed in the <code>addHealthCommandParser</code>. The inputs will first be initialised to its respective objects with underlying validation checks (eg. <code>Type</code> object will call for <code>isValidType()</code> method to check against <code>TYPE_UTIL</code> List). A <code>Record</code> object will then be created with the three valid object components.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below illustrates a sample run of program where <code>add health</code> command has been successfully parsed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddHealthSequenceDiagram.png" alt="AddHealthSequenceDiagram">
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
-
+<div class="sect4">
+<h5 id="aspect-data-structure-on-how-the-different-health-types-are-stored"><a class="link" href="#aspect-data-structure-on-how-the-different-health-types-are-stored">Aspect: Data structure on how the different health types are stored</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current Choice)</strong>: Maintain a Map to validate type of health record</p>
+<div class="literalblock">
+<div class="content">
+<pre>A `HashMap` is used to store the different health types and its respective metric unit (eg. Weight, kg). When a health related command is called, the `TYPE_UTIL` will be accessed and checked against to determine if command is valid.</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Greater flexibility in the implementation and usage of <code>TYPE_UTIL</code> Map. Allow possible extension of having more user defined health types.</p>
+</li>
+<li>
+<p>Cons: Difficult to keep track of each health type and lack of clarity.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Introduce each health type as a Class on its own</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Clearer distinction and declaration of each health type</p>
+</li>
+<li>
+<p>Cons: Limited to a specific number of health types. User cannot introduce their own health type for record tracking. Requires diligence on developer’s end to introduce new classes for more variations.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1349,4 +1479,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 10:35:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 11:33:12 UTC</div></div></div></body></html>
