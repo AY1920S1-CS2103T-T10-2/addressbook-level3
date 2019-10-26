@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>John Doe - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chua Hua Lun - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">DukeCooks</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://ay1920s1-cs2103t-t10-2.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>John Doe - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-3"><a class="link" href="#project-addressbook-level-3">PROJECT: AddressBook - Level 3</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">DukeCooks</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://ay1920s1-cs2103t-t10-2.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chua Hua Lun - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-dukecooks"><a class="link" href="#project-dukecooks">PROJECT: DukeCooks</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,13 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>DukeCooks is a one-stop healthy lifestyle desktop application created for busy individuals in Singapore. The team behind DukeCooks is a group of Computer Science students from the National University of Singapore. DukeCooks was developed for CS2103T module’s team project requirement.</p>
+</div>
+<div class="paragraph">
+<p>DukeCooks uses the Command Line Interface (CLI). By using the CLI, it allows a user to easily navigate and use DukeCooks by typing in pre-configured commands defined by DukeCooks. A target user can use DukeCooks to plan their day, create recipes, manage their health, record exercise details and blog.</p>
+</div>
+<div class="paragraph">
+<p>In this document, it will provide my contributions to DukeCooks. In summary, my contributions include – implementation, testing and creating a Graphical User Interface (GUI) for the Dashboard feature.</p>
 </div>
 </div>
 </div>
@@ -20,26 +26,42 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the Dashboard Feature</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>Description: The Dashboard feature was created with references to AddressBook3 (AB3). AB3 contain the commands – add, delete, edit, find and list. In AB3, these commands are used to create and manipulate a user’s list contact records.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>What it does: In the case for DukeCooks’s Dashboard, a person’s contact in AB3 is substituted to a task. Users are able to add a task into the Dashboard. With a list of task added in, users can choose to delete a task or edit the task with new information. In addition, users can use the find and list commands to view tasks by giving a specific keyword.</p>
+</li>
+<li>
+<p>Justification: This is a needed feature for a healthy lifestyle application. In the case of DukeCooks,</p>
 </li>
 <li>
 <p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Credits: AB3</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: added <strong>mark as complete function</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Description: The command; done, is added into DukeCookds. This function is developed to enhance usability of the Dashboard.</p>
+</li>
+<li>
+<p>What it does: It marks a task as complete. When a user marks a certain number of task as complete, encouragement messages will be delivered to the user.</p>
+</li>
+<li>
+<p>Justification: As a way to motivate users, marking task as complete can be seen as a sense of achievement. By encouraging users to complete their task, this creates a positive feedback, increasing productivity in users.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -53,7 +75,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.2.1</code> (1 release) on GitHub</p>
 </li>
 </ul>
 </div>

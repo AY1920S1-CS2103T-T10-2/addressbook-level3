@@ -232,11 +232,13 @@ The 5 different components are:</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
-<div id="fig-LogicClassDiagram" class="imageblock">
+<div id="fig-LogicClassDiagram" class="paragraph">
+<p>Structure of the Logic Component</p>
+</div>
+<div class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -268,7 +270,7 @@ The 5 different components are:</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete recipe 1</code> Command</div>
+<div class="title">Figure 5. Interactions Inside the Logic Component for the <code>delete recipe 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -289,7 +291,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -320,7 +322,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/WorkoutPlannerModelClassDiagram.png" alt="WorkoutPlannerModelClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of Workout Model</div>
+<div class="title">Figure 7. Structure of Workout Model</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -377,7 +379,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -424,7 +426,7 @@ This applies to other type of commands as well, such as Delete and Edit.</p>
 <div class="content">
 <img src="images/CommandImplementation.png" alt="CommandImplementation">
 </div>
-<div class="title">Figure 10. Structure of Commands and Parser</div>
+<div class="title">Figure 9. Structure of Commands and Parser</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -663,7 +665,7 @@ take some time.</p>
 <div class="content">
 <img src="images/RecipeClassDiagram.png" alt="RecipeClassDiagram">
 </div>
-<div class="title">Figure 11. Recipe Class Diagram</div>
+<div class="title">Figure 10. Recipe Class Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-recipe-book-commands"><a class="link" href="#implementation-of-recipe-book-commands">3.3.1. Implementation of recipe book commands</a></h4>
@@ -700,7 +702,7 @@ The input provided is <code>delete recipe 1</code>.</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 12. DeleteRecipeCommand Sequence Diagram</div>
+<div class="title">Figure 11. DeleteRecipeCommand Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>After a successful execution, the recipe with the specified index will be deleted from the recipe book.</p>
@@ -763,7 +765,7 @@ exercises. Every exercise contains the following information:</p>
 <div class="content">
 <img src="images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
-<div class="title">Figure 13. Exercise Class Diagram</div>
+<div class="title">Figure 12. Exercise Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -875,7 +877,7 @@ allows for the details to be obtained more efficiently as well as limit them to 
 <div class="content">
 <img src="images/HealthRecordsClassDiagram.png" alt="HealthRecordsClassDiagram">
 </div>
-<div class="title">Figure 14. HealthRecords Class Diagram</div>
+<div class="title">Figure 13. HealthRecords Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>Each Health Record object consist of a Type, Timestamp and Value. The current implementation stores 6 key areas:</p>
@@ -917,8 +919,8 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="paragraph">
 <p>In future implementations (possibly in v2.0), the <code>TYPE_UTIL</code> list will accommodate more record types defined by the user. This means that there will not be a restriction imposed in health types that can be recorded. User can create a new health type to start health tracking (eg. Sodium level).</p>
 </div>
-<div class="sect4">
-<h5 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command"><code>add health</code> Command</a></h5>
+<div class="sect3">
+<h4 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command">3.5.1. <code>add health</code> Command</a></h4>
 <div class="paragraph">
 <p><code>add health t/[type] [inputs]</code> is parsed in the <code>addHealthCommandParser</code>. The inputs will first be initialised to its respective objects with underlying validation checks (eg. <code>Type</code> object will call for <code>isValidType()</code> method to check against <code>TYPE_UTIL</code> List). A <code>Record</code> object will then be created with the three valid object components.</p>
 </div>
@@ -929,7 +931,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/AddHealthSequenceDiagram.png" alt="AddHealthSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sequence Diagram for <code>add health</code> command</div>
+<div class="title">Figure 14. Sequence Diagram for <code>add health</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1004,7 +1006,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
 </div>
-<div class="title">Figure 16. Diary Class Diagram</div>
+<div class="title">Figure 15. Diary Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -1044,7 +1046,7 @@ types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be inv
 <div class="content">
 <img src="images/DeletePageSequenceDiagram.png" alt="DeletePageSequenceDiagram">
 </div>
-<div class="title">Figure 17. Sequence Diagram of DeletePageCommand</div>
+<div class="title">Figure 16. Sequence Diagram of DeletePageCommand</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -1678,4 +1680,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 07:01:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 16:32:03 UTC</div></div></div></body></html>
