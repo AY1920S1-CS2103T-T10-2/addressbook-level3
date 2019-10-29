@@ -385,87 +385,126 @@ Format: <code>mealplan &lt;exerciseName&gt; shoplist &lt;shoplist exerciseName&g
 <p>Can&#8217;t track all your deadlines? Look through the available commands in this section and start managing them.</p>
 </div>
 <div class="sect3">
-<h4 id="adding-a-task-code-add-task-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-code-coming-in-v1-3-code"><a class="link" href="#adding-a-task-code-add-task-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-code-coming-in-v1-3-code">3.3.1. Adding a task:  <code>add task tn/</code> <em>insert task name here</em> <code>td/</code> <em>insert task date here</em> <code>[coming in v1.3]</code></a></h4>
+<h4 id="u-adding-a-task-u"><a class="link" href="#u-adding-a-task-u">3.3.1. <u>Adding a task</u></a></h4>
 <div class="paragraph">
-<p>Adds a task into DukeCooks. The task consists of the task name and task date.</p>
+<p>Let&#8217;s start by using the <code>add</code> command to add some tasks into DukeCooks!</p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Command: <code>add task</code><br>
+Format: <code>add task tn/<em>insert task here</em> td/ <em>insert date here</em></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When entering the date for a task, please follow the given format: day/month/year</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><code>add task tn/go for a run td/22/10/2019</code><br>
-Output: New task added: go for a run</p>
+<p>Example usage: <code>add task tn/Bake a Cake td/29/10/2019</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-task-code-delete-task-code-em-insert-task-index-number-em-code-coming-in-v1-3-code"><a class="link" href="#deleting-a-task-code-delete-task-code-em-insert-task-index-number-em-code-coming-in-v1-3-code">3.3.2. Deleting a task: <code>delete task</code> <em>insert task index number</em> <code>[coming in v1.3]</code></a></h4>
+<h4 id="u-editing-a-task-s-details-u"><a class="link" href="#u-editing-a-task-s-details-u">3.3.2. <u>Editing a task's details</u></a></h4>
 <div class="paragraph">
-<p>Deletes a task with corresponding to the task index number given.<br></p>
+<p>Made some typos when adding a task?<br>
+Fret not! You are able to make changes to them.</p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Command: <code>edit task</code><br>
+Format: <code>edit task <em>index number</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>delete task 1</code><br>
-Output: Deleted Task: 1</p>
+<p>Example usage: <code>edit task 1 tn/Bake cupcakes td/30/10/2019</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-task-code-edit-task-code-em-insert-task-index-number-em-code-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-coming-in-v1-3"><a class="link" href="#editing-a-task-code-edit-task-code-em-insert-task-index-number-em-code-tn-code-em-insert-task-name-here-em-code-td-code-em-insert-task-date-here-em-coming-in-v1-3">3.3.3. Editing a task: <code>edit task</code> <em>insert task index number</em> <code>tn/</code> <em>insert task name here</em> <code>td/</code> <em>insert task date here</em>`[coming in v1.3]`</a></h4>
+<h4 id="u-removing-a-task-u"><a class="link" href="#u-removing-a-task-u">3.3.3. <u>Removing a task</u></a></h4>
 <div class="paragraph">
-<p>Edits the details of the task identified.</p>
+<p>Decided that this task is not needed?<br>
+Well you can delete them off from DukeCooks.</p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Command: <code>delete task</code><br>
+Format: <code>delete task <em>index number</em></code></p>
 </div>
 <div class="paragraph">
-<p>Current: 1. bake a cake 21/10/2019<br>
-<code>edit task 1 tn/bake a cake td/22/10/2019</code><br>
-Output: Edited task: 1<br>
-Updated: 1. bake a cake 22/10/2019</p>
+<p>Example usage: <code>delete task 2</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-a-task-code-find-task-code-em-insert-keywords-em-code-coming-in-v1-3-code"><a class="link" href="#finding-a-task-code-find-task-code-em-insert-keywords-em-code-coming-in-v1-3-code">3.3.4. Finding a task: <code>find task</code> <em>insert keywords</em> <code>[coming in v1.3]</code></a></h4>
+<h4 id="u-marking-a-task-as-complete-u"><a class="link" href="#u-marking-a-task-as-complete-u">3.3.4. <u>Marking a task as complete</u></a></h4>
 <div class="paragraph">
-<p>Finds all tasks whose names contain any of.<br></p>
+<p>Finished with a task?<br>
+Check it off the list!</p>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Command: <code>done</code><br>
+Format: <code>done <em>index number</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>find task cake</code><br>
-Output:<br>
-1. bake a cake<br>
-3. carrot cake</p>
+<p>Example usage: <code>done 1</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A task index number is available at the left side of the task&#8217;s name.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-suggestions-code-suggest-code-code-coming-in-v2-0-code"><a class="link" href="#get-suggestions-code-suggest-code-code-coming-in-v2-0-code">3.3.5. Get suggestions: <code>suggest</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="u-finding-tasks-u"><a class="link" href="#u-finding-tasks-u">3.3.5. <u>Finding tasks</u></a></h4>
 <div class="paragraph">
-<p>Provides an overview analysis based on past records. Gives suggestions on things the user should do more or less on.<br>
-Format: <code>suggest</code></p>
+<p>For those who want to know what are the tasks relevant given a keyword.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>find task</code><br>
+Format: <code>find task <em>keyword</em></code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>find task cake</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-random-food-suggestions-code-suggest-food-code-code-coming-in-v2-0-code"><a class="link" href="#get-random-food-suggestions-code-suggest-food-code-code-coming-in-v2-0-code">3.3.6. Get random food suggestions: <code>suggest food</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="u-viewing-all-the-tasks-u"><a class="link" href="#u-viewing-all-the-tasks-u">3.3.6. <u>Viewing all the tasks</u></a></h4>
 <div class="paragraph">
-<p>Gives a random food suggestion for the user.<br>
-Format: <code>suggest food</code></p>
+<p>For those that want to know all the tasks they have added into DukeCooks.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>list task</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-new-food-suggestions-code-suggest-new-food-code-code-coming-in-v2-0-code"><a class="link" href="#get-new-food-suggestions-code-suggest-new-food-code-code-coming-in-v2-0-code">3.3.7. Get new food suggestions: <code>suggest new food</code> <code>[coming in v2.0]</code></a></h4>
+<h4 id="u-viewing-incomplete-tasks-u"><a class="link" href="#u-viewing-incomplete-tasks-u">3.3.7. <u>Viewing incomplete tasks</u></a></h4>
 <div class="paragraph">
-<p>Gives a recommendation of a food item that is not logged by the user.<br>
-Format: <code>suggest new food</code></p>
+<p>Look at all the tasks you have to complete!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>list taskincomplete</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="get-statistics-code-stats-code-code-coming-in-v1-3-code"><a class="link" href="#get-statistics-code-stats-code-code-coming-in-v1-3-code">3.3.8. Get Statistics: <code>stats</code> <code>[coming in v1.3]</code></a></h4>
+<h4 id="u-viewing-completed-tasks-u"><a class="link" href="#u-viewing-completed-tasks-u">3.3.8. <u>Viewing completed tasks</u></a></h4>
 <div class="paragraph">
-<p>Gives all the statistics available.<br>
-Format: <code>stats</code></p>
+<p>Look at all the tasks you have done!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>list taskcomplete</code></p>
 </div>
 </div>
 </div>
@@ -1508,4 +1547,4 @@ e.g. <code>delete page 2 Healthy Living</code></p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 12:35:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 17:04:57 UTC</div></div></div></body></html>
