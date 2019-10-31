@@ -385,7 +385,22 @@ Format: <code>mealplan &lt;exerciseName&gt; shoplist &lt;shoplist exerciseName&g
 <p>Can&#8217;t track all your deadlines? Look through the available commands in this section and start managing them.</p>
 </div>
 <div class="sect3">
-<h4 id="u-adding-a-task-u"><a class="link" href="#u-adding-a-task-u">3.3.1. <u>Adding a task</u></a></h4>
+<h4 id="u-going-to-the-dashboard-u"><a class="link" href="#u-going-to-the-dashboard-u">3.3.1. <u>Going to the Dashboard</u></a></h4>
+<div class="paragraph">
+<p>A quick way to get to the Dashboard and start getting work done!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>dashboard</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addtask-ug.png" alt="addtask ug" width="790">
+</div>
+<div class="title">Figure 1: Adding a task</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="u-adding-a-task-u"><a class="link" href="#u-adding-a-task-u">3.3.2. <u>Adding a task</u></a></h4>
 <div class="paragraph">
 <p>Let&#8217;s start by using the <code>add</code> command to add some tasks into DukeCooks!</p>
 </div>
@@ -414,10 +429,11 @@ Format: <code>add task tn/<em>insert task here</em> td/ <em>insert date here</em
 <div class="content">
 <img src="images/addtask-ug.png" alt="addtask ug" width="790">
 </div>
+<div class="title">Figure 2: Adding a task</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="u-editing-a-task-s-details-u"><a class="link" href="#u-editing-a-task-s-details-u">3.3.2. <u>Editing a task's details</u></a></h4>
+<h4 id="u-editing-a-task-s-details-u"><a class="link" href="#u-editing-a-task-s-details-u">3.3.3. <u>Editing a task's details</u></a></h4>
 <div class="paragraph">
 <p>Made some typos when adding a task?<br>
 Fret not! You are able to make changes to them.</p>
@@ -433,10 +449,11 @@ Format: <code>edit task <em>index number</em></code></p>
 <div class="content">
 <img src="images/edittask-ug.png" alt="edittask ug" width="790">
 </div>
+<div class="title">Figure 3: Editing a task</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="u-removing-a-task-u"><a class="link" href="#u-removing-a-task-u">3.3.3. <u>Removing a task</u></a></h4>
+<h4 id="u-removing-a-task-u"><a class="link" href="#u-removing-a-task-u">3.3.4. <u>Removing a task</u></a></h4>
 <div class="paragraph">
 <p>Decided that this task is not needed?<br>
 Well you can delete them off from DukeCooks.</p>
@@ -446,16 +463,17 @@ Well you can delete them off from DukeCooks.</p>
 Format: <code>delete task <em>index number</em></code></p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>delete task 2</code></p>
+<p>Example usage: <code>delete task 1</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/deletetask-ug.png" alt="deletetask ug" width="790">
 </div>
+<div class="title">Figure 4: Deleting a task</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="u-marking-a-task-as-complete-u"><a class="link" href="#u-marking-a-task-as-complete-u">3.3.4. <u>Marking a task as complete</u></a></h4>
+<h4 id="u-marking-a-task-as-complete-u"><a class="link" href="#u-marking-a-task-as-complete-u">3.3.5. <u>Marking a task as complete</u></a></h4>
 <div class="paragraph">
 <p>Finished with a task?<br>
 Check it off the list!</p>
@@ -465,12 +483,36 @@ Check it off the list!</p>
 Format: <code>done <em>index number</em></code></p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>done 1</code></p>
+<p>Example usage: <code>done 2</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1: Enter the done command into the dashboard</p>
+</li>
+<li>
+<p>2: The task is now marked as RECENTLY COMPLETED.</p>
+</li>
+<li>
+<p>3: The progress bar will be increased</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/donetask-ug.png" alt="donetask ug" width="790">
 </div>
+<div class="title">Figure 5: Marking a task complete</div>
+</div>
+<div class="paragraph">
+<p>Hard at work? Marking 5 new tasks done will give a surprise!<br>
+A pop up window with an encouraging message will be displayed for extra motivation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/done5tasks-ug.png" alt="done5tasks ug" width="300">
+</div>
+<div class="title">Figure 6: Completing 5 new tasks</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -488,7 +530,7 @@ Format: <code>done <em>index number</em></code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="u-finding-tasks-u"><a class="link" href="#u-finding-tasks-u">3.3.5. <u>Finding tasks</u></a></h4>
+<h4 id="u-finding-tasks-u"><a class="link" href="#u-finding-tasks-u">3.3.6. <u>Finding tasks</u></a></h4>
 <div class="paragraph">
 <p>For those who want to know what are the tasks relevant given a keyword.</p>
 </div>
@@ -497,54 +539,25 @@ Format: <code>done <em>index number</em></code></p>
 Format: <code>find task <em>keyword</em></code></p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>find task cake</code></p>
+<p>Example usage: <code>find task go</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/findtask-ug.png" alt="findtask ug" width="790">
 </div>
+<div class="title">Figure 7: Finding tasks with a keyword</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="u-viewing-all-the-tasks-u"><a class="link" href="#u-viewing-all-the-tasks-u">3.3.6. <u>Viewing all the tasks</u></a></h4>
+<h4 id="u-viewing-complete-incomplete-tasks-u"><a class="link" href="#u-viewing-complete-incomplete-tasks-u">3.3.7. <u>Viewing complete/incomplete tasks</u></a></h4>
 <div class="paragraph">
-<p>For those that want to know all the tasks they have added into DukeCooks.</p>
-</div>
-<div class="paragraph">
-<p>Command: <code>list task</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/listtask-ug.png" alt="listtask ug" width="790">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="u-viewing-incomplete-tasks-u"><a class="link" href="#u-viewing-incomplete-tasks-u">3.3.7. <u>Viewing incomplete tasks</u></a></h4>
-<div class="paragraph">
-<p>Look at all the tasks you have to complete!</p>
+<p>Look at all those tasks!
+To view completed tasks:<br>
+Command: <code>list taskcomplete</code></p>
 </div>
 <div class="paragraph">
-<p>Command: <code>list taskincomplete</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/listtaskincomplete-ug.png" alt="listtaskincomplete ug" width="790">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="u-viewing-completed-tasks-u"><a class="link" href="#u-viewing-completed-tasks-u">3.3.8. <u>Viewing completed tasks</u></a></h4>
-<div class="paragraph">
-<p>Look at all the tasks you have done!</p>
-</div>
-<div class="paragraph">
-<p>Command: <code>list taskcomplete</code></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/listtaskcomplete-ug.png" alt="listtaskcomplete ug" width="790">
-</div>
+<p>For incomplete tasks:<br>
+Command: <code>list taskincomplete</code></p>
 </div>
 </div>
 </div>
@@ -1587,4 +1600,4 @@ e.g. <code>delete page 2 Healthy Living</code></p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 08:30:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 11:59:40 UTC</div></div></div></body></html>
