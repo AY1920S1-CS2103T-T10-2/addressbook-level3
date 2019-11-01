@@ -821,38 +821,10 @@ Deletes all meal plans within the meal plan book.</p>
 health records, all within DukeCooks!</p>
 </div>
 <div class="sect3">
-<h4 id="view-user-profile-code-view-profile-code"><a class="link" href="#view-user-profile-code-view-profile-code">3.5.1. View User Profile:  <code>view profile</code></a></h4>
-<div class="paragraph">
-<p>Show a summary of user’s medical history, allergies, body measurements<br>
-Format: <code>view profile</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Prompt to create profile if user profile does not exist</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>DukeCooks will only have one user profile!</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-health-data-code-view-health-code"><a class="link" href="#view-health-data-code-view-health-code">3.5.2. View Health Data:  <code>view health</code></a></h4>
+<h4 id="view-health-data-code-list-health-code"><a class="link" href="#view-health-data-code-list-health-code">3.5.1. View Health Data:  <code>list health</code></a></h4>
 <div class="paragraph">
 <p>Views Health Records of specific type.<br>
-Format: <code>view health &lt;type&gt; [time period]</code></p>
+Format: <code>list health t/&lt;type&gt;</code></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -879,43 +851,23 @@ Format: <code>view health &lt;type&gt; [time period]</code></p>
 <p>Weight</p>
 </li>
 <li>
-<p>Waist</p>
-</li>
-<li>
-<p>Body Fat</p>
-</li>
-<li>
 <p>Calories</p>
-</li>
-<li>
-<p>Heart Rate</p>
-</li>
-<li>
-<p>Blood Pressure</p>
 </li>
 <li>
 <p>Glucose (i.e. blood sugar)</p>
 </li>
 <li>
-<p>Menstrual Cycle</p>
+<p>Carbs</p>
+</li>
+<li>
+<p>Fats</p>
+</li>
+<li>
+<p>Protein</p>
 </li>
 </ol>
 </div>
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Records of Menstrual Cycle will only be made available for users declared as female under <strong>User Profile</strong>.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -923,35 +875,17 @@ Format: <code>view health &lt;type&gt; [time period]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>view health glucose 3 month</code><br>
-Shows user’s blood sugar records of the past 3 months as of today.</p>
-</li>
-<li>
-<p><code>view health exerciseWeight</code><br>
-Shows user’s exerciseWeight of the past <strong>1</strong> month as of today.</p>
+<p><code>list health t/weight</code><br>
+Shows user’s weight of the past <strong>1</strong> month as of today.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-health-data-code-add-health-code"><a class="link" href="#add-health-data-code-add-health-code">3.5.3. Add Health Data:  <code>add health</code></a></h4>
+<h4 id="add-health-data-code-add-health-code"><a class="link" href="#add-health-data-code-add-health-code">3.5.2. Add Health Data:  <code>add health</code></a></h4>
 <div class="paragraph">
 <p>Adds a health record of specified type with input value.<br>
-Format: <code>add health &lt;type&gt; &lt;value&gt; [date] &lt;time&gt;</code></p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If [date] is not specified, DukeCooks will set as <strong>today</strong> to be the default.</p>
-</div>
-</td>
-</tr>
-</table>
+Format: <code>add health t/&lt;type&gt; val/&lt;value&gt; dt/&lt;dd/MM/yyyy HH:mm&gt;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -964,77 +898,46 @@ Format: <code>add health &lt;type&gt; &lt;value&gt; [date] &lt;time&gt;</code></
 <p>Weight (in KG)</p>
 </li>
 <li>
-<p>Waist (in CM)</p>
-</li>
-<li>
-<p>Body Fat (in %)</p>
-</li>
-<li>
 <p>Calories (in KCAL)</p>
-</li>
-<li>
-<p>Heart Rate (in BPM)</p>
-</li>
-<li>
-<p>Blood Pressure (in Systolic/Diastolic mmHg)</p>
 </li>
 <li>
 <p>Glucose (in mmol/L)</p>
 </li>
 <li>
-<p>Menstrual Cycle (by date)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>DukeCooks can recognise if it’s a start or end date.</p>
+<p>Carbs (in g)</p>
 </li>
-</ul>
-</div>
+<li>
+<p>Fats (in g)</p>
+</li>
+<li>
+<p>Protein (in g)</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Records of Menstrual Cycle will only be made available for users declared as female under <strong>User Profile</strong>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add health blood pressure 120/80 9am</code><br>
+<p><code>add health t/weight val/60 dt/21/10/2019 12:00</code><br>
 Adds a new blood pressure record of 120/80 mmHg as of today 9am.</p>
 </li>
-<li>
-<p><code>add health menstrual</code><br>
-Adds a new start date record if DukeCooks finds no menstrual records for the month. Else, Dukecooks will add as new end date record.</p>
-</li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-health-data-code-edit-health-code"><a class="link" href="#edit-health-data-code-edit-health-code">3.5.4. Edit Health Data:  <code>edit health</code></a></h4>
+<h4 id="edit-health-data-code-edit-health-code"><a class="link" href="#edit-health-data-code-edit-health-code">3.5.3. Edit Health Data:  <code>edit health</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing health record of specified record ID with input value to overwrite.<br>
-Format: <code>edit health &lt;record id&gt; &lt;value&gt;</code></p>
+Format: <code>edit health &lt;index&gt; val/&lt;value&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>&lt;record id&gt; refers to the unique identifier attributed to each health record upon creation.</p>
+<p>You can view &lt;index&gt; once you have entered <strong>list health t/[type]</strong> command.</p>
 </li>
 </ul>
 </div>
@@ -1044,26 +947,22 @@ Format: <code>edit health &lt;record id&gt; &lt;value&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit health BP129391 133/80</code><br>
-Edits the existing blood pressure record from today 9am to 133/80 mmHg.</p>
-</li>
-<li>
-<p><code>edit health W000123 50</code><br>
-Edits exerciseWeight record id of W000123 to 50kg.</p>
+<p><code>edit health 1 val/220</code><br>
+Edits the health record with index 1 to 220.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-health-data-code-delete-health-code"><a class="link" href="#delete-health-data-code-delete-health-code">3.5.5. Delete Health Data:  <code>delete health</code></a></h4>
+<h4 id="delete-health-data-code-delete-health-code"><a class="link" href="#delete-health-data-code-delete-health-code">3.5.4. Delete Health Data:  <code>delete health</code></a></h4>
 <div class="paragraph">
 <p>Deletes an existing health record of specified record ID.<br>
-Format: <code>delete health &lt;record id&gt;</code></p>
+Format: <code>delete health &lt;index&gt;</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>&lt;record id&gt; refers to the unique identifier attributed to each health record upon creation.</p>
+<p>You can view &lt;index&gt; once you have entered <strong>list health t/[type]</strong> command.</p>
 </li>
 </ul>
 </div>
@@ -1073,18 +972,14 @@ Format: <code>delete health &lt;record id&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete health BP129391</code><br>
-Deletes the health record of BP129391.</p>
-</li>
-<li>
-<p><code>delete health W000123</code><br>
-Deletes the health record of W000123.</p>
+<p><code>delete health 1</code><br>
+Deletes the health record with index 1.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-medical-appointments-code-coming-in-v2-0-code"><a class="link" href="#view-medical-appointments-code-coming-in-v2-0-code">3.5.6. View Medical Appointments:  <code>[coming in v2.0]</code></a></h4>
+<h4 id="view-medical-appointments-code-coming-in-v2-0-code"><a class="link" href="#view-medical-appointments-code-coming-in-v2-0-code">3.5.5. View Medical Appointments:  <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Shows all the medical appointment for the month.<br>
 Format: <code>view appt [time period]</code></p>
@@ -1255,11 +1150,21 @@ exercise regime in DukeCooks.</p>
 <div class="sect3">
 <h4 id="adding-an-exercise-code-add-exercise-code"><a class="link" href="#adding-an-exercise-code-add-exercise-code">3.7.1. Adding an exercise: <code>add exercise</code></a></h4>
 <div class="paragraph">
-<p>Adds an exercise to exercise list. App will then prompt for the muscle type, level of intensity (out of 5), instructions as well as images of the steps (in directory form) (optional) in order.</p>
-</div>
-<div class="paragraph">
-<p>Once done you can add the recommended number of sets (optional), recommended number of repetitions (optional), recommended timing in minutes(optional), exerciseWeight (optional) in the format: <code>s/SETS r/REPETITIONS w/WEIGHT t/TIMING</code><br>
-Format: <code>add exercise &lt;exerciseName&gt;</code></p>
+<p>Adds an exercise to exercise list. You will be required to specify the primary muscle of the exercise, its intensity
+as well as its name. Optional fields like secondary muscles and exercise details such as reps, sets can also be added.
+The following shows the fields and which are optional:<br>
+* Name<br>
+* Primary Muscle<br>
+* Intensity<br>
+* Secondary Muscles (optional)<br>
+* Number of sets (optional)<br>
+* Number of repetitions (optional)<br>
+* Timing (optional) <br>
+* Distance (optional)<br>
+* Exercise Weight (optional)<br>
+The format is as follow:<br>
+Format: <code>add exercise n/EXERCISE_NAME p/PRIMARY_MUSCLE sm/SECONDARY_MUSCLE i/INTENSITY
+s/SETS r/REPETITIONS d/ DISTANCE w/WEIGHT t/TIMING</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1267,36 +1172,8 @@ Format: <code>add exercise &lt;exerciseName&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add exercise Inclined Bench Press</code><br>
-Output: <em>Exercise “Inclined Bench Press” has been created. Please enter the muscle groups it trains, separating each muscle by a “/”.</em></p>
-</li>
-<li>
-<p><code>lats/chest</code><br>
-Output: <em>Muscle group(s) have been added! Now lets add intensity level out of 5!</em></p>
-</li>
-<li>
-<p><code>4</code><br>
-Output: <em>Now let’s add the instructions!</em></p>
-</li>
-<li>
-<p><code>Lie down on an inclined bench</code><br>
-Output: <em>Step 1 added! Type done when you’re done with all the instructions!</em></p>
-</li>
-<li>
-<p><code>Push exerciseWeight above head</code><br>
-Output: <em>Step 2 added! Type done when you’re done with all the instructions!</em></p>
-</li>
-<li>
-<p><code>done</code><br>
-Output: <em>Almost done! If you want to add an image please specify the folder! Otherwise type “/”.</em></p>
-</li>
-<li>
-<p><code>/</code><br>
-Output: <em>If you want to specify your reps, sets and exerciseWeight you may now do so. Otherwise type “/”.</em></p>
-</li>
-<li>
-<p><code>w/30kg r/5 s/5 t/1:00</code><br>
-Output: <em>Nice exercise has been created!</em></p>
+<p><code>add exercise n/Bench Press p/Chest i/medium sm/Triceps s/5 r/5 w/80 kg</code><br>
+Output: <em>New Exercise added: Bench Press</em></p>
 </li>
 </ul>
 </div>
@@ -1305,7 +1182,7 @@ Output: <em>Nice exercise has been created!</em></p>
 <h4 id="list-exercise-code-list-exercise-code"><a class="link" href="#list-exercise-code-list-exercise-code">3.7.2. List Exercise: <code>list exercise</code></a></h4>
 <div class="paragraph">
 <p>List exercises which matches optional parameters specified eg. muscle type/intensity.<br>
-Format: <code>list exercise m/MUSCLEGROUP i/INTENSITY</code></p>
+Format: `list exercise m/MUSCLEGROUP</p>
 </div>
 </div>
 <div class="sect3">
@@ -1323,58 +1200,66 @@ Format: <code>view exercise&lt;index&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-calorie-code-coming-in-v1-3-code"><a class="link" href="#add-calorie-code-coming-in-v1-3-code">3.7.5. Add calorie: <code>[coming in v1.3]</code></a></h4>
+<h4 id="add-calorie-code-coming-in-v2-0-code"><a class="link" href="#add-calorie-code-coming-in-v2-0-code">3.7.5. Add calorie: <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Tracks calorie burned per rep/set of the exercise in kcal.<br>
 Format: <code>calorie &lt;index&gt; &lt;calories&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="check-history-code-coming-in-v2-0-code"><a class="link" href="#check-history-code-coming-in-v2-0-code">3.7.6. Check History: <code>[coming in v2.0]</code></a></h4>
+<h4 id="check-history-code-coming-in-v1-4-code"><a class="link" href="#check-history-code-coming-in-v1-4-code">3.7.6. Check History: <code>[coming in v1.4]</code></a></h4>
 <div class="paragraph">
 <p>Checks the history of all the pass workouts as well as their statistics eg. exerciseWeight used, number of times exercise is carried out, workouts that use this exercise.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="preset-exercises-code-coming-in-v2-0-code"><a class="link" href="#preset-exercises-code-coming-in-v2-0-code">3.7.7. Preset Exercises: <code>[coming in v2.0]</code></a></h4>
+<h4 id="preset-exercises"><a class="link" href="#preset-exercises">3.7.7. Preset Exercises:</a></h4>
 <div class="paragraph">
 <p>If the list of exercises is empty, a list of preset exercises are generated.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="create-workout-code-workout-code"><a class="link" href="#create-workout-code-workout-code">3.7.8. Create Workout: <code>workout</code></a></h4>
+<h4 id="create-workout-code-add-workout-code"><a class="link" href="#create-workout-code-add-workout-code">3.7.8. Create Workout: <code>add workout</code></a></h4>
 <div class="paragraph">
-<p>Adds a workout to workout list. The app will then display a list of exercises to be added to the workout, you can then filter this by adding specifications such as muscle type. To add an exercise, simply specify the index on the current list that is displayed. If the exercise has a recommended number or reps, sets, exerciseWeight and timing you will be asked whether to follow it. Otherwise you can specify what you wish. Once you have added all the exercises, you will then be asked to specify the amount of time for rest in between sets.<br>
-Format: <code>workout &lt;exerciseName&gt;</code></p>
+<p>Adds a workout to workout list. The app will then prompt you to add exercises to the workout.<br>
+Format: <code>add workout n/WORKOUTNAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-workout-code-list-workout-code"><a class="link" href="#list-workout-code-list-workout-code">3.7.9. List Workout: <code>list workout</code></a></h4>
+<h4 id="push-workout-code-push-exercise-code"><a class="link" href="#push-workout-code-push-exercise-code">3.7.9. Push Workout: <code>push exercise</code></a></h4>
 <div class="paragraph">
-<p>List exercises which matches optional parameters specified eg. muscle type/intensity/total time.<br>
-Format: <code>list exercise m/MUSCLEGROUP i/INTENSITY t/TOTALTIME</code></p>
+<p>Adds an exercise of the index shown, to a workout in the index shown. You can specify whether to use your own
+new set of exercise details (reps, sets etc) or use the default one already in the Exercise object.<br>
+Format: <code>push exercise wi/WORKOUT_INDEX ei/EXERCISE_INDEX s/SETS r/REPS d/DISTANCE t/TIMING w/WEIGHT</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-workout-code-delete-workout-code"><a class="link" href="#delete-workout-code-delete-workout-code">3.7.10. Delete workout: <code>delete workout</code></a></h4>
+<h4 id="list-workout-code-list-workout-code-coming-in-v1-4"><a class="link" href="#list-workout-code-list-workout-code-coming-in-v1-4">3.7.10. List Workout: <code>list workout</code> [coming in v1.4]</a></h4>
+<div class="paragraph">
+<p>List workouts which matches optional parameters specified eg. muscle type/intensity/total time.<br>
+Format: <code>list workout m/MUSCLEGROUP i/INTENSITY t/TOTALTIME</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-workout-code-delete-workout-code-coming-in-v1-4"><a class="link" href="#delete-workout-code-delete-workout-code-coming-in-v1-4">3.7.11. Delete workout: <code>delete workout</code> [coming in v1.4]</a></h4>
 <div class="paragraph">
 <p>Deletes workout of specified index.<br>
 Format: <code>delete workout &lt;index&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="run-workout-code-run-code"><a class="link" href="#run-workout-code-run-code">3.7.11. Run Workout: <code>run</code></a></h4>
+<h4 id="run-workout-code-run-code-coming-in-v1-4"><a class="link" href="#run-workout-code-run-code-coming-in-v1-4">3.7.12. Run Workout: <code>run</code> [coming in v1.4]</a></h4>
 <div class="paragraph">
 <p>Runs a workout with a timer. Shows the details of the exercise: instructions, reps, sets, exerciseWeight as well images if provided. After workout, stats will be automatically be updated and weights of workout will be increased accordingly.<br>
 Format: <code>run &lt;index&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="schedule-workout-code-coming-in-v1-3-code"><a class="link" href="#schedule-workout-code-coming-in-v1-3-code">3.7.12. Schedule Workout: <code>[coming in v1.3]</code></a></h4>
+<h4 id="schedule-workout-code-coming-in-v1-4-code"><a class="link" href="#schedule-workout-code-coming-in-v1-4-code">3.7.13. Schedule Workout: <code>[coming in v1.4]</code></a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="track-body-fitness-code-coming-in-v1-3-code"><a class="link" href="#track-body-fitness-code-coming-in-v1-3-code">3.7.13. Track Body Fitness: <code>[coming in v1.3]</code></a></h4>
+<h4 id="track-body-fitness-code-coming-in-v1-4-code"><a class="link" href="#track-body-fitness-code-coming-in-v1-4-code">3.7.14. Track Body Fitness: <code>[coming in v1.4]</code></a></h4>
 
 </div>
 </div>
@@ -1787,23 +1672,20 @@ e.g. <code>view recipe Chicken Rice</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>View User Profile</strong> : <code>view profile</code></p>
+<p><strong>View health data</strong> : <code>view health t/&lt;type&gt;</code><br>
+e.g. <code>view health t/glucose</code></p>
 </li>
 <li>
-<p><strong>View health data</strong> : <code>view health &lt;type&gt; [time period]</code><br>
-e.g. <code>view health glucose 3 month</code></p>
+<p><strong>Add health data</strong> : <code>add health t/&lt;type&gt; val/&lt;value&gt; dt/&lt;date&gt; &lt;time&gt;</code><br>
+e.g. <code>add health t/glucose 120 dt/21/10/2019 12:00</code></p>
 </li>
 <li>
-<p><strong>Add health data</strong> : <code>add health &lt;type&gt; &lt;value&gt; [date] &lt;time&gt;</code><br>
-e.g. <code>add health blood pressure 120/80 9am</code></p>
+<p><strong>Edit health data</strong> : <code>edit health &lt;index&gt; val/&lt;value&gt;</code><br>
+e.g. <code>edit health 1 120</code></p>
 </li>
 <li>
-<p><strong>Edit health data</strong> : <code>edit health &lt;record id&gt; &lt;value&gt;</code><br>
-e.g. <code>edit health BP129391 133/80</code></p>
-</li>
-<li>
-<p><strong>Delete health data</strong> : <code>delete health &lt;record id&gt;</code><br>
-e.g. <code>delete health BP129391</code></p>
+<p><strong>Delete health data</strong> : <code>delete health &lt;index&gt;</code><br>
+e.g. <code>delete health 1</code></p>
 </li>
 </ul>
 </div>
@@ -1869,4 +1751,4 @@ e.g. <code>delete page 2 Healthy Living</code></p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 01:12:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 03:00:35 UTC</div></div></div></body></html>
