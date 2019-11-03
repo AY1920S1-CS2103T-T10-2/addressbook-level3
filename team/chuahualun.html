@@ -47,12 +47,6 @@
 <div class="paragraph">
 <p>Initial works for the Dashboard include referencing the AB3  codebase. The add / delete / edit / list / find functions from AB3 was adapted and available in the Dashboard. As a comparison, the functions listed before was used in AB3 to create and manipulate a person&#8217;s contact information. In DukeCook’s Dashboard, these functions are used to create and manipulate a task&#8217;s information.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Ui.png" alt="500" width="500">
-</div>
-<div class="title">Figure 1: DukeCooks' Dashboard</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="enhancement-1-creating-the-code-done-code-command"><a class="link" href="#enhancement-1-creating-the-code-done-code-command">Enhancement 1: Creating the <code>done</code> command</a></h3>
@@ -159,13 +153,93 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The following information provides a how-to guide for the feature (Dashboard), that I am in-charged of.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following information are my <strong>contributions</strong> to the<br>
+<strong>User Guide</strong> for the feature, Dashboard.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To view the full user guide of DukeCooks, please visit this <a href="https://ay1920s1-cs2103t-t10-2.github.io/main/UserGuide.html">link</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To view the full <strong>User Guide</strong> of DukeCooks, please visit this <a href="https://ay1920s1-cs2103t-t10-2.github.io/main/UserGuide.html">link</a>.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="breaking-down-the-dashboard"><a class="link" href="#breaking-down-the-dashboard">Breaking down the Dashboard</a></h3>
+<div class="paragraph">
+<p>For first time users of the CLI, it can be a daunting task. So, let&#8217;s first start off by understanding what makes up the Dashboard!</p>
+</div>
+<div class="paragraph">
+<p>In the image below (Figure 1), complemented with a table (Table 1), provides a brief explanation of the key components found in the Dashboard.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/dashboard_guide.png" alt="dashboard guide" width="600">
+</div>
+<div class="title">Figure 1: DukeCooks&#8217;s Dashboard</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Components</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Number</th>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Side Panel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This area, filled with clickable icons, allows you to go to other parts that make up DukeCooks. At the very bottom, is a sign that tells you where you are currently at.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Progress Bar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This bar fills up every time you&#8217;ve completed a task. The progress bar also moves whenever you are finding tasks, indicating the progress for the relating tasks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calendar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This small little rectangle opens up to a calendar so that you can plan your days.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Index Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the index number associated with the task.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message Box</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is how DukeCooks communicates with you. It tells you if the command you have entered has been executed successfully or contains invalid entries.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command Box</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is where the magic happens! Enter your commands in this box and let DukeCook do all the work.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Here in the Dashboard, the prefix: /tn for name and td/ for date, are used to indicate the fields you are entering.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Alright, now you are ready to use DukeCooks! The following are the instructions on all the commands available in the Dashboard.</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="u-going-to-the-dashboard-u"><a class="link" href="#u-going-to-the-dashboard-u"><u>Going to the Dashboard</u></a></h3>
 <div class="paragraph">
@@ -199,11 +273,11 @@ Format: <code>add task tn/<em>insert task here</em> td/ <em>insert date here</em
 </table>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>add task tn/Bake a Cake td/29/10/2019</code></p>
+<p>Example usage (Figure 2): <code>add task tn/Bake CupCakes td/20/10/2019</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/addtask-ug.png" alt="addtask ug" width="790">
+<img src="../images/addtask-ug.png" alt="addtask ug" width="610">
 </div>
 <div class="title">Figure 2: Adding a task</div>
 </div>
@@ -216,14 +290,28 @@ Fret not! You are able to make changes to them.</p>
 </div>
 <div class="paragraph">
 <p>Command: <code>edit task</code><br>
-Format: <code>edit task <em>index number</em></code></p>
+Format: <code>edit task <em>index number</em> tn/ <em>insert new name</em> td/ <em>insert new date</em></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When editing a task, you can choose to change just 1 field or edit both fields.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>edit task 1 tn/Bake cupcakes td/30/10/2019</code></p>
+<p>Example usage (Figure 3): <code>edit task 1 tn/Bake cupcakes td/21/10/2019</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/edittask-ug.png" alt="edittask ug" width="790">
+<img src="../images/edittask-ug.png" alt="edittask ug" width="670">
 </div>
 <div class="title">Figure 3: Editing a task</div>
 </div>
@@ -238,12 +326,26 @@ Well you can delete them off from DukeCooks.</p>
 <p>Command: <code>delete task</code><br>
 Format: <code>delete task <em>index number</em></code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Example usage: <code>delete task 1</code></p>
+<p>Tasks that are marked as "RECENTLY COMPLETED" or "COMPLETED", cannot be deleted.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example usage (Figure 4): <code>delete task 1</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/deletetask-ug.png" alt="deletetask ug" width="790">
+<img src="../images/deletetask-ug.png" alt="deletetask ug" width="600">
 </div>
 <div class="title">Figure 4: Deleting a task</div>
 </div>
@@ -259,36 +361,13 @@ Check it off the list!</p>
 Format: <code>done <em>index number</em></code></p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>done 2</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>1: Enter the done command into the dashboard</p>
-</li>
-<li>
-<p>2: The task is now marked as RECENTLY COMPLETED.</p>
-</li>
-<li>
-<p>3: The progress bar will be increased</p>
-</li>
-</ul>
+<p>Example usage (Figure 5): <code>done 2</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/donetask-ug.png" alt="donetask ug" width="790">
+<img src="../images/donetask-ug.png" alt="donetask ug" width="625">
 </div>
 <div class="title">Figure 5: Marking a task complete</div>
-</div>
-<div class="paragraph">
-<p>Hard at work? Marking 5 new tasks done will give a surprise!<br>
-A pop up window with an encouraging message will be displayed for extra motivation.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/done5tasks-ug.png" alt="done5tasks ug" width="350">
-</div>
-<div class="title">Figure 6: Completing 5 new tasks</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -298,7 +377,8 @@ A pop up window with an encouraging message will be displayed for extra motivati
 </td>
 <td class="content">
 <div class="paragraph">
-<p>A task index number is available at the left side of the task&#8217;s name.</p>
+<p>Hard at work? Marking 5 new tasks done will give a surprise!<br>
+A pop up window with an encouraging message will be displayed for extra motivation.</p>
 </div>
 </td>
 </tr>
@@ -315,11 +395,11 @@ A pop up window with an encouraging message will be displayed for extra motivati
 Format: <code>find task <em>keyword</em></code></p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>find task go</code></p>
+<p>Example usage (Figure 7): <code>find task go</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/findtask-ug.png" alt="findtask ug" width="790">
+<img src="../images/findtask-ug.png" alt="findtask ug" width="600">
 </div>
 <div class="title">Figure 7: Finding tasks with a keyword</div>
 </div>
@@ -339,7 +419,7 @@ Command: <code>list taskincomplete</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="making-dukecooks"><a class="link" href="#making-dukecooks">Making DukeCooks</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -347,10 +427,10 @@ Command: <code>list taskincomplete</code></p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The following information provides an explanation of how the feature (Dashboard), that I am in-charged of, is made.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following information provides my <strong>contributions</strong> to the <strong>Developer Guide</strong>. An explanation of how the feature (Dashboard), that I am in-charged of, is made.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To view the full developer guide of DukeCooks, please visit this <a href="https://ay1920s1-cs2103t-t10-2.github.io/main/DeveloperGuide.html">link</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To view the full <strong>Developer Guide</strong> of DukeCooks, please visit this <a href="https://ay1920s1-cs2103t-t10-2.github.io/main/DeveloperGuide.html">link</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -362,21 +442,17 @@ a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DashboardClassDiagram.png" alt="DashboardClassDiagram" width="790">
+<img src="../images/DashboardClassDiagram.png" alt="DashboardClassDiagram" width="500">
 </div>
 <div class="title">Figure 9: Dashboard Class Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The functions add/delete/edit/find/list task, are found under the Dashboard.<br>
+<p>The functions add/delete/edit/find/list/done task, are found under the Dashboard.<br>
 The Dashboard in <code>DukeCooks</code> serves as a homepage which displays a list of tasks set out
-by the user. The tasks are sorted accordingly by earliest date.
+by the user. The tasks are sorted accordingly by earliest date; using a custom sorting algorithm.
 Here, a task is represented by a Dashboard object.</p>
-</div>
-<div class="paragraph">
-<p>The add/delete/edit/find/list mechanism is implemented in <code>DukeCooks v1.3</code>. It extends
-<code>DukeCooks</code> with a function to add/delete/edit/find tasks.</p>
 </div>
 <div class="paragraph">
 <p>The operations are as followed:</p>
@@ -384,39 +460,49 @@ Here, a task is represented by a Dashboard object.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>DukeCooks#add()</code>&#8201;&#8212;&#8201;Adds and saves the task into <code>DukeCooks</code>.</p>
+<p><code>DukeCooks#add_task()</code>&#8201;&#8212;&#8201;Adds and saves the task into <code>DukeCooks</code>.</p>
 </li>
 <li>
-<p><code>DukeCooks#delete()</code>&#8201;&#8212;&#8201;Removes the specified task from <code>DukeCooks</code>.</p>
+<p><code>DukeCooks#delete_task()</code>&#8201;&#8212;&#8201;Removes the specified task from <code>DukeCooks</code>.</p>
 </li>
 <li>
-<p><code>DukeCooks#edit()</code>&#8201;&#8212;&#8201;Edits the specified with a new task name and/or date.</p>
+<p><code>DukeCooks#edit_task()</code>&#8201;&#8212;&#8201;Edits the specified with a new task name and/or date.</p>
 </li>
 <li>
-<p><code>DukeCooks#find()</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
+<p><code>DukeCooks#done()</code>&#8201;&#8212;&#8201;Marks a task as complete.</p>
 </li>
 <li>
-<p><code>DukeCooks#list()</code>&#8201;&#8212;&#8201;Lists all the task in DukeCooks.</p>
+<p><code>DukeCooks#find_task()</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
+</li>
+<li>
+<p><code>DukeCooks#list_taskincomlete()</code>&#8201;&#8212;&#8201;Lists all the incomplete tasks.</p>
+</li>
+<li>
+<p><code>DukeCooks#list_taskcomlete()</code>&#8201;&#8212;&#8201;Lists all the completed tasks.</p>
+</li>
+<li>
+<p><code>DukeCooks#dashboard()</code>&#8201;&#8212;&#8201;Directs user to the dashboard window.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>These operations are exposed in the Model interface as <code>Model#addDashboard()</code>,
-<code>Model#deleteDashboard()</code>, <code>Model#setDashboard()</code>, <code>Model#hasDashboard()</code> and
-<code>Model#getDashboardRecords()</code> respectively.</p>
+<code>Model#deleteDashboard()</code>, <code>Model#setDashboard()</code>, <code>Model#hasDashboard()</code> , <code>Model#doneDashboard</code> and
+`Model#getDashboardRecords().</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the add/delete/edit/find/list
+<p>Given below is an example usage scenario and how the add/delete/edit/find//done/dashboard
 mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. <code>DukeCooks v1.3</code> will
-be initialized with the dashboard state, and the <code>currentStatePointer</code> pointing to
-that single dashboard state.</p>
+<p>Step 1. The user is currently at a another part of DukeCooks and wants to go to the Dashboard. The
+user executes the <code>dashboard</code> command. The <code>dashboard</code> command calls <code>Model#getDashboardRecords()</code>,
+which returns the <code>ReadOnlyDashboard</code> that returns the <code>UniqueDashboardList</code>, iterating over all the task and displaying it on the
+homepage. The <code>currentStatePointer</code> remains at the same location after the step.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>add task tn/bake a cake td/12/12/2019</code> command to add a new
-task into Duke Cooks. The <code>add</code> command calls <code>Model#addDashboard()</code>, causing the task to
+task into DukeCooks. The <code>add</code> command calls <code>Model#addDashboard()</code>, causing the task to
 be added into <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
 <code>UniqueDashboardList#add()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
 stage, the list of task is sorted by date. After which, the <code>add</code> command also calls
@@ -425,7 +511,7 @@ stage, the list of task is sorted by date. After which, the <code>add</code> com
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>delete task 3</code> command to delete the 3rd task in the
-dashboard. The delete command calls <code>Model#deleteDashboard()</code> causing the specified task
+dashboard. The <code>delete</code> command calls <code>Model#deleteDashboard()</code> causing the specified task
 to be removed from <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
 <code>UniqueDashboardList#remove()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
 stage, the list of task is sorted by date. Also, it calls <code>Model#saveDashboard()</code>,
@@ -434,7 +520,7 @@ to be saved in the <code>UniqueDashboardList</code>, and the <code>currentStateP
 newly inserted dashboard state.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The user executes <code>edit task&#8230;&#8203;</code> command to edit a field in a task. The edit
+<p>Step 4. The user executes <code>edit task&#8230;&#8203;</code> command to edit a field in a task. The <code>edit</code>
 command calls <code>Model#setDashboard()</code> causing the edited task to be updated in
 <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#setDashboard()</code>
 which will call <code>UniqueDashboardList#sortDashboard()</code>. At this stage, the list of task is
@@ -444,24 +530,30 @@ dashboard after the <code>edit task&#8230;&#8203;</code> command executes to <co
 </div>
 <div class="paragraph">
 <p>Step 5. The user executes <code>find task&#8230;&#8203;</code> command to find a list of task given a keyword.
-The find command calls <code>Model#hasDashboard()</code>, which searches through the
+The <code>find</code> command calls <code>Model#hasDashboard()</code>, which searches through the
 <code>UniqueDashboardList</code> for tasks containing the particular keyword. The <code>currentStatePointer</code>
 remains at the same location after the step.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>list task</code> command to view all the tasks found in <code>UniqueDashboardList</code>.
-The list command calls <code>Model#getDashboardRecords()</code>, which returns the <code>ReadOnlyDashboard</code> that
-returns the <code>UniqueDashboardList</code>, iterating over all the task and displaying it on the
-homepage. The <code>currentStatePointer</code> remains at the same location after the step.</p>
+<p>Step 6. The user executes <code>done 1</code> command to mark the first task in the list as complete. The <code>done</code>
+command calls <code>Model#doneDashboard()</code>, which will cause the task to be marked as complete in the
+<code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#done()</code>, which adds
+the newly created <code>Dashboard</code> object and adds it into the list. After which, <code>UniqueDashboardList#sortDashboard()</code>
+is called to sort the list by date and reflect the newly made changes. The <code>currentStatePointer</code>
+moves to the newly inserted dashboard state.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the add operation works:</p>
+<p>The following sequence diagram (Figure 10) shows how the add operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddTaskSequenceDiagram.png" alt="AddTaskSequenceDiagram">
+<img src="../images/DoneTaskSequenceDiagram.png" alt="DoneTaskSequenceDiagram" width="500">
+</div>
+<div class="title">Figure 10: Done task Sequence Diagram</div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="making-decisions"><a class="link" href="#making-decisions">Making Decisions</a></h4>
 <div class="paragraph">
 <p><strong>Aspect: How add/delete/edit/find/list executes</strong></p>
 </div>
@@ -540,4 +632,4 @@ take some time.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 12:12:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 14:21:13 UTC</div></div></div></body></html>
