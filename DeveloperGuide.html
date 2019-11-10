@@ -23,7 +23,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#implementation-of-commands-and-parser">3.1. Implementation of Commands and Parser</a></li>
-<li><a href="#dashboard-features">3.2. Dashboard features</a></li>
+<li><a href="#what-makes-up-a-dashboard">3.2. What makes up a Dashboard?</a></li>
 <li><a href="#recipebook-feature">3.3. RecipeBook feature</a></li>
 <li><a href="#workout-planner-feature">3.4. Workout Planner feature</a></li>
 <li><a href="#health-records-feature">3.5. Health Records feature</a></li>
@@ -454,31 +454,24 @@ reduces the amount of switch cases within <code>DukeCooksParser</code> and makes
 </div>
 </div>
 <div class="sect2">
-<h3 id="dashboard-features"><a class="link" href="#dashboard-features">3.2. Dashboard features</a></h3>
-<div class="sect3">
-<h4 id="what-makes-up-a-dashboard"><a class="link" href="#what-makes-up-a-dashboard">3.2.1. What makes up a Dashboard?</a></h4>
+<h3 id="what-makes-up-a-dashboard"><a class="link" href="#what-makes-up-a-dashboard">3.2. What makes up a Dashboard?</a></h3>
 <div class="paragraph">
 <p>In DukeCooks, a <code>Dashboard</code> object represents an event a user needs to attend to, a task. A <code>Dashboard</code> is made up of
 a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>. Below is a class diagram that illustrates how <code>Dashboard</code> interacts with other classes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DashboardClassDiagram.png" alt="DashboardClassDiagram" width="790">
+<img src="images/DashboardClassDiagram.png" alt="DashboardClassDiagram" width="500">
 </div>
-<div class="title">Figure 9: Dashboard Class Diagram</div>
-</div>
+<div class="title">Figure 10: Dashboard Class Diagram</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.2. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The functions add/delete/edit/find/list task, are found under the Dashboard.<br>
+<p>The functions add/delete/edit/find/list/done task, are found under the Dashboard.<br>
 The Dashboard in <code>DukeCooks</code> serves as a homepage which displays a list of tasks set out
-by the user. The tasks are sorted accordingly by earliest date.
+by the user. The tasks are sorted accordingly by earliest date; using a custom sorting algorithm.
 Here, a task is represented by a Dashboard object.</p>
-</div>
-<div class="paragraph">
-<p>The add/delete/edit/find/list mechanism is implemented in <code>DukeCooks v1.3</code>. It extends
-<code>DukeCooks</code> with a function to add/delete/edit/find tasks.</p>
 </div>
 <div class="paragraph">
 <p>The operations are as followed:</p>
@@ -486,159 +479,132 @@ Here, a task is represented by a Dashboard object.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>DukeCooks#add()</code>&#8201;&#8212;&#8201;Adds and saves the task into <code>DukeCooks</code>.</p>
+<p><code>DukeCooks#add_task()</code>&#8201;&#8212;&#8201;Adds and saves the task into <code>DukeCooks</code>.</p>
 </li>
 <li>
-<p><code>DukeCooks#delete()</code>&#8201;&#8212;&#8201;Removes the specified task from <code>DukeCooks</code>.</p>
+<p><code>DukeCooks#delete_task()</code>&#8201;&#8212;&#8201;Removes the specified task from <code>DukeCooks</code>.</p>
 </li>
 <li>
-<p><code>DukeCooks#edit()</code>&#8201;&#8212;&#8201;Edits the specified with a new task name and/or date.</p>
+<p><code>DukeCooks#edit_task()</code>&#8201;&#8212;&#8201;Edits the specified with a new task name and/or date.</p>
 </li>
 <li>
-<p><code>DukeCooks#find()</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
+<p><code>DukeCooks#done()</code>&#8201;&#8212;&#8201;Marks a task as complete.</p>
 </li>
 <li>
-<p><code>DukeCooks#list()</code>&#8201;&#8212;&#8201;Lists all the tasks in DukeCooks.</p>
+<p><code>DukeCooks#find_task()</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
+</li>
+<li>
+<p><code>DukeCooks#list_taskincomlete()</code>&#8201;&#8212;&#8201;Lists all the incomplete tasks.</p>
+</li>
+<li>
+<p><code>DukeCooks#list_taskcomlete()</code>&#8201;&#8212;&#8201;Lists all the completed tasks.</p>
+</li>
+<li>
+<p><code>DukeCooks#dashboard()</code>&#8201;&#8212;&#8201;Directs user to the dashboard window.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>These operations are exposed in the Model interface as <code>Model#addDashboard()</code>,
-<code>Model#deleteDashboard()</code>, <code>Model#setDashboard()</code>, <code>Model#hasDashboard()</code> and
-<code>Model#getDashboardRecords()</code> respectively.</p>
+<code>Model#deleteDashboard()</code>, <code>Model#setDashboard()</code>, <code>Model#hasDashboard()</code> , <code>Model#doneDashboard</code> and
+<code>Model#getDashboardRecords()</code>.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the add/delete/edit/find/list
+<p>Given below is an example usage scenario and how the add/delete/edit/find/done/dashboard
 mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. <code>DukeCooks v1.3</code> will
-be initialized with the dashboard state, and the <code>currentStatePointer</code> pointing to
-that single dashboard state.</p>
+<p>Step 1. The user is currently at a another part of DukeCooks and wants to go to the Dashboard. The
+user executes the <code>dashboard</code> command. The <code>dashboard</code> command calls <code>Model#getDashboardRecords()</code>,
+which returns the <code>ReadOnlyDashboard</code> that returns the <code>UniqueDashboardList</code>, iterating over all the task and displaying it on the
+homepage.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>add task tn/bake a cake td/12/12/2019</code> command to add a new
-task into Duke Cooks. The <code>add</code> command calls <code>Model#addDashboard()</code>, causing the task to
+task into DukeCooks. The <code>add</code> command calls <code>Model#addDashboard()</code>, causing the task to
 be added into <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
 <code>UniqueDashboardList#add()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
 stage, the list of task is sorted by date. After which, the <code>add</code> command also calls
-<code>Model#saveDashboard()</code>, causing another modified dashboard state to be saved into the
-<code>UniqueDashboardList</code>.</p>
+<code>Model#saveDashboard()</code> to be saved the <code>dashboard</code> into the <code>UniqueDashboardList</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>delete task 3</code> command to delete the 3rd task in the
-dashboard. The delete command calls <code>Model#deleteDashboard()</code> causing the specified task
+dashboard. The <code>delete</code> command calls <code>Model#deleteDashboard()</code> causing the specified task
 to be removed from <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
 <code>UniqueDashboardList#remove()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
 stage, the list of task is sorted by date. Also, it calls <code>Model#saveDashboard()</code>,
-causing the modified state of the dashboard after the <code>delete task 3</code> command executes
-to be saved in the <code>UniqueDashboardList</code>, and the <code>currentStatePointer</code> is shifted to the
-newly inserted dashboard state.</p>
+after the <code>delete task 3</code> command executes
+to be saved in the <code>UniqueDashboardList</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The user executes <code>edit task&#8230;&#8203;</code> command to edit a field in a task. The edit
+<p>Step 4. The user executes <code>edit task&#8230;&#8203;</code> command to edit a field in a task. The <code>edit</code>
 command calls <code>Model#setDashboard()</code> causing the edited task to be updated in
 <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#setDashboard()</code>
 which will call <code>UniqueDashboardList#sortDashboard()</code>. At this stage, the list of task is
-sorted by date. Also, it calls <code>Model#saveDashboard()</code>, causing the modified state of the
-dashboard after the <code>edit task&#8230;&#8203;</code> command executes to <code>UniqueDashboardList</code>, and the
-<code>currentStatePointer</code> is shifted to the newly inserted dashboard state.</p>
+sorted by date. Also, it calls <code>Model#saveDashboard()</code>, after the <code>edit task&#8230;&#8203;</code> command executes to be saved into the <code>UniqueDashboardList</code></p>
 </div>
 <div class="paragraph">
 <p>Step 5. The user executes <code>find task&#8230;&#8203;</code> command to find a list of task given a keyword.
-The find command calls <code>Model#hasDashboard()</code>, which searches through the
-<code>UniqueDashboardList</code> for tasks containing the particular keyword. The <code>currentStatePointer</code>
-remains at the same location after the step.</p>
+The <code>find</code> command calls <code>Model#hasDashboard()</code>, which searches through the
+<code>UniqueDashboardList</code> for tasks containing the particular keyword.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>list task</code> command to view all the tasks found in <code>UniqueDashboardList</code>.
-The list command calls <code>Model#getDashboardRecords()</code>, which returns the <code>ReadOnlyDashboard</code> that
-returns the <code>UniqueDashboardList</code>, iterating over all the task and displaying it on the
-homepage. The <code>currentStatePointer</code> remains at the same location after the step.</p>
+<p>Step 6. The user executes <code>done 1</code> command to mark the first task in the list as complete. The <code>done</code>
+command calls <code>Model#doneDashboard()</code>, which will cause the task to be marked as complete in the
+<code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#done()</code>, which adds
+the newly created <code>Dashboard</code> object and adds it into the list. After which, <code>UniqueDashboardList#sortDashboard()</code>
+is called to sort the list by date and reflect the newly made changes.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the add operation works:</p>
+<p>The following sequence diagram (Figure 10) shows how the add operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddTaskSequenceDiagram.png" alt="AddTaskSequenceDiagram">
+<img src="images/DoneTaskSequenceDiagram.png" alt="DoneTaskSequenceDiagram" width="550">
+</div>
+<div class="title">Figure 12: Done task Sequence Diagram</div>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Aspect: How add/delete/edit/find/list executes</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 1 (current choice)</strong></p>
-</div>
-<div class="paragraph">
-<p>Sort the list whenever add/delete/edit is called.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of time.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2</strong></p>
-</div>
-<div class="paragraph">
-<p>Keep an instance of the earliest and latest date. If dates fall
-out of range from the two dates, sorting does not happen.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Faster runtime.</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Aspect: Data structure to support the add/delete/edit/find/list commands</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 1 (current choice)</strong></p>
-</div>
-<div class="paragraph">
-<p>Use <code>Collections.sort</code> to sort by date.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: Current implementations require a <code>LocalDate</code> object to be create for every
-<code>TaskDate</code> object.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2</strong></p>
-</div>
-<div class="paragraph">
-<p>Use <code>LocalDate</code> to store dates instead of creating a custom class,
-<code>TaskDate</code>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Since this is found in the Java API, we do not have to worry about invalid dates
-being keyed.</p>
-</li>
-<li>
-<p>Cons: As the current <code>TaskDate</code> works fine, refactoring the code to <code>LocalDate</code> might
-take some time.</p>
-</li>
-</ul>
-</div>
+<div class="sect3">
+<h4 id="making-decisions"><a class="link" href="#making-decisions">3.2.2. Making Decisions</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 50%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing a task&#8217;s status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A custom class, <code>TaskStatus</code>, is created to keep track of the task&#8217;s status.</p>
+<p class="tableblock">- Pros: Additional statuses can be introduced in easily in the future.<br>
+- Cons: Because a <code>String</code> is used to create a <code>TaskStatus</code>, typos could be made when adding test cases.<br></p>
+<p class="tableblock">This choice was chosen as it does not limit us to only having tasks marked as "COMPLETED" or "NOT COMPLETE".
+Since choice 1 was used, additional status, "RECENTLY COMPLETED" could be added with ease.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use a boolean to check if a task is complete.</p>
+<p class="tableblock">- Pros: Easy to implement.
+- Cons: Limits expansion since a task can only be marked as "COMPLETED" or "NOT COMPLETE".</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorting tasks by date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Every time the <code>add</code>, <code>delete</code>, <code>edit</code> task command is called, a <code>sort</code> is executed.</p>
+<p class="tableblock">- Pros: Easy to implement. Because <code>sort</code> is implemented regardless if the list is in-order or not,
+there is lesser chance for errors.
+- Cons: Because <code>sort</code> is executed every time, this might slow down the performance.</p>
+<p class="tableblock">This choice was chosen as it reduces the chance of errors and is a safer option.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep an instance of the earliest and latest date. If dates fall out of range from the two dates, sorting does not happen.</p>
+<p class="tableblock">- Pros: Faster runtime.<br>
+- Cons: Additional lines of code needed to check if the date falls out of range. Higher chance of making mistakes during implementation.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1221,9 +1187,15 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indecisive person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get food suggestions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">save time when deciding what to eat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unorganised student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort my task list by date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see which task to prioritise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unmotivated student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive motivational messages upon completing tasks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gain motivation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1314,45 +1286,48 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-suggest-food" class="discrete">Use case: Suggest Food</h3>
 <div class="paragraph">
-<p><strong>MSS</strong></p>
+<p>The following is a Use Case diagram for the Dashboard.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests for a food suggestion</p>
-</li>
-<li>
-<p>DukeCooks gives a food recommendation</p>
-</li>
-<li>
-<p>User is satisfied with the recommendation</p>
-<div class="paragraph">
-<p>Use case ends.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/DashboardUseCase.png" alt="DashboardUseCase" width="200">
 </div>
-</li>
-</ol>
+<div class="title">Figure 11: Dashboard Use Case Diagram</div>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p>A use case for marking a task as complete.</p>
 </div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. User is unsatisfied with the food recommendations.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. User asks for another suggestion.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<div class="literalblock">
+<div class="content">
+<pre>Software System: DukeCooks
+UseCase: UC01 - Mark as complete
+Actors: User
+MSS:
+    1. User completes a task and wants to marked it as complete.
+    2. User selects a task according to it's index number to mark as
+complete.
+    3. User enters the command `done task` followed by the index
+number in the command box.
+    4. DukeCooks finds the inputted index number and corresponding
+task and marks it as complete.
+    5. DukeCooks updates the Dashboard to reflect the changes made.
+    6. DukeCooks returns a message: Task is marked as complete, for
+the user.
+
+Extensions:
+1a. User is not currently at the Dashboard.
+    1a1. User enters `goto dashboard`.
+    1a2. DukeCooks displays the Dashboard to the user.
+Use case resumes from step 2.
+
+3a. DukeCooks detects an error in the entered data.
+    3a1. DukeCooks displays an error message.
+    3a2. User enters new data.
+
+Steps 3a1. and 3a2. are repeated until the data entered are correct.
+Use case resumes from step 4.</pre>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 <h3 id="use-case-add-calorie-intake" class="discrete">Use case: Add Calorie Intake</h3>
 <div class="paragraph">
@@ -1693,4 +1668,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:20:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:06:32 UTC</div></div></div></body></html>
