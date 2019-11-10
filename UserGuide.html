@@ -32,6 +32,7 @@
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
 <li><a href="#glossary">5. Glossary</a></li>
+<li><a href="#appendix">6. Appendix</a></li>
 </ul>
 </div>
 </div>
@@ -46,10 +47,10 @@ runs on the Command-Line Interface (CLI), allowing you to execute different comm
 You will be able to manage various aspects of your lifestyle, from your diet, to exercises and health records.</p>
 </div>
 <div class="paragraph">
-<p>(Think of a nice one-liner?)</p>
+<p>You can use DukeCooks to manage all your lifestyle needs, all within one single app.</p>
 </div>
 <div class="paragraph">
-<p>Now you can use DukeCooks to manage all your lifestyle needs, all within a single app.</p>
+<p>With DukeCooks, being healthy has never been easier!</p>
 </div>
 </div>
 <div class="sect2">
@@ -154,7 +155,7 @@ You may click on the following features below to find out more about the feature
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>DukeCooks</code>.</p>
+<p>Download the latest <code>DukeCooks</code> from here (Include link).</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for DukeCooks.</p>
@@ -180,7 +181,7 @@ You may click on the following features below to find out more about the feature
 <div class="sect2">
 <h3 id="general"><a class="link" href="#general">3.1. General</a></h3>
 <div class="paragraph">
-<p>Before we begin, let&#8217;s look at some common commands that will be used through Duke cooks.</p>
+<p>Before we begin, let&#8217;s look at some common commands that will be used through DukeCooks.</p>
 </div>
 <div class="sect3">
 <h4 id="add-commands-code-add-code"><a class="link" href="#add-commands-code-add-code">3.1.1. Add commands: <code>add</code></a></h4>
@@ -1264,16 +1265,32 @@ Format: <code>run &lt;index&gt;</code></p>
 start sharing!</p>
 </div>
 <div class="sect3">
-<h4 id="u-adding-a-diary-u"><a class="link" href="#u-adding-a-diary-u">3.8.1. <u>Adding a diary</u></a></h4>
+<h4 id="taking-a-closer-look-into-the-diary-feature"><a class="link" href="#taking-a-closer-look-into-the-diary-feature">3.8.1. Taking a closer look into the Diary feature</a></h4>
 <div class="paragraph">
-<p>Let&#8217;s first get started by creating diaries with our <code>add diary</code> command</p>
+<p>In the diary feature, you will be able to look through all your available diaries and pages at one quick glance!
+Not only that, you can also enter different commands within the command box.</p>
+</div>
+<div class="paragraph">
+<p>Still confused? You can refer to the following diagram for a better understanding.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/diaryoverview.png" alt="diaryoverview">
+</div>
+<div class="title">Figure 1. Overview of Diary Feature</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-diary"><a class="link" href="#adding-a-diary">3.8.2. Adding a diary</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s get started by adding a diary using the <code>add diary</code> command!</p>
 </div>
 <div class="paragraph">
 <p>Command: <code>add diary</code><br>
 Format: <code>add diary n/ &lt;diary name&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>add diary n/ Asian Cuisines</code></p>
+<p>Example usage: <code>add diary n/ Desserts Galore</code></p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1282,32 +1299,45 @@ Format: <code>add diary n/ &lt;diary name&gt;</code></p>
 <p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/addDiary_before.png" alt="addDiary before" width="450">
+<img src="images/addDiary_before.png" alt="addDiary before">
 </div>
 </div>
 </li>
 <li>
-<p>If the command succeeds, you should see the following message in the result display and a new diary will be added.</p>
+<p>If the command succeeds, you should see the following message in the result display
+and a new diary named "Dessert Galore" will be added.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/addDiary_after.png" alt="addDiary after" width="450">
+<img src="images/addDiary_after.png" alt="addDiary after">
 </div>
 </div>
 </li>
 </ol>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Diary names are only limited to 25 characters.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="u-deleting-a-diary-u"><a class="link" href="#u-deleting-a-diary-u">3.8.2. <u>Deleting a diary</u></a></h4>
+<h4 id="deleting-a-diary"><a class="link" href="#deleting-a-diary">3.8.3. Deleting a diary</a></h4>
 <div class="paragraph">
 <p>Accidentally created an unwanted diary? No worries! You can remove it with our <code>delete diary</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Command: <code>delete diary</code>
-Format: <code>delete diary &lt;index&gt;</code></p>
+<p>Command: <code>delete diary</code><br>
+Format: <code>delete diary &lt;diary index&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>delete diary 1</code></p>
+<p>Example usage: <code>delete diary 8</code></p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1316,15 +1346,16 @@ Format: <code>delete diary &lt;index&gt;</code></p>
 <p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/deleteDiary_before.png" alt="deleteDiary before" width="450">
+<img src="images/deleteDiary_before.png" alt="deleteDiary before">
 </div>
 </div>
 </li>
 <li>
-<p>If the command succeeds, you will see the following message in the result display and the diary wll be removed.</p>
+<p>If the command succeeds, you will see the following message in the result display and the diary "Dessert Galore"
+will be removed.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/deleteDiary_after.png" alt="deleteDiary after" width="450">
+<img src="images/deleteDiary_after.png" alt="deleteDiary after">
 </div>
 </div>
 </li>
@@ -1332,45 +1363,16 @@ Format: <code>delete diary &lt;index&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="u-adding-a-page-u"><a class="link" href="#u-adding-a-page-u">3.8.3. <u>Adding a page</u></a></h4>
+<h4 id="editing-a-diary"><a class="link" href="#editing-a-diary">3.8.4. Editing a diary</a></h4>
 <div class="paragraph">
-<p>Want to customise your diary further? You can do so by adding pages with our <code>add page</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Command: <code>add page</code>
-Command format: <code>add page n/ &lt;diary name&gt; t/ &lt;page title&gt; i/ &lt;image path&gt; desc/ &lt;page description&gt;</code></p>
+<p>Made a minor mistake and would like to correct it? You can do so with our <code>edit diary</code> command!</p>
 </div>
 <div class="paragraph">
-<p>Example usage: <code>add page n/ Asian Food t/ Pho i/ src/main/resources/images/pho.jpg desc/ Simply the best!</code></p>
-</div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
-<div class="paragraph">
-<p><span class="image"><img src="images/addPage_before.png" alt="addPage before" width="450"></span></p>
-</div>
-</li>
-<li>
-<p>If the command is successful, you should see that a new page will be added and the screen shows the following.</p>
-<div class="imageblock">
-<div class="content">
-<img src="images/addPage_after.png" alt="addPage after" width="450">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="u-deleting-a-page-u"><a class="link" href="#u-deleting-a-page-u">3.8.4. <u>Deleting a page</u></a></h4>
-<div class="paragraph">
-<p>Want to remove a page? We&#8217;ve got that covered with our <code>delete page</code> command.</p>
+<p>Command: <code>edit diary</code><br>
+Format: <code>edit diary &lt;diary index&gt; n/ &lt;new diary name&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Command: <code>delete page</code>
-Format: <code>delete page &lt;index&gt; n/ &lt;diary name&gt;</code></p>
+<p>Example usage: <code>edit diary 1 n/ Asian Cuisines</code></p>
 </div>
 <div class="olist arabic">
 <div class="title">Steps</div>
@@ -1379,15 +1381,15 @@ Format: <code>delete page &lt;index&gt; n/ &lt;diary name&gt;</code></p>
 <p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/deletePage_before.png" alt="deletePage before" width="450">
+<img src="images/editDiary_before.png" alt="editDiary before">
 </div>
 </div>
 </li>
 <li>
-<p>If the command is successful, the page will be removed and you will see the following in the result display.</p>
+<p>If the command succeeds, the following result will be displayed and the diary will be edited as shown below.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/deletePage_after.png" alt="deletePage after" width="450">
+<img src="images/editDiary_after.png" alt="editDiary after">
 </div>
 </div>
 </li>
@@ -1395,13 +1397,13 @@ Format: <code>delete page &lt;index&gt; n/ &lt;diary name&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="u-viewing-a-diary-u"><a class="link" href="#u-viewing-a-diary-u">3.8.5. <u>Viewing a diary</u></a></h4>
+<h4 id="viewing-a-diary"><a class="link" href="#viewing-a-diary">3.8.5. Viewing a diary</a></h4>
 <div class="paragraph">
-<p>Want to switch over to another diary? You can do so through our <code>view diary</code> command.</p>
+<p>Want to take a look into another diary? Use the <code>view diary</code> command!</p>
 </div>
 <div class="paragraph">
-<p>Command: <code>view diary</code>
-Format: <code>view diary &lt;index&gt;</code></p>
+<p>Command: <code>view diary</code><br>
+Format: <code>view diary &lt;diary index&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Example usage: <code>view diary 2</code></p>
@@ -1413,15 +1415,16 @@ Format: <code>view diary &lt;index&gt;</code></p>
 <p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/viewDiary_before.png" alt="viewDiary before" width="450">
+<img src="images/viewDiary_before.png" alt="viewDiary before">
 </div>
 </div>
 </li>
 <li>
-<p>If the command is successful, you should see the following result.</p>
+<p>If the command succeeds, the following result will be displayed and both the diary view and page view will switch.
+In this case, the diary will be switched to "Healthy Living" and its corresponding pages will be displayed as shown below.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/viewDiary_after.png" alt="viewDiary after" width="450">
+<img src="images/viewDiary_after.png" alt="viewDiary after">
 </div>
 </div>
 </li>
@@ -1429,7 +1432,226 @@ Format: <code>view diary &lt;index&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="link-recipes-code-coming-in-v2-0-code"><a class="link" href="#link-recipes-code-coming-in-v2-0-code">3.8.6. Link Recipes: <code>[Coming in v2.0]</code></a></h4>
+<h4 id="finding-a-diary"><a class="link" href="#finding-a-diary">3.8.6. Finding a diary</a></h4>
+<div class="paragraph">
+<p>Having difficulty with locating a particular diary? You can use the <code>find diary</code> command to quickly find your desired diary.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>find diary</code><br>
+Format: <code>find diary &lt;keywords&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>find diary singapore</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/findDiary_before.png" alt="findDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, only the found diaries would be displayed as shown below. In this case, all diaries with the
+keyword "singapore" would be found.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/findDiary_after.png" alt="findDiary after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-diaries"><a class="link" href="#listing-all-diaries">3.8.7. Listing all diaries</a></h4>
+<div class="paragraph">
+<p>Want to see all the available diaries? You can use our <code>list diary</code> command to list all available diaries!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>list diary</code><br>
+Format: <code>list diary</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>list diary</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/listDiary_before.png" alt="listDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, all the available diaries would be listed as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/listDiary_after.png" alt="listDiary after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-page"><a class="link" href="#adding-a-page">3.8.8. Adding a page</a></h4>
+<div class="paragraph">
+<p>Looking to customise your diary further? You can do so by adding pages with our <code>add page</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>add page</code><br>
+Command format: <code>add page</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>add page</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="paragraph">
+<p><span class="image"><img src="images/addPage_before.png" alt="addPage before"></span></p>
+</div>
+</li>
+<li>
+<p>You will then be taken to the Page Input Form to provide details of the page.
+In this case, we will be adding a page to the specified diary "Asian Cuisines". You may choose to use your own images
+or you could use our images from <a href="#appendix">here</a>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/addPage_mid.png" alt="addPage mid">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, the page will be added to the specified diary as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/addPage_after.png" alt="addPage after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Page titles are limited to 40 characters.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you made some mistake when filling up the Page Input Form, you can use the <kbd>F2</kbd> key to quickly return focus to
+the top of the Page Input Form.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-page"><a class="link" href="#deleting-a-page">3.8.9. Deleting a page</a></h4>
+<div class="paragraph">
+<p>Want to remove a page? We&#8217;ve got that covered with our <code>delete page</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>delete page</code><br>
+Format: <code>delete page &lt;page index&gt; n/ &lt;diary name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>delete page 4 n/ Asian Cuisines</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key. In this case, we are deleting page 4 from the diary
+"Asian Cuisines".</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/deletePage_before.png" alt="deletePage before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command is successful, the page will be removed and you will see the following in the result display.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/deletePage_after.png" alt="deletePage after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-page"><a class="link" href="#editing-a-page">3.8.10. Editing a page</a></h4>
+<div class="paragraph">
+<p>Making minor changes to a page? You can do so with the <code>edit page</code> command!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>edit page</code><br>
+Format: <code>edit page &lt;page index&gt; n/ &lt;diary name&gt; t/ [new title] tp/ [new type] desc/ [new description] i/ [new image]</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>edit page 1 n/ Asian Cuisines t/ Beef Pho</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key. In this case, we are editing page 1 from the diary
+"Asian Cuisines", looking to change it&#8217;s title to "Beef Pho".</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/editPage_before.png" alt="editPage before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command is successful, the page will be edited and you will see the following in the result display.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/editPage_after.png" alt="editPage after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You are able to edit all different fields within a page. You can make changes to the page title, page type, page description
+or even the page image!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="link-recipes-code-coming-in-v2-0-code"><a class="link" href="#link-recipes-code-coming-in-v2-0-code">3.8.11. Link Recipes: <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Creates a new food page in the specified diary, using pre-existing recipes<br>
 Format: <code>link recipe &lt;recipe exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
@@ -1471,7 +1693,7 @@ Creates a food page about “Caesar Salad” and adds it to the diary named “H
 </div>
 </div>
 <div class="sect3">
-<h4 id="link-exercises-code-coming-in-v2-0-code"><a class="link" href="#link-exercises-code-coming-in-v2-0-code">3.8.7. Link Exercises: <code>[Coming in v2.0]</code></a></h4>
+<h4 id="link-exercises-code-coming-in-v2-0-code"><a class="link" href="#link-exercises-code-coming-in-v2-0-code">3.8.12. Link Exercises: <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Creates a new exercise page in the specified diary, using pre-existing exercises<br>
 Format: <code>link exercise &lt;exercise exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
@@ -1513,7 +1735,7 @@ Creates an exercise page about “Crunch” and adds it to the diary named “He
 </div>
 </div>
 <div class="sect3">
-<h4 id="link-health-records-code-coming-in-v2-0-code"><a class="link" href="#link-health-records-code-coming-in-v2-0-code">3.8.8. Link Health Records: <code>[Coming in v2.0]</code></a></h4>
+<h4 id="link-health-records-code-coming-in-v2-0-code"><a class="link" href="#link-health-records-code-coming-in-v2-0-code">3.8.13. Link Health Records: <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Creates a new health page in the specified diary, using pre-existing records<br>
 Format: <code>link records &lt;record id&gt; /to &lt;diary exerciseName&gt;</code></p>
@@ -1550,59 +1772,6 @@ Format: <code>link records &lt;record id&gt; /to &lt;diary exerciseName&gt;</cod
 <li>
 <p><code>link records BP129391 /to Healthy Living</code><br>
 Creates a health page about “BP129391” and adds it to the diary named “Healthy Living”</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-diary-code-coming-in-v2-0-code"><a class="link" href="#edit-diary-code-coming-in-v2-0-code">3.8.9. Edit Diary: <code>[Coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Allows user to edit some basic information in the diary<br>
-Format: <code>edit &lt;diary exerciseName&gt;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Diary should already exist</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit Healthy Living</code><br>
-Users will now be able to edit basic information in the diary named “Healthy Living”</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-page-code-coming-in-v2-0-code"><a class="link" href="#edit-page-code-coming-in-v2-0-code">3.8.10. Edit Page: <code>[Coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Allows user to edit basic information in the specified page of the specified diary<br>
-Format: <code>edit page &lt;index&gt; &lt;diary exerciseName&gt;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Diary should already exist</p>
-</li>
-<li>
-<p>Index should be a positive integer</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit page 2 Healthy Living</code><br>
-Users will be able to edit some basic information in page 2 of the diary named “Healthy Living”</p>
 </li>
 </ul>
 </div>
@@ -1716,25 +1885,45 @@ e.g. <code>add exercise Inclined Bench Press</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Food Diary</strong></p>
+<p><strong>Diary</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Create Diary</strong> : <code>create diary</code><br>
-e.g. <code>create diary Healthy Living</code></p>
+<p><strong>Adding diary</strong> : <code>add diary n/ &lt;diary name&gt;</code><br>
+e.g. <code>add diary n/ Healthy Living</code></p>
 </li>
 <li>
-<p><strong>Delete Diary</strong> : <code>delete diary &lt;diary exerciseName&gt;</code><br>
-e.g. <code>delete diary Healthy Living</code></p>
+<p><strong>Deleting diary</strong> : <code>delete diary &lt;diary index&gt;</code><br>
+e.g. <code>delete diary 1</code></p>
 </li>
 <li>
-<p><strong>Add page</strong> : <code>add page &lt;type&gt; &lt;diary exerciseName&gt;</code><br>
-e.g. <code>add page health Healthy Living</code></p>
+<p><strong>Editing diary</strong> : <code>edit diary &lt;diary index&gt; n/ &lt;new diary name&gt;</code><br>
+e.g. <code>edit diary 1 n/ Student Life</code></p>
 </li>
 <li>
-<p><strong>Delete page</strong> : <code>delete page &lt;index&gt; &lt;diary exerciseName&gt;</code><br>
-e.g. <code>delete page 2 Healthy Living</code></p>
+<p><strong>Viewing diary</strong> : <code>view diary &lt;diary index&gt;</code><br>
+e.g. <code>view diary 1</code></p>
+</li>
+<li>
+<p><strong>Finding diary</strong> : <code>find diary &lt;keyword&gt;</code><br>
+e.g. <code>find diary Singapore</code></p>
+</li>
+<li>
+<p><strong>Listing diary</strong> : <code>list diary</code><br>
+e.g. <code>list diary</code></p>
+</li>
+<li>
+<p><strong>Adding pages</strong> : <code>add page</code><br>
+e.g. <code>add page</code></p>
+</li>
+<li>
+<p><strong>Deleting pages</strong> : <code>delete page &lt;page index&gt; n/ &lt;diary name&gt;</code><br>
+e.g. <code>delete page 1 n/ Healthy Living</code></p>
+</li>
+<li>
+<p><strong>Editing pages</strong> : <code>edit page &lt;page index&gt; n/ &lt;diary name&gt; t/ [new title] tp/ [new type] desc/ [new description] i/ [new image]</code><br>
+e.g. <code>edit page 1 n/ Healthy Living t/ Yoga</code></p>
 </li>
 </ul>
 </div>
@@ -1745,4 +1934,39 @@ e.g. <code>delete page 2 Healthy Living</code></p>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 17:00:33 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="appendix"><a class="link" href="#appendix">6. Appendix</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here are some pre-defined images that you can use.</p>
+</div>
+<div class="paragraph">
+<p><strong>Pho Image</strong><br>
+Image URL: /images/pho.jpg<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pho.jpg" alt="pho" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Planks Image</strong><br>
+Image URL: /images/planks.jpg<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/planks.jpg" alt="planks" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Low Sugar Foods Image</strong><br>
+Image URL: /images/lowsugar.jpg<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lowsugar.jpg" alt="lowsugar" width="500">
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:25:34 UTC</div></div></div></body></html>
