@@ -36,7 +36,7 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#implementation-of-commands-and-parser">4.1. Implementation of Commands and Parser</a></li>
-<li><a href="#what-makes-up-a-dashboard">4.2. What makes up a Dashboard?</a></li>
+<li><a href="#dashboard-feature">4.2. Dashboard feature</a></li>
 <li><a href="#recipe-book-feature">4.3. Recipe Book feature</a></li>
 <li><a href="#meal-plan-feature">4.4. Meal Plan feature</a></li>
 <li><a href="#workout-planner-feature">4.5. Workout Planner feature</a></li>
@@ -95,8 +95,9 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>DukeCooks is a revolutionary lifestyle application, specially designed for health-conscious individuals. DukeCooks
-runs on the Command-Line Interface (CLI), allowing users to execute different commands, all within a single line.
+<p>DukeCooks is a revolutionary lifestyle application, specially designed for health-conscious individuals. Targeting busy
+students that are long-time users of the Command-Line Interface (CLI), DukeCooks offers such users a CLI healthy
+lifestyle application. This means, expert-CLI student users will be able to execute different commands, all within a single line.
 They will be able to manage various aspects of their lifestyle, from their diet, to exercises and health records.</p>
 </div>
 <div class="paragraph">
@@ -740,10 +741,10 @@ harder to locate bugs. Furthermore, this implementation exposes all underlying c
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-makes-up-a-dashboard"><a class="link" href="#what-makes-up-a-dashboard">4.2. What makes up a Dashboard?</a></h3>
+<h3 id="dashboard-feature"><a class="link" href="#dashboard-feature">4.2. Dashboard feature</a></h3>
 <div class="paragraph">
 <p>In DukeCooks, a <code>Dashboard</code> object represents an event a user needs to attend to, a task. A <code>Dashboard</code> is made up of
-a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>. Below is a class diagram that illustrates how <code>Dashboard</code> interacts with other classes.</p>
+a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>. Below is a class diagram (Figure 10) that illustrates how <code>Dashboard</code> interacts with other classes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -846,7 +847,7 @@ is called to sort the list by date and reflect the newly made changes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DoneTaskSequenceDiagram.png" alt="DoneTaskSequenceDiagram" width="550">
+<img src="images/DoneTaskSequenceDiagram.png" alt="DoneTaskSequenceDiagram" width="600">
 </div>
 <div class="title">Figure 12: Done task Sequence Diagram</div>
 </div>
@@ -861,33 +862,35 @@ is called to sort the list by date and reflect the newly made changes.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Aspect</th>
-<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
-<th class="tableblock halign-left valign-top">Option 2</th>
+<th class="tableblock halign-left valign-top"><strong>Aspect</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Option 1 (Chosen)</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Option 2</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Storing a task&#8217;s status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A custom class, <code>TaskStatus</code>, is created to keep track of the task&#8217;s status.</p>
-<p class="tableblock">- Pros: Additional statuses can be introduced in easily in the future.<br>
-- Cons: Because a <code>String</code> is used to create a <code>TaskStatus</code>, typos could be made when adding test cases.<br></p>
-<p class="tableblock">This choice was chosen as it does not limit us to only having tasks marked as "COMPLETED" or "NOT COMPLETE".
+<p class="tableblock"><strong>Pros</strong>: Additional statuses can be introduced in easily in the future.<br></p>
+<p class="tableblock"><strong>Cons</strong>: Because a <code>String</code> is used to create a <code>TaskStatus</code>, typos could be made when adding test cases.<br></p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as it does not limit us to only having tasks marked as "COMPLETED" or "NOT COMPLETE".
 Since choice 1 was used, additional status, "RECENTLY COMPLETED" could be added with ease.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use a boolean to check if a task is complete.</p>
-<p class="tableblock">- Pros: Easy to implement.
-- Cons: Limits expansion since a task can only be marked as "COMPLETED" or "NOT COMPLETE".</p></td>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong>: Limits expansion since a task can only be marked as "COMPLETED" or "NOT COMPLETE".</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sorting tasks by date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Every time the <code>add</code>, <code>delete</code>, <code>edit</code> task command is called, a <code>sort</code> is executed.</p>
-<p class="tableblock">- Pros: Easy to implement. Because <code>sort</code> is implemented regardless if the list is in-order or not,
-there is lesser chance for errors.
-- Cons: Because <code>sort</code> is executed every time, this might slow down the performance.</p>
-<p class="tableblock">This choice was chosen as it reduces the chance of errors and is a safer option.</p></td>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement. Because <code>sort</code> is implemented regardless if the list is in-order or not,
+there is lesser chance for errors.</p>
+<p class="tableblock"><strong>Cons</strong>: Because <code>sort</code> is executed every time, this might slow down the performance.</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as it reduces the chance of errors making it a safer option.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Keep an instance of the earliest and latest date. If dates fall out of range from the two dates, sorting does not happen.</p>
-<p class="tableblock">- Pros: Faster runtime.<br>
-- Cons: Additional lines of code needed to check if the date falls out of range. Higher chance of making mistakes during implementation.</p></td>
+<p class="tableblock"><strong>Pros</strong>: Faster runtime.</p>
+<p class="tableblock"><strong>Cons</strong>: Additional lines of code needed to check if the date falls out of range. Higher chance of making mistakes during implementation.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2000,9 +2003,53 @@ useful for busy individuals who do not have time to manage different application
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>The following is a Use Case diagram for the Dashboard.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DashboardUseCase.png" alt="DashboardUseCase" width="200">
+</div>
+<div class="title">Figure 11: Dashboard Use Case Diagram</div>
+</div>
+<div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is <code>DukeCooks</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-uc01-adding-recipes" class="discrete">Use case: UC01 - Adding recipes</h3>
+<h3 id="use-case-uc01-mark-as-complete" class="discrete">Use case: UC01 - Mark as complete</h3>
+<div class="paragraph">
+<p>A use case for marking a task as complete.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Software System: DukeCooks
+UseCase: UC01 - Mark as complete
+Actors: User
+MSS:
+1. User completes a task and wants to marked it as complete.
+2. User selects a task according to it's index number to mark as
+complete.
+3. User enters the command `done task` followed by the index
+number in the command box.
+4. DukeCooks finds the inputted index number and corresponding
+task and marks it as complete.
+5. DukeCooks updates the Dashboard to reflect the changes made.
+6. DukeCooks returns a message: Task is marked as complete, for
+the user.
+
+Extensions:
+1a. User is not currently at the Dashboard.
+    1a1. User enters `goto dashboard`.
+    1a2. DukeCooks displays the Dashboard to the user.
+Use case resumes from step 2.
+
+3a. DukeCooks detects an error in the entered data.
+    3a1. DukeCooks displays an error message.
+    3a2. User enters new data.
+
+Steps 3a1. and 3a2. are repeated until the data entered are correct.
+Use case resumes from step 4.</pre>
+</div>
+</div>
+<h3 id="use-case-uc02-adding-recipes" class="discrete">Use case: UC02 - Adding recipes</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2050,50 +2097,6 @@ useful for busy individuals who do not have time to manage different application
 </div>
 </li>
 </ul>
-</div>
-<h3 id="use-case-uc02-suggesting-food" class="discrete">Use case: UC02 - Suggesting Food</h3>
-<div class="paragraph">
-<p>The following is a Use Case diagram for the Dashboard.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DashboardUseCase.png" alt="DashboardUseCase" width="200">
-</div>
-<div class="title">Figure 11: Dashboard Use Case Diagram</div>
-</div>
-<div class="paragraph">
-<p>A use case for marking a task as complete.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Software System: DukeCooks
-UseCase: UC01 - Mark as complete
-Actors: User
-MSS:
-    1. User completes a task and wants to marked it as complete.
-    2. User selects a task according to it's index number to mark as
-complete.
-    3. User enters the command `done task` followed by the index
-number in the command box.
-    4. DukeCooks finds the inputted index number and corresponding
-task and marks it as complete.
-    5. DukeCooks updates the Dashboard to reflect the changes made.
-    6. DukeCooks returns a message: Task is marked as complete, for
-the user.
-
-Extensions:
-1a. User is not currently at the Dashboard.
-    1a1. User enters `goto dashboard`.
-    1a2. DukeCooks displays the Dashboard to the user.
-Use case resumes from step 2.
-
-3a. DukeCooks detects an error in the entered data.
-    3a1. DukeCooks displays an error message.
-    3a2. User enters new data.
-
-Steps 3a1. and 3a2. are repeated until the data entered are correct.
-Use case resumes from step 4.</pre>
-</div>
 </div>
 <h3 id="use-case-uc03-adding-calorie-intake" class="discrete">Use case: UC03 - Adding Calorie Intake</h3>
 <div class="paragraph">
@@ -2496,4 +2499,4 @@ It should be one of the following:</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:02:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:02:18 UTC</div></div></div></body></html>

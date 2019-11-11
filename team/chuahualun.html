@@ -10,7 +10,9 @@
 <h2 id="what-is-in-this-document"><a class="link" href="#what-is-in-this-document">What is in this document?</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document is a project portfolio documenting the contributions made for DukeCooks by the writer - Hua Lun . It will present the user and developer guide of the Dashboard function in DukeCooks.</p>
+<p>This document is a project portfolio documenting the contributions made for DukeCooks by the writer - Hua Lun.<br>
+DukeCooks is the only ever planner you ever need for a healthier lifestyle.<br>
+Here, the Dashboard function&#8217;s user and developer guide in DukeCooks will be presented.</p>
 </div>
 </div>
 </div>
@@ -51,7 +53,7 @@
 <div class="sect2">
 <h3 id="enhancement-1-creating-the-code-done-code-command"><a class="link" href="#enhancement-1-creating-the-code-done-code-command">Enhancement 1: Creating the <code>done</code> command</a></h3>
 <div class="paragraph">
-<p>The 'done' command was created to complement the Dashboard. The user is able to use the command 'done', to mark a task as complete. Whenever a 'done' command is executed, the progress bar will refresh and update to display the latest information.</p>
+<p>The 'done' command was created to complement the Dashboard. The user is able to use the command 'done', to mark a task as complete. Whenever a 'done' command is executed, the progress bar will refresh and update to display the latest information. With the implementation of the progress bar, users will have a better gauge of their progress. A progress bar that is not filled can serve as a signal to the user that they have many tasks undone. This will allow the user to plan their time wisely and complete their tasks on time.</p>
 </div>
 </div>
 <div class="sect2">
@@ -60,19 +62,19 @@
 <p>The 'list' function adapted from AB3, lists all the items in the list. In the case of a dashboard, this might not be adequate. As such, 2 additional functions were added to the <code>list</code> command.</p>
 </div>
 <div class="paragraph">
-<p>By entering <code>list taskcomplete</code> or <code>list taskincomplete</code> will display the list of task marked as complete or task that are not complete respectively. With this enhancement, a user is able to look at what task should be taken care of.</p>
+<p>By entering <code>list taskcomplete</code> or <code>list taskincomplete</code> will display the list of task marked as complete or task that are not complete respectively. With this enhancement, a user is able to look and only focus on the tasks that should be taken care of. Additionally, the <code>list taskcomplete</code> can serve as logbook. It allows the user to have access to the completed task in a quick and efficient manner.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="enhancement-3-upgrading-the-graphic-user-interface-gui"><a class="link" href="#enhancement-3-upgrading-the-graphic-user-interface-gui">Enhancement 3: Upgrading the Graphic User Interface (GUI)</a></h3>
 <div class="paragraph">
-<p>Using AB3’s GUI as a backbone, the Dashboard was created. In the GUI for the Dashboard, it displays a progress bar which shows the progress of the tasks completed. A date picker is used to allow users to have quick access to the calendar. Lastly, as a way to motivate users to complete their task, a pop up window with an encouraging message is added. In order to view the message, users will have to check 5 new tasks as done.</p>
+<p>Using AB3’s GUI as a backbone, the Dashboard was created. In the GUI for the Dashboard, it displays a progress bar which shows the progress of the tasks completed. A date picker is used to allow users to have quick access to the calendar. Lastly, as a way to motivate users to complete their task, a pop up window with an encouraging message in the form of a gif, is added. In order to view the message, users will have to check 5 new tasks as done. Since 5 tasks is required to unlock the message, this will spur the user to finish their task and gain the reward (encouragement message).</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="enhancement-4-sorting-tasks-by-date"><a class="link" href="#enhancement-4-sorting-tasks-by-date">Enhancement 4: Sorting tasks by date</a></h3>
 <div class="paragraph">
-<p>Based off AB3&#8217;s add command, the task that is last added will be display at the last of the list. Hence, in order to improve user&#8217;s experience, a sorting system is built. Now, when a task is added, the task will be displayed based off the date entered in.</p>
+<p>Based off AB3&#8217;s add command, the task that is last added will be display at the last of the list. Hence, in order to improve user&#8217;s experience, a sorting system is built. Now, when a task is added, the task will be displayed based off the date entered in. This will reduce time spent finding out which tasks are nearing the due date, increasing the user&#8217;s efficiency.</p>
 </div>
 </div>
 <div class="sect2">
@@ -97,11 +99,12 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Project management</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed releases <code>v1.2.1</code> (1 release) on GitHub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Managed releases <code>v1.2.1</code> (1 release) on GitHub<br>
+Regularly update <code>Ui.png</code> to the latest version</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Reviewed PRs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User guide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wrote the "Quick Look at DukeCooks" section.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Reported bugs</p></td>
@@ -144,7 +147,8 @@
 <div class="sect2">
 <h3 id="breaking-down-the-dashboard"><a class="link" href="#breaking-down-the-dashboard">Breaking down the Dashboard</a></h3>
 <div class="paragraph">
-<p>For first time users of the CLI, wokring with it can be a daunting task. So, let&#8217;s first start off by understanding what makes up the Dashboard!</p>
+<p>Although DukeCooks is developed for expert CLI users, beginners fret not as DukeCooks' interface is very easy to pick up.
+For first time users of the CLI, we acknowledge that working with it can be a daunting task. So, let&#8217;s first start off by understanding what makes up the Dashboard!</p>
 </div>
 <div class="paragraph">
 <p>In the image below (Figure 1), accompanied with text on the right, provides a brief explanation of the key components found in the Dashboard.</p>
@@ -199,14 +203,15 @@ Format: <code>add task tn/<em>insert task here</em> td/ <em>insert date here</em
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When entering the date for a task, please follow the given format: day/month/year</p>
+<p>Task name entered should not exceed 30 characters.
+When entering the date for a task, please follow the given format: day/month/year.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Example usage (Figure 2): <code>add task tn/Bake CupCakes td/11/11/2019</code></p>
+<p>Example usage (Figure 2 &amp; 3): <code>add task tn/Bake CupCakes td/11/11/2019</code></p>
 </div>
 <div class="paragraph">
 <p>Step 1. Enter the task you want to add into the command box and hit enter.</p>
@@ -262,7 +267,7 @@ Format: <code>edit task <em>index number</em> tn/ <em>insert new name</em> td/ <
 </table>
 </div>
 <div class="paragraph">
-<p>Example usage (Figure 3): <code>edit task 1 tn/Bake cupcakes td/21/10/2019</code></p>
+<p>Example usage (Figure 4 &amp; 5): <code>edit task 1 tn/Bake cupcakes td/21/10/2019</code></p>
 </div>
 <div class="paragraph">
 <p>Step 1. Look at the index number corresponding to the task you want to edit.<br>
@@ -311,7 +316,7 @@ Format: <code>delete task <em>index number</em></code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Example usage (Figure 4): <code>delete task 1</code></p>
+<p>Example usage (Figure 6 &amp; 7): <code>delete task 1</code></p>
 </div>
 <div class="paragraph">
 <p>Step 1. Look at the index number corresponding to the task you want to delete.<br>
@@ -331,7 +336,7 @@ tell you that the task is successfully removed from DukeCooks in the message box
 <div class="content">
 <img src="../images/deletetask2.png" alt="deletetask2" width="500">
 </div>
-<div class="title">Figure 6: Deleting a task success</div>
+<div class="title">Figure 7: Deleting a task success</div>
 </div>
 </div>
 <div class="sect2">
@@ -345,7 +350,7 @@ Check it off the list!</p>
 Format: <code>done task <em>index number</em></code></p>
 </div>
 <div class="paragraph">
-<p>Example usage (Figure 5): <code>done 1</code></p>
+<p>Example usage (Figure 8 &amp; 9): <code>done 1</code></p>
 </div>
 <div class="paragraph">
 <p>Step 1. Look at the index number corresponding to the task you want to mark as complete.<br>
@@ -355,7 +360,7 @@ Step 2. Enter the task index number you want to mark as complete into the comman
 <div class="content">
 <img src="../images/donetask1.png" alt="donetask1" width="500">
 </div>
-<div class="title">Figure 6: Marking a task complete</div>
+<div class="title">Figure 8: Marking a task complete</div>
 </div>
 <div class="paragraph">
 <p>Step 3. If you have correctly inputted the information for marking a task as complete, DukeCooks will
@@ -366,7 +371,7 @@ Step 4. You can view the newly marked task under the Dashboard.</p>
 <div class="content">
 <img src="../images/donetask2.png" alt="donetask2" width="500">
 </div>
-<div class="title">Figure 7: Marking a task complete success</div>
+<div class="title">Figure 9: Marking a task complete success</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -394,7 +399,7 @@ A pop up window with an encouraging message will be displayed for extra motivati
 Format: <code>find task <em>keyword</em></code></p>
 </div>
 <div class="paragraph">
-<p>Example usage (Figure 7): <code>find task project</code></p>
+<p>Example usage (Figure 10 &amp; 11): <code>find task project</code></p>
 </div>
 <div class="paragraph">
 <p>Step 1. Enter the a keyword for that tasks you to find into the command box and hit enter.</p>
@@ -403,7 +408,7 @@ Format: <code>find task <em>keyword</em></code></p>
 <div class="content">
 <img src="../images/findtask1.png" alt="findtask1" width="500">
 </div>
-<div class="title">Figure 8: Finding tasks with a keyword</div>
+<div class="title">Figure 10: Finding tasks with a keyword</div>
 </div>
 <div class="paragraph">
 <p>Step 3. If you have correctly inputted the information for finding a task, DukeCooks will
@@ -414,11 +419,11 @@ Step 4. You can view the task relating to the keyword under the Dashboard.</p>
 <div class="content">
 <img src="../images/findtask2.png" alt="findtask2" width="500">
 </div>
-<div class="title">Figure 9: Finding tasks with a keyword success</div>
+<div class="title">Figure 11: Finding tasks with a keyword success</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="u-viewing-completed-incompleted-tasks-u"><a class="link" href="#u-viewing-completed-incompleted-tasks-u"><u>Viewing completed/incompleted tasks</u></a></h3>
+<h3 id="u-viewing-completed-incomplete-tasks-u"><a class="link" href="#u-viewing-completed-incomplete-tasks-u"><u>Viewing completed/incomplete tasks</u></a></h3>
 <div class="paragraph">
 <p>Look at all those tasks!</p>
 </div>
@@ -427,7 +432,7 @@ Step 4. You can view the task relating to the keyword under the Dashboard.</p>
 Command: <code>list taskcomplete</code></p>
 </div>
 <div class="paragraph">
-<p>For incompleted tasks:<br>
+<p>For incomplete tasks:<br>
 Command: <code>list taskincomplete</code></p>
 </div>
 </div>
@@ -499,13 +504,13 @@ for a clearer view of all tasks due on a certain date!</p>
 <h3 id="what-makes-up-a-dashboard"><a class="link" href="#what-makes-up-a-dashboard">What makes up a Dashboard?</a></h3>
 <div class="paragraph">
 <p>In DukeCooks, a <code>Dashboard</code> object represents an event a user needs to attend to, a task. A <code>Dashboard</code> is made up of
-a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>. Below is a class diagram that illustrates how <code>Dashboard</code> interacts with other classes.</p>
+a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>. Below is a class diagram (Figure 12) that illustrates how <code>Dashboard</code> interacts with other classes.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/DashboardClassDiagram.png" alt="DashboardClassDiagram" width="500">
 </div>
-<div class="title">Figure 10: Dashboard Class Diagram</div>
+<div class="title">Figure 12: Dashboard Class Diagram</div>
 </div>
 </div>
 <div class="sect2">
@@ -530,7 +535,7 @@ a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DashboardUseCase.png" alt="DashboardUseCase" width="200">
+<img src="../images/DashboardUseCase.png" alt="DashboardUseCase" width="250">
 </div>
 <div class="title">Figure 11: Dashboard Use Case Diagram</div>
 </div>
@@ -604,7 +609,7 @@ Here, a task is represented by a Dashboard object.</p>
 <p><code>DukeCooks#list_taskcomlete()</code>&#8201;&#8212;&#8201;Lists all the completed tasks.</p>
 </li>
 <li>
-<p><code>DukeCooks#dashboard()</code>&#8201;&#8212;&#8201;Directs user to the dashboard window.</p>
+<p><code>DukeCooks#goto_dashboard()</code>&#8201;&#8212;&#8201;Directs user to the dashboard window.</p>
 </li>
 </ul>
 </div>
@@ -614,12 +619,12 @@ Here, a task is represented by a Dashboard object.</p>
 <code>Model#getDashboardRecords()</code>.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the add/delete/edit/find/done/dashboard
+<p>Given below is an example usage scenario and how the add/delete/edit/find/done/goto
 mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user is currently at a another part of DukeCooks and wants to go to the Dashboard. The
-user executes the <code>dashboard</code> command. The <code>dashboard</code> command calls <code>Model#getDashboardRecords()</code>,
+user executes the <code>goto</code> command. The <code>dashboard</code> command calls <code>Model#getDashboardRecords()</code>,
 which returns the <code>ReadOnlyDashboard</code> that returns the <code>UniqueDashboardList</code>, iterating over all the task and displaying it on the
 homepage.</p>
 </div>
@@ -660,13 +665,13 @@ the newly created <code>Dashboard</code> object and adds it into the list. After
 is called to sort the list by date and reflect the newly made changes.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 10) shows how the add operation works:</p>
+<p>The following sequence diagram (Figure 13) shows how the add operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DoneTaskSequenceDiagram.png" alt="DoneTaskSequenceDiagram" width="550">
+<img src="../images/DoneTaskSequenceDiagram.png" alt="DoneTaskSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 12: Done task Sequence Diagram</div>
+<div class="title">Figure 13: Done task Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -679,37 +684,51 @@ is called to sort the list by date and reflect the newly made changes.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Aspect</th>
-<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
-<th class="tableblock halign-left valign-top">Option 2</th>
+<th class="tableblock halign-left valign-top"><strong>Aspect</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Option 1 (Chosen)</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Option 2</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Storing a task&#8217;s status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A custom class, <code>TaskStatus</code>, is created to keep track of the task&#8217;s status.</p>
-<p class="tableblock">- Pros: Additional statuses can be introduced in easily in the future.<br>
-- Cons: Because a <code>String</code> is used to create a <code>TaskStatus</code>, typos could be made when adding test cases.<br></p>
-<p class="tableblock">This choice was chosen as it does not limit us to only having tasks marked as "COMPLETED" or "NOT COMPLETE".
+<p class="tableblock"><strong>Pros</strong>: Additional statuses can be introduced in easily in the future.<br></p>
+<p class="tableblock"><strong>Cons</strong>: Because a <code>String</code> is used to create a <code>TaskStatus</code>, typos could be made when adding test cases.<br></p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as it does not limit us to only having tasks marked as "COMPLETED" or "NOT COMPLETE".
 Since choice 1 was used, additional status, "RECENTLY COMPLETED" could be added with ease.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use a boolean to check if a task is complete.</p>
-<p class="tableblock">- Pros: Easy to implement.
-- Cons: Limits expansion since a task can only be marked as "COMPLETED" or "NOT COMPLETE".</p></td>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong>: Limits expansion since a task can only be marked as "COMPLETED" or "NOT COMPLETE".</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sorting tasks by date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Every time the <code>add</code>, <code>delete</code>, <code>edit</code> task command is called, a <code>sort</code> is executed.</p>
-<p class="tableblock">- Pros: Easy to implement. Because <code>sort</code> is implemented regardless if the list is in-order or not,
-there is lesser chance for errors.
-- Cons: Because <code>sort</code> is executed every time, this might slow down the performance.</p>
-<p class="tableblock">This choice was chosen as it reduces the chance of errors and is a safer option.</p></td>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement. Because <code>sort</code> is implemented regardless if the list is in-order or not,
+there is lesser chance for errors.</p>
+<p class="tableblock"><strong>Cons</strong>: Because <code>sort</code> is executed every time, this might slow down the performance.</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as it reduces the chance of errors making it a safer option.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Keep an instance of the earliest and latest date. If dates fall out of range from the two dates, sorting does not happen.</p>
-<p class="tableblock">- Pros: Faster runtime.<br>
-- Cons: Additional lines of code needed to check if the date falls out of range. Higher chance of making mistakes during implementation.</p></td>
+<p class="tableblock"><strong>Pros</strong>: Faster runtime.</p>
+<p class="tableblock"><strong>Cons</strong>: Additional lines of code needed to check if the date falls out of range. Higher chance of making mistakes during implementation.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="acknowledgements"><a class="link" href="#acknowledgements">Acknowledgements</a></h3>
+<div class="paragraph">
+<p>DukeCooks would not be possible without the wonderful support from these people:</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:02:08 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>I would like to thank Prof. Damith for his interesting and insightful lectures on
+Good Software Engineering Practice. Next, Ms Anita providing useful tips in communication and
+presentation skills. Also, Mr Jeffry for his guidance and suggestions for the team.
+Lastly, many thanks to my wonderful teammates and classmates for the support and help when needed.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:02:18 UTC</div></div></div></body></html>
