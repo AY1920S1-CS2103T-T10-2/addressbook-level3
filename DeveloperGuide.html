@@ -41,7 +41,7 @@
 <li><a href="#meal-plan-feature">4.4. Meal Plan feature</a></li>
 <li><a href="#workout-planner-feature">4.5. Workout Planner feature</a></li>
 <li><a href="#health-records-feature">4.6. Health Records feature</a></li>
-<li><a href="#diary-feature">4.7. Diary feature</a></li>
+<li><a href="#DiaryTag">4.7. Diary feature</a></li>
 <li><a href="#logging">4.8. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
@@ -701,29 +701,42 @@ This applies to other type of commands as well, such as <code>DeleteCommand</cod
 </div>
 <div class="title">Figure 9. Structure of Commands and Parser</div>
 </div>
-<div class="paragraph">
-<p>&#160;<br>
-The current implementation provides the added benefit of easier scalability. Overall, we only need to account for the
-type of command (i.e <code>AddCommand</code>, <code>DeleteCommand</code> etc). It&#8217;s corresponding variants (i.e <code>AddRecipeCommand</code>,
-<code>DeleteExerciseCommand</code>) can simply further extend from it. However, its implementation is rather complex and it increases the amount of code within the repository. For each
-command variant added, a corresponding command variant parser needs to be added as well.</p>
-</div>
-<div class="paragraph">
-<p><strong>Alternatives</strong></p>
-</div>
-<div class="paragraph">
-<p>Another possible structure would be for all command variants to extend from the abstract <code>Command</code> class directly.
-Although this implementation is simpler, it can greatly increase the number of switch cases within <code>DukeCooksParser</code>.
-This could potentially increase the difficulty of debugging as it becomes harder to locate the bugs. Furthermore,
-this structure exposes all the different types of commands to <code>DukeCooksParser</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Our Choice</strong></p>
-</div>
-<div class="paragraph">
-<p>We chose to follow the structure provided in the figure above. As our application is comprised of many different
-components with the same variants of commands (i.e Add, Delete, Edit etc), this structure is more suitable as it
-reduces the amount of switch cases within <code>DukeCooksParser</code> and makes testing more manageable.</p>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.1. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Implementing commands and parser</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command variants (i.e <code>AddRecipeCommand</code>, <code>AddExerciseCommand</code>) extend from <code>AddCommand</code>.</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Easier scalability as subsequent variants of <code>AddCommand</code> can simply extend from it.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Complex implementation and increases the amount of code within repository as for each command variant added, a
+corresponding variant parser needs to be added.</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen for DukeCooks which comprises of different components with the same variants of commands (i.e Add, Edit, Delete etc.)
+This reduces the amount of switch cases within <code>DukeCooksParser</code> and makes testing more manageable.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command variants extend from <code>Command</code> class</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Relatively easier to implement.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Greatly increase number of switch cases within <code>DukeCooksParser</code> and this could increase the difficulty of debugging as it becomes
+harder to locate bugs. Furthermore, this implementation exposes all underlying command variants to <code>DukeCooksParser</code>.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1293,7 +1306,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect: Data structure on how the different health types are stored</strong></p>
 </div>
@@ -1335,7 +1348,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-feature"><a class="link" href="#diary-feature">4.7. Diary feature</a></h3>
+<h3 id="DiaryTag"><a class="link" href="#DiaryTag">4.7. Diary feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.7.1. Implementation</a></h4>
 <div class="paragraph">
@@ -1424,31 +1437,7 @@ After a successful execution, the specified diary will be removed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.7.3. Design Considerations</a></h4>
-<div class="paragraph">
-<p>The current implementation of <code>Diary</code> makes use of an ArrayList to store the <code>Page</code> objects.
-This is the simplest implementation as most novice programmers would be familiar with ArrayLists.
-However, list operations tend to take more time to run compared to other data structures such as Sets.</p>
-</div>
-<div class="paragraph">
-<p><strong>Alternatives</strong></p>
-</div>
-<div class="paragraph">
-<p>An alternative to using ArrayList would be to use sets to store <code>Page</code> objects. This could increase the
-overall performance of the program as set operations tend to be faster than list operations. However, using sets
-does not provide an order to <code>Page</code> objects, unlike in lists.</p>
-</div>
-<div class="paragraph">
-<p><strong>Our Choice</strong></p>
-</div>
-<div class="paragraph">
-<p>We chose to use ArrayLists instead as we require the <code>Page</code> objects to be ordered, so that the implementation of
-<code>DeletePageCommand</code> is simplified. An index can simply be provided in <code>DeletePageCommand</code> and the corresponding <code>Page</code>
-object can simply be removed from the ArrayList, using the specified index.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="implementation-of-images"><a class="link" href="#implementation-of-images">4.7.4. Implementation of Images</a></h4>
+<h4 id="implementation-of-images"><a class="link" href="#implementation-of-images">4.7.3. Implementation of Images</a></h4>
 <div class="paragraph">
 <p>All images used in DukeCooks are copied into an internal data folder and all subsequent loading of images is done from
 within this internal folder. The following activity diagram explains how an image is created in DukeCooks:</p>
@@ -1461,27 +1450,55 @@ within this internal folder. The following activity diagram explains how an imag
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.5. Design Considerations</a></h4>
-<div class="paragraph">
-<p>This current implementation of images defensively copies the images into the internal data folder, instead of loading images
-from the user&#8217;s local directory. While it may be slower in terms of performance, it is less prone to unexpected errors when
-loading images.</p>
-</div>
-<div class="paragraph">
-<p><strong>Alternatives</strong></p>
-</div>
-<div class="paragraph">
-<p>An alternative to copying images into an internal data folder would be to load images directly from the user&#8217;s directory
-without saving it internally. This implementation performs better and is much easier to implement.</p>
-</div>
-<div class="paragraph">
-<p><strong>Our Choice</strong></p>
-</div>
-<div class="paragraph">
-<p>We decided to make defensive copies of images in our internal folder as we want to eliminate unexpected errors. By making
-defensive copies internally, we ensure that all images used can be loaded, even if the user decides to delete the original
-image in their local directory.</p>
-</div>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.4. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data structures used to store <code>Page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Page</code> objects are stored using an ArrayList</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Simplest implementation and most novice programmers are familiar with it.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+List operations tend to run slower as compared to other data structures such as sets.</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as we require the <code>Page</code> objects to be ordered, which is a functionality only provided in lists.
+In addition, the ordered <code>Page</code> objects greatly simplify the implementation of other commands such as <code>DeletePageCommand</code>
+as an page index can simply be provided to execute the command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Page</code> objects are stored using Sets</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Faster runtime.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Sets do not provide an order to the <code>Page</code> objects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loading of images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defensively copies images into our internal data folder and all subsequent loading of images is done from this folder.</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Less prone to user errors when loading images (i.e Deleted image in local directory)</p>
+<p class="tableblock"><strong>Cons</strong><br>
+ Increased memory usage as each image needs to be saved internally</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as it is less-prone to user errors and is safer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load images directly from user&#8217;s directory</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+ May lead to unexpected errors when loading images (i.e when user deletes the image from directory)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2479,4 +2496,4 @@ It should be one of the following:</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:11:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:02:08 UTC</div></div></div></body></html>

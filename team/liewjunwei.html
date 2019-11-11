@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Liew Jun Wei - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-t10-2.github.io/main/"><img src="/images/DukeCooks_Logo.png" alt="Team DukeCooks"></a><div class="container"><a class="navbar-brand" href="../index.html">DukeCooks</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Liew Jun Wei - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-dukecooks-insert-logo"><a class="link" href="#project-dukecooks-insert-logo">Project: DukeCooks &lt;Insert Logo?&gt;</a></h2>
+<h2 id="project-dukecooks-span-class-image-img-src-images-dukecooks_logo-png-alt-dukecooks-logo-width-50-span"><a class="link" href="#project-dukecooks-span-class-image-img-src-images-dukecooks_logo-png-alt-dukecooks-logo-width-50-span">Project: DukeCooks <span class="image"><img src="../images/DukeCooks_Logo.png" alt="DukeCooks Logo" width="50"></span></a></h2>
 <div class="sectionbody">
 
 </div>
@@ -28,7 +28,7 @@ executed all within a single line, saving you even more time!</p>
 <h2 id="who-developed-dukecooks"><a class="link" href="#who-developed-dukecooks">Who developed DukeCooks?</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>DukeCooks is developed by a group of Year 2 Computing students from the National University of Singapore.</p>
+<p>DukeCooks is developed by a group of Year 2 students from: <a href="http://www.comp.nus.edu.sg">School of Computing, National University of Singapore</a>.</p>
 </div>
 </div>
 </div>
@@ -58,107 +58,116 @@ to DukeCooks in the following 3 main areas:</p>
 <h2 id="contributions-to-overall-project"><a class="link" href="#contributions-to-overall-project">Contributions to Overall Project</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="major-enhancement"><a class="link" href="#major-enhancement">Major Enhancement</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
-</li>
-<li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
-</li>
-</ul>
+<h3 id="building-the-diary-feature"><a class="link" href="#building-the-diary-feature">Building the diary feature</a></h3>
+<div class="paragraph">
+<p>The diary feature provide users with the ability to share their fitness and health tips. Furthermore, it allows users to
+view diaries in a simple and intuitive manner. The initial works for building the diary feature includes heavy referencing from the existing
+Address Book 3 (AB3) codebase.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor enhancement</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
-</li>
-</ul>
+<h3 id="major-enhancements"><a class="link" href="#major-enhancements">Major Enhancements</a></h3>
+<div class="sect3">
+<h4 id="enhancement-1-creating-the-code-viewdiarycommand-code"><a class="link" href="#enhancement-1-creating-the-code-viewdiarycommand-code">Enhancement 1: Creating the <code>ViewDiaryCommand</code></a></h4>
+<div class="paragraph">
+<p>The <code>ViewDiaryCommand</code> is created to allow users to switch views between different diaries</p>
+</div>
+<div class="paragraph">
+<p>This is specially designed so that users can switch diary views, without having to rely on clicking the mouse.</p>
+</div>
+<div class="paragraph">
+<p>The functionality of <code>ViewDiaryCommand</code> is quite similar to that of <code>ListCommand</code> in AB3. I have modified the <code>ListCommand</code>
+in AB3 to allow the user to provide an diary index and only display that corresponding diary.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="enhancement-2-creating-the-code-addpagecommand-code-page-input-form"><a class="link" href="#enhancement-2-creating-the-code-addpagecommand-code-page-input-form">Enhancement 2: Creating the <code>AddPageCommand</code> Page Input Form</a></h4>
+<div class="paragraph">
+<p>If <code>AddPageCommand</code> is executed, it opens a Page Input Form for users to enter their page details.</p>
+</div>
+<div class="paragraph">
+<p>As a page&#8217;s details can get quite lengthy, the Page Input Form is created to help users by providing a GUI
+interface that is more suited for lengthy inputs.</p>
+</div>
+<div class="paragraph">
+<p>This enhancement required heavy works in terms of GUI and I had to ensure that the inputs provided in the Page Input Form
+are first validated before it can be executed as a command.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancements"><a class="link" href="#minor-enhancements">Minor Enhancements</a></h3>
+<div class="sect3">
+<h4 id="enhancement-adding-icons-and-colours-to-pages"><a class="link" href="#enhancement-adding-icons-and-colours-to-pages">Enhancement: Adding icons and colours to pages</a></h4>
+<div class="paragraph">
+<p>I have added different icons and colours to represent a page&#8217;s type. There are currently 3 different page types: health, exercise and food.
+By differentiating the pages through colours and icons, users are able to quickly identify the
+different page types with one glance.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code-contribution"><a class="link" href="#code-contribution">Code Contribution</a></h3>
+<div class="paragraph">
+<p>Visit this <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=bigjunnn&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">link</a> to check out my contributions made to DukeCooks.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="paragraph">
+<p><strong>Project management</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.1</code>, <code>v1.2</code>, <code>v1.3</code> (3 releases) on GitHub</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>Documentation</strong></p>
 </div>
-</li>
-<li>
-<p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
-</li>
-</ul>
+<p>Minor cosmetic tweaks to contents of User Guide and Developer Guide.</p>
+<div class="paragraph">
+<p>(PR <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/pull/181">#181</a>)</p>
 </div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
+<p><strong>Bug Reports</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams within the same class</p>
+<div class="paragraph">
+<p>(<a href="https://github.com/bigjunnn/ped/issues/1">Issue 1</a>,
+<a href="https://github.com/bigjunnn/ped/issues/2">Issue 2</a>,
+<a href="https://github.com/bigjunnn/ped/issues/3">Issue 3</a>,
+<a href="https://github.com/bigjunnn/ped/issues/4">Issue 4</a>,
+<a href="https://github.com/bigjunnn/ped/issues/5">Issue 5</a>,
+<a href="https://github.com/bigjunnn/ped/issues/6">Issue 6</a>,
+<a href="https://github.com/bigjunnn/ped/issues/7">Issue 7</a>)</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Tool Integration</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated DukeCooks with <a href="https://www.appveyor.com/">AppVeyor</a> (Continuous Integration tool), <a href="https://www.netlify.com/">Netlify</a> (Deployment Preview tool) and <a href="https://coveralls.io/">Coveralls</a> (Code Coverage tool).</p>
+<div class="paragraph">
+<p>(PR <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/pull/35">#35</a>)</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -177,6 +186,527 @@ You may visit this <a href="https://ay1920s1-cs2103t-t10-2.github.io/main/UserGu
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="DiaryTag"><a class="link" href="#DiaryTag">Diary</a></h3>
+<div class="paragraph">
+<p>Want to share great recipes and workout tips with your friends? Look through the available commands in this section and
+start sharing!</p>
+</div>
+<div class="sect3">
+<h4 id="taking-a-closer-look-into-the-diary-feature"><a class="link" href="#taking-a-closer-look-into-the-diary-feature">Taking a closer look into the Diary feature</a></h4>
+<div class="paragraph">
+<p>In the diary feature, you will be able to look through all your available diaries and pages at one quick glance!
+Not only that, you can also enter different commands within the command box.</p>
+</div>
+<div class="paragraph">
+<p>Still confused? You can refer to the following diagram for a better understanding.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/diaryOverview.png" alt="diaryOverview">
+</div>
+<div class="title">Figure 1. Overview of Diary Feature</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-diary"><a class="link" href="#adding-a-diary">Adding a diary</a></h4>
+<div class="paragraph">
+<p>Let&#8217;s get started by adding a diary using the <code>add diary</code> command!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>add diary</code><br>
+Format: <code>add diary n/ &lt;diary name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>add diary n/ Desserts Galore</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addDiary_before.png" alt="addDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you should see the following message in the result display
+and a new diary named "Dessert Galore" will be added.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addDiary_after.png" alt="addDiary after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Diary names are only limited to 25 characters.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-diary"><a class="link" href="#deleting-a-diary">Deleting a diary</a></h4>
+<div class="paragraph">
+<p>Accidentally created an unwanted diary? No worries! You can remove it with our <code>delete diary</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>delete diary</code><br>
+Format: <code>delete diary &lt;diary index&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>delete diary 8</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteDiary_before.png" alt="deleteDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display and the diary "Dessert Galore"
+will be removed.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deleteDiary_after.png" alt="deleteDiary after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-diary"><a class="link" href="#editing-a-diary">Editing a diary</a></h4>
+<div class="paragraph">
+<p>Made a minor mistake and would like to correct it? You can do so with our <code>edit diary</code> command!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>edit diary</code><br>
+Format: <code>edit diary &lt;diary index&gt; n/ &lt;new diary name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>edit diary 1 n/ Asian Cuisines</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editDiary_before.png" alt="editDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, the following result will be displayed and the diary will be edited as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editDiary_before.png" alt="editDiary before">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-a-diary"><a class="link" href="#viewing-a-diary">Viewing a diary</a></h4>
+<div class="paragraph">
+<p>Want to take a look into another diary? Use the <code>view diary</code> command!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>view diary</code><br>
+Format: <code>view diary &lt;diary index&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>view diary 2</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/viewDiary_before.png" alt="viewDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, the following result will be displayed and both the diary view and page view will switch.
+In this case, the diary will be switched to "Healthy Living" and its corresponding pages will be displayed as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/viewDiary_before.png" alt="viewDiary before">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-a-diary"><a class="link" href="#finding-a-diary">Finding a diary</a></h4>
+<div class="paragraph">
+<p>Having difficulty with locating a particular diary? You can use the <code>find diary</code> command to quickly find your desired diary.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>find diary</code><br>
+Format: <code>find diary &lt;keywords&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>find diary singapore</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/findDiary_before.png" alt="findDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, only the found diaries would be displayed as shown below. In this case, all diaries with the
+keyword "singapore" would be found.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/findDiary_after.png" alt="findDiary after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-diaries"><a class="link" href="#listing-all-diaries">Listing all diaries</a></h4>
+<div class="paragraph">
+<p>Want to see all the available diaries? You can use our <code>list diary</code> command to list all available diaries!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>list diary</code><br>
+Format: <code>list diary</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>list diary</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/listDiary_before.png" alt="listDiary before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, all the available diaries would be listed as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/listDiary_after.png" alt="listDiary after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-page"><a class="link" href="#adding-a-page">Adding a page</a></h4>
+<div class="paragraph">
+<p>Looking to customise your diary further? You can do so by adding pages with our <code>add page</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>add page</code><br>
+Command format: <code>add page</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>add page</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addPage_before.png" alt="addPage before">
+</div>
+</div>
+</li>
+<li>
+<p>You will then be taken to the Page Input Form to provide details of the page.
+In this case, we will be adding a page to the specified diary "Asian Cuisines". You may choose to use your own images
+or you could use our images from <a href="#Appendix">here</a>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addPage_mid.png" alt="addPage mid">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, the page will be added to the specified diary as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addPage_after.png" alt="addPage after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Page titles are limited to 40 characters.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you made some mistake when filling up the Page Input Form, you can use the <kbd>F2</kbd> key to quickly return focus to
+the top of the Page Input Form.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-page"><a class="link" href="#deleting-a-page">Deleting a page</a></h4>
+<div class="paragraph">
+<p>Want to remove a page? We&#8217;ve got that covered with our <code>delete page</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>delete page</code><br>
+Format: <code>delete page &lt;page index&gt; n/ &lt;diary name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>delete page 4 n/ Asian Cuisines</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key. In this case, we are deleting page 4 from the diary
+"Asian Cuisines".</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deletePage_before.png" alt="deletePage before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command is successful, the page will be removed and you will see the following in the result display.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/deletePage_after.png" alt="deletePage after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-page"><a class="link" href="#editing-a-page">Editing a page</a></h4>
+<div class="paragraph">
+<p>Making minor changes to a page? You can do so with the <code>edit page</code> command!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>edit page</code><br>
+Format: <code>edit page &lt;page index&gt; n/ &lt;diary name&gt; t/ [new title] tp/ [new type] desc/ [new description] i/ [new image]</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>edit page 1 n/ Asian Cuisines t/ Beef Pho</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key. In this case, we are editing page 1 from the diary
+"Asian Cuisines", looking to change it&#8217;s title to "Beef Pho".</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editPage_before.png" alt="editPage before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command is successful, the page will be edited and you will see the following in the result display.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/editPage_after.png" alt="editPage after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You are able to edit all different fields within a page. You can make changes to the page title, page type, page description
+or even the page image!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="link-recipes-code-coming-in-v2-0-code"><a class="link" href="#link-recipes-code-coming-in-v2-0-code">Link Recipes: <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Creates a new food page in the specified diary, using pre-existing recipes<br>
+Format: <code>link recipe &lt;recipe exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Diary should already exist</p>
+</li>
+<li>
+<p>Recipe should already exist</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deleting recipes will not delete the linked pages in diary!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>link recipe Caesar Salad /to Healthy Living</code><br>
+Creates a food page about “Caesar Salad” and adds it to the diary named “Healthy Living”</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="link-exercises-code-coming-in-v2-0-code"><a class="link" href="#link-exercises-code-coming-in-v2-0-code">Link Exercises: <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Creates a new exercise page in the specified diary, using pre-existing exercises<br>
+Format: <code>link exercise &lt;exercise exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Diary should already exist</p>
+</li>
+<li>
+<p>Exercise should already exist</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deleting exercises will not delete the linked pages in diary!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>link exercise Crunch /to Healthy Living</code><br>
+Creates an exercise page about “Crunch” and adds it to the diary named “Healthy Living”</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="link-health-records-code-coming-in-v2-0-code"><a class="link" href="#link-health-records-code-coming-in-v2-0-code">Link Health Records: <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Creates a new health page in the specified diary, using pre-existing records<br>
+Format: <code>link records &lt;record id&gt; /to &lt;diary exerciseName&gt;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Diary should already exist</p>
+</li>
+<li>
+<p>Records should already exist</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deleting health records will not delete the linked pages in diary!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>link records BP129391 /to Healthy Living</code><br>
+Creates a health page about “BP129391” and adds it to the diary named “Healthy Living”</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -193,8 +723,159 @@ You may visit this <a href="https://ay1920s1-cs2103t-t10-2.github.io/main/Develo
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="DiaryTag"><a class="link" href="#DiaryTag">Diary feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>The current implementation of Diary consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each <code>Diary</code> consists of a unique <code>DiaryName</code></p>
+</li>
+<li>
+<p>Each <code>Diary</code> contains an array list of <code>Page</code></p>
+</li>
+<li>
+<p>Each <code>Page</code> is identified by a unique <code>Title</code>, <code>PageType</code>, <code>Page Description</code> and <code>Page Image</code></p>
+</li>
+<li>
+<p>Each class has their respective getter methods</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class diagram below gives an overview of the <code>Diary</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
+</div>
+<div class="title">Figure 2. Diary Class Diagram</div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:11:41 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="implementation-of-diary-commands"><a class="link" href="#implementation-of-diary-commands">Implementation of diary commands</a></h4>
+<div class="paragraph">
+<p><code>Diary</code> class supports multiple commands. It includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddDiaryCommand</code> - Adds a <code>Diary</code> into DukeCooks</p>
+</li>
+<li>
+<p><code>DeleteDiaryCommand</code> - Deletes a <code>Diary</code> from DukeCooks</p>
+</li>
+<li>
+<p><code>EditDiaryCommand</code> - Edits the specified <code>Diary</code> with a new <code>DiaryName</code></p>
+</li>
+<li>
+<p><code>ViewDiaryCommand</code> - Views the specified <code>Diary</code> using the provided index</p>
+</li>
+<li>
+<p><code>FindDiaryCommand</code> - Finds the specified <code>Diary</code> using the provided keyword</p>
+</li>
+<li>
+<p><code>ListDiaryCommand</code> - Lists all available diaries to user</p>
+</li>
+<li>
+<p><code>AddPageCommand</code> - Adds a new <code>Page</code> to the specified <code>Diary</code></p>
+</li>
+<li>
+<p><code>DeletePageCommand</code> - Deletes the <code>Page</code> in the specified <code>Diary</code></p>
+</li>
+<li>
+<p><code>EditPageCommand</code> - Edits various fields of the specified <code>Page</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All the above commands behave similarly. The commands will be parsed in <code>DukeCooksParser</code> first and based on their
+types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be invoked (i.e <code>AddDiaryCommandParser</code>,
+<code>DeleteDiaryCommandParser</code> etc). After which, the corresponding command will be executed (i.e <code>AddDiaryCommand</code>,
+<code>DeleteDiaryCommand</code> etc).</p>
+</div>
+<div class="paragraph">
+<p>The figure below describes the execution of an <code>DeleteDiaryCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteDiarySequenceDiagram.png" alt="DeleteDiarySequenceDiagram">
+</div>
+<div class="title">Figure 3. Sequence Diagram of DeleteDiaryCommand</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br>
+After a successful execution, the specified diary will be removed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-images"><a class="link" href="#implementation-of-images">Implementation of Images</a></h4>
+<div class="paragraph">
+<p>All images used in DukeCooks are copied into an internal data folder and all subsequent loading of images is done from
+within this internal folder. The following activity diagram explains how an image is created in DukeCooks:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImageActivityDiagram.png" alt="ImageActivityDiagram">
+</div>
+<div class="title">Figure 4. Activity diagram of adding images</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data structures used to store <code>Page</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Page</code> objects are stored using an ArrayList</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Simplest implementation and most novice programmers are familiar with it.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+List operations tend to run slower as compared to other data structures such as sets.</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as we require the <code>Page</code> objects to be ordered, which is a functionality only provided in lists.
+In addition, the ordered <code>Page</code> objects greatly simplify the implementation of other commands such as <code>DeletePageCommand</code>
+as an page index can simply be provided to execute the command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Page</code> objects are stored using Sets</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Faster runtime.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Sets do not provide an order to the <code>Page</code> objects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loading of images</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defensively copies images into our internal data folder and all subsequent loading of images is done from this folder.</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Less prone to user errors when loading images (i.e Deleted image in local directory)</p>
+<p class="tableblock"><strong>Cons</strong><br>
+ Increased memory usage as each image needs to be saved internally</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This choice was chosen as it is less-prone to user errors and is safer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Load images directly from user&#8217;s directory</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+ May lead to unexpected errors when loading images (i.e when user deletes the image from directory)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:02:08 UTC</div></div></div></body></html>
