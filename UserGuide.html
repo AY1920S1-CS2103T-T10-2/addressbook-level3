@@ -143,7 +143,7 @@ Start making a task list for the things you plan to do and never have to forget 
 <p>Recipe Book - (Fill in a simple line for your feature?)</p>
 </li>
 <li>
-<p>Exercise - (Fill in a simple line for your feature?)</p>
+<p>Workout Planner - Create custom workouts and track your progress!</p>
 </li>
 <li>
 <p>Health - (Fill in a simple line for your feature?)</p>
@@ -1315,15 +1315,72 @@ Generates a PDF copy of all the blood sugar and blood pressure records respectiv
 <div class="sect2">
 <h3 id="workout-tracker"><a class="link" href="#workout-tracker">3.7. Workout Tracker</a></h3>
 <div class="paragraph">
-<p>Planning your next workout? You can refer to the commands in this section to help you get started with your
-exercise regime in DukeCooks.</p>
+<p>So you&#8217;ve decided to put your gym membership to use and want to plan your next workout regime. Head down to the
+workout planner tab to create your custom workouts and track your progress!</p>
+</div>
+<div class="paragraph">
+<p>But wait! I have no idea how to begin with this, you may be thinking. Fret not, read further to see a breakdown of the
+workout planner screen and what you can do with it!</p>
 </div>
 <div class="sect3">
-<h4 id="adding-an-exercise-code-add-exercise-code"><a class="link" href="#adding-an-exercise-code-add-exercise-code">3.7.1. Adding an exercise: <code>add exercise</code></a></h4>
+<h4 id="workout-planner-screen"><a class="link" href="#workout-planner-screen">3.7.1. Workout Planner Screen</a></h4>
 <div class="paragraph">
-<p>Adds an exercise to exercise list. You will be required to specify the primary muscle of the exercise, its intensity
-as well as its name. Optional fields like secondary muscles and exercise details such as reps, sets can also be added.
-The following shows the fields and which are optional:<br>
+<p>Alright, I&#8217;m now at the workout screen! What&#8217;s next?</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/workoutScreen1.png" alt="workoutScreen1">
+</div>
+<div class="title">Figure 1. Workout Screen</div>
+</div>
+<div class="paragraph">
+<p>As seen in the screenshot above, the Workout Planner screen is similar to the other screens, with the main
+difference being the list of Exercise cards and Workout Cards. Not too sure about what to work on or need suggestions?
+Workout Planner begins with prebuilt Exercises and Workouts installed to get you started.</p>
+</div>
+<div class="paragraph">
+<p>Over on the left, is the list of Exercise Cards. Each card informs you of the name, primary muscle as well as the
+intensity of the exercise. To get more information of the exercise, you can use the view command which will be covered
+in section 3.7.3 of the User Guide.</p>
+</div>
+<div class="paragraph">
+<p>Similarly on the right we have the list of Workout Cards. The Workout Cards shows the Workout name, the number of
+Exercises in the workout as well as the last time the workout was ran. You can also tell the intensity of the
+workout from the image of the card.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/workoutLowIntensity.png" alt="workoutLowIntensity">
+</div>
+<div class="title">Figure 2. Low Intensity Card</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/workoutMediumIntensity.png" alt="workoutMediumIntensity">
+</div>
+<div class="title">Figure 3. Medium Intensity Card</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/workoutHighIntensity.png" alt="workoutHighIntensity">
+</div>
+<div class="title">Figure 4. High Intensity Card</div>
+</div>
+<div class="paragraph">
+<p>Similarly, to find more information on the workout, you can use the view command which is covered in a later
+section of this User Guide.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-an-exercise-code-add-exercise-code"><a class="link" href="#adding-an-exercise-code-add-exercise-code">3.7.2. Adding an exercise: <code>add exercise</code></a></h4>
+<div class="paragraph">
+<p>"I now know the components of the Workout Planner! So what can I do with it?"</p>
+</div>
+<div class="paragraph">
+<p>Well I&#8217;m glad you asked kind person! To start off, we have the add exercise command which creates new
+exercises for your workouts. To add an exercise, you must first specify its name, primary muscle trained as well
+as its intensity. You can also add optional fields such as secondary muscles and exercise details like sets and reps.
+The following shows all the possible fields that can be added:<br>
 * Name<br>
 * Primary Muscle<br>
 * Intensity<br>
@@ -1333,105 +1390,362 @@ The following shows the fields and which are optional:<br>
 * Timing (optional) <br>
 * Distance (optional)<br>
 * Exercise Weight (optional)<br>
-The format is as follow:<br>
+To add the exercise, simply input the fields in the Command Box in the following format:<br>
 Format: <code>add exercise n/EXERCISE_NAME p/PRIMARY_MUSCLE sm/SECONDARY_MUSCLE i/INTENSITY
 s/SETS r/REPETITIONS d/ DISTANCE w/WEIGHT t/TIMING</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
+<div class="paragraph">
+<p>The following images show an example of the command being inputted and its corresponding
+outputs.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addExerciseInputExample.png" alt="addExerciseInputExample">
+</div>
+<div class="title">Figure 5. Example input</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addExerciseOutput.png" alt="addExerciseOutput">
+</div>
+<div class="title">Figure 6. Example output</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-exercise-code-view-exercise-code"><a class="link" href="#view-exercise-code-view-exercise-code">3.7.3. View Exercise: <code>view exercise</code></a></h4>
+<div class="paragraph">
+<p>Ok, now that you&#8217;ve added your exercise, you probably want to know what all of its details. Simply
+input the command <code>view exercise</code> followed by the index of the exercise you want
+to view as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewExerciseInput.png" alt="viewExerciseInput">
+</div>
+<div class="title">Figure 7. Example Input</div>
+</div>
+<div class="paragraph">
+<p>The screen should now show the full details of the exercise in question. Let&#8217;s get you up to
+speed with what&#8217;s what.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewExerciseOutput.png" alt="viewExerciseOutput">
+</div>
+<div class="title">Figure 8. Exercise Details Screen</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Basic Details<br>
+The first segment comprises of the basic details of the exercise. This includes the Exercise
+Name, Intensity, Primary and Secondary Muscles, Number of times the exercise has been executed,
+Average Run Time of the Exercise as well as some of its details.</p>
+</li>
+<li>
+<p>Previous Attempts<br>
+Next up we have a history of all the previous attempts of the exercise. This includes the workout
+that the exercise is done in, the time it was done as well as the time it took. It also specifies
+the number of sets attempted and completed.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The details on this page is automatically updated with each workout run. To return back to
+the exercise page, simply invoke the <code>goto exercise</code> command.</p>
+</div>
+<div class="paragraph">
+<p>More statistics as well as graph view will be implemented in version 2.0.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-exercise"><a class="link" href="#find-exercise">3.7.4. Find Exercise:</a></h4>
+<div class="paragraph">
+<p>Now that you have a sizable amount of Exercises, you realise that you cannot easily find them
+amongst the sea of cards. To tackle this problem of seamless navigation, we implemented the
+find command.</p>
+</div>
+<div class="paragraph">
+<p>Find Exercise works in 3 ways:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add exercise n/Bench Press p/Chest i/medium sm/Triceps s/5 r/5 w/80 kg</code><br>
-Output: <em>New Exercise added: Bench Press</em></p>
+<p>By Name</p>
+</li>
+<li>
+<p>By Muscles Trained (inclusive of both primary and secondary muscles)</p>
+</li>
+<li>
+<p>By Intensity</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>To use the following command, simply type <code>find</code> in the command box followed by the variant
+you wish to utilise and the predicate.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To find by name, the variant word is <code>exercise</code></p>
+</li>
+<li>
+<p>To find by muscles trained, the variant word is <code>exerciseMuscle</code></p>
+</li>
+<li>
+<p>To find by intensity, the variant word is <code>exerciseIntensity</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findExercise.png" alt="findExercise">
+</div>
+<div class="title">Figure 9. Find by Exercise Name</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findExerciseMuscle.png" alt="findExerciseMuscle">
+</div>
+<div class="title">Figure 10. Find by Muscles Trained</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findExerciseIntensity.png" alt="findExerciseIntensity">
+</div>
+<div class="title">Figure 11. Find by Intensity</div>
+</div>
+<div class="paragraph">
+<p>The filtered lists will then be shown as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findExerciseOutput.png" alt="findExerciseOutput">
+</div>
+<div class="title">Figure 12. Find Output</div>
+</div>
+<div class="paragraph">
+<p>To show every exercise again, simply invoke the <code>list exercise</code> command.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="list-exercise-code-list-exercise-code"><a class="link" href="#list-exercise-code-list-exercise-code">3.7.2. List Exercise: <code>list exercise</code></a></h4>
+<h4 id="add-workout-code-add-workout-code"><a class="link" href="#add-workout-code-add-workout-code">3.7.5. Add Workout: <code>add workout</code></a></h4>
 <div class="paragraph">
-<p>List exercises which matches optional parameters specified eg. muscle type/intensity.<br>
+<p>Now that you&#8217;ve created all your exercise, you&#8217;re ready to create a workout plan! To create
+a workout, input <code>add workout n/NAME</code> into the command box, replacing <code>NAME</code> with the name
+of your workout. This will initialise your Workout with no exercises in it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addWorkoutInput.png" alt="addWorkoutInput">
+</div>
+<div class="title">Figure 13. Add Workout Input</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addWorkoutOutput.png" alt="addWorkoutOutput">
+</div>
+<div class="title">Figure 14. Add Workout Output</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="push-exercise-code-push-exercise-code"><a class="link" href="#push-exercise-code-push-exercise-code">3.7.6. Push Exercise <code>push exercise</code></a></h4>
+<div class="paragraph">
+<p>Once you have initialised your workout, you are now ready to add your exercise into your
+workouts! To do so simply locate the index of the exercise you want to push and the workout
+you want to push your exercise into. Then input the command in the following format <code>push
+ exercise wi/WORKOUT_INDEX ei/EXERCISE_INDEX</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pushExerciseInput.png" alt="pushExerciseInput">
+</div>
+<div class="title">Figure 15. Pushing Bench Press into Chest Day</div>
+</div>
+<div class="paragraph">
+<p>For example, if you want to add Bench Press exercise into Chest Day workout, type in
+<code>push exercise wi/4 ei/8</code> in the command box as seen above. You will get the following input.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pushExerciseOutput.png" alt="pushExerciseOutput">
+</div>
+<div class="title">Figure 16. Push Exercise Results</div>
+</div>
+<div class="paragraph">
+<p>Now that you know you know how to push exercises, you can go ahead and add in all the exercises
+needed for your ULITMATE workout regime!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-workout-code-view-workout-code"><a class="link" href="#view-workout-code-view-workout-code">3.7.7. View Workout: <code>view workout</code></a></h4>
+<div class="paragraph">
+<p>You&#8217;ve created your workout regime, but you&#8217;re unsure of the details and your progress. With
+the <code>view workout</code> feature, you can check all the details of your workout as well as its
+history!</p>
+</div>
+<div class="paragraph">
+<p>Similar to <code>view exercise</code>, type in <code>view workout</code> followed by the index of the workout you&#8217;re
+interested in. So if you want to view 'Chest Day' you can follow the image below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewWorkoutInput.png" alt="viewWorkoutInput">
+</div>
+<div class="title">Figure 17. Viewing Chest Day Workout</div>
+</div>
+<div class="paragraph">
+<p>The following screen will now appear. To orientate you, here are the components of the screen:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Basic Details<br>
+This component shows the Name, Intensity, Number of times completed, Average Run Time and
+Muscles Trained by the workout.</p>
+</li>
+<li>
+<p>Exercises<br>
+The exercises segment show a list of all exercises contained in the workout as well as its
+exercise details</p>
+</li>
+<li>
+<p>Workout History<br>
+The workout history compiles a list of all the times you have ran and completed this workout</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewWorkoutOutput.png" alt="viewWorkoutOutput">
+</div>
+<div class="title">Figure 18. Chest Day Screen</div>
+</div>
+<div class="paragraph">
+<p>Similarly to <code>view Exercise</code> command, this page will be automatically updated after each run
+of the workout. You can also return to the workout planner page with <code>goto exercise</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="run-workout-code-run-workout-code"><a class="link" href="#run-workout-code-run-workout-code">3.7.8. Run Workout: <code>run workout</code></a></h4>
+<div class="paragraph">
+<p>You&#8217;ve created all your exercises and added it into your ultimate workout. Now you&#8217;re ready
+to run it! To run the workout, invoke the <code>run workout</code> command with the index of your
+ultimate workout.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/runWorkoutWindow1.png" alt="runWorkoutWindow1">
+</div>
+<div class="title">Figure 19. Run Workout Window</div>
+</div>
+<div class="paragraph">
+<p>The window above will pop up upon inputting the command. The window can be broken down into 5
+major segments which are :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Workout Name<br>
+Name of the workout you are running.</p>
+</li>
+<li>
+<p>Progress Bar<br>
+Shows your workout progress/ how far you are from completing the workout.</p>
+</li>
+<li>
+<p>Exercise Name<br>
+The name of the current exercise you&#8217;re doing</p>
+</li>
+<li>
+<p>Set Details<br>
+The details of a set of the exercise you&#8217;re currently doing.</p>
+</li>
+<li>
+<p>Command Box<br>
+Where you input your commands</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When you have completed a set, you can input <code>done</code> into the command box and it will indicate
+the set as completed as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/runWorkoutWindow2.png" alt="runWorkoutWindow2">
+</div>
+<div class="title">Figure 20. Marking a set as Done</div>
+</div>
+<div class="paragraph">
+<p>After completing all the sets in all exercises, you will be brought back to the main page
+where a congratulatory message will greet you!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/runworkoutWindow3.png" alt="runworkoutWindow3">
+</div>
+<div class="title">Figure 21. Congratulations!</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="other-commands"><a class="link" href="#other-commands">3.7.9. Other Commands</a></h4>
+<div class="paragraph">
+<p>With that, you have sufficient knowledge to create and run your workout&#8230;&#8203;
+if you&#8217;re perfect that is. To make your life easier, we&#8217;ve also
+included some commands to manage your exercises and workout in case you made errors!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List Exercise: <code>list exercise</code><br>
+List exercises which matches optional parameters specified eg. muscle type/intensity.<br>
 Format: `list exercise m/MUSCLEGROUP</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-exercise-code-delete-exercise-code"><a class="link" href="#delete-exercise-code-delete-exercise-code">3.7.3. Delete exercise: <code>delete exercise</code></a></h4>
-<div class="paragraph">
-<p>Deletes exercise of specified index.<br>
+</li>
+<li>
+<p>Clear Exercise <code>clear exercise</code><br>
+Removes all exercises in the list.<br>
+Format: 'clear exercise'</p>
+</li>
+<li>
+<p>Delete exercise: <code>delete exercise</code><br>
+Deletes exercise of specified index.<br>
 Format: <code>delete exercise &lt;index&gt;</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-exercise-code-view-exercise-code"><a class="link" href="#view-exercise-code-view-exercise-code">3.7.4. View exercise: <code>view exercise</code></a></h4>
-<div class="paragraph">
-<p>View all the details of an exercise of the specified index.<br>
-Format: <code>view exercise&lt;index&gt;</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-calorie-code-coming-in-v2-0-code"><a class="link" href="#add-calorie-code-coming-in-v2-0-code">3.7.5. Add calorie: <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Tracks calorie burned per rep/set of the exercise in kcal.<br>
+</li>
+<li>
+<p>Edit exercise: <code>edit exercise</code><br>
+Edits exercise with new details<br>
+Format: <code>edit exercise n/EXERCISE_NAME p/PRIMARY_MUSCLE sm/SECONDARY_MUSCLE i/INTENSITY
+s/SETS r/REPETITIONS d/ DISTANCE w/WEIGHT t/TIMING</code></p>
+</li>
+<li>
+<p>Add calorie: <code>[coming in v2.0] +</code>
+Tracks calorie burned per rep/set of the exercise in kcal.<br>
 Format: <code>calorie &lt;index&gt; &lt;calories&gt;</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="check-history-code-coming-in-v1-4-code"><a class="link" href="#check-history-code-coming-in-v1-4-code">3.7.6. Check History: <code>[coming in v1.4]</code></a></h4>
-<div class="paragraph">
-<p>Checks the history of all the pass workouts as well as their statistics eg. exerciseWeight used, number of times exercise is carried out, workouts that use this exercise.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="preset-exercises"><a class="link" href="#preset-exercises">3.7.7. Preset Exercises:</a></h4>
-<div class="paragraph">
-<p>If the list of exercises is empty, a list of preset exercises are generated.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="create-workout-code-add-workout-code"><a class="link" href="#create-workout-code-add-workout-code">3.7.8. Create Workout: <code>add workout</code></a></h4>
-<div class="paragraph">
-<p>Adds a workout to workout list. The app will then prompt you to add exercises to the workout.<br>
-Format: <code>add workout n/WORKOUTNAME</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="push-workout-code-push-exercise-code"><a class="link" href="#push-workout-code-push-exercise-code">3.7.9. Push Workout: <code>push exercise</code></a></h4>
-<div class="paragraph">
-<p>Adds an exercise of the index shown, to a workout in the index shown. You can specify whether to use your own
-new set of exercise details (reps, sets etc) or use the default one already in the Exercise object.<br>
-Format: <code>push exercise wi/WORKOUT_INDEX ei/EXERCISE_INDEX s/SETS r/REPS d/DISTANCE t/TIMING w/WEIGHT</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-workout-code-list-workout-code-coming-in-v1-4"><a class="link" href="#list-workout-code-list-workout-code-coming-in-v1-4">3.7.10. List Workout: <code>list workout</code> [coming in v1.4]</a></h4>
-<div class="paragraph">
-<p>List workouts which matches optional parameters specified eg. muscle type/intensity/total time.<br>
-Format: <code>list workout m/MUSCLEGROUP i/INTENSITY t/TOTALTIME</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-workout-code-delete-workout-code-coming-in-v1-4"><a class="link" href="#delete-workout-code-delete-workout-code-coming-in-v1-4">3.7.11. Delete workout: <code>delete workout</code> [coming in v1.4]</a></h4>
-<div class="paragraph">
-<p>Deletes workout of specified index.<br>
+</li>
+<li>
+<p>Delete workout: <code>delete workout</code> [coming in v1.4]<br>
+Deletes workout of specified index.<br>
 Format: <code>delete workout &lt;index&gt;</code></p>
+</li>
+<li>
+<p>Show graph: <code>[coming in v2.0]</code>
+Creates a graph showing all your past workouts and exercises.</p>
+</li>
+<li>
+<p>Schedule Workout: <code>[coming in v2.0]</code>
+Create a workout to be added in to your schedule that will show up in your dashboard.</p>
+</li>
+</ol>
 </div>
-</div>
-<div class="sect3">
-<h4 id="run-workout-code-run-code-coming-in-v1-4"><a class="link" href="#run-workout-code-run-code-coming-in-v1-4">3.7.12. Run Workout: <code>run</code> [coming in v1.4]</a></h4>
 <div class="paragraph">
-<p>Runs a workout with a timer. Shows the details of the exercise: instructions, reps, sets, exerciseWeight as well images if provided. After workout, stats will be automatically be updated and weights of workout will be increased accordingly.<br>
-Format: <code>run &lt;index&gt;</code></p>
+<p>Now you know all there is to the workout planner! What are you waiting for? Go out there and put your
+gym membership to use!</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="schedule-workout-code-coming-in-v1-4-code"><a class="link" href="#schedule-workout-code-coming-in-v1-4-code">3.7.13. Schedule Workout: <code>[coming in v1.4]</code></a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="track-body-fitness-code-coming-in-v1-4-code"><a class="link" href="#track-body-fitness-code-coming-in-v1-4-code">3.7.14. Track Body Fitness: <code>[coming in v1.4]</code></a></h4>
-
 </div>
 </div>
 <div class="sect2">
@@ -1453,7 +1767,7 @@ Not only that, you can also enter different commands within the command box.</p>
 <div class="content">
 <img src="images/diaryOverview.png" alt="diaryOverview">
 </div>
-<div class="title">Figure 1. Overview of Diary Feature</div>
+<div class="title">Figure 22. Overview of Diary Feature</div>
 </div>
 </div>
 <div class="sect3">
@@ -2153,4 +2467,4 @@ Image URL: /images/lowsugar.jpg<br></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:28:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 00:40:07 UTC</div></div></div></body></html>
