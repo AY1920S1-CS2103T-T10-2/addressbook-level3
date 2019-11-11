@@ -82,10 +82,13 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
-<li><a href="#adding-a-diary">F.3. Adding a diary</a></li>
-<li><a href="#deleting-a-diary">F.4. Deleting a diary</a></li>
-<li><a href="#deleting-a-page">F.5. Deleting a page</a></li>
-<li><a href="#saving-data">F.6. Saving data</a></li>
+<li><a href="#adding-a-task">F.3. Adding a task</a></li>
+<li><a href="#deleting-a-task">F.4. Deleting a task</a></li>
+<li><a href="#editing-a-task">F.5. Editing a task</a></li>
+<li><a href="#adding-a-diary">F.6. Adding a diary</a></li>
+<li><a href="#deleting-a-diary">F.7. Deleting a diary</a></li>
+<li><a href="#deleting-a-page">F.8. Deleting a page</a></li>
+<li><a href="#saving-data">F.9. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -520,13 +523,11 @@ The 6 different components are:</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
-<div id="fig-LogicClassDiagram" class="paragraph">
-<p>Structure of the Logic Component</p>
-</div>
-<div class="imageblock">
+<div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
+<div class="title">Figure 5. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -558,7 +559,7 @@ The 6 different components are:</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 5. Simplified Interactions Inside the Logic Component for the <code>delete recipe 1</code> Command</div>
+<div class="title">Figure 6. Simplified Interactions Inside the Logic Component for the <code>delete recipe 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -579,7 +580,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 6. Structure of the Model Component</div>
+<div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/model/Model.java"><code><em>Model.java</em></code></a></p>
@@ -610,7 +611,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/WorkoutPlannerModelClassDiagram.png" alt="WorkoutPlannerModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of Workout Model</div>
+<div class="title">Figure 8. Structure of Workout Model</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -653,7 +654,7 @@ The 5 different components are:</p>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/storage/Storage.java"><code><em>Storage.java</em></code></a></p>
@@ -700,7 +701,7 @@ This applies to other type of commands as well, such as <code>DeleteCommand</cod
 <div class="content">
 <img src="images/CommandImplementation.png" alt="CommandImplementation">
 </div>
-<div class="title">Figure 9. Structure of Commands and Parser</div>
+<div class="title">Figure 10. Structure of Commands and Parser</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.1. Design Considerations</a></h4>
@@ -766,35 +767,35 @@ Here, a task is represented by a Dashboard object.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>DukeCooks#add_task()</code>&#8201;&#8212;&#8201;Adds and saves the task into <code>DukeCooks</code>.</p>
+<p><code>add task</code>&#8201;&#8212;&#8201;Adds and saves the task into <code>DukeCooks</code>.</p>
 </li>
 <li>
-<p><code>DukeCooks#delete_task()</code>&#8201;&#8212;&#8201;Removes the specified task from <code>DukeCooks</code>.</p>
+<p><code>delete task</code>&#8201;&#8212;&#8201;Removes the specified task from <code>DukeCooks</code>.</p>
 </li>
 <li>
-<p><code>DukeCooks#edit_task()</code>&#8201;&#8212;&#8201;Edits the specified with a new task name and/or date.</p>
+<p><code>edit task</code>&#8201;&#8212;&#8201;Edits the specified with a new task name and/or date.</p>
 </li>
 <li>
-<p><code>DukeCooks#done()</code>&#8201;&#8212;&#8201;Marks a task as complete.</p>
+<p><code>done task</code>&#8201;&#8212;&#8201;Marks a task as complete.</p>
 </li>
 <li>
-<p><code>DukeCooks#find_task()</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
+<p><code>find task</code>&#8201;&#8212;&#8201;Finds a list of task with a given keyword.</p>
 </li>
 <li>
-<p><code>DukeCooks#list_taskincomlete()</code>&#8201;&#8212;&#8201;Lists all the incomplete tasks.</p>
+<p><code>list taskincomlete</code>&#8201;&#8212;&#8201;Lists all the incomplete tasks.</p>
 </li>
 <li>
-<p><code>DukeCooks#list_taskcomlete()</code>&#8201;&#8212;&#8201;Lists all the completed tasks.</p>
+<p><code>list taskcomlete</code>&#8201;&#8212;&#8201;Lists all the completed tasks.</p>
 </li>
 <li>
-<p><code>DukeCooks#dashboard()</code>&#8201;&#8212;&#8201;Directs user to the dashboard window.</p>
+<p><code>goto dashboard</code>&#8201;&#8212;&#8201;Directs user to the dashboard window.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the Model interface as <code>Model#addDashboard()</code>,
-<code>Model#deleteDashboard()</code>, <code>Model#setDashboard()</code>, <code>Model#hasDashboard()</code> , <code>Model#doneDashboard</code> and
-<code>Model#getDashboardRecords()</code>.</p>
+<p>These operations are exposed in the Model interface as <code>addDashboard()</code>,
+<code>deleteDashboard()</code>, <code>setDashboard()</code>, <code>Model#hasDashboard()</code> , <code>doneDashboard</code> and
+<code>getDashboardRecords()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the add/delete/edit/find/done/dashboard
@@ -802,54 +803,53 @@ mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user is currently at a another part of DukeCooks and wants to go to the Dashboard. The
-user executes the <code>dashboard</code> command. The <code>dashboard</code> command calls <code>Model#getDashboardRecords()</code>,
+user executes the <code>goto dashboard</code> command. The <code>goto dashboard</code> command calls <code>getDashboardRecords()</code>,
 which returns the <code>ReadOnlyDashboard</code> that returns the <code>UniqueDashboardList</code>, iterating over all the task and displaying it on the
 homepage.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>add task tn/bake a cake td/12/12/2019</code> command to add a new
-task into DukeCooks. The <code>add</code> command calls <code>Model#addDashboard()</code>, causing the task to
-be added into <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
-<code>UniqueDashboardList#add()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
-stage, the list of task is sorted by date. After which, the <code>add</code> command also calls
-<code>Model#saveDashboard()</code> to be saved the <code>dashboard</code> into the <code>UniqueDashboardList</code>.</p>
+task into DukeCooks. The <code>add</code> command calls <code>addDashboard()</code>, causing the task to
+be added into <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls`add()` which will call <code>sortDashboard()</code>.
+At this stage, the list of task is sorted by date. After which, the <code>add</code> command also calls <code>saveDashboard()</code> to be
+saved the <code>goto dashboard</code> into the <code>UniqueDashboardList</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>delete task 3</code> command to delete the 3rd task in the
-dashboard. The <code>delete</code> command calls <code>Model#deleteDashboard()</code> causing the specified task
+dashboard. The <code>delete</code> command calls <code>deleteDashboard()</code> causing the specified task
 to be removed from <code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls
-<code>UniqueDashboardList#remove()</code> which will call <code>UniqueDashboardList#sortDashboard()</code>. At this
-stage, the list of task is sorted by date. Also, it calls <code>Model#saveDashboard()</code>,
+<code>remove()</code> which will call <code>sortDashboard()</code>. At this
+stage, the list of task is sorted by date. Also, it calls <code>saveDashboard()</code>,
 after the <code>delete task 3</code> command executes
 to be saved in the <code>UniqueDashboardList</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 4. The user executes <code>edit task&#8230;&#8203;</code> command to edit a field in a task. The <code>edit</code>
-command calls <code>Model#setDashboard()</code> causing the edited task to be updated in
-<code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#setDashboard()</code>
-which will call <code>UniqueDashboardList#sortDashboard()</code>. At this stage, the list of task is
-sorted by date. Also, it calls <code>Model#saveDashboard()</code>, after the <code>edit task&#8230;&#8203;</code> command executes to be saved into the <code>UniqueDashboardList</code></p>
+command calls <code>setDashboard()</code> causing the edited task to be updated in
+<code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>setDashboard()</code>
+which will call <code>sortDashboard()</code>. At this stage, the list of task is
+sorted by date. Also, it calls <code>saveDashboard()</code>, after the <code>edit task&#8230;&#8203;</code> command executes to be saved into the <code>UniqueDashboardList</code></p>
 </div>
 <div class="paragraph">
 <p>Step 5. The user executes <code>find task&#8230;&#8203;</code> command to find a list of task given a keyword.
-The <code>find</code> command calls <code>Model#hasDashboard()</code>, which searches through the
+The <code>find</code> command calls <code>hasDashboard()</code>, which searches through the
 <code>UniqueDashboardList</code> for tasks containing the particular keyword.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>done 1</code> command to mark the first task in the list as complete. The <code>done</code>
-command calls <code>Model#doneDashboard()</code>, which will cause the task to be marked as complete in the
-<code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>UniqueDashboardList#done()</code>, which adds
-the newly created <code>Dashboard</code> object and adds it into the list. After which, <code>UniqueDashboardList#sortDashboard()</code>
+<p>Step 6. The user executes <code>done task 1</code> command to mark the first task in the list as complete. The <code>done task</code>
+command calls <code>doneDashboard()</code>, which will cause the task to be marked as complete in the
+<code>UniqueDashboardList</code>. In <code>UniqueDashboardList</code>, it calls <code>done()</code>, which adds
+the newly created <code>Dashboard</code> object and adds it into the list. After which, <code>sortDashboard()</code>
 is called to sort the list by date and reflect the newly made changes.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 10) shows how the add operation works:</p>
+<p>The following sequence diagram (Figure 11) shows how the done operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DoneTaskSequenceDiagram.png" alt="DoneTaskSequenceDiagram" width="600">
 </div>
-<div class="title">Figure 12: Done task Sequence Diagram</div>
+<div class="title">Figure 11: Done task Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -933,7 +933,7 @@ This choice was chosen as it reduces the chance of errors making it a safer opti
 <div class="content">
 <img src="images/RecipeClassDiagram.png" alt="RecipeClassDiagram">
 </div>
-<div class="title">Figure 10. Recipe Class Diagram</div>
+<div class="title">Figure 11. Recipe Class Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-recipe-book-commands"><a class="link" href="#implementation-of-recipe-book-commands">4.3.1. Implementation of recipe book commands</a></h4>
@@ -970,7 +970,7 @@ The input provided is <code>delete recipe 1</code>.</p>
 <div class="content">
 <img src="images/DeleteRecipeSequenceDiagram.png" alt="DeleteRecipeSequenceDiagram">
 </div>
-<div class="title">Figure 11. DeleteRecipeCommand Sequence Diagram</div>
+<div class="title">Figure 12. DeleteRecipeCommand Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>After a successful execution, the recipe with the specified index will be deleted from the recipe book.</p>
@@ -1045,7 +1045,7 @@ user&#8217;s end. Also unintuitive from the user&#8217;s standpoint, and makes r
 <div class="content">
 <img src="images/MealPlanClassDiagram.png" alt="MealPlanClassDiagram">
 </div>
-<div class="title">Figure 12. Meal Plan Class Diagram</div>
+<div class="title">Figure 13. Meal Plan Class Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-meal-plan-commands"><a class="link" href="#implementation-of-meal-plan-commands">4.4.1. Implementation of meal plan commands</a></h4>
@@ -1085,7 +1085,7 @@ The input provided is <code>delete mealplan 1</code>.</p>
 <div class="content">
 <img src="images/DeleteMealPlanSequenceDiagram.png" alt="DeleteMealPlanSequenceDiagram">
 </div>
-<div class="title">Figure 13. DeleteRecipeCommand Sequence Diagram</div>
+<div class="title">Figure 14. DeleteRecipeCommand Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>After a successful execution, the meal plan with the specified index will be deleted from the meal plan book.</p>
@@ -1183,7 +1183,7 @@ method which instead opts to use the pre-built Set of <code>ExerciseDetails</cod
 <div class="content">
 <img src="images/WorkoutClassDiagram.png" alt="WorkoutClassDiagram">
 </div>
-<div class="title">Figure 14. Workout Class Diagram</div>
+<div class="title">Figure 15. Workout Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The Workout Class is managed by the following commands:</p>
@@ -1240,7 +1240,7 @@ Users can use existing exercises or create their own custom exercises. Every exe
 <div class="content">
 <img src="images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
-<div class="title">Figure 15. Exercise Class Diagram</div>
+<div class="title">Figure 16. Exercise Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>Exercise</code> class is managed by the following commands :</p>
@@ -1293,7 +1293,7 @@ what happens when the command is invoked.</p>
 <div class="content">
 <img src="images/RunWorkoutSequenceDiagram.png" alt="RunWorkoutSequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence Diagram of RunWorkoutCommand</div>
+<div class="title">Figure 17. Sequence Diagram of RunWorkoutCommand</div>
 </div>
 <div class="paragraph">
 <p>As seen in the diagram above, when the command is invoked, the <code>RunWorkoutParser</code> is initialised to parse the argument String
@@ -1305,7 +1305,7 @@ the CommandResult object. The Ui will then boot a new <code>RunWorkoutWindow</co
 <div class="content">
 <img src="images/RunWorkoutActivityDiagram.png" alt="RunWorkoutActivityDiagram">
 </div>
-<div class="title">Figure 17. Activity Diagram of RunWorkoutWindow</div>
+<div class="title">Figure 18. Activity Diagram of RunWorkoutWindow</div>
 </div>
 <div class="paragraph">
 <p>The user will then run each set of each exercise until the workout is complete. The full loop is demonstrated in the
@@ -1315,7 +1315,7 @@ activity diagram in Figure 17.</p>
 <div class="content">
 <img src="images/RunWorkoutSequenceDiagram1.png" alt="RunWorkoutSequenceDiagram1">
 </div>
-<div class="title">Figure 18. Sequence Diagram of UpdateWorkoutCommand</div>
+<div class="title">Figure 19. Sequence Diagram of UpdateWorkoutCommand</div>
 </div>
 <div class="paragraph">
 <p>Upon completion of the workout, the Ui will immediately generate a new <code>UpdateWorkoutCommand</code> containing the <code>Workout</code>
@@ -1434,7 +1434,7 @@ Refer to the diagram below to understand the structure of <code>Record</code>.</
 <div class="content">
 <img src="images/HealthRecordsClassDiagram.png" alt="HealthRecordsClassDiagram">
 </div>
-<div class="title">Figure 19. Structure of the Record Component</div>
+<div class="title">Figure 20. Structure of the Record Component</div>
 </div>
 </div>
 <div class="sect3">
@@ -1505,7 +1505,7 @@ Dukecooks will only allow one user profile to exist.</p>
 <div class="content">
 <img src="images/AddHealthSequenceDiagram.png" alt="AddHealthSequenceDiagram">
 </div>
-<div class="title">Figure 20. AddHealthCommand Sequence Diagram</div>
+<div class="title">Figure 21. AddHealthCommand Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The command will first be parsed in 'DukeCooksParser' and be handled to its corresponding parsers (i.e. <code>AddRecordCommandParser</code>) based on its variant word
@@ -1545,7 +1545,7 @@ below depicts the class diagram of the <code>Person</code> class</p>
 <div class="content">
 <img src="images/PersonClassDiagram.png" alt="PersonClassDiagram">
 </div>
-<div class="title">Figure 21. Structure of the Person Component</div>
+<div class="title">Figure 22. Structure of the Person Component</div>
 </div>
 <div class="paragraph">
 <p>It can be observed that <code>Person</code> share similar attributes to <code>Record</code>, both <strong>Weight</strong> and <strong>Height</strong>.
@@ -1561,7 +1561,7 @@ help sync data between the <code>Record</code> and <code>Person</code>.</p>
 <div class="content">
 <img src="images/LinkHealthToProfileSequenceDiagram.png" alt="LinkHealthToProfileSequenceDiagram">
 </div>
-<div class="title">Figure 22. Reconstructed AddRecordCommand</div>
+<div class="title">Figure 23. Reconstructed AddRecordCommand</div>
 </div>
 <div class="paragraph">
 <p>Once <code>Model#addRecord</code> has been executed, <code>AddRecordCommand</code> will check the type of
@@ -1576,7 +1576,7 @@ calling for changes to be made for profile.</p>
 <div class="content">
 <img src="images/LinkProfileActivityDiagram.png" alt="LinkProfileActivityDiagram">
 </div>
-<div class="title">Figure 23. Activity Diagram of adding a new Weight record</div>
+<div class="title">Figure 24. Activity Diagram of adding a new Weight record</div>
 </div>
 <div class="paragraph">
 <p>Once profile have been successfully updated, person&#8217;s weight/ height is expected to be
@@ -1644,7 +1644,7 @@ types would mean more validity checks and maintainence needed.</p></td>
 <div class="content">
 <img src="images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
 </div>
-<div class="title">Figure 24. Diary Class Diagram</div>
+<div class="title">Figure 25. Diary Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -1696,7 +1696,7 @@ types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be inv
 <div class="content">
 <img src="images/DeleteDiarySequenceDiagram.png" alt="DeleteDiarySequenceDiagram">
 </div>
-<div class="title">Figure 25. Sequence Diagram of DeleteDiaryCommand</div>
+<div class="title">Figure 26. Sequence Diagram of DeleteDiaryCommand</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -1713,7 +1713,7 @@ within this internal folder. The following activity diagram explains how an imag
 <div class="content">
 <img src="images/ImageActivityDiagram.png" alt="ImageActivityDiagram">
 </div>
-<div class="title">Figure 26. Activity diagram of adding images</div>
+<div class="title">Figure 27. Activity diagram of adding images</div>
 </div>
 </div>
 <div class="sect3">
@@ -1879,7 +1879,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 27. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 28. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2267,13 +2267,13 @@ useful for busy individuals who do not have time to manage different application
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following is a Use Case diagram for the Dashboard.</p>
+<p>The following is a Use Case diagram (Figure 26) for the Dashboard.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DashboardUseCase.png" alt="DashboardUseCase" width="200">
 </div>
-<div class="title">Figure 11: Dashboard Use Case Diagram</div>
+<div class="title">Figure 26: Dashboard Use Case Diagram</div>
 </div>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is <code>DukeCooks</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
@@ -2618,7 +2618,98 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-diary"><a class="link" href="#adding-a-diary">F.3. Adding a diary</a></h3>
+<h3 id="adding-a-task"><a class="link" href="#adding-a-task">F.3. Adding a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a task while all tasks are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>goto dashboard</code> command. Multiple tasks are in the list.</p>
+</li>
+<li>
+<p>Test case: <code>add task tn/ Project meeting at COM1 td/ 12/12/2019</code><br>
+Expected: A new task named "Project meeting at COM1" is added to the list. Details of the added task is shown in the result display.</p>
+</li>
+<li>
+<p>Test case: <code>add task tn/ Project meeting at COM1 td/ 12/12/2019</code> (A repeat of the previous test case)<br>
+Expected: No task is added. Error message is shown in the result display. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">F.4. Deleting a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a task while all tasks are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>goto dashboard</code> command. Multiple tasks are in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete task 1</code><br>
+Expected: First task is deleted from the list. Details of the deleted task is shown in the result display.</p>
+</li>
+<li>
+<p>Test case: <code>delete task 0</code><br>
+Expected: No task is deleted. Error message is shown in the result display. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete command to try: <code>delete diary x</code> (where x is larger than the list size)<br>
+Expected: Similar error messages to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-task"><a class="link" href="#editing-a-task">F.5. Editing a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a task while all tasks are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>goto dashboard</code> command. Multiple tasks are in the list.</p>
+</li>
+<li>
+<p>Test case: <code>edit task 1 tn/Lunch meeting</code><br>
+Expected: First task is edited to the new task name. Details of the edited task is shown in the result display.</p>
+</li>
+<li>
+<p>Test case: <code>edit task 1 tn/Lunch meeting!</code><br>
+Expected: No task is edited. Error message is shown in the result display. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect edit command to try: <code>edit task 1 tn/ y</code> (where y contains more than 35 characters)<br>
+Expected: Similar error messages to previous.</p>
+</li>
+<li>
+<p>Test case: `edit task 1 td/31/11/2019<br>
+Expected: No task is edited. Error message is shown in the result display. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect edit command to try: <code>edit task 1 tn/ 29/2/2019</code> (2019 is not a leap year; February only has 28 days)<br>
+Expected: Similar error messages to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-diary"><a class="link" href="#adding-a-diary">F.6. Adding a diary</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2647,7 +2738,7 @@ Expected: Similar error messages to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-diary"><a class="link" href="#deleting-a-diary">F.4. Deleting a diary</a></h3>
+<h3 id="deleting-a-diary"><a class="link" href="#deleting-a-diary">F.7. Deleting a diary</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2676,7 +2767,7 @@ Expected: Similar error messages to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-page"><a class="link" href="#deleting-a-page">F.5. Deleting a page</a></h3>
+<h3 id="deleting-a-page"><a class="link" href="#deleting-a-page">F.8. Deleting a page</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2705,7 +2796,7 @@ Expected: Similar error messages to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.6. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">F.9. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2752,6 +2843,10 @@ It should be one of the following:</p>
 <div class="paragraph">
 <p>After identifying the file that causes the error, delete that particular data file.</p>
 </div>
+<div class="paragraph">
+<p>By deleting the data file, a new data file will be generated from the <code>SampleUtil</code> corresponding
+to the file that was deleted.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:49:45 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:02:36 UTC</div></div></div></body></html>

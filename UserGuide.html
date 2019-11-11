@@ -298,7 +298,7 @@ For first time users of the CLI, we acknowledge that working with it can be a da
 </div>
 <div class="paragraph">
 <p>Command: <code>add task</code><br>
-Format: <code>add task tn/<em>insert task here</em> td/ <em>insert date here</em></code></p>
+Format: <code>add task tn/&lt;insert task here&gt; td/&lt;insert date here&gt;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -308,7 +308,7 @@ Format: <code>add task tn/<em>insert task here</em> td/ <em>insert date here</em
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Task name entered should not exceed 30 characters.
+<p>Task name entered should not exceed 35 characters.
 When entering the date for a task, please follow the given format: day/month/year.</p>
 </div>
 </td>
@@ -338,13 +338,20 @@ Step 3. You can view the newly added task under the Dashboard.</p>
 </div>
 <div class="title">Figure 4. Adding a task success</div>
 </div>
-<div class="exampleblock">
-<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Did you know? You are able to enter Dashboard commands even if you are on another feature. Talk about
 double the productivity!</p>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -355,7 +362,7 @@ Fret not! You are able to make changes to them.</p>
 </div>
 <div class="paragraph">
 <p>Command: <code>edit task</code><br>
-Format: <code>edit task <em>index number</em> tn/ <em>insert new name</em> td/ <em>insert new date</em></code></p>
+Format: <code>edit task &lt;index number&gt; tn/ &lt;insert new name&gt; td/ &lt;insert new date&gt;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -404,7 +411,7 @@ Well you can delete them off from DukeCooks.</p>
 </div>
 <div class="paragraph">
 <p>Command: <code>delete task</code><br>
-Format: <code>delete task <em>index number</em></code></p>
+Format: <code>delete task &lt;index number&gt;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -452,7 +459,7 @@ Check it off the list!</p>
 </div>
 <div class="paragraph">
 <p>Command: <code>done task</code><br>
-Format: <code>done task <em>index number</em></code></p>
+Format: <code>done task &lt;index number&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Example usage (Figure 8 &amp; 9): <code>done 1</code></p>
@@ -501,7 +508,7 @@ A pop up window with an encouraging message will be displayed for extra motivati
 </div>
 <div class="paragraph">
 <p>Command: <code>find task</code><br>
-Format: <code>find task <em>keyword</em></code></p>
+Format: <code>find task &lt;keyword&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Example usage (Figure 10 &amp; 11): <code>find task project</code></p>
@@ -548,7 +555,7 @@ Command: <code>list taskincomplete</code></p>
 </div>
 <div class="paragraph">
 <p>Command: <code>postpone task</code><br>
-Format: <code>postpone task <em>index number</em> by <em>number of days</em></code></p>
+Format: <code>postpone task &lt;index number&gt; by &lt;number of days&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Example usage: <code>postpone task 1 by 5</code><br>
@@ -3203,19 +3210,19 @@ DukeCooks will simply link existing recipes / exercises / health records and cre
 <p><strong>Going to the Dashboard:</strong> <code>goto dashboard</code></p>
 </li>
 <li>
-<p><strong>Adding a task:</strong> <code>add task</code></p>
+<p><strong>Adding a task:</strong> <code>add task tn/&lt;taskname&gt; td/&lt;taskdate&gt;</code></p>
 </li>
 <li>
-<p><strong>Editing a task</strong> : <code>edit task</code></p>
+<p><strong>Editing a task</strong> : <code>edit task &lt;index&gt; tn/&lt;taskname&gt; td/&lt;taskdate&gt;</code></p>
 </li>
 <li>
-<p><strong>Removing a task</strong> : <code>delete task</code></p>
+<p><strong>Removing a task</strong> : <code>delete task &lt;index&gt;</code></p>
 </li>
 <li>
-<p><strong>Marking a task as complete</strong> : <code>done task</code></p>
+<p><strong>Marking a task as complete</strong> : <code>done task &lt;index&gt;</code></p>
 </li>
 <li>
-<p><strong>Finding a task</strong> : <code>find task</code></p>
+<p><strong>Finding a task</strong> : <code>find task &lt;keyword&gt;</code></p>
 </li>
 <li>
 <p><strong>Viewing completed tasks</strong> : <code>list taskcomplete</code></p>
@@ -3382,4 +3389,4 @@ Image URL: /images/lowsugar.jpg<br></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:49:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:02:36 UTC</div></div></div></body></html>
