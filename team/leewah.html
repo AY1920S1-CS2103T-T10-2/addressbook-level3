@@ -19,10 +19,8 @@ tasks and yet, manage a healthy lifestyle at the same time.</p>
 In DukeCooks, you will be able to manage tasks, store recipes, plan workouts, monitor health and write diaries, all in the same application.</p>
 </div>
 <div class="paragraph">
-<p>With DukeCooks, we hope to eliminate and simplify these tedious and stressful chores, all just in one single application.
-DukeCooks is equipped with a command-line interface (CLI). With CLI all you have to do is key in what you want to do
-with an array of predefined commands.
-Then, all you have to do is sit back, relax and let DukeCooks handle the rest!</p>
+<p>DukeCooks is equipped with a command-line interface (CLI). With CLI all you have to do is key in what you want to do
+with an array of predefined commands.</p>
 </div>
 </div>
 </div>
@@ -42,20 +40,7 @@ Thus, this is a brownfield project which entails morphing AB3 into a new applica
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document is a collection of my contributions made to DukeCooks. These contributions can be categorized
-in the following 3 main areas:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Overall Project</p>
-</li>
-<li>
-<p>User Guide</p>
-</li>
-<li>
-<p>Developer Guide</p>
-</li>
-</ol>
+in the following 3 main areas: the overall project, the user guide, and the developer guide.</p>
 </div>
 </div>
 </div>
@@ -71,9 +56,7 @@ nutritional intake.</p>
 </div>
 <div class="paragraph">
 <p>Initial works for the Recipe Book include referencing the AB3 codebase. The add / delete / edit / list / find functions
-from AB3 were adapted and are made available in Recipe Book. As a comparison, the functions listed before was used in
-AB3 to create and manipulate a person&#8217;s contact information. In the DukeCooks Recipe Book, these functions are used to create
-and manipulate a recipe&#8217;s information.</p>
+from AB3 were adapted and are made available in Recipe Book.</p>
 </div>
 </div>
 <div class="sect2">
@@ -112,9 +95,7 @@ value. The Meal Plan Book will calculate and display the weekly nutritional valu
 </div>
 <div class="paragraph">
 <p>Initial works for the Meal Plan Book include referencing the AB3 codebase. The add / delete / edit / list / find functions
-from AB3 were adapted and are made available in Meal Plan Book. As a comparison, the functions listed before was used in
-AB3 to create and manipulate a person&#8217;s contact information. In the DukeCooks Meal Plan Book, these functions are used to create
-and manipulate a meal plan&#8217;s information.</p>
+from AB3 were adapted and are made available in Meal Plan Book.</p>
 </div>
 </div>
 <div class="sect2">
@@ -306,63 +287,25 @@ and a new meal plan named "One Recipe" will be added.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-meal-plan"><a class="link" href="#editing-a-meal-plan">Editing a meal plan</a></h4>
+<h4 id="finding-a-meal-plan-containing-a-certain-recipe"><a class="link" href="#finding-a-meal-plan-containing-a-certain-recipe">Finding a meal plan containing a certain recipe</a></h4>
 <div class="paragraph">
-<p>Edit a meal plan according to a specified index.<br>
-Command <code>edit mealplan</code><br>
-Format: <code>edit mealplan &lt;index&gt; [parameters]</code></p>
+<p>Finds meal plans with a specified recipe name.<br>
+Command: <code>find mealplanwith</code><br>
+Format: <code>find mealplanwith &lt;recipe name keyword&gt;</code></p>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>The possible parameters are:</p>
+<p>You can only search for one recipe at a time. The recipe&#8217;s name must be entered exactly as it is in the recipe book.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>n/&lt;name&gt;</code> : edits name</p>
-</li>
-<li>
-<p><code>day1/&lt;recipe&gt;</code> : adds a recipe to this day</p>
-</li>
-<li>
-<p><code>day1-/&lt;recipe&gt;</code> : removes a recipe only if it exists in this day</p>
-</li>
-<li>
-<p><code>day2/&lt;recipe&gt;</code> : adds a recipe to this day</p>
-</li>
-<li>
-<p><code>day2-/&lt;recipe&gt;</code> : removes a recipe only if it exists in this day</p>
-</li>
-<li>
-<p><code>day3/&lt;recipe&gt;</code> : adds a recipe to this day</p>
-</li>
-<li>
-<p><code>day3-/&lt;recipe&gt;</code> : removes a recipe only if it exists in this day</p>
-</li>
-<li>
-<p><code>day4/&lt;recipe&gt;</code> : adds a recipe to this day</p>
-</li>
-<li>
-<p><code>day4-/&lt;recipe&gt;</code> : removes a recipe only if it exists in this day</p>
-</li>
-<li>
-<p><code>day5/&lt;recipe&gt;</code> : adds a recipe to this day</p>
-</li>
-<li>
-<p><code>day5-/&lt;recipe&gt;</code> : removes a recipe only if it exists in this day</p>
-</li>
-<li>
-<p><code>day6/&lt;recipe&gt;</code> : adds a recipe to this day</p>
-</li>
-<li>
-<p><code>day6-/&lt;recipe&gt;</code> : removes a recipe only if it exists in this day</p>
-</li>
-<li>
-<p><code>day7/&lt;recipe&gt;</code> : adds a recipe to this day</p>
-</li>
-<li>
-<p><code>day7-/&lt;recipe&gt;</code> : removes a recipe only if it exists in this day</p>
-</li>
-</ul>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -370,8 +313,8 @@ Format: <code>edit mealplan &lt;index&gt; [parameters]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit mealplan 1 n/Bulking day-1/Salad day4/Mashed Potatoes</code><br>
-Updates the first listed meal plan to remove the recipe "Salad" from Day 1 and add the recipe "Mashed Potatoes" to Day 4.</p>
+<p><code>find mealplanwith Chicken Rice</code><br>
+Lists all meal plans containing "Chicken Rice" in any of the meal plan days.</p>
 </li>
 </ul>
 </div>
@@ -382,18 +325,19 @@ Updates the first listed meal plan to remove the recipe "Salad" from Day 1 and a
 <p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ug_mealplan_editMealPlan1.png" alt="ug mealplan editMealPlan1">
+<img src="../images/ug_mealplan_findWithMealPlan1.png" alt="ug mealplan findWithMealPlan1">
 </div>
-<div class="title">Figure 4. Editing a meal plan</div>
+<div class="title">Figure 4. Finding a meal plan with recipe</div>
 </div>
 </li>
 <li>
-<p>If the command succeeds, the following result will be displayed and the meal plan will be edited as shown below.</p>
+<p>If the command succeeds, only the found meal plans would be displayed as shown below. In this case,
+all meal plans with the recipe "Chilli Crab" in any of its days would be found.</p>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ug_mealplan_editMealPlan2.png" alt="ug mealplan editMealPlan2">
+<img src="../images/ug_mealplan_findWithMealPlan2.png" alt="ug mealplan findWithMealPlan2">
 </div>
-<div class="title">Figure 5. Successfully edited a meal plan</div>
+<div class="title">Figure 5. Successfully found meal plan with recipe</div>
 </div>
 </li>
 </ol>
@@ -544,4 +488,4 @@ user&#8217;s end. Also unintuitive from the user&#8217;s standpoint, and makes r
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:20:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:36:29 UTC</div></div></div></body></html>
