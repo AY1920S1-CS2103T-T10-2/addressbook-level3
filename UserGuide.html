@@ -25,9 +25,8 @@
 <li><a href="#recipe-book">3.3. Recipe Book</a></li>
 <li><a href="#meal-plans">3.4. Meal Plans</a></li>
 <li><a href="#health-records">3.5. Health Records</a></li>
-<li><a href="#add-medical-appointment-code-coming-in-v2-0-code">3.6. Add Medical Appointment:  <code>[coming in v2.0]</code></a></li>
-<li><a href="#workout-tracker">3.7. Workout Tracker</a></li>
-<li><a href="#diary">3.8. Diary</a></li>
+<li><a href="#workout-tracker">3.6. Workout Tracker</a></li>
+<li><a href="#diary">3.7. Diary</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
@@ -992,10 +991,246 @@ Deletes all meal plans within the meal plan book.</p>
 health records, all within DukeCooks!</p>
 </div>
 <div class="sect3">
-<h4 id="view-health-data-code-list-health-code"><a class="link" href="#view-health-data-code-list-health-code">3.5.1. View Health Data:  <code>list health</code></a></h4>
+<h4 id="u-understanding-the-health-records-u"><a class="link" href="#u-understanding-the-health-records-u">3.5.1. <u>Understanding the Health Records</u></a></h4>
 <div class="paragraph">
-<p>Views Health Records of specific type.<br>
-Format: <code>list health t/&lt;type&gt;</code></p>
+<p>Before you get overwhelmed by what&#8217;s in Health Records,
+here&#8217;s everything you need to know to get you started! Keep scrolling!</p>
+</div>
+<div class="paragraph">
+<p>Refer to the following diagrams for a better understanding.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_overview.jpeg" alt="health overview" width="900">
+</div>
+<div class="title">Figure 3.5.1: Health Records&#8217;s Overview</div>
+</div>
+<div class="paragraph">
+<p>Looking for just a specific record type? DukeCooks got you covered! Refer to diagram below!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_details.jpeg" alt="health details" width="900">
+</div>
+<div class="title">Figure 3.5.2: Health Records&#8217;s Details Page</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>DukeCooks will only show health records of the past 1 month in the graph illustrated above.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following record types are supported by DukeCooks:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Record Type</th>
+<th class="tableblock halign-left valign-top">Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Weight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kg</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Height</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Glucose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mmol/L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kcal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protein, Fats, Carbs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">g</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Shared data across! <em>Weight</em> and <em>Height</em> records will be <strong>synchronized</strong> to profile</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="u-getting-to-health-records-u"><a class="link" href="#u-getting-to-health-records-u">3.5.2. <u>Getting to Health Records</u></a></h4>
+<div class="paragraph">
+<p>Here&#8217;s a quick way to get to the Health Records!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>goto health</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-profile"><a class="link" href="#adding-a-profile">3.5.3. Adding a profile</a></h4>
+<div class="paragraph">
+<p>Want to have a personalized profile of your own? This is just the perfect command you&#8217;re looking for!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This action only works once! DukeCooks only allows storing of one user profile.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Command: <code>add profile</code><br>
+Format: <code>add profile n/<em>&lt;name&gt;</em> d/<em>&lt;date of birth&gt;</em> g/<em>&lt;gender&gt;</em> bt/<em>&lt;blood type&gt;</em> w/<em>&lt;weight&gt;</em> h/<em>&lt;height&gt;</em> [m/<em>&lt;medical history&gt;</em>]</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>add profile n/Alex Yeoh d/23/02/1995 g/female bt/a+ w/57.8 h/173.2 m/Stroke m/Diabetes</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_addProfile_before.jpeg" alt="health addProfile before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display and your created profile!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_addProfile_after.jpeg" alt="health addProfile after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Say no to bad data! DukeCooks helps to sync your data inputs with your health records! <em>(As shown in <strong>Step 2</strong>)</em></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-profile"><a class="link" href="#editing-a-profile">3.5.4. Editing a profile</a></h4>
+<div class="paragraph">
+<p>Need to make amendments to your profile? Simply follow the format below!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This action is only applicable if there is an existing profile already.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Command: <code>edit profile</code><br>
+Format: <code>edit profile n/<em>&lt;name&gt;</em> d/<em>&lt;date of birth&gt;</em> g/<em>&lt;gender&gt;</em> bt/<em>&lt;blood type&gt;</em> w/<em>&lt;weight&gt;</em> h/<em>&lt;height&gt;</em> [m/<em>&lt;medical history&gt;</em>] [m-/<em>&lt;medical history&gt;</em>]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To remove existing medical history, include this prefix to your command: <code><strong>m-/</strong> <em>&lt;existing history&gt;</em>**</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>edit profile g/male bt/a- w/57.5 h/173 m-/Stroke m/High Blood Pressure</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_editProfile_before.jpeg" alt="health editProfile before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display and your updated profile!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_editProfile_after.jpeg" alt="health editProfile after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Say no to bad data! DukeCooks helps to sync your data inputs with your health records! <em>(As shown in <strong>Step 2</strong>)</em></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-profile"><a class="link" href="#deleting-a-profile">3.5.5. Deleting a profile</a></h4>
+<div class="paragraph">
+<p>Want to get rid of your profile? This command helps to remove your existing profile.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -1005,87 +1240,411 @@ Format: <code>list health t/&lt;type&gt;</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>By default, DukeCooks will show health records of past 1 month if [time period] is not specified.</p>
+<p>This action is not reversible. Use only when necessary!</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Format: <code>delete profile</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>delete profile</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_deleteProfile_before.jpeg" alt="health deleteProfile before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display and your profile has been cleared!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_deleteProfile_after.jpeg" alt="health deleteProfile after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keeping your records safe! This action will have no effect to your records!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-a-specific-record-type"><a class="link" href="#viewing-a-specific-record-type">3.5.6. Viewing a specific record type</a></h4>
+<div class="paragraph">
+<p>Looking for just a specific record type? This command directs you to the details page with
+beautiful visual illustrations of your records!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>list health</code><br>
+Format: <code>list health t/<em>&lt;type&gt;</em></code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>list health t/weight</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_listRecord_before.jpeg" alt="health listRecord before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display and you
+will be directed to the details page.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_listRecord_after.jpeg" alt="health listRecord after">
+</div>
+</div>
+</li>
+</ol>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>User can view health data under the following 8 types:</p>
+<p>Based on the record type, DukeCooks will generate the appropriate graph illustration</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Weight</p>
+<p>Line Graph - Records are shown in a daily max manner</p>
 </li>
 <li>
-<p>Calories</p>
-</li>
-<li>
-<p>Glucose (i.e. blood sugar)</p>
-</li>
-<li>
-<p>Carbs</p>
-</li>
-<li>
-<p>Fats</p>
-</li>
-<li>
-<p>Protein</p>
+<p>Bar Graph - Records should shown in a daily sum manner</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Unsure of what record types are available? Refer to the list below!</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list health t/weight</code><br>
-Shows user’s weight of the past <strong>1</strong> month as of today.</p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Record Type</th>
+<th class="tableblock halign-left valign-top">Unit</th>
+<th class="tableblock halign-left valign-top">Graph Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Weight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Line Graph</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Height</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Line Graph</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Glucose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mmol/L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Line Graph</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calories</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kcal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bar Graph</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protein, Fats, Carbs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">g</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bar Graph</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
-<h4 id="add-health-data-code-add-health-code"><a class="link" href="#add-health-data-code-add-health-code">3.5.2. Add Health Data:  <code>add health</code></a></h4>
+<h4 id="adding-a-health-record"><a class="link" href="#adding-a-health-record">3.5.7. Adding a health record</a></h4>
 <div class="paragraph">
-<p>Adds a health record of specified type with input value.<br>
-Format: <code>add health t/&lt;type&gt; val/&lt;value&gt; dt/&lt;dd/MM/yyyy HH:mm&gt;</code></p>
+<p>Adding a new health record? Easy! Just follow the given format below!</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="paragraph">
-<p>User can add health data of the following 8 types:</p>
+<p>Command: <code>add health</code><br>
+Format: <code>add health t/<em>&lt;type&gt;</em> val/<em>&lt;value&gt;</em> dt/<em>&lt;date time&gt;</em> [remark/<em>&lt;remark&gt;</em>]</code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>add health t/weight val/60 dt/10/11/2019 12:00 remark/after meal</code></p>
 </div>
 <div class="olist arabic">
+<div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Weight (in KG)</p>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_addRecord_before.jpeg" alt="health addRecord before">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Worried of mistyping? Frat not! DukeCooks ensures that your inputs are within a valid range!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>Calories (in KCAL)</p>
-</li>
-<li>
-<p>Glucose (in mmol/L)</p>
-</li>
-<li>
-<p>Carbs (in g)</p>
-</li>
-<li>
-<p>Fats (in g)</p>
-</li>
-<li>
-<p>Protein (in g)</p>
+<p>If the command succeeds, you will see the following message in the result display and your
+new record shown in the details page!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_addRecord_after.jpeg" alt="health addRecord after">
+</div>
+</div>
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Say no to bad data! DukeCooks helps to sync your data inputs with your profile! <em>(As shown in <strong>Step 2</strong>)</em></p>
 </div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-existing-record"><a class="link" href="#editing-a-existing-record">3.5.8. Editing a existing record</a></h4>
+<div class="paragraph">
+<p>Made some mistakes and need to update your record? Simply fire away the edit command below to start editing!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>edit health</code><br>
+Format: <code>add health <em>&lt;index&gt;</em> val/<em>&lt;value&gt;</em> dt/<em>&lt;date time&gt;</em> [remark/<em>&lt;remark&gt;</em>] [remark-/<em>&lt;remark&gt;</em>]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To remove existing remark, include this prefix to your command: <code><strong>remark-/</strong> <em>&lt;existing remark&gt;</em>**</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>edit health 1 val/62 dt/10/11/2019 10:30 remark-/after meal remark/before meal</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_editRecord_before.jpeg" alt="health editRecord before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display and your edited record in the details page!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_editRecord_after.jpeg" alt="health editRecord after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Say no to bad data! DukeCooks will ensure your profile is in-sync to your records!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-existing-record"><a class="link" href="#deleting-a-existing-record">3.5.9. Deleting a existing record</a></h4>
+<div class="paragraph">
+<p>Deleting a duplicate health record? DukeCooks can help with that!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>delete health</code><br>
+Format: <code>delete health <em>&lt;index&gt;</em></code></p>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>delete health 1</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_deleteRecord_before.jpeg" alt="health deleteRecord before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display and the deleted record deleted in your records!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_deleteRecord_after.jpeg" alt="health deleteRecord after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Say no to bad data! DukeCooks will update your profile with the most recent available record found!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-records"><a class="link" href="#clearing-all-records">3.5.10. Clearing all records</a></h4>
+<div class="paragraph">
+<p>Want to start afresh with your health records? DukeCooks can help you restart to a clean state!</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This action is not reversible. Use only when necessary!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear health</code></p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_clearRecord_before.jpeg" alt="health clearRecord before">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see the following message in the result display with all records cleared!</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/health_clearRecord_after.jpeg" alt="health clearRecord after">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Keeping your profile safe! This action will have no effect to your profile!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="link-recipes-code-coming-in-v2-0-code"><a class="link" href="#link-recipes-code-coming-in-v2-0-code">3.5.11. Link Recipes: <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>A feature to track user&#8217;s food consumption based on existing records.<br></p>
+</div>
+<div class="paragraph">
+<p>Adds relevant records based on the recipe&#8217;s nutritional information<br>
+Format: <code>link recipe n/<em>&lt;recipename&gt;</em> /to health dt/<em>&lt;date time&gt;</em> [remarks/<em>&lt;remarks&gt;</em>]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Recipe should already exist</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deleting recipes will not delete the linked recipes in Health Records!</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1093,182 +1652,38 @@ Format: <code>add health t/&lt;type&gt; val/&lt;value&gt; dt/&lt;dd/MM/yyyy HH:m
 <div class="ulist">
 <ul>
 <li>
-<p><code>add health t/weight val/60 dt/21/10/2019 12:00</code><br>
-Adds a new blood pressure record of 120/80 mmHg as of today 9am.</p>
+<p><code>link recipe Caesar Salad /to health dt/12/10/2019 12:00 remark/ diet</code><br>
+ Creates 4 corresponding records (namely Calories, Protein, Fats, Carbs) about “Caesar Salad”
+and adds it to health records with timestamp of "12/10/2019 12:00” and a remark of "diet" made.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-health-data-code-edit-health-code"><a class="link" href="#edit-health-data-code-edit-health-code">3.5.3. Edit Health Data:  <code>edit health</code></a></h4>
+<h4 id="smart-recommendations-code-coming-in-v2-0-code"><a class="link" href="#smart-recommendations-code-coming-in-v2-0-code">3.5.12. Smart Recommendations: <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing health record of specified record ID with input value to overwrite.<br>
-Format: <code>edit health &lt;index&gt; val/&lt;value&gt;</code></p>
+<p>Based on user&#8217;s profile data and existing health records, DukeCooks will generate some recommendations.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You can view &lt;index&gt; once you have entered <strong>list health t/[type]</strong> command.</p>
+<p>If user has a medical history of "High Blood Sugar", DukeCooks will monitor the user&#8217;s glucose level records (prompt alert when hit unhealthy range) and provide
+appropriate food suggestions and activities.</p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><code>edit health 1 val/220</code><br>
-Edits the health record with index 1 to 220.</p>
+<p>If Weight and Height records are found, DukeCooks will compute the user&#8217;s BMI and determine if it is in the recommended range.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-health-data-code-delete-health-code"><a class="link" href="#delete-health-data-code-delete-health-code">3.5.4. Delete Health Data:  <code>delete health</code></a></h4>
-<div class="paragraph">
-<p>Deletes an existing health record of specified record ID.<br>
-Format: <code>delete health &lt;index&gt;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>You can view &lt;index&gt; once you have entered <strong>list health t/[type]</strong> command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete health 1</code><br>
-Deletes the health record with index 1.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-medical-appointments-code-coming-in-v2-0-code"><a class="link" href="#view-medical-appointments-code-coming-in-v2-0-code">3.5.5. View Medical Appointments:  <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Shows all the medical appointment for the month.<br>
-Format: <code>view appt [time period]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>view appt</code><br>
-View all the medical appointments for the month.</p>
-</li>
-<li>
-<p><code>view appt 3 month</code><br>
-View all the medical appointments of the next 3 months.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-medical-appointment-code-coming-in-v2-0-code"><a class="link" href="#add-medical-appointment-code-coming-in-v2-0-code">3.6. Add Medical Appointment:  <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Adds a new medical appointment where user can include an optional note.<br>
-Format: <code>add appt &lt;date time&gt; [note]</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DukeCooks will prompt reminder when appointment is in a week’s time.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add appt 31/12/2019 8am</code><br>
-Add a new medical appointment for 31st Dec 2019, 8AM.</p>
-</li>
-<li>
-<p><code>add appt 31/12/2019 8am thomson medical - blood glucose</code><br>
-Add a new medical appointment for 31st Dec 2019, 8AM with note “thomson medical - blood glucose” .</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="edit-medical-appointment-code-coming-in-v2-0-code"><a class="link" href="#edit-medical-appointment-code-coming-in-v2-0-code">3.6.1. Edit Medical Appointment:  <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Edits an existing medical appointment.<br>
-Format: <code>edit appt &lt;Appt ID&gt; [date time] [note]</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&lt;Appt ID&gt; refers to the unique identifier attributed to each medical appointment upon creation.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided</p>
-</li>
-<li>
-<p>Existing value will be overwritten with the new inputs given</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit appt APPT0001 CGH - blood glucose</code><br>
-Edits the note to “CGH - blood glucose”.</p>
-</li>
-<li>
-<p><code>edit appt APPT0001 31/12/2019 12pm</code><br>
-Change the medical appointment to be 31st Dec 2019, 12PM.</p>
-</li>
-<li>
-<p><code>edit appt APPT0001 31/12/2019 1.30pm CGH - blood glucose</code><br>
-Change the medical appointment to be 31st Dec 2019, 1.30PM with “CGH - blood glucose” note.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-medical-appointment-code-coming-in-v2-0-code"><a class="link" href="#delete-medical-appointment-code-coming-in-v2-0-code">3.6.2. Delete Medical Appointment <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Deletes an existing medical appointment.<br>
-Format: <code>delete appt &lt;APPT ID&gt;</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&lt;APPT ID&gt; refers to the unique identifier attributed to each medical appointment upon creation.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete appt APPT0001</code><br>
-Deletes the medical appointment of APPT0001.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="print-health-records-to-pdf-code-coming-in-v2-0-code"><a class="link" href="#print-health-records-to-pdf-code-coming-in-v2-0-code">3.6.3. Print Health Records to PDF <code>[coming in v2.0]</code></a></h4>
+<h4 id="print-health-records-to-pdf-code-coming-in-v2-0-code"><a class="link" href="#print-health-records-to-pdf-code-coming-in-v2-0-code">3.5.13. Print Health Records to PDF <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Generates a PDF copy of health records.<br>
-Format: <code>print health &lt;type&gt; [MORE_TYPES] [time period]</code></p>
+Format: <code>print health t/<em>&lt;type&gt;</em> [MORE_TYPES] period/<em>&lt;time period&gt;</em></code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1277,43 +1692,25 @@ Format: <code>print health &lt;type&gt; [MORE_TYPES] [time period]</code></p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>By default, DukeCooks will generate pdf with health records for the past 1 month if [time period] is not specified.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>print health glucose</code><br>
-Generates a PDF copy of all the blood sugar records for the past month as of today</p>
+<p><code>print health t/glucose period/ 01/01/2019 - 01/02/2019</code><br>
+Generates a PDF copy of all the blood sugar records from 1st Jan 2019 to 1st Feb 2019.</p>
 </li>
 <li>
-<p><code>print health glucose blood pressure</code><br>
-Generates a PDF copy of all the blood sugar and blood pressure records respectively from the past month as of today. Data on blood sugar will come before blood pressure.</p>
-</li>
-<li>
-<p><code>print health glucose blood pressure 01/01/2019 - 31/08/2019</code><br>
-Generates a PDF copy of all the blood sugar and blood pressure records respectively from 1st Jan 2019 to 31st Aug 2019.</p>
+<p><code>print health t/glucose t/weight 01/01/2019 - 31/08/2019</code><br>
+Generates a PDF copy of all the blood sugar and weight records respectively from 1st Jan 2019 to 31st Aug 2019.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="workout-tracker"><a class="link" href="#workout-tracker">3.7. Workout Tracker</a></h3>
+<h3 id="workout-tracker"><a class="link" href="#workout-tracker">3.6. Workout Tracker</a></h3>
 <div class="paragraph">
 <p>So you&#8217;ve decided to put your gym membership to use and want to plan your next workout regime. Head down to the
 workout planner tab to create your custom workouts and track your progress!</p>
@@ -1323,7 +1720,7 @@ workout planner tab to create your custom workouts and track your progress!</p>
 workout planner screen and what you can do with it!</p>
 </div>
 <div class="sect3">
-<h4 id="workout-planner-screen"><a class="link" href="#workout-planner-screen">3.7.1. Workout Planner Screen</a></h4>
+<h4 id="workout-planner-screen"><a class="link" href="#workout-planner-screen">3.6.1. Workout Planner Screen</a></h4>
 <div class="paragraph">
 <p>Alright, I&#8217;m now at the workout screen! What&#8217;s next?</p>
 </div>
@@ -1372,7 +1769,7 @@ section of this User Guide.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-an-exercise-code-add-exercise-code"><a class="link" href="#adding-an-exercise-code-add-exercise-code">3.7.2. Adding an exercise: <code>add exercise</code></a></h4>
+<h4 id="adding-an-exercise-code-add-exercise-code"><a class="link" href="#adding-an-exercise-code-add-exercise-code">3.6.2. Adding an exercise: <code>add exercise</code></a></h4>
 <div class="paragraph">
 <p>"I now know the components of the Workout Planner! So what can I do with it?"</p>
 </div>
@@ -1415,7 +1812,7 @@ outputs.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-exercise-code-view-exercise-code"><a class="link" href="#view-exercise-code-view-exercise-code">3.7.3. View Exercise: <code>view exercise</code></a></h4>
+<h4 id="view-exercise-code-view-exercise-code"><a class="link" href="#view-exercise-code-view-exercise-code">3.6.3. View Exercise: <code>view exercise</code></a></h4>
 <div class="paragraph">
 <p>Ok, now that you&#8217;ve added your exercise, you probably want to know what all of its details. Simply
 input the command <code>view exercise</code> followed by the index of the exercise you want
@@ -1462,7 +1859,7 @@ the exercise page, simply invoke the <code>goto exercise</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-exercise"><a class="link" href="#find-exercise">3.7.4. Find Exercise:</a></h4>
+<h4 id="find-exercise"><a class="link" href="#find-exercise">3.6.4. Find Exercise:</a></h4>
 <div class="paragraph">
 <p>Now that you have a sizable amount of Exercises, you realise that you cannot easily find them
 amongst the sea of cards. To tackle this problem of seamless navigation, we implemented the
@@ -1533,7 +1930,7 @@ you wish to utilise and the predicate.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-workout-code-add-workout-code"><a class="link" href="#add-workout-code-add-workout-code">3.7.5. Add Workout: <code>add workout</code></a></h4>
+<h4 id="add-workout-code-add-workout-code"><a class="link" href="#add-workout-code-add-workout-code">3.6.5. Add Workout: <code>add workout</code></a></h4>
 <div class="paragraph">
 <p>Now that you&#8217;ve created all your exercise, you&#8217;re ready to create a workout plan! To create
 a workout, input <code>add workout n/NAME</code> into the command box, replacing <code>NAME</code> with the name
@@ -1553,7 +1950,7 @@ of your workout. This will initialise your Workout with no exercises in it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="push-exercise-code-push-exercise-code"><a class="link" href="#push-exercise-code-push-exercise-code">3.7.6. Push Exercise <code>push exercise</code></a></h4>
+<h4 id="push-exercise-code-push-exercise-code"><a class="link" href="#push-exercise-code-push-exercise-code">3.6.6. Push Exercise <code>push exercise</code></a></h4>
 <div class="paragraph">
 <p>Once you have initialised your workout, you are now ready to add your exercise into your
 workouts! To do so simply locate the index of the exercise you want to push and the workout
@@ -1582,7 +1979,7 @@ needed for your ULITMATE workout regime!</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-workout-code-view-workout-code"><a class="link" href="#view-workout-code-view-workout-code">3.7.7. View Workout: <code>view workout</code></a></h4>
+<h4 id="view-workout-code-view-workout-code"><a class="link" href="#view-workout-code-view-workout-code">3.6.7. View Workout: <code>view workout</code></a></h4>
 <div class="paragraph">
 <p>You&#8217;ve created your workout regime, but you&#8217;re unsure of the details and your progress. With
 the <code>view workout</code> feature, you can check all the details of your workout as well as its
@@ -1631,7 +2028,7 @@ of the workout. You can also return to the workout planner page with <code>goto 
 </div>
 </div>
 <div class="sect3">
-<h4 id="run-workout-code-run-workout-code"><a class="link" href="#run-workout-code-run-workout-code">3.7.8. Run Workout: <code>run workout</code></a></h4>
+<h4 id="run-workout-code-run-workout-code"><a class="link" href="#run-workout-code-run-workout-code">3.6.8. Run Workout: <code>run workout</code></a></h4>
 <div class="paragraph">
 <p>You&#8217;ve created all your exercises and added it into your ultimate workout. Now you&#8217;re ready
 to run it! To run the workout, invoke the <code>run workout</code> command with the index of your
@@ -1693,7 +2090,7 @@ where a congratulatory message will greet you!</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="other-commands"><a class="link" href="#other-commands">3.7.9. Other Commands</a></h4>
+<h4 id="other-commands"><a class="link" href="#other-commands">3.6.9. Other Commands</a></h4>
 <div class="paragraph">
 <p>With that, you have sufficient knowledge to create and run your workout&#8230;&#8203;
 if you&#8217;re perfect that is. To make your life easier, we&#8217;ve also
@@ -1749,13 +2146,13 @@ gym membership to use!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary"><a class="link" href="#diary">3.8. Diary</a></h3>
+<h3 id="diary"><a class="link" href="#diary">3.7. Diary</a></h3>
 <div class="paragraph">
 <p>Want to share great recipes and workout tips with your friends? Look through the available commands in this section and
 start sharing!</p>
 </div>
 <div class="sect3">
-<h4 id="taking-a-closer-look-into-the-diary-feature"><a class="link" href="#taking-a-closer-look-into-the-diary-feature">3.8.1. Taking a closer look into the Diary feature</a></h4>
+<h4 id="taking-a-closer-look-into-the-diary-feature"><a class="link" href="#taking-a-closer-look-into-the-diary-feature">3.7.1. Taking a closer look into the Diary feature</a></h4>
 <div class="paragraph">
 <p>In the diary feature, you will be able to look through all your available diaries and pages at one quick glance!
 Not only that, you can also enter different commands within the command box.</p>
@@ -1771,7 +2168,7 @@ Not only that, you can also enter different commands within the command box.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-diary"><a class="link" href="#adding-a-diary">3.8.2. Adding a diary</a></h4>
+<h4 id="adding-a-diary"><a class="link" href="#adding-a-diary">3.7.2. Adding a diary</a></h4>
 <div class="paragraph">
 <p>Let&#8217;s get started by adding a diary using the <code>add diary</code> command!</p>
 </div>
@@ -1818,7 +2215,7 @@ Diary names are only limited to 25 characters.
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-diary"><a class="link" href="#deleting-a-diary">3.8.3. Deleting a diary</a></h4>
+<h4 id="deleting-a-diary"><a class="link" href="#deleting-a-diary">3.7.3. Deleting a diary</a></h4>
 <div class="paragraph">
 <p>Accidentally created an unwanted diary? No worries! You can remove it with our <code>delete diary</code> command.</p>
 </div>
@@ -1853,7 +2250,7 @@ will be removed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-diary"><a class="link" href="#editing-a-diary">3.8.4. Editing a diary</a></h4>
+<h4 id="editing-a-diary"><a class="link" href="#editing-a-diary">3.7.4. Editing a diary</a></h4>
 <div class="paragraph">
 <p>Made a minor mistake and would like to correct it? You can do so with our <code>edit diary</code> command!</p>
 </div>
@@ -1887,7 +2284,7 @@ Format: <code>edit diary &lt;diary index&gt; n/ &lt;new diary name&gt;</code></p
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-a-diary"><a class="link" href="#viewing-a-diary">3.8.5. Viewing a diary</a></h4>
+<h4 id="viewing-a-diary"><a class="link" href="#viewing-a-diary">3.7.5. Viewing a diary</a></h4>
 <div class="paragraph">
 <p>Want to take a look into another diary? Use the <code>view diary</code> command!</p>
 </div>
@@ -1922,7 +2319,7 @@ In this case, the diary will be switched to "Healthy Living" and its correspondi
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-a-diary"><a class="link" href="#finding-a-diary">3.8.6. Finding a diary</a></h4>
+<h4 id="finding-a-diary"><a class="link" href="#finding-a-diary">3.7.6. Finding a diary</a></h4>
 <div class="paragraph">
 <p>Having difficulty with locating a particular diary? You can use the <code>find diary</code> command to quickly find your desired diary.</p>
 </div>
@@ -1957,7 +2354,7 @@ keyword "singapore" would be found.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-all-diaries"><a class="link" href="#listing-all-diaries">3.8.7. Listing all diaries</a></h4>
+<h4 id="listing-all-diaries"><a class="link" href="#listing-all-diaries">3.7.7. Listing all diaries</a></h4>
 <div class="paragraph">
 <p>Want to see all the available diaries? You can use our <code>list diary</code> command to list all available diaries!</p>
 </div>
@@ -1991,7 +2388,7 @@ Format: <code>list diary</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-page"><a class="link" href="#adding-a-page">3.8.8. Adding a page</a></h4>
+<h4 id="adding-a-page"><a class="link" href="#adding-a-page">3.7.8. Adding a page</a></h4>
 <div class="paragraph">
 <p>Looking to customise your diary further? You can do so by adding pages with our <code>add page</code> command.</p>
 </div>
@@ -2060,7 +2457,7 @@ the top of the Page Input Form.
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-page"><a class="link" href="#deleting-a-page">3.8.9. Deleting a page</a></h4>
+<h4 id="deleting-a-page"><a class="link" href="#deleting-a-page">3.7.9. Deleting a page</a></h4>
 <div class="paragraph">
 <p>Want to remove a page? We&#8217;ve got that covered with our <code>delete page</code> command.</p>
 </div>
@@ -2095,7 +2492,7 @@ Format: <code>delete page &lt;page index&gt; n/ &lt;diary name&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-page"><a class="link" href="#editing-a-page">3.8.10. Editing a page</a></h4>
+<h4 id="editing-a-page"><a class="link" href="#editing-a-page">3.7.10. Editing a page</a></h4>
 <div class="paragraph">
 <p>Making minor changes to a page? You can do so with the <code>edit page</code> command!</p>
 </div>
@@ -2143,7 +2540,7 @@ or even the page image!
 </div>
 </div>
 <div class="sect3">
-<h4 id="link-recipes-code-coming-in-v2-0-code"><a class="link" href="#link-recipes-code-coming-in-v2-0-code">3.8.11. Link Recipes: <code>[Coming in v2.0]</code></a></h4>
+<h4 id="link-recipes-code-coming-in-v2-0-code-2"><a class="link" href="#link-recipes-code-coming-in-v2-0-code-2">3.7.11. Link Recipes: <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Creates a new food page in the specified diary, using pre-existing recipes<br>
 Format: <code>link recipe &lt;recipe exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
@@ -2185,7 +2582,7 @@ Creates a food page about “Caesar Salad” and adds it to the diary named “H
 </div>
 </div>
 <div class="sect3">
-<h4 id="link-exercises-code-coming-in-v2-0-code"><a class="link" href="#link-exercises-code-coming-in-v2-0-code">3.8.12. Link Exercises: <code>[Coming in v2.0]</code></a></h4>
+<h4 id="link-exercises-code-coming-in-v2-0-code"><a class="link" href="#link-exercises-code-coming-in-v2-0-code">3.7.12. Link Exercises: <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Creates a new exercise page in the specified diary, using pre-existing exercises<br>
 Format: <code>link exercise &lt;exercise exerciseName&gt; /to &lt;diary exerciseName&gt;</code></p>
@@ -2227,7 +2624,7 @@ Creates an exercise page about “Crunch” and adds it to the diary named “He
 </div>
 </div>
 <div class="sect3">
-<h4 id="link-health-records-code-coming-in-v2-0-code"><a class="link" href="#link-health-records-code-coming-in-v2-0-code">3.8.13. Link Health Records: <code>[Coming in v2.0]</code></a></h4>
+<h4 id="link-health-records-code-coming-in-v2-0-code"><a class="link" href="#link-health-records-code-coming-in-v2-0-code">3.7.13. Link Health Records: <code>[Coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Creates a new health page in the specified diary, using pre-existing records<br>
 Format: <code>link records &lt;record id&gt; /to &lt;diary exerciseName&gt;</code></p>
@@ -2467,4 +2864,4 @@ Image URL: /images/lowsugar.jpg<br></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 00:40:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 00:53:44 UTC</div></div></div></body></html>
