@@ -1,69 +1,352 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>DukeCooks v1.3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>DukeCooks - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">DukeCooks</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://ay1920s1-cs2103t-t10-2.github.io/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>DukeCooks v1.3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-t10-2.github.io/main/"><img src="/images/DukeCooks_Logo.png" alt="Team DukeCooks"></a><div class="container"><a class="navbar-brand" href="index.html">DukeCooks</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>DukeCooks - Developer Guide <span class="image"><img src="images/DukeCooks_Logo.png" alt="DukeCooks Logo" width="50"></span></h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team T10-2</code>      Since: <code>Oct 2019</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team DukeCooks</code>      Since: <code>Oct 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#purpose">1.1. Purpose</a></li>
+<li><a href="#understanding-the-document">1.2. Understanding the document</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#setting-up">2. Setting up</a>
 <ul class="sectlevel2">
-<li><a href="#implementation-of-commands-and-parser">3.1. Implementation of Commands and Parser</a></li>
-<li><a href="#what-makes-up-a-dashboard">3.2. What makes up a Dashboard?</a></li>
-<li><a href="#recipebook-feature">3.3. RecipeBook feature</a></li>
-<li><a href="#workout-planner-feature">3.4. Workout Planner feature</a></li>
-<li><a href="#health-records-feature">3.5. Health Records feature</a></li>
-<li><a href="#diary-feature">3.6. Diary feature</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#prerequisites">2.1. Prerequisites</a></li>
+<li><a href="#setting-up-the-project-in-your-computer">2.2. Setting up the project in your computer</a></li>
+<li><a href="#verifying-the-setup">2.3. Verifying the setup</a></li>
+<li><a href="#configurations-to-do-before-writing-code">2.4. Configurations to do before writing code</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#design">3. Design</a>
+<ul class="sectlevel2">
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
+</ul>
+</li>
+<li><a href="#implementation">4. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#implementation-of-commands-and-parser">4.1. Implementation of Commands and Parser</a></li>
+<li><a href="#what-makes-up-a-dashboard">4.2. What makes up a Dashboard?</a></li>
+<li><a href="#recipebook-feature">4.3. RecipeBook feature</a></li>
+<li><a href="#workout-planner-feature">4.4. Workout Planner feature</a></li>
+<li><a href="#health-records-feature">4.5. Health Records feature</a></li>
+<li><a href="#diary-feature">4.6. Diary feature</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#documentation">5. Documentation</a>
+<ul class="sectlevel2">
+<li><a href="#editing-documentation">5.1. Editing Documentation</a></li>
+<li><a href="#editing-diagrams">5.2. Editing Diagrams</a></li>
+<li><a href="#publishing-documentation">5.3. Publishing Documentation</a></li>
+<li><a href="#converting-documentation-to-pdf-format">5.4. Converting Documentation to PDF format</a></li>
+<li><a href="#Docs-SiteWideDocSettings">5.5. Site-wide Documentation Settings</a></li>
+<li><a href="#Docs-PerFileDocSettings">5.6. Per-file Documentation Settings</a></li>
+<li><a href="#site-template">5.7. Site Template</a></li>
+</ul>
+</li>
+<li><a href="#testing">6. Testing</a>
+<ul class="sectlevel2">
+<li><a href="#running-tests">6.1. Running Tests</a></li>
+<li><a href="#types-of-tests">6.2. Types of tests</a></li>
+</ul>
+</li>
+<li><a href="#dev-ops">7. Dev Ops</a>
+<ul class="sectlevel2">
+<li><a href="#build-automation">7.1. Build Automation</a></li>
+<li><a href="#continuous-integration">7.2. Continuous Integration</a></li>
+<li><a href="#coverage-reporting">7.3. Coverage Reporting</a></li>
+<li><a href="#documentation-previews">7.4. Documentation Previews</a></li>
+<li><a href="#making-a-release">7.5. Making a Release</a></li>
+<li><a href="#managing-dependencies">7.6. Managing Dependencies</a></li>
+</ul>
+</li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
+<li><a href="#adding-a-diary">F.3. Adding a diary</a></li>
+<li><a href="#deleting-a-diary">F.4. Deleting a diary</a></li>
+<li><a href="#deleting-a-page">F.5. Deleting a page</a></li>
+<li><a href="#saving-data">F.6. Saving data</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
+<p>DukeCooks is a revolutionary lifestyle application, specially designed for health-conscious individuals. DukeCooks
+runs on the Command-Line Interface (CLI), allowing users to execute different commands, all within a single line.
+They will be able to manage various aspects of their lifestyle, from their diet, to exercises and health records.</p>
+</div>
+<div class="paragraph">
+<p>They can use DukeCooks to manage all their lifestyle needs, all within one single app.</p>
+</div>
+<div class="paragraph">
+<p>With DukeCooks, being healthy has never been easier!</p>
+</div>
+<div class="sect2">
+<h3 id="purpose"><a class="link" href="#purpose">1.1. Purpose</a></h3>
+<div class="paragraph">
+<p>This developer guide aims to provide you with both the technical and non-technical aspects of DukeCooks. It also provides
+insight into the future direction of DukeCooks. After reading this document, you should be able to understand the design,
+architecture and goals of DukeCooks.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="understanding-the-document"><a class="link" href="#understanding-the-document">1.2. Understanding the document</a></h3>
+<div class="paragraph">
+<p>[TIP] Pro tips which you may find useful.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Information that you should take note of.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Information that you should be careful with.
+</td>
+</tr>
+</table>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>Model</code>
+</td>
+<td class="hdlist2">
+<p>Text with orange highlight (also known as mark-up) indicates a class / package name.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code><em>Model.java</em></code>
+</td>
+<td class="hdlist2">
+<p>Italic text with mark-up indicates a file name / github link.</p>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="prerequisites"><a class="link" href="#prerequisites">2.1. Prerequisites</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>JDK <code>11</code></strong> or above</p>
+</li>
+<li>
+<p><strong>IntelliJ</strong> IDE</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+IntelliJ by default has Gradle and JavaFx plugins installed.<br>
+Do not disable them. If you have disabled them, go to <code>File</code> &gt; <code>Settings</code> &gt; <code>Plugins</code> to re-enable them.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-up-the-project-in-your-computer"><a class="link" href="#setting-up-the-project-in-your-computer">2.2. Setting up the project in your computer</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fork this repo, and clone the fork to your computer</p>
+</li>
+<li>
+<p>Open IntelliJ (if you are not in the welcome screen, click <code>File</code> &gt; <code>Close Project</code> to close the existing project dialog first)</p>
+</li>
+<li>
+<p>Set up the correct JDK version for Gradle</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <code>Configure</code> &gt; <code>Project Defaults</code> &gt; <code>Project Structure</code></p>
+</li>
+<li>
+<p>Click <code>New&#8230;&#8203;</code> and find the directory of the JDK</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click <code>Import Project</code></p>
+</li>
+<li>
+<p>Locate the <code>build.gradle</code> file and select it. Click <code>OK</code></p>
+</li>
+<li>
+<p>Click <code>Open as Project</code></p>
+</li>
+<li>
+<p>Click <code>OK</code> to accept the default settings.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="verifying-the-setup"><a class="link" href="#verifying-the-setup">2.3. Verifying the setup</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Run the <code>dukecooks.Main</code> and try a few commands</p>
+</li>
+<li>
+<p><a href="Testing.html">Run the tests</a> to ensure they all pass.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configurations-to-do-before-writing-code"><a class="link" href="#configurations-to-do-before-writing-code">2.4. Configurations to do before writing code</a></h3>
+<div class="sect3">
+<h4 id="configuring-the-coding-style"><a class="link" href="#configuring-the-coding-style">2.4.1. Configuring the coding style</a></h4>
+<div class="paragraph">
+<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to <code>File</code> &gt; <code>Settings&#8230;&#8203;</code> (Windows/Linux), or <code>IntelliJ IDEA</code> &gt; <code>Preferences&#8230;&#8203;</code> (macOS)</p>
+</li>
+<li>
+<p>Select <code>Editor</code> &gt; <code>Code Style</code> &gt; <code>Java</code></p>
+</li>
+<li>
+<p>Click on the <code>Imports</code> tab to set the order</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Class count to use import with '*'</code> and <code>Names count to use static import with '*'</code>: Set to <code>999</code> to prevent IntelliJ from contracting the import statements</p>
+</li>
+<li>
+<p>For <code>Import Layout</code>: The order is <code>import static all other imports</code>, <code>import java.*</code>, <code>import javax.*</code>, <code>import org.*</code>, <code>import com.*</code>, <code>import all other imports</code>. Add a <code>&lt;blank line&gt;</code> between each <code>import</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Optionally, you can follow the <a href="UsingCheckstyle.html">UsingCheckstyle.adoc</a> document to configure Intellij to check style-compliance as you write code.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="updating-documentation-to-match-your-fork"><a class="link" href="#updating-documentation-to-match-your-fork">2.4.2. Updating documentation to match your fork</a></h4>
+<div class="paragraph">
+<p>After forking the repo, the documentation will still have the DukeCooks branding and refer to the <code>AY1920S1-CS2103T-T10-2/main</code> repo.</p>
+</div>
+<div class="paragraph">
+<p>If you plan to develop this fork as a separate product (i.e. instead of contributing to <code>AY1920S1-CS2103T-T10-2/main</code>), you should do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the <a href="Documentation.html#Docs-SiteWideDocSettings">site-wide documentation settings</a> in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/build.gradle"><code>build.gradle</code></a>, such as the <code>site-name</code>, to suit your own project.</p>
+</li>
+<li>
+<p>Replace the URL in the attribute <code>repoURL</code> in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/docs/DeveloperGuide.adoc"><code>DeveloperGuide.adoc</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/docs/UserGuide.adoc"><code>UserGuide.adoc</code></a> with the URL of your fork.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-up-ci"><a class="link" href="#setting-up-ci">2.4.3. Setting up CI</a></h4>
+<div class="paragraph">
+<p>Set up Travis to perform Continuous Integration (CI) for your fork. See <a href="UsingTravis.html">UsingTravis.adoc</a> to learn how to set it up.</p>
+</div>
+<div class="paragraph">
+<p>After setting up Travis, you can optionally set up coverage reporting for your team fork (see <a href="UsingCoveralls.html">UsingCoveralls.adoc</a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Coverage reporting could be useful for a team repository that hosts the final version but it is not that useful for your personal fork.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Optionally, you can set up AppVeyor as a second CI (see <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Having both Travis and AppVeyor ensures your App works on both Unix-based platforms and Windows-based platforms (Travis is Unix-based while AppVeyor is Windows-based)
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-started-with-coding"><a class="link" href="#getting-started-with-coding">2.4.4. Getting started with coding</a></h4>
+<div class="paragraph">
+<p>When you are ready to start coding, we recommend that you get some sense of the overall design by reading about <a href="#Design-Architecture">DukeCooks&#8217;s architecture</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -87,7 +370,7 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/Main.java"><code><em>Main</em></code></a> and <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/MainApp.java"><code><em>MainApp</em></code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -138,7 +421,7 @@ The following class plays an important role at the architecture level:</p>
 <p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
 </li>
 <li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+<p>Exposes its functionality using a <code>{Component Name} Manager</code> class.</p>
 </li>
 </ul>
 </div>
@@ -166,7 +449,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -174,7 +457,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/ui/Ui.java"><code><em>Ui.java</em></code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>XYZListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
@@ -214,7 +497,7 @@ The 5 different components are:</p>
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/ui/MainWindow.java"><code><em>MainWindow</em></code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/resources/view/MainWindow.fxml"><code><em>MainWindow.fxml</em></code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -231,7 +514,7 @@ The 5 different components are:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="paragraph">
 <p>Structure of the Logic Component</p>
 </div>
@@ -242,7 +525,7 @@ The 5 different components are:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/logic/Logic.java"><code><em>Logic.java</em></code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -286,7 +569,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -294,7 +577,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/model/Model.java"><code><em>Model.java</em></code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -358,23 +641,9 @@ The 5 different components are:</p>
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -382,7 +651,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/storage/Storage.java"><code><em>Storage.java</em></code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -399,7 +668,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>dukecooks.commons</code> package.</p>
 </div>
@@ -407,20 +676,20 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="implementation-of-commands-and-parser"><a class="link" href="#implementation-of-commands-and-parser">3.1. Implementation of Commands and Parser</a></h3>
+<h3 id="implementation-of-commands-and-parser"><a class="link" href="#implementation-of-commands-and-parser">4.1. Implementation of Commands and Parser</a></h3>
 <div class="paragraph">
 <p>All command variants (i.e <code>AddRecipeCommand</code>, <code>AddExerciseCommand</code>) extends from <code>AddCommand</code>,
 instead of the abstract <code>Command</code> class.
-This applies to other type of commands as well, such as Delete and Edit.</p>
+This applies to other type of commands as well, such as <code>DeleteCommand</code> and <code>EditCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>The diagram below shows a simplified class diagram for Commands and Parser</p>
+<p>The diagram below shows a simplified class diagram for Commands and Parser.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -454,7 +723,7 @@ reduces the amount of switch cases within <code>DukeCooksParser</code> and makes
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-makes-up-a-dashboard"><a class="link" href="#what-makes-up-a-dashboard">3.2. What makes up a Dashboard?</a></h3>
+<h3 id="what-makes-up-a-dashboard"><a class="link" href="#what-makes-up-a-dashboard">4.2. What makes up a Dashboard?</a></h3>
 <div class="paragraph">
 <p>In DukeCooks, a <code>Dashboard</code> object represents an event a user needs to attend to, a task. A <code>Dashboard</code> is made up of
 a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>. Below is a class diagram that illustrates how <code>Dashboard</code> interacts with other classes.</p>
@@ -466,7 +735,7 @@ a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>.
 <div class="title">Figure 10: Dashboard Class Diagram</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The functions add/delete/edit/find/list/done task, are found under the Dashboard.<br>
 The Dashboard in <code>DukeCooks</code> serves as a homepage which displays a list of tasks set out
@@ -566,7 +835,7 @@ is called to sort the list by date and reflect the newly made changes.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="making-decisions"><a class="link" href="#making-decisions">3.2.2. Making Decisions</a></h4>
+<h4 id="making-decisions"><a class="link" href="#making-decisions">4.2.2. Making Decisions</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -608,14 +877,14 @@ there is lesser chance for errors.
 </div>
 </div>
 <div class="sect2">
-<h3 id="recipebook-feature"><a class="link" href="#recipebook-feature">3.3. RecipeBook feature</a></h3>
+<h3 id="recipebook-feature"><a class="link" href="#recipebook-feature">4.3. RecipeBook feature</a></h3>
 <div class="paragraph">
 <p>The current implementation of RecipeBook consists of the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Each <code>Recipe</code> consists of a unique <code>name</code></p>
+<p>Each <code>Recipe</code> consists of a unique <code>Name</code></p>
 </li>
 <li>
 <p>Each <code>Recipe</code> contains an Set of <code>Ingredient</code></p>
@@ -647,7 +916,7 @@ there is lesser chance for errors.
 <div class="title">Figure 10. Recipe Class Diagram</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-recipe-book-commands"><a class="link" href="#implementation-of-recipe-book-commands">3.3.1. Implementation of recipe book commands</a></h4>
+<h4 id="implementation-of-recipe-book-commands"><a class="link" href="#implementation-of-recipe-book-commands">4.3.1. Implementation of recipe book commands</a></h4>
 <div class="paragraph">
 <p><code>Recipe</code> class supports multiple commands. It includes:</p>
 </div>
@@ -709,9 +978,9 @@ for ease of use for the user whenever the user wishes to edit <code>Ingredient</
 </div>
 </div>
 <div class="sect2">
-<h3 id="workout-planner-feature"><a class="link" href="#workout-planner-feature">3.4. Workout Planner feature</a></h3>
+<h3 id="workout-planner-feature"><a class="link" href="#workout-planner-feature">4.4. Workout Planner feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.4.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>&#160;<br>
 <strong>Exercise Management</strong></p>
@@ -748,7 +1017,7 @@ exercises. Every exercise contains the following information:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-exercise-commands"><a class="link" href="#implementation-of-exercise-commands">3.4.2. Implementation of Exercise Commands</a></h4>
+<h4 id="implementation-of-exercise-commands"><a class="link" href="#implementation-of-exercise-commands">4.4.2. Implementation of Exercise Commands</a></h4>
 <div class="paragraph">
 <p>The <code>Exercise</code> class is managed by the following commands :</p>
 </div>
@@ -813,7 +1082,7 @@ allows for the details to be obtained more efficiently as well as limit them to 
 </div>
 </div>
 <div class="sect2">
-<h3 id="health-records-feature"><a class="link" href="#health-records-feature">3.5. Health Records feature</a></h3>
+<h3 id="health-records-feature"><a class="link" href="#health-records-feature">4.5. Health Records feature</a></h3>
 <div class="paragraph">
 <p>The Health Records feature handles the following:</p>
 </div>
@@ -899,7 +1168,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <p>In future implementations (possibly in v2.0), the <code>TYPE_UTIL</code> list will accommodate more record types defined by the user. This means that there will not be a restriction imposed in health types that can be recorded. User can create a new health type to start health tracking (eg. Sodium level).</p>
 </div>
 <div class="sect3">
-<h4 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command">3.5.1. <code>add health</code> Command</a></h4>
+<h4 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command">4.5.1. <code>add health</code> Command</a></h4>
 <div class="paragraph">
 <p><code>add health t/[type] [inputs]</code> is parsed in the <code>addHealthCommandParser</code>. The inputs will first be initialised to its respective objects with underlying validation checks (eg. <code>Type</code> object will call for <code>isValidType()</code> method to check against <code>TYPE_UTIL</code> List). A <code>Record</code> object will then be created with the three valid object components.</p>
 </div>
@@ -914,7 +1183,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect: Data structure on how the different health types are stored</strong></p>
 </div>
@@ -956,9 +1225,9 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-feature"><a class="link" href="#diary-feature">3.6. Diary feature</a></h3>
+<h3 id="diary-feature"><a class="link" href="#diary-feature">4.6. Diary feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.6.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of Diary consists of the following:</p>
 </div>
@@ -971,7 +1240,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <p>Each <code>Diary</code> contains an array list of <code>Page</code></p>
 </li>
 <li>
-<p>Each <code>Page</code> is identified by a unique <code>Title</code></p>
+<p>Each <code>Page</code> is identified by a unique <code>Title</code>, <code>PageType</code>, <code>Page Description</code> and <code>Page Image</code></p>
 </li>
 <li>
 <p>Each class has their respective getter methods</p>
@@ -989,20 +1258,29 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-diary-commands"><a class="link" href="#implementation-of-diary-commands">3.6.2. Implementation of diary commands</a></h4>
+<h4 id="implementation-of-diary-commands"><a class="link" href="#implementation-of-diary-commands">4.6.2. Implementation of diary commands</a></h4>
 <div class="paragraph">
 <p><code>Diary</code> class supports multiple commands. It includes:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>AddDiaryCommand</code> - Adds a <code>Diary</code> into <code>DukeCooks</code></p>
+<p><code>AddDiaryCommand</code> - Adds a <code>Diary</code> into DukeCooks</p>
 </li>
 <li>
-<p><code>DeleteDiaryCommand</code> - Deletes a <code>Diary</code> from <code>DukeCooks</code></p>
+<p><code>DeleteDiaryCommand</code> - Deletes a <code>Diary</code> from DukeCooks</p>
 </li>
 <li>
 <p><code>EditDiaryCommand</code> - Edits the specified <code>Diary</code> with a new <code>DiaryName</code></p>
+</li>
+<li>
+<p><code>ViewDiaryCommand</code> - Views the specified <code>Diary</code> using the provided index</p>
+</li>
+<li>
+<p><code>FindDiaryCommand</code> - Finds the specified <code>Diary</code> using the provided keyword</p>
+</li>
+<li>
+<p><code>ListDiaryCommand</code> - Lists all available diaries to user</p>
 </li>
 <li>
 <p><code>AddPageCommand</code> - Adds a new <code>Page</code> to the specified <code>Diary</code></p>
@@ -1010,29 +1288,35 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <li>
 <p><code>DeletePageCommand</code> - Deletes the <code>Page</code> in the specified <code>Diary</code></p>
 </li>
+<li>
+<p><code>EditPageCommand</code> - Edits various fields of the specified <code>Page</code></p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>All the above diary commands behave similarly. The commands will be parsed in <code>DukeCooksParser</code> and based on their
+<p>All the above commands behave similarly. The commands will be parsed in <code>DukeCooksParser</code> first and based on their
 types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be invoked (i.e <code>AddDiaryCommandParser</code>,
 <code>DeleteDiaryCommandParser</code> etc). After which, the corresponding command will be executed (i.e <code>AddDiaryCommand</code>,
 <code>DeleteDiaryCommand</code> etc).</p>
 </div>
 <div class="paragraph">
-<p>The figure below describes the execution of an <code>DeletePageCommand</code>.</p>
+<p>The figure below describes the execution of an <code>DeleteDiaryCommand</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeletePageSequenceDiagram.png" alt="DeletePageSequenceDiagram">
+<img src="images/DeleteDiarySequenceDiagram.png" alt="DeleteDiarySequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence Diagram of DeletePageCommand</div>
+<div class="title">Figure 16. Sequence Diagram of DeleteDiaryCommand</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
-After a successful execution, the specified page will be removed from the specified diary.</p>
+After a successful execution, the specified diary will be removed.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.3. Design Considerations</a></h4>
 <div class="paragraph">
-<p>The current implementation makes use of an ArrayList to store the <code>Page</code> objects.
+<p>The current implementation of <code>Diary</code> makes use of an ArrayList to store the <code>Page</code> objects.
 This is the simplest implementation as most novice programmers would be familiar with ArrayLists.
 However, list operations tend to take more time to run compared to other data structures such as Sets.</p>
 </div>
@@ -1049,20 +1333,56 @@ does not provide an order to <code>Page</code> objects, unlike in lists.</p>
 </div>
 <div class="paragraph">
 <p>We chose to use ArrayLists instead as we require the <code>Page</code> objects to be ordered, so that the implementation of
-<code>DeletePageCommand</code> is simplified. An index can be provided in <code>DeletePageCommand</code> and the corresponding <code>Page</code>
+<code>DeletePageCommand</code> is simplified. An index can simply be provided in <code>DeletePageCommand</code> and the corresponding <code>Page</code>
 object can simply be removed from the ArrayList, using the specified index.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-images"><a class="link" href="#implementation-of-images">4.6.4. Implementation of Images</a></h4>
+<div class="paragraph">
+<p>All images used in DukeCooks are copied into an internal data folder and all subsequent loading of images is done from
+within this internal folder. The following activity diagram explains how an image is created in DukeCooks:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImageActivityDiagram.png" alt="ImageActivityDiagram">
+</div>
+<div class="title">Figure 17. Activity diagram of adding images</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.5. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This current implementation of images defensively copies the images into the internal data folder, instead of loading images
+from the user&#8217;s local directory. While it may be slower in terms of performance, it is less prone to unexpected errors when
+loading images.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternatives</strong></p>
+</div>
+<div class="paragraph">
+<p>An alternative to copying images into an internal data folder would be to load images directly from the user&#8217;s directory
+without saving it internally. This implementation performs better and is much easier to implement.</p>
+</div>
+<div class="paragraph">
+<p><strong>Our Choice</strong></p>
+</div>
+<div class="paragraph">
+<p>We decided to make defensive copies of images in our internal folder as we want to eliminate unexpected errors. By making
+defensive copies internally, we ensure that all images used can be loaded, even if the user decides to delete the original
+image in their local directory.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1093,7 +1413,7 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1101,26 +1421,341 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="Documentation.html">here</a>.</p>
+<p>We use asciidoc for writing documentation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We chose asciidoc over Markdown because asciidoc provides greater flexibility in formatting.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="editing-documentation"><a class="link" href="#editing-documentation">5.1. Editing Documentation</a></h3>
+<div class="paragraph">
+<p>You may refer to <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> and learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
+Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-diagrams"><a class="link" href="#editing-diagrams">5.2. Editing Diagrams</a></h3>
+<div class="paragraph">
+<p>You may refer to <a href="UsingPlantUml.html">UsingPlantUml.adoc</a> and learn how to create and update UML diagrams in the Developer Guide.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">5.3. Publishing Documentation</a></h3>
+<div class="paragraph">
+<p>You may refer to <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> and learn how to deploy GitHub Pages using Travis.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.4. Converting Documentation to PDF format</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
+</div>
+<div class="paragraph">
+<p>Here are the steps to convert the project documentation files to PDF format.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Follow the instructions in <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to convert the AsciiDoc files in the <code>docs/</code> directory to HTML format.</p>
+</li>
+<li>
+<p>Go to your generated HTML files in the <code>build/docs</code> folder, right click on them and select <code>Open with</code> &#8594; <code>Google Chrome</code>.</p>
+</li>
+<li>
+<p>Within Chrome, click on the <code>Print</code> option in Chrome&#8217;s menu.</p>
+</li>
+<li>
+<p>Set the destination to <code>Save as PDF</code>, then click <code>Save</code> to save a copy of the file in PDF format. For best results, use the settings indicated in the screenshot below.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
+</div>
+<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">5.5. Site-wide Documentation Settings</a></h3>
+<div class="paragraph">
+<p>The <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/build.gradle"><code><em>build.gradle</em></code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Attributes left unset in the <code>build.gradle</code> file will use their <strong>default value</strong>, if any.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. List of site-wide attributes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>site-name</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The name of the website.
+If set, the name will be displayed near the top of the page.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>site-githuburl</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>URL to the site&#8217;s repository on <a href="https://github.com">GitHub</a>.
+Setting this will add a "View on GitHub" link in the navigation bar.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="Docs-PerFileDocSettings"><a class="link" href="#Docs-PerFileDocSettings">5.6. Per-file Documentation Settings</a></h3>
+<div class="paragraph">
+<p>Each <code>.adoc</code> file may also specify some file-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how the file is rendered.</p>
+</div>
+<div class="paragraph">
+<p>Asciidoctor&#8217;s <a href="https://asciidoctor.org/docs/user-manual/#builtin-attributes">built-in attributes</a> may be specified and used as well.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Attributes left unset in <code>.adoc</code> files will use their <strong>default value</strong>, if any.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. List of per-file attributes, excluding Asciidoctor&#8217;s built-in attributes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute exerciseName</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>site-section</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Site section that the document belongs to.
+This will cause the associated item in the navigation bar to be highlighted.
+One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutcomes</code>*, <code>AboutUs</code>, <code>ContactUs</code></p>
+</div>
+<div class="paragraph">
+<p><em>* Official SE-EDU projects only</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>no-site-header</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Set this attribute to remove the site navigation bar.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="site-template"><a class="link" href="#site-template">5.7. Site Template</a></h3>
+<div class="paragraph">
+<p>The files in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
+You can modify them to change some properties of the site&#8217;s design.</p>
+</div>
+<div class="paragraph">
+<p>The files in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
+These template files are written in a mixture of <a href="https://www.ruby-lang.org">Ruby</a> and <a href="http://slim-lang.com">Slim</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modifying the template files in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
+You should only modify them if you need greater control over the site&#8217;s layout than what stylesheets can provide.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="running-tests"><a class="link" href="#running-tests">6.1. Running Tests</a></h3>
 <div class="paragraph">
-<p>Refer to the guide <a href="Testing.html">here</a>.</p>
+<p>There are two ways to run tests.</p>
+</div>
+<div class="paragraph">
+<p><strong>Method 1: Using IntelliJ JUnit test runner</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To run all tests, right-click on the <code>src/test/java</code> folder and choose <code>Run 'All Tests'</code></p>
+</li>
+<li>
+<p>To run a subset of tests, you can right-click on a test package, test class, or a test and choose <code>Run 'ABC'</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Method 2: Using Gradle</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open a console and run the command <code>gradlew clean test</code> (Mac/Linux: <code>./gradlew clean test</code>)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You may refer to <a href="UsingGradle.html">UsingGradle.adoc</a> for more information on how to run tests using Gradle.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-tests"><a class="link" href="#types-of-tests">6.2. Types of tests</a></h3>
+<div class="paragraph">
+<p>We have three types of tests:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><em>Unit tests</em> targeting the lowest level methods/classes.<br>
+e.g. <code>dukecooks.StringUtilTest</code></p>
+</li>
+<li>
+<p><em>Integration tests</em> that are checking the integration of multiple code units (those code units are assumed to be working).<br>
+e.g. <code>dukecooks.storage.StorageManagerTest</code></p>
+</li>
+<li>
+<p>Hybrids of unit and integration tests. These test are checking multiple code units as well as how the are connected together.<br>
+e.g. <code>dukecooks.LogicManagerTest</code></p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="build-automation"><a class="link" href="#build-automation">7.1. Build Automation</a></h3>
 <div class="paragraph">
-<p>Refer to the guide <a href="DevOps.html">here</a>.</p>
+<p>You may refer to <a href="UsingGradle.html">UsingGradle.adoc</a> and learn how to use Gradle for build automation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="continuous-integration"><a class="link" href="#continuous-integration">7.2. Continuous Integration</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. Refer to <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">7.3. Coverage Reporting</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects. Refer to <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="documentation-previews"><a class="link" href="#documentation-previews">7.4. Documentation Previews</a></h3>
+<div class="paragraph">
+<p>When a pull request make changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged. Refer to <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="making-a-release"><a class="link" href="#making-a-release">7.5. Making a Release</a></h3>
+<div class="paragraph">
+<p>Here are the steps to create a new release.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Update the version number in <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/seedu/address/MainApp.java"><code><em>MainApp.java</em></code></a>.</p>
+</li>
+<li>
+<p>Generate a JAR file <a href="UsingGradle.html#creating-the-jar-file">using Gradle</a>.</p>
+</li>
+<li>
+<p>Tag the repo with the version number. e.g. <code>v0.1</code></p>
+</li>
+<li>
+<p><a href="https://help.github.com/articles/creating-releases/">Create a new release using GitHub</a> and upload the JAR file you created.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.6. Managing Dependencies</a></h3>
+<div class="paragraph">
+<p>A project often depends on third-party libraries. For example, DukeCooks depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Include third-party libraries in the repository (This bloats the repository size)</p>
+</li>
+<li>
+<p>Require developers to download third-party libraries manually (Requires extra work from developers)</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -1153,7 +1788,10 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: monitors all aspects of health in one application</p>
+<p><strong>Value proposition</strong>:<br>
+DukeCooks monitors all aspects of the user&#8217;s lifestyle in one single application. This provides the user with the added
+benefit of having to only manage a single application, instead of managing different applications. This is particularly
+useful for busy individuals who do not have time to manage different applications.</p>
 </div>
 </div>
 </div>
@@ -1237,7 +1875,7 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is <code>DukeCooks</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-add-recipe" class="discrete">Use case: Add recipe</h3>
+<h3 id="use-case-uc01-adding-recipes" class="discrete">Use case: UC01 - Adding recipes</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1286,6 +1924,7 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-uc02-suggesting-food" class="discrete">Use case: UC02 - Suggesting Food</h3>
 <div class="paragraph">
 <p>The following is a Use Case diagram for the Dashboard.</p>
 </div>
@@ -1329,7 +1968,7 @@ Steps 3a1. and 3a2. are repeated until the data entered are correct.
 Use case resumes from step 4.</pre>
 </div>
 </div>
-<h3 id="use-case-add-calorie-intake" class="discrete">Use case: Add Calorie Intake</h3>
+<h3 id="use-case-uc03-adding-calorie-intake" class="discrete">Use case: UC03 - Adding Calorie Intake</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1385,7 +2024,7 @@ Use case resumes from step 4.</pre>
 </li>
 </ul>
 </div>
-<h3 id="use-case-create-workout" class="discrete">Use case: Create Workout</h3>
+<h3 id="use-case-uc04-creating-workouts" class="discrete">Use case: UC04 - Creating Workouts</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1441,17 +2080,17 @@ Use case resumes from step 4.</pre>
 </li>
 </ul>
 </div>
-<h3 id="use-case-create-a-new-diary" class="discrete">Use case: Create a new diary</h3>
+<h3 id="use-case-uc05-adding-a-new-diary" class="discrete">Use case: UC05 Adding a new diary</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to create a new diary</p>
+<p>User requests to add a new diary</p>
 </li>
 <li>
-<p>A new diary is created with the specified name</p>
+<p>A new diary is added with the specified name</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1486,18 +2125,21 @@ Use case resumes from step 4.</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
+<p>DukeCooks should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 recipes without a significant reduction in performance for typical usage.</p>
+<p>DukeCooks should be able to hold up to 1000 recipes without a significant reduction in performance for typical usage.</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
+<li>
+<p>DukeCooks should be able to run with or without internet connection.</p>
+</li>
+<li>
+<p>DukeCooks should not require the user to do any installation.</p>
+</li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -1523,44 +2165,7 @@ Use case resumes from step 4.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -1578,7 +2183,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1590,33 +2195,16 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+Expected: Shows the GUI with a set of sample data. The window size will be automatically set to full-screen.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1635,7 +2223,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -1643,12 +2231,96 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="adding-a-diary"><a class="link" href="#adding-a-diary">F.3. Adding a diary</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a diary while all diaries are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all diaries using the <code>list</code> command. Multiple diaries are in the list.</p>
+</li>
+<li>
+<p>Test case: <code>add diary n/ Yummy Food</code><br>
+Expected: A new diary named "Yummy Food" is added to the list. Details of the added diary is shown in the result display.</p>
+</li>
+<li>
+<p>Test case: <code>add diary n/ Yummy Food</code> (A repeat of the previous test case)<br>
+Expected: No diary is added. Error message is shown in the result display. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>add diary</code>, <code>add diary n/ &lt;name&gt;</code> (where &lt;name&gt; already exists in the diary list)<br>
+Expected: Similar error messages to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="deleting-a-diary"><a class="link" href="#deleting-a-diary">F.4. Deleting a diary</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a diary while all diaries are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all diaries using the <code>list</code> command. Multiple diaries are in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete diary 1</code><br>
+Expected: First diary is deleted from the list. Details of the deleted diary is shown in the result display.</p>
+</li>
+<li>
+<p>Test case: <code>delete diary 0</code><br>
+Expected: No diary is deleted. Error message is shown in the result display. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete diary</code>, <code>delete diary x</code> (where x is larger than the list size)<br>
+Expected: Similar error messages to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-page"><a class="link" href="#deleting-a-page">F.5. Deleting a page</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a page from a specified diary</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all diaries using the <code>list</code> command. "Yummy Food" exists in the diary list and has at least one page.</p>
+</li>
+<li>
+<p>Test case: <code>delete page 1 n/ Yummy Food</code><br>
+Expected: Page 1 of the diary named "Yummy Food" will be deleted. Details of the deleted page is shown in the result display.</p>
+</li>
+<li>
+<p>Test case: <code>delete page 0 n/ Yummy Food</code><br>
+Expected: No page is deleted. Error message is shown in the result display. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete page</code>, <code>delete page 1 n/ &lt;name&gt;</code> (where &lt;name&gt; does not exists in the diary list)<br>
+Expected: Similar error messages to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">F.6. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1656,7 +2328,36 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Identify the file that is causing the error.<br>
+It should be one of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>.\data\dashboard.json</code></p>
+</li>
+<li>
+<p><code>.\data\diary.json</code></p>
+</li>
+<li>
+<p><code>.\data\exercises.json</code></p>
+</li>
+<li>
+<p><code>.\data\healthrecords.json</code></p>
+</li>
+<li>
+<p><code>.\data\mealplans.json</code></p>
+</li>
+<li>
+<p><code>.\data\recipes.json</code></p>
+</li>
+<li>
+<p><code>.\data\userprofile.json</code></p>
+</li>
+<li>
+<p><code>.\data\workouts.json</code><br></p>
+</li>
+</ul>
+</div>
 </li>
 </ol>
 </div>
@@ -1664,8 +2365,8 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<p>After identifying the file that causes the error, delete that particular data file.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 01:15:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:07:56 UTC</div></div></div></body></html>
