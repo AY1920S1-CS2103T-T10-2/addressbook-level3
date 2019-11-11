@@ -980,30 +980,44 @@ The input provided is <code>delete recipe 1</code>.</p>
 checking for the existence of the recipe it is about to delete, and replace that meal plan with a new one. This is done
 using MealPlan#removeRecipe.</p>
 </div>
-<div class="paragraph">
-<p><strong>Design Considerations</strong></p>
 </div>
-<div class="paragraph">
-<p>The current implementation uses the DeleteRecipeCommand to do dynamic deletion of recipes from meal plans whenever
-a recipe is deleted.</p>
-</div>
-<div class="paragraph">
-<p><strong>Alternatives</strong></p>
-</div>
-<div class="paragraph">
-<p>An alternative would be create an update command that would update meal plans upon any changes made to the recipe book,
-be it deletion or editing of recipes. This means that the user must manually call for a command that goes through the meal plans
-to validate that they are up to date with the recipe book commands.</p>
-</div>
-<div class="paragraph">
-<p><strong>Our Choice</strong></p>
-</div>
-<div class="paragraph">
-<p>We chose to have the updating of the recipes within meal plans to be done whenever a relevant recipe operation occures,
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updating of recipe components in meal plans upon recipe modifications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dynamic updates upon recipe modification</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Allows for a better user experience, less reliance on the user to ensure that all displayed information is updated.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Harder to implement, requires for checks on meal plans upon every recipe modification, reducing performance of modification operations.</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+We chose to have the updating of the recipes within meal plans to be done whenever a relevant recipe operation occurs,
 namely recipe deletion and edition. This provides a better user experience as the user will never need to remember that
-they have to run an update every single time they modify their recipes. A similar design consideration and choice was made
-for EditRecipeCommand.</p>
-</div>
+they have to run an update every single time they modify their recipes. This is favourable as we wish for DukeCooks to
+be as easy to use as possible.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manual updates at any point in time</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Simplest implementation and most novice programmers are familiar with it.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Relies on user to remember they need to update the meal plans upon recipe modification. Could result in confusion on the
+user&#8217;s end. Also unintuitive from the user&#8217;s standpoint, and makes recipe modification a hassle.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1076,31 +1090,48 @@ The input provided is <code>delete mealplan 1</code>.</p>
 <div class="paragraph">
 <p>After a successful execution, the meal plan with the specified index will be deleted from the meal plan book.</p>
 </div>
-<div class="paragraph">
-<p><strong>Design Considerations</strong></p>
 </div>
-<div class="paragraph">
-<p>The current implementation of <code>MealPlan</code> stores recipe data only in the form of <code>RecipeName</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Alternatives</strong></p>
-</div>
-<div class="paragraph">
-<p>An alternative would be for meal plans to save all the data the recipe contains within it, namely all of its ingredients,
-nutritional value, and once implemented, the difficulty, preparation time, and image, all saved within the meal plan. This
-would make the viewing of the meal plan easier as all the relevant information is being stored within the meal plan.</p>
-</div>
-<div class="paragraph">
-<p><strong>Our Choice</strong></p>
-</div>
-<div class="paragraph">
-<p>We decided to only capture <code>RecipeName</code> information within the meal plan, as we concluded that the meal plan need not know
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.2. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of recipe information to be saved in a meal plan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saving only the recipe name</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Less memory required to save meal plan as it only keeps track of recipe names. Easier to maintain dynamic updates upon recipe
+modification.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Requires that meal plans make a query to obtain the rest of a recipe&#8217;s information using that recipe&#8217;s name whenever the user
+views that meal plan.</p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+We decided to only capture recipe name information within the meal plan, as we concluded that the meal plan need not know
 of a recipe&#8217;s nutritional value, difficulty, preparation time, or image location until the meal plan is viewed by the user.
 This allows for smaller storage of meal plans as each meal plan does not need to hold that much information about the recipes
-that it contains. Only when the meal plan is viewed will it use the <code>RecipeName</code> data it has to query for the rest of that
-recipe&#8217;s information. Additionally, only storing the <code>RecipeName</code> makes the implementation of dynamic updating between meal
-plans and recipes much easier.</p>
-</div>
+that it contains. Only when the meal plan is viewed will it use the recipe name data it has to query for the rest of that
+recipe&#8217;s information. Additionally, only storing the recipe name makes the implementation of dynamic updating between meal
+plans and recipes much easier.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saving the entire recipe</p>
+<p class="tableblock"><strong>Pros</strong><br>
+Easier to implement view command as the meal plan does not need to query for the recipe&#8217;s other information whenever it needs to.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Requires more memory to save each meal plan as recipe ingredients can be very extensive. Also requires more checks to be done
+upon recipe modification to allow for dynamic updates, which is harder to implement.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1553,7 +1584,7 @@ in sync with health records.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.5. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.5. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -1686,7 +1717,7 @@ within this internal folder. The following activity diagram explains how an imag
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.4. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.4. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 20%;">
@@ -2723,4 +2754,4 @@ It should be one of the following:</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:57:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:14:40 UTC</div></div></div></body></html>
