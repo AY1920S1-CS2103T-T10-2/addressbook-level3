@@ -218,82 +218,6 @@ section of this User Guide.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-an-exercise-code-add-exercise-code"><a class="link" href="#adding-an-exercise-code-add-exercise-code">Adding an exercise: <code>add exercise</code></a></h4>
-<div class="paragraph">
-<p>"I now know the components of the Workout Planner! So what can I do with it?"</p>
-</div>
-<div class="paragraph">
-<p>Well I&#8217;m glad you asked kind person! To start off, we have the add exercise command which creates new
-exercises for your workouts. To add an exercise, you must first specify its name, primary muscle trained as well
-as its intensity. You can also add optional fields such as secondary muscles and exercise details like sets and reps.</p>
-</div>
-<div class="paragraph">
-<p>To add the exercise, simply input the fields in the Command Box in the following format:<br>
-Format: <code>add exercise n/EXERCISE_NAME p/PRIMARY_MUSCLE sm/SECONDARY_MUSCLE i/INTENSITY
-s/SETS r/REPETITIONS d/ DISTANCE w/WEIGHT t/TIMING</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="paragraph">
-<p>The following images show an example of the command being inputted and its corresponding
-outputs.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/addExerciseInputExample.png" alt="addExerciseInputExample">
-</div>
-<div class="title">Figure 5. Example input</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/addExerciseOutput.png" alt="addExerciseOutput">
-</div>
-<div class="title">Figure 6. Example output</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-exercise-code-view-exercise-code"><a class="link" href="#view-exercise-code-view-exercise-code">View Exercise: <code>view exercise</code></a></h4>
-<div class="paragraph">
-<p>Ok, now that you&#8217;ve added your exercise, you probably want to know all of its details. Simply
-input the command <code>view exercise</code> followed by the index of the exercise you want
-to view.</p>
-</div>
-<div class="paragraph">
-<p>The screen should now show the full details of the exercise in question. Let&#8217;s get you up to
-speed with what&#8217;s what.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/viewExerciseOutput.png" alt="viewExerciseOutput">
-</div>
-<div class="title">Figure 7. Exercise Details Screen</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Basic Details<br>
-The first segment comprises of the basic details of the exercise. This includes the Exercise
-Name, Intensity, Primary and Secondary Muscles, Number of times the exercise has been executed,
-Average Run Time of the Exercise as well as some of its details.</p>
-</li>
-<li>
-<p>Previous Attempts<br>
-Next up we have a history of all the previous attempts of the exercise. This includes the workout
-that the exercise is done in, the time it was done as well as the time it took. It also specifies
-the number of sets attempted and completed.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The details on this page is automatically updated with each workout run. To return back to
-the exercise page, simply invoke the <code>goto exercise</code> command.</p>
-</div>
-<div class="paragraph">
-<p>More statistics as well as graph view will be implemented in version 2.0.</p>
-</div>
-</div>
-<div class="sect3">
 <h4 id="find-exercise"><a class="link" href="#find-exercise">Find Exercise:</a></h4>
 <div class="paragraph">
 <p>Now that you have a sizable amount of Exercises, you realise that you cannot easily find them
@@ -325,56 +249,13 @@ you wish to utilise and the predicate.</p>
 <div class="content">
 <img src="../images/findExercise.png" alt="findExercise">
 </div>
-<div class="title">Figure 8. Find by Exercise Name</div>
+<div class="title">Figure 5. Find by Exercise Name</div>
 </div>
 <div class="paragraph">
 <p>The filtered lists will then be shown.</p>
 </div>
 <div class="paragraph">
 <p>To show every exercise again, simply invoke the <code>list exercise</code> command.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-workout-code-add-workout-code"><a class="link" href="#add-workout-code-add-workout-code">Add Workout: <code>add workout</code></a></h4>
-<div class="paragraph">
-<p>Now that you&#8217;ve created all your exercise, you&#8217;re ready to create a workout plan! To create
-a workout, input <code>add workout n/NAME</code> into the command box, replacing <code>NAME</code> with the name
-of your workout. This will initialise your Workout with no exercises in it.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/addWorkoutInput.png" alt="addWorkoutInput">
-</div>
-<div class="title">Figure 9. Add Workout Input</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="push-exercise-code-push-exercise-code"><a class="link" href="#push-exercise-code-push-exercise-code">Push Exercise <code>push exercise</code></a></h4>
-<div class="paragraph">
-<p>Once you have initialised your workout, you are now ready to add your exercise into your
-workouts! To do so simply locate the index of the exercise you want to push and the workout
-you want to push your exercise into. Then input the command in the following format <code>push
- exercise wi/WORKOUT_INDEX ei/EXERCISE_INDEX</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/pushExerciseInput.png" alt="pushExerciseInput">
-</div>
-<div class="title">Figure 10. Pushing Bench Press into Chest Day</div>
-</div>
-<div class="paragraph">
-<p>For example, if you want to add Bench Press exercise into Chest Day workout, type in
-<code>push exercise wi/4 ei/8</code> in the command box as seen above. You will get the following input.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/pushExerciseOutput.png" alt="pushExerciseOutput">
-</div>
-<div class="title">Figure 11. Push Exercise Results</div>
-</div>
-<div class="paragraph">
-<p>Now that you know you know how to push exercises, you can go ahead and add in all the exercises
-needed for your ULITMATE workout regime!</p>
 </div>
 </div>
 <div class="sect3">
@@ -413,7 +294,7 @@ The workout history compiles a list of all the times you have ran and completed 
 <div class="content">
 <img src="../images/viewWorkoutOutput.png" alt="viewWorkoutOutput">
 </div>
-<div class="title">Figure 12. Chest Day Screen</div>
+<div class="title">Figure 6. Chest Day Screen</div>
 </div>
 <div class="paragraph">
 <p>Similarly to <code>view Exercise</code> command, this page will be automatically updated after each run
@@ -431,7 +312,7 @@ ultimate workout.</p>
 <div class="content">
 <img src="../images/runWorkoutWindow1.png" alt="runWorkoutWindow1">
 </div>
-<div class="title">Figure 13. Run Workout Window</div>
+<div class="title">Figure 7. Run Workout Window</div>
 </div>
 <div class="paragraph">
 <p>The window above will pop up upon inputting the command. The window can be broken down into 5
@@ -464,57 +345,11 @@ the set as completed as shown below.</p>
 <div class="content">
 <img src="../images/runWorkoutWindow2.png" alt="runWorkoutWindow2">
 </div>
-<div class="title">Figure 14. Marking a set as Done</div>
+<div class="title">Figure 8. Marking a set as Done</div>
 </div>
 <div class="paragraph">
 <p>After completing all the sets in all exercises, you will be brought back to the main page
 where a congratulatory message will greet you!</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="other-commands"><a class="link" href="#other-commands">Other Commands</a></h4>
-<div class="paragraph">
-<p>With that, you have sufficient knowledge to create and run your workout&#8230;&#8203;
-if you&#8217;re perfect that is. To make your life easier, we&#8217;ve also
-included some commands to manage your exercises and workout in case you made errors!</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>List Exercise: <code>list exercise</code><br>
-List exercises which matches optional parameters specified eg. muscle type/intensity.<br>
-Format: `list exercise m/MUSCLEGROUP</p>
-</li>
-<li>
-<p>Delete exercise: <code>delete exercise</code><br>
-Deletes exercise of specified index.<br>
-Format: <code>delete exercise &lt;index&gt;</code></p>
-</li>
-<li>
-<p>Edit exercise: <code>edit exercise</code><br>
-Edits exercise with new details<br>
-Format: <code>edit exercise n/EXERCISE_NAME p/PRIMARY_MUSCLE sm/SECONDARY_MUSCLE i/INTENSITY
-s/SETS r/REPETITIONS d/ DISTANCE w/WEIGHT t/TIMING</code></p>
-</li>
-<li>
-<p>Add calorie: <code>[coming in v2.0] +</code>
-Tracks calorie burned per rep/set of the exercise in kcal.<br>
-Format: <code>calorie &lt;index&gt; &lt;calories&gt;</code></p>
-</li>
-<li>
-<p>Delete workout: <code>delete workout</code> [coming in v1.4]<br>
-Deletes workout of specified index.<br>
-Format: <code>delete workout &lt;index&gt;</code></p>
-</li>
-<li>
-<p>Show graph: <code>[coming in v2.0]</code>
-Creates a graph showing all your past workouts and exercises.</p>
-</li>
-<li>
-<p>Schedule Workout: <code>[coming in v2.0]</code>
-Create a workout to be added in to your schedule that will show up in your dashboard.</p>
-</li>
-</ol>
 </div>
 <div class="paragraph">
 <p>Now you know all there is to the workout planner! What are you waiting for? Go out there and put your
@@ -589,7 +424,7 @@ method which instead opts to use the pre-built Set of <code>ExerciseDetails</cod
 <div class="content">
 <img src="../images/WorkoutClassDiagram.png" alt="WorkoutClassDiagram">
 </div>
-<div class="title">Figure 15. Workout Class Diagram</div>
+<div class="title">Figure 9. Workout Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The Workout Class is managed by the following commands:</p>
@@ -646,7 +481,7 @@ Users can use existing exercises or create their own custom exercises. Every exe
 <div class="content">
 <img src="../images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
-<div class="title">Figure 16. Exercise Class Diagram</div>
+<div class="title">Figure 10. Exercise Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>Exercise</code> class is managed by the following commands :</p>
@@ -696,7 +531,7 @@ what happens when the command is invoked.</p>
 <div class="content">
 <img src="../images/RunWorkoutSequenceDiagram.png" alt="RunWorkoutSequenceDiagram">
 </div>
-<div class="title">Figure 17. Sequence Diagram of RunWorkoutCommand</div>
+<div class="title">Figure 11. Sequence Diagram of RunWorkoutCommand</div>
 </div>
 <div class="paragraph">
 <p>As seen in the diagram above, when the command is invoked, the <code>RunWorkoutParser</code> is initialised to parse the argument String
@@ -708,7 +543,7 @@ the CommandResult object. The Ui will then boot a new <code>RunWorkoutWindow</co
 <div class="content">
 <img src="../images/RunWorkoutActivityDiagram.png" alt="RunWorkoutActivityDiagram">
 </div>
-<div class="title">Figure 18. Activity Diagram of RunWorkoutWindow</div>
+<div class="title">Figure 12. Activity Diagram of RunWorkoutWindow</div>
 </div>
 <div class="paragraph">
 <p>The user will then run each set of each exercise until the workout is complete. The full loop is demonstrated in the
@@ -718,7 +553,7 @@ activity diagram in Figure 17.</p>
 <div class="content">
 <img src="../images/RunWorkoutSequenceDiagram1.png" alt="RunWorkoutSequenceDiagram1">
 </div>
-<div class="title">Figure 19. Sequence Diagram of UpdateWorkoutCommand</div>
+<div class="title">Figure 13. Sequence Diagram of UpdateWorkoutCommand</div>
 </div>
 <div class="paragraph">
 <p>Upon completion of the workout, the Ui will immediately generate a new <code>UpdateWorkoutCommand</code> containing the <code>Workout</code>
@@ -802,4 +637,4 @@ binary search.</p></td>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:44:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:49:46 UTC</div></div></div></body></html>
