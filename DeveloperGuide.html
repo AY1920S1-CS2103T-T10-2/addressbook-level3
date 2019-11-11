@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>DukeCooks - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-t10-2.github.io/main/"><img src="/images/DukeCooks_Logo.png" alt="Team DukeCooks"></a><div class="container"><a class="navbar-brand" href="index.html">DukeCooks</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>DukeCooks - Developer Guide <span class="image"><img src="images/DukeCooks_Logo.png" alt="DukeCooks Logo" width="50"></span></h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><a class="navbar-brand" href="https://ay1920s1-cs2103t-t10-2.github.io/main/"><img src="https://imgur.com/DLptUuY" alt="Team DukeCooks"></a><div class="container"><a class="navbar-brand" href="index.html">DukeCooks</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>DukeCooks - Developer Guide <span class="image"><img src="images/DukeCooks_Logo.png" alt="DukeCooks Logo" width="50"></span></h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team DukeCooks</code>      Since: <code>Oct 2019</code>      Licence: <code>MIT</code></p>
@@ -35,7 +35,7 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#implementation-of-commands-and-parser">4.1. Implementation of Commands and Parser</a></li>
+<li><a href="#commands-and-parser">4.1. Commands and Parser</a></li>
 <li><a href="#dashboard-feature">4.2. Dashboard feature</a></li>
 <li><a href="#recipe-book-feature">4.3. Recipe Book feature</a></li>
 <li><a href="#meal-plan-feature">4.4. Meal Plan feature</a></li>
@@ -98,7 +98,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>DukeCooks is a revolutionary lifestyle application, specially designed for health-conscious individuals. Targeting busy
+<p>DukeCooks is a revolutionary lifestyle application, specially designed for health-conscious students. Targeting busy
 students that are long-time users of the Command-Line Interface (CLI), DukeCooks offers such users a CLI healthy
 lifestyle application. This means, expert-CLI student users will be able to execute different commands, all within a single line.
 They will be able to manage various aspects of their lifestyle, from their diet, to exercises and health records.</p>
@@ -603,15 +603,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>does not depend on any of the other three components.</p>
 </li>
 <li>
-<p>BlackBox refers to the model diagram of the individual components of DukeCooks as shown below</p>
+<p>BlackBox refers to the model diagram of the individual components of DukeCooks.</p>
 </li>
 </ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/WorkoutPlannerModelClassDiagram.png" alt="WorkoutPlannerModelClassDiagram">
-</div>
-<div class="title">Figure 8. Structure of Workout Model</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -654,7 +648,7 @@ The 5 different components are:</p>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-2/main/tree/master/src/main/java/dukecooks/storage/Storage.java"><code><em>Storage.java</em></code></a></p>
@@ -688,7 +682,7 @@ The 5 different components are:</p>
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="implementation-of-commands-and-parser"><a class="link" href="#implementation-of-commands-and-parser">4.1. Implementation of Commands and Parser</a></h3>
+<h3 id="commands-and-parser"><a class="link" href="#commands-and-parser">4.1. Commands and Parser</a></h3>
 <div class="paragraph">
 <p>All command variants (i.e <code>AddRecipeCommand</code>, <code>AddExerciseCommand</code>) extends from <code>AddCommand</code>,
 instead of the abstract <code>Command</code> class.
@@ -701,7 +695,7 @@ This applies to other type of commands as well, such as <code>DeleteCommand</cod
 <div class="content">
 <img src="images/CommandImplementation.png" alt="CommandImplementation">
 </div>
-<div class="title">Figure 10. Structure of Commands and Parser</div>
+<div class="title">Figure 9. Structure of Commands and Parser</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.1. Design Considerations</a></h4>
@@ -751,7 +745,7 @@ a <code>DashboardName</code>, <code>TaskDate</code> and <code>TaskStatus</code>.
 <div class="content">
 <img src="images/DashboardClassDiagram.png" alt="DashboardClassDiagram" width="500">
 </div>
-<div class="title">Figure 10: Dashboard Class Diagram</div>
+<div class="title">Figure 10. Dashboard Class Diagram</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">4.2.1. Implementation</a></h4>
@@ -856,8 +850,8 @@ is called to sort the list by date and reflect the newly made changes.</p>
 <h4 id="making-decisions"><a class="link" href="#making-decisions">4.2.2. Making Decisions</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
 <col style="width: 40%;">
 </colgroup>
 <thead>
@@ -871,26 +865,34 @@ is called to sort the list by date and reflect the newly made changes.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Storing a task&#8217;s status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A custom class, <code>TaskStatus</code>, is created to keep track of the task&#8217;s status.</p>
-<p class="tableblock"><strong>Pros</strong>: Additional statuses can be introduced in easily in the future.<br></p>
-<p class="tableblock"><strong>Cons</strong>: Because a <code>String</code> is used to create a <code>TaskStatus</code>, typos could be made when adding test cases.<br></p>
+<p class="tableblock"><strong>Pros</strong><br>
+Additional statuses can be introduced in easily in the future.<br></p>
+<p class="tableblock"><strong>Cons</strong><br>
+Because a <code>String</code> is used to create a <code>TaskStatus</code>, typos could be made when adding test cases.<br></p>
 <p class="tableblock"><strong>Our Choice</strong><br>
 This choice was chosen as it does not limit us to only having tasks marked as "COMPLETED" or "NOT COMPLETE".
 Since choice 1 was used, additional status, "RECENTLY COMPLETED" could be added with ease.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use a boolean to check if a task is complete.</p>
-<p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
-<p class="tableblock"><strong>Cons</strong>: Limits expansion since a task can only be marked as "COMPLETED" or "NOT COMPLETE".</p></td>
+<p class="tableblock"><strong>Pros</strong><br>
+Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+ Limits expansion since a task can only be marked as "COMPLETED" or "NOT COMPLETE".</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sorting tasks by date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Every time the <code>add</code>, <code>delete</code>, <code>edit</code> task command is called, a <code>sort</code> is executed.</p>
-<p class="tableblock"><strong>Pros</strong>: Easy to implement. Because <code>sort</code> is implemented regardless if the list is in-order or not,
+<p class="tableblock"><strong>Pros</strong><br>
+ Easy to implement. Because <code>sort</code> is implemented regardless if the list is in-order or not,
 there is lesser chance for errors.</p>
-<p class="tableblock"><strong>Cons</strong>: Because <code>sort</code> is executed every time, this might slow down the performance.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+ Because <code>sort</code> is executed every time, this might slow down the performance.</p>
 <p class="tableblock"><strong>Our Choice</strong><br>
 This choice was chosen as it reduces the chance of errors making it a safer option.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Keep an instance of the earliest and latest date. If dates fall out of range from the two dates, sorting does not happen.</p>
-<p class="tableblock"><strong>Pros</strong>: Faster runtime.</p>
-<p class="tableblock"><strong>Cons</strong>: Additional lines of code needed to check if the date falls out of range. Higher chance of making mistakes during implementation.</p></td>
+<p class="tableblock"><strong>Pros</strong><br>
+Faster runtime.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Additional lines of code needed to check if the date falls out of range. Higher chance of making mistakes during implementation.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1345,8 +1347,8 @@ of the workout.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 10%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
 <col style="width: 40%;">
 </colgroup>
 <thead>
@@ -1360,39 +1362,54 @@ of the workout.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Storing an Exercise/Workout&#8217;s intensity</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Intensity was stored as an Enumeration instead of a class</p>
-<p class="tableblock">- Pros: Intensity can be limited only a specific amount of values<br></p>
-<p class="tableblock">- Cons: Intensity will only be an estimate instead of a specific value given the value limits<br></p>
-<p class="tableblock">This option was chosen in the end to simplify the classification of exercise so that users can more easily filter by
+<p class="tableblock"><strong>Pros</strong><br>
+Intensity can be limited only a specific amount of values</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Intensity will only be an estimate instead of a specific value given the value limits<br></p>
+<p class="tableblock"><strong>Our Choice</strong><br>
+This option was chosen in the end to simplify the classification of exercise so that users can more easily filter by
 intensity. Furthermore, this allows for more Ui diversification by having different images for each intensity.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Setting Intensity as a Class</p>
-<p class="tableblock">- Pros: Easy to implement.</p>
-<p class="tableblock">- Cons: Makes filtering by intensity a more tedious affair for both developers and users.</p></td>
+<p class="tableblock"><strong>Pros</strong><br>
+Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Makes filtering by intensity a more tedious affair for both developers and users.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Storing MuscleTypes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have MuscleType be a class on its own</p>
-<p class="tableblock">- Pros: Muscles are referred to by various names and allowing the user to set their own muscle names allow for more
+<p class="tableblock"><strong>Pros</strong><br>
+Muscles are referred to by various names and allowing the user to set their own muscle names allow for more
 familiarity</p>
-<p class="tableblock">- Cons: MuscleType class will require stricter validation to ensure that users do not mess up the programme with unintended
+<p class="tableblock"><strong>Cons</strong><br>
+MuscleType class will require stricter validation to ensure that users do not mess up the programme with unintended
 inputs.</p>
-<p class="tableblock">This option was chosen to allow for greater flexibility of naming for the muscle types but at the same time still limited
+<p class="tableblock"><strong>Our Choice</strong><br>
+This option was chosen to allow for greater flexibility of naming for the muscle types but at the same time still limited
 to prevent the users from going wild.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Store MuscleType as an enumeration</p>
-<p class="tableblock">- Pros: There are limited muscles in the body, allowing for a proper limit<br></p>
-<p class="tableblock">- Cons: Muscles may have multiple names that are not accounted for by the enum.</p></td>
+<p class="tableblock"><strong>Pros</strong><br>
+There are limited muscles in the body, allowing for a proper limit<br></p>
+<p class="tableblock"><strong>Cons</strong><br>
+Muscles may have multiple names that are not accounted for by the enum.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Storage of Exercises in Workout</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Workouts only store a list of ExerciseName and not the full exercise</p>
-<p class="tableblock">- Pros: Exercises only have to be edited once upon execution of edit command - more cost effective. It also avoids
-unnecessarily large storage files.<br></p>
-<p class="tableblock">- Cons: Each time an exercise of workout has to be referenced, the entire storage of exercise has to be scoured</p>
-<p class="tableblock">In the end we decided to choose this option as we foresee that the edit command will be utilised more often than calling
+<p class="tableblock"><strong>Pros</strong><br>
+Exercises only have to be edited once upon execution of edit command - more cost effective. It also avoids
+unnecessarily large storage files.</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Each time an exercise of workout has to be referenced, the entire storage of exercise has to be scoured</p>
+<p class="tableblock"><strong>Our Choice</strong>
+In the end we decided to choose this option as we foresee that the edit command will be utilised more often than calling
 an exercise from a workout. Furthermore, to improve timing, we kept a sorted storage for exercise to allow for the quicker
 binary search.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Workouts store whole Exercises</p>
-<p class="tableblock">- Pros : Exercises can be extracted quickly
-- Cons : Huge storage space is required. Also complicates editing of exercises.</p></td>
+<p class="tableblock"><strong>Pros</strong><br>
+Exercises can be extracted quickly</p>
+<p class="tableblock"><strong>Cons</strong><br>
+Huge storage space is required. Also complicates editing of exercises.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1753,16 +1770,16 @@ Sets do not provide an order to the <code>Page</code> objects.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Loading of images</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Defensively copies images into our internal data folder and all subsequent loading of images is done from this folder.</p>
 <p class="tableblock"><strong>Pros</strong><br>
-Less prone to user errors when loading images (i.e Deleted image in local directory)</p>
+Less prone to user errors when loading images. (i.e when user deletes image from their local directory)</p>
 <p class="tableblock"><strong>Cons</strong><br>
- Increased memory usage as each image needs to be saved internally</p>
+ Increased memory usage as each image needs to be saved internally.</p>
 <p class="tableblock"><strong>Our Choice</strong><br>
 This choice was chosen as it is less-prone to user errors and is safer.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Load images directly from user&#8217;s directory</p>
 <p class="tableblock"><strong>Pros</strong><br>
 Easy to implement.</p>
 <p class="tableblock"><strong>Cons</strong><br>
- May lead to unexpected errors when loading images (i.e when user deletes the image from directory)</p></td>
+ May lead to unexpected errors when loading images. (i.e when user deletes image from their local directory)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1962,7 +1979,7 @@ Attributes left unset in <code>.adoc</code> files will use their <strong>default
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Attribute exerciseName</th>
+<th class="tableblock halign-left valign-top">Attribute name</th>
 <th class="tableblock halign-left valign-top">Description</th>
 <th class="tableblock halign-left valign-top">Default value</th>
 </tr>
@@ -2728,7 +2745,7 @@ Expected: A new diary named "Yummy Food" is added to the list. Details of the ad
 Expected: No diary is added. Error message is shown in the result display. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>add diary</code>, <code>add diary n/ &lt;name&gt;</code> (where &lt;name&gt; already exists in the diary list)<br>
+<p>Other incorrect add commands to try: <code>add diary</code>, <code>add diary n/ &lt;name&gt;</code> (where &lt;name&gt; already exists in the diary list)<br>
 Expected: Similar error messages to previous.</p>
 </li>
 </ol>
@@ -2849,4 +2866,4 @@ to the file that was deleted.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:09:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:20:01 UTC</div></div></div></body></html>
