@@ -40,7 +40,7 @@
 <li><a href="#recipe-book-feature">4.3. Recipe Book feature</a></li>
 <li><a href="#meal-plan-feature">4.4. Meal Plan feature</a></li>
 <li><a href="#workout-planner-feature">4.5. Workout Planner feature</a></li>
-<li><a href="#health-records-feature">4.6. Health Records feature</a></li>
+<li><a href="#HealthRecordsTag">4.6. Health Records feature</a></li>
 <li><a href="#DiaryTag">4.7. Diary feature</a></li>
 <li><a href="#logging">4.8. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
@@ -1368,75 +1368,125 @@ binary search.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="health-records-feature"><a class="link" href="#health-records-feature">4.6. Health Records feature</a></h3>
+<h3 id="HealthRecordsTag"><a class="link" href="#HealthRecordsTag">4.6. Health Records feature</a></h3>
 <div class="paragraph">
-<p>The Health Records feature handles the following:</p>
+<p>The Health Records feature allows user to track their health progress using the commands
+<code>add health</code>, as well as making changes to their records with <code>edit health</code>, <code>delete health</code> and <code>clear health</code>.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, users can create and personalize their own profile with the commands <code>add profile</code>,
+<code>edit profile</code> and <code>delete profile</code>.</p>
+</div>
+<div class="paragraph">
+<p>In a nut shell, the Health Records feature supports the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Keeping track of the health data recorded by the user</p>
+<p>Storing of the health data recorded by the user</p>
 </li>
 <li>
-<p>Present the data with visual representation of a trend graph that shows the health progress of the user</p>
+<p>Present the data with graph representation that shows the health progress of the user</p>
+</li>
+<li>
+<p>Personalizing user profile</p>
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.6.1. Implementation</a></h4>
 <div class="paragraph">
-<p><strong>Proposed Implementation</strong></p>
-</div>
-<div class="paragraph">
-<p>The commands that are callable by the user are as followed:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>view health</code> - view the specific type of health records</p>
-</li>
-<li>
-<p><code>add health</code> - adds a new record respective to the type of health records</p>
-</li>
-<li>
-<p><code>edit health</code> - edits a existing health record</p>
-</li>
-<li>
-<p><code>delete health</code> - deletes a existing health record</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The class diagram below illustrates the structure of a Health Record class.</p>
+<p>A <code>Record</code> consist of four key components: <code>Type</code>, <code>Timestamp</code>, <code>Value</code>, <code>Remark</code>.
+Refer to the diagram below to understand the structure of <code>Record</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/HealthRecordsClassDiagram.png" alt="HealthRecordsClassDiagram">
 </div>
-<div class="title">Figure 19. HealthRecords Class Diagram</div>
+<div class="title">Figure 19. Structure of the Record Component</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-health-records-commands"><a class="link" href="#implementation-of-health-records-commands">4.6.2. Implementation of Health Records commands</a></h4>
+<div class="paragraph">
+<p><code>Record</code> class supports multiple commands. It includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddRecordCommand</code> - Adds a <code>Record</code> into DukeCooks</p>
+</li>
+<li>
+<p><code>DeleteRecordCommand</code> - Deletes a <code>Record</code> from DukeCooks</p>
+</li>
+<li>
+<p><code>EditRecordCommand</code> - Edits the specified <code>Record</code> with a new changes made</p>
+</li>
+<li>
+<p><code>ListHealthCommand</code> - Lists all available records to user</p>
+</li>
+<li>
+<p><code>ListHealthByTypeCommand</code> - Lists all available records of the corresponding record type to user</p>
+</li>
+<li>
+<p><code>ClearHealthCommand</code> - Clears all available records</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Each Health Record object consist of a Type, Timestamp and Value. The current implementation stores 6 key areas:</p>
+<p><code>Person</code> class supports multiple commands. It includes:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>Weight</p>
+<p><code>AddProfileCommand</code> - Adds a new <code>Person</code> into DukeCooks</p>
 </li>
 <li>
-<p>Height</p>
+<p><code>DeleteProfileCommand</code> - Deletes the <code>Person</code> into DukeCooks</p>
 </li>
 <li>
-<p>Calories</p>
+<p><code>EditProfileCommand</code> - Edits various fields of the specified <code>Person</code></p>
 </li>
-<li>
-<p>Glucose</p>
-</li>
-<li>
-<p>Blood Pressure</p>
-</li>
-<li>
-<p>Menstrual Cycle (for Females)</p>
-</li>
-</ol>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>User Profile consist of one <code>person</code> object.
+Dukecooks will only allow one user profile to exist.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="execution-of-addrecordcommand"><a class="link" href="#execution-of-addrecordcommand">4.6.3. Execution of AddRecordCommand</a></h4>
+<div class="paragraph">
+<p>The sequence diagram below illustrates the execution of an <code>AddRecordCommand</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddHealthSequenceDiagram.png" alt="AddHealthSequenceDiagram">
+</div>
+<div class="title">Figure 20. AddHealthCommand Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>The command will first be parsed in 'DukeCooksParser' and be handled to its corresponding parsers (i.e. <code>AddRecordCommandParser</code>) based on its variant word
+(i.e. <code>Add</code>).</p>
+</div>
+<div class="paragraph">
+<p>After the parsing has been executed successfully, the string argument will be converted to <code>Type</code>, <code>Value</code>, <code>Timestamp</code>,
+<code>Remark</code> attributes. These attributes will then be passed into the <code>Model</code> component for its underlying validity checks.</p>
+</div>
+<div class="paragraph">
+<p>Once all checks have passed successfully, a new <code>Record</code> will be created according to those attributes
+and added to health records with the command <code>Model#addRecord</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1445,75 +1495,98 @@ binary search.</p></td>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The types available are stored in a list named <code>TYPE_UTIL</code>. This means that the validity check of <code>Type</code> Object will be checked against <code>TYPE_UTIL</code> list. If type does not exist, the record will fail to construct.
+<div class="paragraph">
+<p>The illustration of the above execution only applies to all record types except for <strong>Weight</strong> and <strong>Height</strong>.
+Refer to the next section for more details.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>In future implementations (possibly in v2.0), the <code>TYPE_UTIL</code> list will accommodate more record types defined by the user. This means that there will not be a restriction imposed in health types that can be recorded. User can create a new health type to start health tracking (eg. Sodium level).</p>
 </div>
 <div class="sect3">
-<h4 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command">4.6.1. <code>add health</code> Command</a></h4>
+<h4 id="syncing-record-data-with-profile"><a class="link" href="#syncing-record-data-with-profile">4.6.4. Syncing record data with profile</a></h4>
 <div class="paragraph">
-<p><code>add health t/[type] [inputs]</code> is parsed in the <code>addHealthCommandParser</code>. The inputs will first be initialised to its respective objects with underlying validation checks (eg. <code>Type</code> object will call for <code>isValidType()</code> method to check against <code>TYPE_UTIL</code> List). A <code>Record</code> object will then be created with the three valid object components.</p>
-</div>
-<div class="paragraph">
-<p>The sequence diagram below illustrates a sample run of program where <code>add health</code> command has been successfully parsed.</p>
+<p>To illustrate why the simple model of <code>AddRecordCommand</code> will not suffice for <strong>Weight</strong> and <strong>Height</strong> record types,
+below depicts the class diagram of the <code>Person</code> class</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddHealthSequenceDiagram.png" alt="AddHealthSequenceDiagram">
+<img src="images/PersonClassDiagram.png" alt="PersonClassDiagram">
 </div>
-<div class="title">Figure 20. Sequence Diagram for <code>add health</code> command</div>
+<div class="title">Figure 21. Structure of the Person Component</div>
+</div>
+<div class="paragraph">
+<p>It can be observed that <code>Person</code> share similar attributes to <code>Record</code>, both <strong>Weight</strong> and <strong>Height</strong>.
+However, the implementation of the two types are distinctly different among <code>Record</code> and <code>Person</code>. <code>Record</code> have
+structured <strong>Weight</strong> and <strong>Height</strong> to be attributes of its <code>Type</code> enum class while <code>Person</code> has defined
+them separately to be classes of their own.</p>
+</div>
+<div class="paragraph">
+<p>The Sequence diagram below illustrates the execution of <code>AddRecordCommand</code> with additional component introduced to
+help sync data between the <code>Record</code> and <code>Person</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LinkHealthToProfileSequenceDiagram.png" alt="LinkHealthToProfileSequenceDiagram">
+</div>
+<div class="title">Figure 22. Reconstructed AddRecordCommand</div>
+</div>
+<div class="paragraph">
+<p>Once <code>Model#addRecord</code> has been executed, <code>AddRecordCommand</code> will check the type of
+the newly added record. If it is a <strong>Weight</strong> or <strong>Height</strong> record, <code>LinkProfile#updateProfile</code>
+will be called. The <code>LinkProfile</code> helps <code>AddRecordCommand</code> to invoke <code>EditProfileCommand</code> by
+calling for changes to be made for profile.</p>
+</div>
+<div class="paragraph">
+<p>A simplified activity diagram of the problem can be shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LinkProfileActivityDiagram.png" alt="LinkProfileActivityDiagram">
+</div>
+<div class="title">Figure 23. Activity Diagram of adding a new Weight record</div>
+</div>
+<div class="paragraph">
+<p>Once profile have been successfully updated, person&#8217;s weight/ height is expected to be
+in sync with health records.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.2. Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect: Data structure on how the different health types are stored</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 1 (Current Choice)</strong></p>
-</div>
-<div class="paragraph">
-<p>Maintain a Map to validate type of health record</p>
-</div>
-<div class="paragraph">
-<p>A <code>HashMap</code> is used to store the different health types and its respective metric unit (eg. Weight, kg). When a health related command is called, the <code>TYPE_UTIL</code> will be accessed and checked against to determine if command is valid.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Greater flexibility in the implementation and usage of <code>TYPE_UTIL</code> Map. Allow possible extension of having more user defined health types.</p>
-</li>
-<li>
-<p>Cons: Difficult to keep track of each health type and lack of clarity.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Alternative 2</strong></p>
-</div>
-<div class="paragraph">
-<p>Introduce each health type as a Class on its own</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Clearer distinction and declaration of each health type</p>
-</li>
-<li>
-<p>Cons: Limited to a specific number of health types. User cannot introduce their own health type for record tracking. Requires diligence on developer’s end to introduce new classes for more variations.</p>
-</li>
-</ul>
-</div>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.5. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 50%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Structure used to store Record Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Enum</code> class is used to store record types.</p>
+<p class="tableblock">- <strong>Pros</strong>: Type safe and more static control over the record types.<br></p>
+<p class="tableblock">- <strong>Cons</strong>: Limiting health record types as no dynamic additions can be made.<br></p>
+<p class="tableblock">This choice was chosen as it is easier to maintain for our model. Additionally, the extension of having user defined health
+types would mean more validity checks and maintainence needed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A <code>HashMap</code> is used to store record types.</p>
+<p class="tableblock">- <strong>Pros</strong>: Increase flexibility and have the possible extension of allowing user defined health types.<br></p>
+<p class="tableblock">- <strong>Cons</strong>: More error prone compared to enums<br></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="DiaryTag"><a class="link" href="#DiaryTag">4.7. Diary feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.7.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of Diary consists of the following:</p>
 </div>
@@ -1540,7 +1613,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
 </div>
-<div class="title">Figure 21. Diary Class Diagram</div>
+<div class="title">Figure 24. Diary Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -1592,7 +1665,7 @@ types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be inv
 <div class="content">
 <img src="images/DeleteDiarySequenceDiagram.png" alt="DeleteDiarySequenceDiagram">
 </div>
-<div class="title">Figure 22. Sequence Diagram of DeleteDiaryCommand</div>
+<div class="title">Figure 25. Sequence Diagram of DeleteDiaryCommand</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -1609,7 +1682,7 @@ within this internal folder. The following activity diagram explains how an imag
 <div class="content">
 <img src="images/ImageActivityDiagram.png" alt="ImageActivityDiagram">
 </div>
-<div class="title">Figure 23. Activity diagram of adding images</div>
+<div class="title">Figure 26. Activity diagram of adding images</div>
 </div>
 </div>
 <div class="sect3">
@@ -1775,7 +1848,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 27. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2258,23 +2331,23 @@ Use case resumes from step 4.</pre>
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc03-adding-calorie-intake" class="discrete">Use case: UC03 - Adding Calorie Intake</h3>
+<h3 id="use-case-uc03-adding-glucose-record" class="discrete">Use case: UC03 - Adding Glucose Record</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add calorie intake for the day</p>
+<p>User requests to add glucose record</p>
 </li>
 <li>
-<p>DukeCooks shows a list of Nutrition (Breakdown)</p>
+<p>A new glucose record is added to Health Records</p>
 </li>
 <li>
-<p>User requests to add certain nutrition value fields</p>
+<p>DukeCooks filters the records to only glucose related records</p>
 </li>
 <li>
-<p>DukeCooks updates Health Records</p>
+<p>DukeCooks directs user to health record&#8217;s record type page.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2287,26 +2360,17 @@ Use case resumes from step 4.</pre>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The Nutrition list is empty (User did not give any nutrition inputs).</p>
+<p>1a. DukeCooks detects error in parsing user input</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. DukeCooks updates calorie count in Health Records (omit nutritional information).</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
+<p>1a1. DukeCooks displays error message</p>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. DukeCooks shows an error message.</p>
+<p>1a2. User enters new input</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Steps 1a1. and 1a2. are repeated until the data entered are correct.
+Use case resumes from step 2.</p>
 </div>
 </li>
 </ul>
@@ -2659,4 +2723,4 @@ It should be one of the following:</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:32:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:57:04 UTC</div></div></div></body></html>
