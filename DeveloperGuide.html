@@ -1105,15 +1105,78 @@ plans and recipes much easier.</p>
 </div>
 <div class="sect2">
 <h3 id="workout-planner-feature"><a class="link" href="#workout-planner-feature">4.5. Workout Planner feature</a></h3>
+<div class="paragraph">
+<p>The workout feature allows users to create their own custom workouts with <code>add Workout</code> command and adding their own
+custom exercises to it with <code>push exercise</code>. With these custom workouts, they can then choose to run them through
+<code>run workout</code> and monitor their progress and workout history with <code>view workout</code>.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">4.5.1. Implementation</a></h4>
+<div class="paragraph">
+<p>&#160;<br>
+<strong>Workout Management</strong></p>
+</div>
+<div class="paragraph">
+<p>Every workout comprises of the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>WorkoutName</code> representing the name of the workout</p>
+</li>
+<li>
+<p><code>Average Intensity</code> representing the average demands of the exercises in the workout</p>
+</li>
+<li>
+<p>A set of <code>MuscleType</code> which represents all the muscles trained by the workout</p>
+</li>
+<li>
+<p>An ArrayList of <code>ExerciseName</code> of exercises that would be carried out in the workout</p>
+</li>
+<li>
+<p><code>WorkoutHistory</code> containing information on all the previous runs of the workout as well as some statistics</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Workout Class also contains the function <code>updateHistory(WorkoutRun run)</code> which adds the <code>WorkoutRun</code> into the
+WorkoutHistory and updates all the relevant fields accordingly, returning a new Workout instance with updated <code>WorkoutHistory</code>.
+The class also utilises <code>pushExercise(Exercise exercise, Set&lt;ExerciseDetail&gt; details)</code> function to add new <code>Exercise</code> and
+return a new Workout with update fields. There is also an option to push an exercise without the details with the overloaded
+method which instead opts to use the pre-built Set of <code>ExerciseDetails</code> in the <code>Exercise</code> itself.</p>
+</div>
+<div class="paragraph">
+<p>The Workout Class is represented by the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/WorkoutClassDiagram.png" alt="WorkoutClassDiagram">
+</div>
+<div class="title">Figure 14. Workout Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The Workout Class is managed by the following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddWorkoutCommand</code> - Adds a new empty <code>Workout</code> into <code>WorkoutPlanner</code></p>
+</li>
+<li>
+<p><code>DeleteWorkoutCommand</code> - Deletes a <code>Workout</code> specified by an <code>Index</code> from <code>WorkoutPlanner</code></p>
+</li>
+<li>
+<p><code>PushExerciseCommand</code> - Pushes an <code>Exercise</code> specified by an <code>Index</code> into an existing <code>Workout</code></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>&#160;<br>
 <strong>Exercise Management</strong></p>
 </div>
 <div class="paragraph">
-<p>Every workout comprises of varying number of exercises. Users can use existing exercises or create their own custom
-exercises. Every exercise contains the following information:</p>
+<p>In order to run a <code>Workout</code>, users will have to add <code>Exercises</code> into the <code>Workout</code> as an empty workout cannot be ran.
+Users can use existing exercises or create their own custom exercises. Every exercise contains the following information:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1128,9 +1191,16 @@ exercises. Every exercise contains the following information:</p>
 </li>
 <li>
 <p>A set of <code>ExerciseDetails</code> which are optional additional information of the exercise such as <code>ExerciseWeight</code>,
-<code>Distance</code>, <code>Sets</code> and <code>Repetitions</code>.</p>
+<code>Distance</code>, <code>Sets</code> and <code>Repetitions</code></p>
+</li>
+<li>
+<p><code>ExerciseHistory</code> containing information on all the previous <code>ExerciseRun</code> of the exercise</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Like <code>Workout</code>, <code>Exercise</code> also has the method <code>updateHistory</code> which returns an updated Exercise with a new
+<code>ExerciseRun</code> accounted for.</p>
 </div>
 <div class="paragraph">
 <p>The Exercise class is represented by the following class diagram below.</p>
@@ -1139,11 +1209,8 @@ exercises. Every exercise contains the following information:</p>
 <div class="content">
 <img src="images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
-<div class="title">Figure 14. Exercise Class Diagram</div>
+<div class="title">Figure 15. Exercise Class Diagram</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="implementation-of-exercise-commands"><a class="link" href="#implementation-of-exercise-commands">4.5.2. Implementation of Exercise Commands</a></h4>
 <div class="paragraph">
 <p>The <code>Exercise</code> class is managed by the following commands :</p>
 </div>
@@ -1176,35 +1243,128 @@ exercises. Every exercise contains the following information:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>All the commands listed above are parsed in <code>DukeCooksParser</code>, invoking the respective Command Parsers
-(Add, Delete, Edit etc.). The <code>Exercise</code> variant of the parser will then be instantiated
-(i.e <code>AddExerciseCommandParser</code>,<code>DeleteExerciseCommandParser</code> etc) to create the actual command objects
-(i.e AddDiaryCommand, DeleteDiaryCommand etc). These Command Objects will then execute the necessary steps
+<p>All the exercise and workout commands above are parsed in <code>DukeCooksParser</code>, invoking the respective Command Parsers
+(Add, Delete, Edit etc.). The <code>Exercise</code>/<code>Workout</code> variant of the parser will then be instantiated
+(i.e <code>AddExerciseCommandParser</code>,<code>DeleteWorkoutCommandParser</code> etc) to create the actual command objects
+(i.e AddExerciseCommand, DeleteWorkoutCommand etc). These Command Objects will then execute the necessary steps
 to fulfill their functionality.</p>
+</div>
+<div class="paragraph">
+<p>&#160;<br>
+<strong>Running of Workouts</strong></p>
+</div>
+<div class="paragraph">
+<p>The core functionality of the WorkoutPlanner is to run a <code>Workout</code> and have it automatically tracking your progress
+by making records in its history. This is done through the <code>Run Workout Command</code>. The following sequence diagrams show
+what happens when the command is invoked.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RunWorkoutSequenceDiagram.png" alt="RunWorkoutSequenceDiagram">
+</div>
+<div class="title">Figure 16. Sequence Diagram of RunWorkoutCommand</div>
+</div>
+<div class="paragraph">
+<p>As seen in the diagram above, when the command is invoked, the <code>RunWorkoutParser</code> is initialised to parse the argument String
+to initialise <code>RunWorkoutCommand</code>. The Command object will then run its execute method, which calls upon get method of
+UniqueWorkoutList to obtain the target <code>Workout</code>. The target workout and message will then be passed back to the Ui through
+the CommandResult object. The Ui will then boot a new <code>RunWorkoutWindow</code> with the targeted workout.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RunWorkoutActivityDiagram.png" alt="RunWorkoutActivityDiagram">
+</div>
+<div class="title">Figure 17. Activity Diagram of RunWorkoutWindow</div>
+</div>
+<div class="paragraph">
+<p>The user will then run each set of each exercise until the workout is complete. The full loop is demonstrated in the
+activity diagram in Figure 17.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RunWorkoutSequenceDiagram1.png" alt="RunWorkoutSequenceDiagram1">
+</div>
+<div class="title">Figure 18. Sequence Diagram of UpdateWorkoutCommand</div>
+</div>
+<div class="paragraph">
+<p>Upon completion of the workout, the Ui will immediately generate a new <code>UpdateWorkoutCommand</code> containing the <code>Workout</code>
+that has been ran and a newly instantiated <code>WorkoutRun</code> with the details of the run. <code>UpdateWorkoutCommand</code> will then
+be executed and the following will occur:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>New Workout will be generated.<br>
+Using Workout&#8217;s <code>updateHistory</code> method, a new updated <code>Workout</code> will be created.</p>
+</li>
+<li>
+<p>The outdated Workout will be replaced by the new Workout.<br>
+Using <code>UniqueWorkoutList</code> 's <code>setWorkout</code> method, the old workout will be removed and the updated one will be placed in
+its stead</p>
+</li>
+<li>
+<p>CommandResult is generated and passed back to Ui.<br>
+A new CommandResult will be returned containing a congratulatory message to the Ui signalling the successful completion
+of the workout.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Design Considerations</strong></p>
 </div>
-<div class="paragraph">
-<p>When coming up with the Exercise class there were various considerations as to what fields should be added. Initially,
-we had planned for MuscleType to be an enum given the limited number of muscles in the human body. However, we had
-strayed away from this implementation given the complexity of the way the muscles work as well as the numerous names
-that one muscle could be called. We instead allowed the user to define the muscles themselves which is better for their
-own understanding. We instead utilised enums for the Intensity field since it is only limited High, Medium and Low.</p>
-</div>
-<div class="paragraph">
-<p><strong>Alternatives</strong></p>
-</div>
-<div class="paragraph">
-<p>When coming up with the optional details field, <code>ExerciseDetail</code> we had morphed the tag feature which was stored in a
-Set in AddressBook 3. The various details such as weight, distance would then be implementing the <code>ExerciseDetail</code>
-interface. After careful consideration, we had come to the conclusion that this method of storage is flawed given that
-we only intended for at most one instance of each detail and inability to call upon them at O(1) time complexity.</p>
-</div>
-<div class="paragraph">
-<p>Instead, we designed the <code>ExerciseDetails</code> to be a class with 4 Optional fields containing the various details. This
-allows for the details to be obtained more efficiently as well as limit them to only a single instance.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 50%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Option 1 (Chosen)</th>
+<th class="tableblock halign-left valign-top">Option 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing an Exercise/Workout&#8217;s intensity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intensity was stored as an Enumeration instead of a class</p>
+<p class="tableblock">- Pros: Intensity can be limited only a specific amount of values<br></p>
+<p class="tableblock">- Cons: Intensity will only be an estimate instead of a specific value given the value limits<br></p>
+<p class="tableblock">This option was chosen in the end to simplify the classification of exercise so that users can more easily filter by
+intensity. Furthermore, this allows for more Ui diversification by having different images for each intensity.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Setting Intensity as a Class</p>
+<p class="tableblock">- Pros: Easy to implement.</p>
+<p class="tableblock">- Cons: Makes filtering by intensity a more tedious affair for both developers and users.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storing MuscleTypes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have MuscleType be a class on its own</p>
+<p class="tableblock">- Pros: Muscles are referred to by various names and allowing the user to set their own muscle names allow for more
+familiarity</p>
+<p class="tableblock">- Cons: MuscleType class will require stricter validation to ensure that users do not mess up the programme with unintended
+inputs.</p>
+<p class="tableblock">This option was chosen to allow for greater flexibility of naming for the muscle types but at the same time still limited
+to prevent the users from going wild.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Store MuscleType as an enumeration</p>
+<p class="tableblock">- Pros: There are limited muscles in the body, allowing for a proper limit<br></p>
+<p class="tableblock">- Cons: Muscles may have multiple names that are not accounted for by the enum.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage of Exercises in Workout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workouts only store a list of ExerciseName and not the full exercise</p>
+<p class="tableblock">- Pros: Exercises only have to be edited once upon execution of edit command - more cost effective. It also avoids
+unnecessarily large storage files.<br></p>
+<p class="tableblock">- Cons: Each time an exercise of workout has to be referenced, the entire storage of exercise has to be scoured</p>
+<p class="tableblock">In the end we decided to choose this option as we foresee that the edit command will be utilised more often than calling
+an exercise from a workout. Furthermore, to improve timing, we kept a sorted storage for exercise to allow for the quicker
+binary search.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workouts store whole Exercises</p>
+<p class="tableblock">- Pros : Exercises can be extracted quickly
+- Cons : Huge storage space is required. Also complicates editing of exercises.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1251,7 +1411,7 @@ allows for the details to be obtained more efficiently as well as limit them to 
 <div class="content">
 <img src="images/HealthRecordsClassDiagram.png" alt="HealthRecordsClassDiagram">
 </div>
-<div class="title">Figure 15. HealthRecords Class Diagram</div>
+<div class="title">Figure 19. HealthRecords Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>Each Health Record object consist of a Type, Timestamp and Value. The current implementation stores 6 key areas:</p>
@@ -1305,7 +1465,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/AddHealthSequenceDiagram.png" alt="AddHealthSequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence Diagram for <code>add health</code> command</div>
+<div class="title">Figure 20. Sequence Diagram for <code>add health</code> command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1380,7 +1540,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
 </div>
-<div class="title">Figure 17. Diary Class Diagram</div>
+<div class="title">Figure 21. Diary Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -1432,7 +1592,7 @@ types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be inv
 <div class="content">
 <img src="images/DeleteDiarySequenceDiagram.png" alt="DeleteDiarySequenceDiagram">
 </div>
-<div class="title">Figure 18. Sequence Diagram of DeleteDiaryCommand</div>
+<div class="title">Figure 22. Sequence Diagram of DeleteDiaryCommand</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -1449,7 +1609,7 @@ within this internal folder. The following activity diagram explains how an imag
 <div class="content">
 <img src="images/ImageActivityDiagram.png" alt="ImageActivityDiagram">
 </div>
-<div class="title">Figure 19. Activity diagram of adding images</div>
+<div class="title">Figure 23. Activity diagram of adding images</div>
 </div>
 </div>
 <div class="sect3">
@@ -1615,7 +1775,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 20. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2499,4 +2659,4 @@ It should be one of the following:</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:02:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:21:17 UTC</div></div></div></body></html>
