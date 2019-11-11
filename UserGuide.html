@@ -585,9 +585,34 @@ for a clearer view of all tasks due on a certain date!</p>
 <p>Need to organise your large collection of recipes? Look no further! You will be able to perform the various recipe-related commands listed in this section.</p>
 </div>
 <div class="sect3">
-<h4 id="adding-a-recipe-code-add-recipe-code"><a class="link" href="#adding-a-recipe-code-add-recipe-code">3.3.1. Adding a recipe:  <code>add recipe</code></a></h4>
+<h4 id="understanding-the-recipe-book"><a class="link" href="#understanding-the-recipe-book">3.3.1. Understanding the Recipe Book</a></h4>
+<div class="paragraph">
+<p>The recipe book allows you to look at all the recipes you have stored within DukeCooks!</p>
+</div>
+<div class="paragraph">
+<p>Look at the diagram for a better understanding of how the Recipe Book is laid out!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe.png" alt="ug recipe">
+</div>
+<div class="title">Figure 1. Overview of the Recipe Book</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-to-the-recipe-book"><a class="link" href="#getting-to-the-recipe-book">3.3.2. Getting to the Recipe Book</a></h4>
+<div class="paragraph">
+<p>Here&#8217;s a quick way to pop into the recipe book!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>goto recipe</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-recipe"><a class="link" href="#adding-a-recipe">3.3.3. Adding a recipe</a></h4>
 <div class="paragraph">
 <p>Adds a recipe into the recipe book.<br>
+Command: <code>add recipe</code><br>
 Format: <code>add recipe n/&lt;name&gt; i/&lt;ingredients&gt;&#8230;&#8203; cal/&lt;calories&gt; carb/&lt;carbs&gt; fats/&lt;fats&gt; prot/&lt;protein&gt;</code></p>
 </div>
 <div class="admonitionblock note">
@@ -597,6 +622,9 @@ Format: <code>add recipe n/&lt;name&gt; i/&lt;ingredients&gt;&#8230;&#8203; cal/
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="paragraph">
+<p>All recipe and ingredient names must be alphanumeric, up to 40 characters for recipe names, 20 characters for ingredient names.</p>
+</div>
 <div class="paragraph">
 <p>All nutritional value information should be entered according to their amount in grams.</p>
 </div>
@@ -616,11 +644,34 @@ Creates a recipe with name "Chicken Rice", ingredients "Chicken" and "Rice", wit
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_addRecipe1.png" alt="ug recipe addRecipe1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you should see the following message in the result display
+and a new recipe named "Chicken Rice" will be added.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_addRecipe2.png" alt="ug recipe addRecipe2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-recipe-code-edit-recipe-code"><a class="link" href="#editing-a-recipe-code-edit-recipe-code">3.3.2. Editing a recipe: <code>edit recipe</code></a></h4>
+<h4 id="editing-a-recipe"><a class="link" href="#editing-a-recipe">3.3.4. Editing a recipe</a></h4>
 <div class="paragraph">
 <p>Edit a recipe according to a specified index.<br>
+Command: <code>edit recipe</code><br>
 Format: <code>edit recipe &lt;index&gt; [parameters]</code></p>
 </div>
 <div class="paragraph">
@@ -666,11 +717,33 @@ Removes the ingredient "Rice" from the first listed recipe, and adds the ingredi
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_editRecipe1.png" alt="ug recipe editRecipe1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, the following result will be displayed and the recipe will be edited as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_editRecipe2.png" alt="ug recipe editRecipe2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="listing-your-recipes-code-list-recipe-code"><a class="link" href="#listing-your-recipes-code-list-recipe-code">3.3.3. Listing your recipes: <code>list recipe</code></a></h4>
+<h4 id="listing-your-recipes"><a class="link" href="#listing-your-recipes">3.3.5. Listing your recipes</a></h4>
 <div class="paragraph">
 <p>Lists all recipes.<br>
+Command: <code>list recipe</code><br>
 Format: <code>list recipe</code></p>
 </div>
 <div class="paragraph">
@@ -684,11 +757,33 @@ Lists all recipes saved in the recipe book.</p>
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_listRecipe1.png" alt="ug recipe listRecipe1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, all of the recipes within DukeCooks would be listed as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_listRecipe2.png" alt="ug recipe listRecipe2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="finding-a-recipe-code-find-recipe-code"><a class="link" href="#finding-a-recipe-code-find-recipe-code">3.3.4. Finding a recipe: <code>find recipe</code></a></h4>
+<h4 id="finding-a-recipe"><a class="link" href="#finding-a-recipe">3.3.6. Finding a recipe</a></h4>
 <div class="paragraph">
 <p>Finds recipes with names containing a specified keyword.<br>
+Command: <code>find recipe</code><br>
 Format: <code>find recipe &lt;keyword&gt;</code></p>
 </div>
 <div class="paragraph">
@@ -702,11 +797,34 @@ Lists all recipes containing "Chicken" in their name.</p>
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_listRecipe1.png" alt="ug recipe listRecipe1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, only the found recipes would be displayed as shown below. In this case,
+all recipes with the keyword "Chicken" in its name would be found.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_recipe_listRecipe2.png" alt="ug recipe listRecipe2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-recipe-code-delete-recipe-code"><a class="link" href="#deleting-a-recipe-code-delete-recipe-code">3.3.5. Deleting a recipe: <code>delete recipe</code></a></h4>
+<h4 id="deleting-a-recipe"><a class="link" href="#deleting-a-recipe">3.3.7. Deleting a recipe</a></h4>
 <div class="paragraph">
 <p>Deletes recipe according to a specified index.<br>
+Command: <code>delete recipe</code><br>
 Format: <code>delete recipe &lt;index&gt;</code></p>
 </div>
 <div class="paragraph">
@@ -722,9 +840,10 @@ Deletes the first recipe listed within the recipe book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-the-recipe-book-code-clear-recipe-code"><a class="link" href="#clearing-the-recipe-book-code-clear-recipe-code">3.3.6. Clearing the recipe book: <code>clear recipe</code></a></h4>
+<h4 id="clearing-the-recipe-book"><a class="link" href="#clearing-the-recipe-book">3.3.8. Clearing the recipe book</a></h4>
 <div class="paragraph">
 <p>Clears all recipes stored in the recipe book.<br>
+Command: <code>clear recipe</code><br>
 Format: <code>clear recipe</code></p>
 </div>
 <div class="admonitionblock important">
@@ -748,20 +867,165 @@ Deletes all recipes within the recipe book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-a-recipe-code-coming-in-v2-0-code"><a class="link" href="#viewing-a-recipe-code-coming-in-v2-0-code">3.3.7. Viewing a recipe: <code>[coming in v2.0]</code></a></h4>
-
+<h4 id="viewing-a-recipe-code-coming-in-v2-0-code"><a class="link" href="#viewing-a-recipe-code-coming-in-v2-0-code">3.3.9. Viewing a recipe: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Brings up an in depth view of a recipe according to a specified index.</p>
+</div>
+<div class="paragraph">
+<p>Here you will be able to see the recipe&#8217;s total nutritional value, image, difficulty and preparation time.+
+Command <code>view recipe</code><br>
+Format: <code>view recipe &lt;index&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view recipe 1</code><br>
+Views the first recipe listed within the recipe book.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="giving-a-recipe-an-image-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-an-image-code-coming-in-v2-0-code">3.3.8. Giving a recipe an image: <code>[coming in v2.0]</code></a></h4>
-
+<h4 id="giving-a-recipe-an-image-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-an-image-code-coming-in-v2-0-code">3.3.10. Giving a recipe an image: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Give images to your recipes according to its index<br>
+Command: <code>image recipe</code><br>
+Format: <code>image recipe &lt;index&gt; &lt;filepath&gt;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the file path is not specified, the image for this recipe, if present, will be removed instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>image recipe 1 /images/food.png</code><br>
+Gives the image "food.png" to the first indexed recipe.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="giving-a-recipe-a-difficulty-level-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-a-difficulty-level-code-coming-in-v2-0-code">3.3.9. Giving a recipe a difficulty level: <code>[coming in v2.0]</code></a></h4>
-
+<h4 id="giving-a-recipe-a-difficulty-level-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-a-difficulty-level-code-coming-in-v2-0-code">3.3.11. Giving a recipe a difficulty level: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Tag your recipes difficulty level.<br>
+Command: <code>diff recipe</code><br>
+Format: <code>diff recipe &lt;index&gt; &lt;difficulty&gt;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The available difficulties are "Easy", "Medium", and "Hard". Only these 3 difficulties may be used within the &lt;difficulty&gt; parameter.</p>
+</div>
+<div class="paragraph">
+<p>You can filter these recipes using <code>list recipe</code>. For example, <code>list recipe Easy</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>diff recipe 3 Hard</code><br>
+Sets the third recipe in the recipe book to have a "Hard" difficulty.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="giving-a-recipe-preparation-timing-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-preparation-timing-code-coming-in-v2-0-code">3.3.10. Giving a recipe preparation timing: <code>[coming in v2.0]</code></a></h4>
-
+<h4 id="giving-a-recipe-preparation-timing-code-coming-in-v2-0-code"><a class="link" href="#giving-a-recipe-preparation-timing-code-coming-in-v2-0-code">3.3.12. Giving a recipe preparation timing: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Give your recipes a preparation time<br>
+Command: <code>prep recipe</code><br>
+Format: <code>prep recipe &lt;index&gt; &lt;time&gt;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Duration of preparation should be entered in minutes.</p>
+</div>
+<div class="paragraph">
+<p>You can filter these recipes using <code>list recipe</code>. For example, <code>list recipe shorter 5</code> shows all recipes with preparation time under 5 minutes.
+<code>list recipe longer 5</code> lists those that take longer than 5 minutes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>prep recipe 2 7</code><br>
+Sets the second recipe in the recipe book to have a preparation time of 7 minutes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="generating-shopping-lists-for-recipes-code-coming-in-v2-0-code"><a class="link" href="#generating-shopping-lists-for-recipes-code-coming-in-v2-0-code">3.3.13. Generating shopping lists for recipes: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Generates a shopping list based on the input indexes of recipes<br>
+Command: <code>shoppinglist recipe</code><br>
+Format: <code>shoppinglist recipe &lt;index&gt;&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A minimum of 1 index should be entered in order to generate a shopping list.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>shoppinglist recipe 1 3 5 8</code><br>
+Generates a shopping list consisting ingredients for the first, third, fifth and eighth recipe in the recipe book.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -770,9 +1034,34 @@ Deletes all recipes within the recipe book.</p>
 <p>Want a way to plan out your meals for an entire week? Using meal plans is a great way do that. Use the following meal plan commands to plan your weekly consumption!</p>
 </div>
 <div class="sect3">
-<h4 id="add-a-meal-plan-code-add-mealplan-code"><a class="link" href="#add-a-meal-plan-code-add-mealplan-code">3.4.1. Add a meal plan: <code>add mealplan</code></a></h4>
+<h4 id="getting-your-way-around-meal-plans"><a class="link" href="#getting-your-way-around-meal-plans">3.4.1. Getting your way around meal plans</a></h4>
+<div class="paragraph">
+<p>Using Meal Plans, you will be able to take all the recipes you have in DukeCooks and use them to plan your meal plans for the week.</p>
+</div>
+<div class="paragraph">
+<p>Look at the diagram for a better understanding of how Meal Plans are laid out!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan.png" alt="ug mealplan">
+</div>
+<div class="title">Figure 2. Overview of the Meal Plans</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-to-your-meal-plans"><a class="link" href="#getting-to-your-meal-plans">3.4.2. Getting to your Meal Plans</a></h4>
+<div class="paragraph">
+<p>Here&#8217;s a quick way to check out your meal plans!</p>
+</div>
+<div class="paragraph">
+<p>Command: <code>goto mealplan</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-meal-plan"><a class="link" href="#add-a-meal-plan">3.4.3. Add a meal plan</a></h4>
 <div class="paragraph">
 <p>Adds a new meal plan into the meal plan book.<br>
+Command: <code>add mealplan</code>
 Format: <code>add mealplan n/&lt;name&gt; day1/[name]&#8230;&#8203; day2/[name]&#8230;&#8203; day3/[name]&#8230;&#8203; day4/[name]&#8230;&#8203; day5/[name]&#8230;&#8203; day6/[name]&#8230;&#8203; day7/[name]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
@@ -782,6 +1071,9 @@ Format: <code>add mealplan n/&lt;name&gt; day1/[name]&#8230;&#8203; day2/[name]&
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="paragraph">
+<p>All meal plan names must be alphanumeric, up to 40 characters</p>
+</div>
 <div class="paragraph">
 <p>You are only able to add recipes that you have within your recipe book.</p>
 </div>
@@ -810,11 +1102,34 @@ Creates a meal plan with the name "Keto" and the listed meals under each indicat
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_addMealPlan1.png" alt="ug mealplan addMealPlan1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you should see the following message in the result display
+and a new meal plan named "One Recipe" will be added.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_addMealPlan2.png" alt="ug mealplan addMealPlan2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-meal-plan-code-edit-mealplan-code"><a class="link" href="#editing-a-meal-plan-code-edit-mealplan-code">3.4.2. Editing a meal plan: <code>edit mealplan</code></a></h4>
+<h4 id="editing-a-meal-plan"><a class="link" href="#editing-a-meal-plan">3.4.4. Editing a meal plan</a></h4>
 <div class="paragraph">
 <p>Edit a meal plan according to a specified index.<br>
+Command <code>edit mealplan</code><br>
 Format: <code>edit mealplan &lt;index&gt; [parameters]</code></p>
 </div>
 <div class="paragraph">
@@ -880,11 +1195,33 @@ Updates the first listed meal plan to remove the recipe "Salad" from Day 1 and a
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_editMealPlan1.png" alt="ug mealplan editMealPlan1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, the following result will be displayed and the meal plan will be edited as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_editMealPlan2.png" alt="ug mealplan editMealPlan2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="listing-your-meal-plans-code-list-mealplan-code"><a class="link" href="#listing-your-meal-plans-code-list-mealplan-code">3.4.3. Listing your meal plans: <code>list mealplan</code></a></h4>
+<h4 id="listing-your-meal-plans"><a class="link" href="#listing-your-meal-plans">3.4.5. Listing your meal plans</a></h4>
 <div class="paragraph">
 <p>Lists all meal plans.<br>
+Command: <code>list mealplan</code><br>
 Format: <code>list mealplan</code></p>
 </div>
 <div class="paragraph">
@@ -898,11 +1235,33 @@ Lists all meal plans saved in the meal plan book.</p>
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_listMealPlan1.png" alt="ug mealplan listMealPlan1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, all of the meal plans within DukeCooks would be listed as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_listMealPlan2.png" alt="ug mealplan listMealPlan2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="finding-a-meal-plan-code-find-mealplan-code"><a class="link" href="#finding-a-meal-plan-code-find-mealplan-code">3.4.4. Finding a meal plan: <code>find mealplan</code></a></h4>
+<h4 id="finding-a-meal-plan"><a class="link" href="#finding-a-meal-plan">3.4.6. Finding a meal plan</a></h4>
 <div class="paragraph">
 <p>Finds meal plans with names containing a specified keyword.<br>
+Command: <code>find mealplan</code><br>
 Format: <code>find mealplan &lt;keyword&gt;</code></p>
 </div>
 <div class="paragraph">
@@ -916,12 +1275,49 @@ Lists all meal plans containing "Chicken" in their name.</p>
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_findMealPlan1.png" alt="ug mealplan findMealPlan1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, only the found meal plans would be displayed as shown below. In this case,
+all meal plans with the keyword "Week" in its name would be found.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_findMealPlan2.png" alt="ug mealplan findMealPlan2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="finding-a-meal-plan-containing-a-certain-recipe-code-find-mealplanwith-code"><a class="link" href="#finding-a-meal-plan-containing-a-certain-recipe-code-find-mealplanwith-code">3.4.5. Finding a meal plan containing a certain recipe: <code>find mealplanwith</code></a></h4>
+<h4 id="finding-a-meal-plan-containing-a-certain-recipe"><a class="link" href="#finding-a-meal-plan-containing-a-certain-recipe">3.4.7. Finding a meal plan containing a certain recipe</a></h4>
 <div class="paragraph">
 <p>Finds meal plans with a specified recipe name.<br>
+Command: <code>find mealplanwith</code><br>
 Format: <code>find mealplanwith &lt;recipe name keyword&gt;</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can only search for one recipe at a time. The recipe&#8217;s name must be entered exactly as it is in the recipe book.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -934,11 +1330,77 @@ Lists all meal plans containing "Chicken Rice" in any of the meal plan days.</p>
 </li>
 </ul>
 </div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_findWithMealPlan1.png" alt="ug mealplan findWithMealPlan1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, only the found meal plans would be displayed as shown below. In this case,
+all meal plans with the recipe "Chilli Crab" in any of its days would be found.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_findWithMealPlan2.png" alt="ug mealplan findWithMealPlan2">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-meal-plan-code-delete-mealplan-code"><a class="link" href="#delete-a-meal-plan-code-delete-mealplan-code">3.4.6. Delete a meal plan: <code>delete mealplan</code></a></h4>
+<h4 id="viewing-a-meal-plan"><a class="link" href="#viewing-a-meal-plan">3.4.8. Viewing a meal plan:</a></h4>
+<div class="paragraph">
+<p>Brings up an in depth view of the meal plan according to a specified index.</p>
+</div>
+<div class="paragraph">
+<p>Here you will be able to see the meal plan&#8217;s total nutritional value, as well as the recipe details for each day.+
+Command <code>view mealplan</code><br>
+Format: <code>view mealplan &lt;index&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view mealplan 1</code><br>
+Views the first meal plan listed within the meal plan book.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Enter the command in the command box and hit the <kbd>Enter</kbd> key.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_viewMealPlan1.png" alt="ug mealplan viewMealPlan1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, a different display showing all the details of the specified meal plan, in this case, the first indexed meal plan, will be brought up.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_mealplan_viewMealPlan2.png" alt="ug mealplan viewMealPlan2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-meal-plan"><a class="link" href="#delete-a-meal-plan">3.4.9. Delete a meal plan</a></h4>
 <div class="paragraph">
 <p>Deletes meal plan according to a specified index.<br>
+Command: <code>delete mealplan</code><br>
 Format: <code>delete mealplan &lt;index&gt;</code></p>
 </div>
 <div class="paragraph">
@@ -954,9 +1416,10 @@ Deletes the first meal plan listed within the meal plan book.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-the-meal-plan-book-code-clear-mealplan-code"><a class="link" href="#clearing-the-meal-plan-book-code-clear-mealplan-code">3.4.7. Clearing the meal plan book: <code>clear mealplan</code></a></h4>
+<h4 id="clearing-the-meal-plan-book"><a class="link" href="#clearing-the-meal-plan-book">3.4.10. Clearing the meal plan book</a></h4>
 <div class="paragraph">
 <p>Clears all meal plans stored in the meal plan book.<br>
+Command: <code>clear mealplan</code><br>
 Format: <code>clear mealplan</code></p>
 </div>
 <div class="admonitionblock important">
@@ -974,14 +1437,49 @@ Format: <code>clear mealplan</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:
-* <code>clear mealplan</code><br>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear mealplan</code><br>
 Deletes all meal plans within the meal plan book.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-a-meal-plan-code-coming-in-v2-0-code"><a class="link" href="#viewing-a-meal-plan-code-coming-in-v2-0-code">3.4.8. Viewing a meal plan: <code>[coming in v2.0]</code></a></h4>
-
+<h4 id="generating-shopping-lists-for-mealplans-code-coming-in-v2-0-code"><a class="link" href="#generating-shopping-lists-for-mealplans-code-coming-in-v2-0-code">3.4.11. Generating shopping lists for mealplans: <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Generates a shopping list based on the input index of a meal plan<br>
+Command: <code>shoppinglist mealplan</code><br>
+Format: <code>shoppinglist mealplan &lt;index&gt;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only 1 index should be entered in order to generate a shopping list.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>shoppinglist recipe 4</code><br>
+Generates a shopping list consisting ingredients for all recipes present within the fourth meal plan in the meal plan book.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1728,7 +2226,7 @@ workout planner screen and what you can do with it!</p>
 <div class="content">
 <img src="images/workoutScreen1.png" alt="workoutScreen1">
 </div>
-<div class="title">Figure 1. Workout Screen</div>
+<div class="title">Figure 3. Workout Screen</div>
 </div>
 <div class="paragraph">
 <p>As seen in the screenshot above, the Workout Planner screen is similar to the other screens, with the main
@@ -1749,19 +2247,19 @@ workout from the image of the card.</p>
 <div class="content">
 <img src="images/workoutLowIntensity.png" alt="workoutLowIntensity">
 </div>
-<div class="title">Figure 2. Low Intensity Card</div>
+<div class="title">Figure 4. Low Intensity Card</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/workoutMediumIntensity.png" alt="workoutMediumIntensity">
 </div>
-<div class="title">Figure 3. Medium Intensity Card</div>
+<div class="title">Figure 5. Medium Intensity Card</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/workoutHighIntensity.png" alt="workoutHighIntensity">
 </div>
-<div class="title">Figure 4. High Intensity Card</div>
+<div class="title">Figure 6. High Intensity Card</div>
 </div>
 <div class="paragraph">
 <p>Similarly, to find more information on the workout, you can use the view command which is covered in a later
@@ -1802,13 +2300,13 @@ outputs.</p>
 <div class="content">
 <img src="images/addExerciseInputExample.png" alt="addExerciseInputExample">
 </div>
-<div class="title">Figure 5. Example input</div>
+<div class="title">Figure 7. Example input</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/addExerciseOutput.png" alt="addExerciseOutput">
 </div>
-<div class="title">Figure 6. Example output</div>
+<div class="title">Figure 8. Example output</div>
 </div>
 </div>
 <div class="sect3">
@@ -1822,7 +2320,7 @@ to view as shown below.</p>
 <div class="content">
 <img src="images/viewExerciseInput.png" alt="viewExerciseInput">
 </div>
-<div class="title">Figure 7. Example Input</div>
+<div class="title">Figure 9. Example Input</div>
 </div>
 <div class="paragraph">
 <p>The screen should now show the full details of the exercise in question. Let&#8217;s get you up to
@@ -1832,7 +2330,7 @@ speed with what&#8217;s what.</p>
 <div class="content">
 <img src="images/viewExerciseOutput.png" alt="viewExerciseOutput">
 </div>
-<div class="title">Figure 8. Exercise Details Screen</div>
+<div class="title">Figure 10. Exercise Details Screen</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1902,19 +2400,19 @@ you wish to utilise and the predicate.</p>
 <div class="content">
 <img src="images/findExercise.png" alt="findExercise">
 </div>
-<div class="title">Figure 9. Find by Exercise Name</div>
+<div class="title">Figure 11. Find by Exercise Name</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/findExerciseMuscle.png" alt="findExerciseMuscle">
 </div>
-<div class="title">Figure 10. Find by Muscles Trained</div>
+<div class="title">Figure 12. Find by Muscles Trained</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/findExerciseIntensity.png" alt="findExerciseIntensity">
 </div>
-<div class="title">Figure 11. Find by Intensity</div>
+<div class="title">Figure 13. Find by Intensity</div>
 </div>
 <div class="paragraph">
 <p>The filtered lists will then be shown as follows:</p>
@@ -1923,7 +2421,7 @@ you wish to utilise and the predicate.</p>
 <div class="content">
 <img src="images/findExerciseOutput.png" alt="findExerciseOutput">
 </div>
-<div class="title">Figure 12. Find Output</div>
+<div class="title">Figure 14. Find Output</div>
 </div>
 <div class="paragraph">
 <p>To show every exercise again, simply invoke the <code>list exercise</code> command.</p>
@@ -1940,13 +2438,13 @@ of your workout. This will initialise your Workout with no exercises in it.</p>
 <div class="content">
 <img src="images/addWorkoutInput.png" alt="addWorkoutInput">
 </div>
-<div class="title">Figure 13. Add Workout Input</div>
+<div class="title">Figure 15. Add Workout Input</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/addWorkoutOutput.png" alt="addWorkoutOutput">
 </div>
-<div class="title">Figure 14. Add Workout Output</div>
+<div class="title">Figure 16. Add Workout Output</div>
 </div>
 </div>
 <div class="sect3">
@@ -1961,7 +2459,7 @@ you want to push your exercise into. Then input the command in the following for
 <div class="content">
 <img src="images/pushExerciseInput.png" alt="pushExerciseInput">
 </div>
-<div class="title">Figure 15. Pushing Bench Press into Chest Day</div>
+<div class="title">Figure 17. Pushing Bench Press into Chest Day</div>
 </div>
 <div class="paragraph">
 <p>For example, if you want to add Bench Press exercise into Chest Day workout, type in
@@ -1971,7 +2469,7 @@ you want to push your exercise into. Then input the command in the following for
 <div class="content">
 <img src="images/pushExerciseOutput.png" alt="pushExerciseOutput">
 </div>
-<div class="title">Figure 16. Push Exercise Results</div>
+<div class="title">Figure 18. Push Exercise Results</div>
 </div>
 <div class="paragraph">
 <p>Now that you know you know how to push exercises, you can go ahead and add in all the exercises
@@ -1993,7 +2491,7 @@ interested in. So if you want to view 'Chest Day' you can follow the image below
 <div class="content">
 <img src="images/viewWorkoutInput.png" alt="viewWorkoutInput">
 </div>
-<div class="title">Figure 17. Viewing Chest Day Workout</div>
+<div class="title">Figure 19. Viewing Chest Day Workout</div>
 </div>
 <div class="paragraph">
 <p>The following screen will now appear. To orientate you, here are the components of the screen:</p>
@@ -2020,7 +2518,7 @@ The workout history compiles a list of all the times you have ran and completed 
 <div class="content">
 <img src="images/viewWorkoutOutput.png" alt="viewWorkoutOutput">
 </div>
-<div class="title">Figure 18. Chest Day Screen</div>
+<div class="title">Figure 20. Chest Day Screen</div>
 </div>
 <div class="paragraph">
 <p>Similarly to <code>view Exercise</code> command, this page will be automatically updated after each run
@@ -2038,7 +2536,7 @@ ultimate workout.</p>
 <div class="content">
 <img src="images/runWorkoutWindow1.png" alt="runWorkoutWindow1">
 </div>
-<div class="title">Figure 19. Run Workout Window</div>
+<div class="title">Figure 21. Run Workout Window</div>
 </div>
 <div class="paragraph">
 <p>The window above will pop up upon inputting the command. The window can be broken down into 5
@@ -2076,7 +2574,7 @@ the set as completed as shown below.</p>
 <div class="content">
 <img src="images/runWorkoutWindow2.png" alt="runWorkoutWindow2">
 </div>
-<div class="title">Figure 20. Marking a set as Done</div>
+<div class="title">Figure 22. Marking a set as Done</div>
 </div>
 <div class="paragraph">
 <p>After completing all the sets in all exercises, you will be brought back to the main page
@@ -2086,7 +2584,7 @@ where a congratulatory message will greet you!</p>
 <div class="content">
 <img src="images/runworkoutWindow3.png" alt="runworkoutWindow3">
 </div>
-<div class="title">Figure 21. Congratulations!</div>
+<div class="title">Figure 23. Congratulations!</div>
 </div>
 </div>
 <div class="sect3">
@@ -2164,7 +2662,7 @@ Not only that, you can also enter different commands within the command box.</p>
 <div class="content">
 <img src="images/diaryOverview.png" alt="diaryOverview">
 </div>
-<div class="title">Figure 22. Overview of Diary Feature</div>
+<div class="title">Figure 24. Overview of Diary Feature</div>
 </div>
 </div>
 <div class="sect3">
@@ -2677,19 +3175,53 @@ Creates a health page about “BP129391” and adds it to the diary named “Hea
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add recipe</strong> : <code>add recipe &lt;exerciseName&gt;</code><br>
-e.g. <code>add recipe Chicken Rice</code></p>
+<p><strong>Add recipe</strong> : <code>add recipe n/&lt;name&gt; i/&lt;ingredients&gt;…​ cal/&lt;calories&gt; carb/&lt;carbs&gt; fats/&lt;fats&gt; prot/&lt;protein&gt;</code></p>
 </li>
 <li>
-<p><strong>Delete recipe</strong> : <code>delete recipe &lt;exerciseName&gt;</code><br>
-e.g. <code>delete recipe Chicken Rice</code></p>
+<p><strong>Delete recipe</strong> : <code>edit recipe &lt;index&gt; [parameters]</code></p>
 </li>
 <li>
 <p><strong>List recipes</strong> : <code>list recipe</code></p>
 </li>
 <li>
-<p><strong>View recipe</strong> : <code>view recipe</code><br>
-e.g. <code>view recipe Chicken Rice</code></p>
+<p><strong>Find recipes</strong> : <code>find recipe &lt;keyword&gt;</code></p>
+</li>
+<li>
+<p><strong>Delete recipe</strong> : <code>delete recipe &lt;index&gt;</code></p>
+</li>
+<li>
+<p><strong>Clear recipe book</strong> : <code>clear recipe</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Meal Plan</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add meal plan</strong> : <code>add mealplan n/&lt;name&gt; day1/[name]…​ day2/[name]…​ day3/[name]…​ day4/[name]…​ day5/[name]…​ day6/[name]…​ day7/[name]…​</code></p>
+</li>
+<li>
+<p><strong>Delete meal plan</strong> : <code>edit mealplan &lt;index&gt; [parameters]</code></p>
+</li>
+<li>
+<p><strong>List meal plans</strong> : <code>list mealplan</code></p>
+</li>
+<li>
+<p><strong>Find meal plans</strong> : <code>find mealplan &lt;keyword&gt;</code></p>
+</li>
+<li>
+<p><strong>Find recipe in meal plans</strong> : <code>find mealplanwith &lt;recipe name keyword&gt;</code></p>
+</li>
+<li>
+<p><strong>View meal plan</strong> : <code>view mealplan &lt;index&gt;</code></p>
+</li>
+<li>
+<p><strong>Delete meal plan</strong> : <code>delete mealplan &lt;index&gt;</code></p>
+</li>
+<li>
+<p><strong>Clear meal plan book</strong> : <code>clear mealplan</code></p>
 </li>
 </ul>
 </div>
@@ -2864,4 +3396,4 @@ Image URL: /images/lowsugar.jpg<br></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:07:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:11:41 UTC</div></div></div></body></html>

@@ -37,12 +37,13 @@
 <ul class="sectlevel2">
 <li><a href="#implementation-of-commands-and-parser">4.1. Implementation of Commands and Parser</a></li>
 <li><a href="#what-makes-up-a-dashboard">4.2. What makes up a Dashboard?</a></li>
-<li><a href="#recipebook-feature">4.3. RecipeBook feature</a></li>
-<li><a href="#workout-planner-feature">4.4. Workout Planner feature</a></li>
-<li><a href="#health-records-feature">4.5. Health Records feature</a></li>
-<li><a href="#diary-feature">4.6. Diary feature</a></li>
-<li><a href="#logging">4.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+<li><a href="#recipe-book-feature">4.3. Recipe Book feature</a></li>
+<li><a href="#meal-plan-feature">4.4. Meal Plan feature</a></li>
+<li><a href="#workout-planner-feature">4.5. Workout Planner feature</a></li>
+<li><a href="#health-records-feature">4.6. Health Records feature</a></li>
+<li><a href="#diary-feature">4.7. Diary feature</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -470,8 +471,8 @@ The following class plays an important role at the architecture level:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>XYZListPanel refers to the 5 different individual components in our application.
-The 5 different components are:</p>
+<p>XYZListPanel refers to the 6 different individual components in our application.
+The 6 different components are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -479,7 +480,10 @@ The 5 different components are:</p>
 <p>Dashboard</p>
 </li>
 <li>
-<p>RecipeBook</p>
+<p>Recipe Book</p>
+</li>
+<li>
+<p>Meal Plan</p>
 </li>
 <li>
 <p>Exercise</p>
@@ -547,13 +551,13 @@ The 5 different components are:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete recipe 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for simplified interactions within the <code>Logic</code> component for the <code>execute("delete recipe 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 5. Interactions Inside the Logic Component for the <code>delete recipe 1</code> Command</div>
+<div class="title">Figure 5. Simplified Interactions Inside the Logic Component for the <code>delete recipe 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -624,7 +628,7 @@ The 5 different components are:</p>
 <p>Dashboard</p>
 </li>
 <li>
-<p>RecipeBook</p>
+<p>Recipe Book</p>
 </li>
 <li>
 <p>Exercise</p>
@@ -877,14 +881,14 @@ there is lesser chance for errors.
 </div>
 </div>
 <div class="sect2">
-<h3 id="recipebook-feature"><a class="link" href="#recipebook-feature">4.3. RecipeBook feature</a></h3>
+<h3 id="recipe-book-feature"><a class="link" href="#recipe-book-feature">4.3. Recipe Book feature</a></h3>
 <div class="paragraph">
-<p>The current implementation of RecipeBook consists of the following:</p>
+<p>The current implementation of Recipe Book consists of the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Each <code>Recipe</code> consists of a unique <code>Name</code></p>
+<p>Each <code>Recipe</code> consists of a unique <code>RecipeName</code></p>
 </li>
 <li>
 <p>Each <code>Recipe</code> contains an Set of <code>Ingredient</code></p>
@@ -932,7 +936,7 @@ there is lesser chance for errors.
 <p><code>EditRecipeCommand</code> - Edits the specified <code>Recipe</code></p>
 </li>
 <li>
-<p><code>FindRecipeCommand</code> - Finds all <code>Recipe</code> whose <code>name</code> contains user-specified keywords</p>
+<p><code>FindRecipeCommand</code> - Finds all <code>Recipe</code> whose <code>RecipeName</code> contains user-specified keywords</p>
 </li>
 </ul>
 </div>
@@ -948,7 +952,7 @@ The input provided is <code>delete recipe 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+<img src="images/DeleteRecipeSequenceDiagram.png" alt="DeleteRecipeSequenceDiagram">
 </div>
 <div class="title">Figure 11. DeleteRecipeCommand Sequence Diagram</div>
 </div>
@@ -956,31 +960,137 @@ The input provided is <code>delete recipe 1</code>.</p>
 <p>After a successful execution, the recipe with the specified index will be deleted from the recipe book.</p>
 </div>
 <div class="paragraph">
-<p>The current implementation makes use of an Sets to store the <code>Ingredient</code> objects.
-This is the easiest way to implement the <code>Ingredient</code> component of the recipe as it builds on the existing codebase
-of ab3.</p>
+<p>The DeleteRecipeCommand will also delete the recipe from all meal plans that by filtering through all saved meal plans,
+checking for the existence of the recipe it is about to delete, and replace that meal plan with a new one. This is done
+using MealPlan#removeRecipe.</p>
+</div>
+<div class="paragraph">
+<p><strong>Design Considerations</strong></p>
+</div>
+<div class="paragraph">
+<p>The current implementation uses the DeleteRecipeCommand to do dynamic deletion of recipes from meal plans whenever
+a recipe is deleted.</p>
 </div>
 <div class="paragraph">
 <p><strong>Alternatives</strong></p>
 </div>
 <div class="paragraph">
-<p>An alternative would be to use an ArrayList instead of Sets to store <code>Ingredient</code> objects. This would make the
-implementation of <code>Ingredient</code> specific objects easier as they could be referenced through indexing of the ArrayList,
-which is more straight forward.</p>
+<p>An alternative would be create an update command that would update meal plans upon any changes made to the recipe book,
+be it deletion or editing of recipes. This means that the user must manually call for a command that goes through the meal plans
+to validate that they are up to date with the recipe book commands.</p>
 </div>
 <div class="paragraph">
 <p><strong>Our Choice</strong></p>
 </div>
 <div class="paragraph">
-<p>We will soon implement ArrayLists instead as the current implementation of <code>Ingredient</code> objects using Sets do not allow
-for ease of use for the user whenever the user wishes to edit <code>Ingredient</code> objects present within a <code>Recipe</code>.</p>
+<p>We chose to have the updating of the recipes within meal plans to be done whenever a relevant recipe operation occures,
+namely recipe deletion and edition. This provides a better user experience as the user will never need to remember that
+they have to run an update every single time they modify their recipes. A similar design consideration and choice was made
+for EditRecipeCommand.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="workout-planner-feature"><a class="link" href="#workout-planner-feature">4.4. Workout Planner feature</a></h3>
+<h3 id="meal-plan-feature"><a class="link" href="#meal-plan-feature">4.4. Meal Plan feature</a></h3>
+<div class="paragraph">
+<p>The current implementation of Meal Plan consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each <code>Meal Plan</code> consists of a unique <code>MealPlanName</code></p>
+</li>
+<li>
+<p>Each <code>Meal Plan</code> contains 7 Lists of <code>RecipeName</code></p>
+</li>
+<li>
+<p>Each class has their respective getter methods</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class diagram below gives an overview of the <code>Meal Plan</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MealPlanClassDiagram.png" alt="MealPlanClassDiagram">
+</div>
+<div class="title">Figure 12. Meal Plan Class Diagram</div>
+</div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.4.1. Implementation</a></h4>
+<h4 id="implementation-of-meal-plan-commands"><a class="link" href="#implementation-of-meal-plan-commands">4.4.1. Implementation of meal plan commands</a></h4>
+<div class="paragraph">
+<p><code>MealPlan</code> class supports multiple commands. It includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddMealPlanCommand</code> - Adds a <code>MealPlan</code> into <code>DukeCooks</code></p>
+</li>
+<li>
+<p><code>DeleteMealPlanCommand</code> - Deletes a <code>MealPlan</code> from <code>DukeCooks</code></p>
+</li>
+<li>
+<p><code>EditMealPlanCommand</code> - Edits the specified <code>MealPlan</code></p>
+</li>
+<li>
+<p><code>FindMealPlanCommand</code> - Finds all <code>MealPlan</code> whose <code>MealPlanName</code> contains user-specified keywords</p>
+</li>
+<li>
+<p><code>FindMealPlanWithCommand</code> Finds all <code>MealPlan</code> whose days contain user-specified <code>RecipeName</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All the above meal plan commands behave similarly. The commands will be parsed in <code>DukeCooksParser</code> and based on their
+types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be invoked (i.e <code>AddMealPlanCommandParser</code>,
+<code>DeleteMealPlanCommandParser</code> etc). After which, the corresponding command will be executed (i.e <code>AddMealPlanCommand</code>,
+<code>DeleteMealPlanCommand</code> etc).</p>
+</div>
+<div class="paragraph">
+<p>The figure below describes the execution of an <code>DeleteMealPlanCommand</code>.
+The input provided is <code>delete mealplan 1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteMealPlanSequenceDiagram.png" alt="DeleteMealPlanSequenceDiagram">
+</div>
+<div class="title">Figure 13. DeleteRecipeCommand Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>After a successful execution, the meal plan with the specified index will be deleted from the meal plan book.</p>
+</div>
+<div class="paragraph">
+<p><strong>Design Considerations</strong></p>
+</div>
+<div class="paragraph">
+<p>The current implementation of <code>MealPlan</code> stores recipe data only in the form of <code>RecipeName</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternatives</strong></p>
+</div>
+<div class="paragraph">
+<p>An alternative would be for meal plans to save all the data the recipe contains within it, namely all of its ingredients,
+nutritional value, and once implemented, the difficulty, preparation time, and image, all saved within the meal plan. This
+would make the viewing of the meal plan easier as all the relevant information is being stored within the meal plan.</p>
+</div>
+<div class="paragraph">
+<p><strong>Our Choice</strong></p>
+</div>
+<div class="paragraph">
+<p>We decided to only capture <code>RecipeName</code> information within the meal plan, as we concluded that the meal plan need not know
+of a recipe&#8217;s nutritional value, difficulty, preparation time, or image location until the meal plan is viewed by the user.
+This allows for smaller storage of meal plans as each meal plan does not need to hold that much information about the recipes
+that it contains. Only when the meal plan is viewed will it use the <code>RecipeName</code> data it has to query for the rest of that
+recipe&#8217;s information. Additionally, only storing the <code>RecipeName</code> makes the implementation of dynamic updating between meal
+plans and recipes much easier.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="workout-planner-feature"><a class="link" href="#workout-planner-feature">4.5. Workout Planner feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>&#160;<br>
 <strong>Exercise Management</strong></p>
@@ -1013,11 +1123,11 @@ exercises. Every exercise contains the following information:</p>
 <div class="content">
 <img src="images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
-<div class="title">Figure 12. Exercise Class Diagram</div>
+<div class="title">Figure 14. Exercise Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-exercise-commands"><a class="link" href="#implementation-of-exercise-commands">4.4.2. Implementation of Exercise Commands</a></h4>
+<h4 id="implementation-of-exercise-commands"><a class="link" href="#implementation-of-exercise-commands">4.5.2. Implementation of Exercise Commands</a></h4>
 <div class="paragraph">
 <p>The <code>Exercise</code> class is managed by the following commands :</p>
 </div>
@@ -1082,7 +1192,7 @@ allows for the details to be obtained more efficiently as well as limit them to 
 </div>
 </div>
 <div class="sect2">
-<h3 id="health-records-feature"><a class="link" href="#health-records-feature">4.5. Health Records feature</a></h3>
+<h3 id="health-records-feature"><a class="link" href="#health-records-feature">4.6. Health Records feature</a></h3>
 <div class="paragraph">
 <p>The Health Records feature handles the following:</p>
 </div>
@@ -1125,7 +1235,7 @@ allows for the details to be obtained more efficiently as well as limit them to 
 <div class="content">
 <img src="images/HealthRecordsClassDiagram.png" alt="HealthRecordsClassDiagram">
 </div>
-<div class="title">Figure 13. HealthRecords Class Diagram</div>
+<div class="title">Figure 15. HealthRecords Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>Each Health Record object consist of a Type, Timestamp and Value. The current implementation stores 6 key areas:</p>
@@ -1168,7 +1278,7 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <p>In future implementations (possibly in v2.0), the <code>TYPE_UTIL</code> list will accommodate more record types defined by the user. This means that there will not be a restriction imposed in health types that can be recorded. User can create a new health type to start health tracking (eg. Sodium level).</p>
 </div>
 <div class="sect3">
-<h4 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command">4.5.1. <code>add health</code> Command</a></h4>
+<h4 id="code-add-health-code-command"><a class="link" href="#code-add-health-code-command">4.6.1. <code>add health</code> Command</a></h4>
 <div class="paragraph">
 <p><code>add health t/[type] [inputs]</code> is parsed in the <code>addHealthCommandParser</code>. The inputs will first be initialised to its respective objects with underlying validation checks (eg. <code>Type</code> object will call for <code>isValidType()</code> method to check against <code>TYPE_UTIL</code> List). A <code>Record</code> object will then be created with the three valid object components.</p>
 </div>
@@ -1179,11 +1289,11 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/AddHealthSequenceDiagram.png" alt="AddHealthSequenceDiagram">
 </div>
-<div class="title">Figure 14. Sequence Diagram for <code>add health</code> command</div>
+<div class="title">Figure 16. Sequence Diagram for <code>add health</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect: Data structure on how the different health types are stored</strong></p>
 </div>
@@ -1225,9 +1335,9 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 </div>
 </div>
 <div class="sect2">
-<h3 id="diary-feature"><a class="link" href="#diary-feature">4.6. Diary feature</a></h3>
+<h3 id="diary-feature"><a class="link" href="#diary-feature">4.7. Diary feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.6.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The current implementation of Diary consists of the following:</p>
 </div>
@@ -1254,11 +1364,11 @@ The types available are stored in a list named <code>TYPE_UTIL</code>. This mean
 <div class="content">
 <img src="images/DiaryClassDiagram.png" alt="DiaryClassDiagram">
 </div>
-<div class="title">Figure 15. Diary Class Diagram</div>
+<div class="title">Figure 17. Diary Class Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-diary-commands"><a class="link" href="#implementation-of-diary-commands">4.6.2. Implementation of diary commands</a></h4>
+<h4 id="implementation-of-diary-commands"><a class="link" href="#implementation-of-diary-commands">4.7.2. Implementation of diary commands</a></h4>
 <div class="paragraph">
 <p><code>Diary</code> class supports multiple commands. It includes:</p>
 </div>
@@ -1306,7 +1416,7 @@ types (i.e Add, Delete, Edit etc), the corresponding variant parsers will be inv
 <div class="content">
 <img src="images/DeleteDiarySequenceDiagram.png" alt="DeleteDiarySequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence Diagram of DeleteDiaryCommand</div>
+<div class="title">Figure 18. Sequence Diagram of DeleteDiaryCommand</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br>
@@ -1314,7 +1424,7 @@ After a successful execution, the specified diary will be removed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.7.3. Design Considerations</a></h4>
 <div class="paragraph">
 <p>The current implementation of <code>Diary</code> makes use of an ArrayList to store the <code>Page</code> objects.
 This is the simplest implementation as most novice programmers would be familiar with ArrayLists.
@@ -1338,7 +1448,7 @@ object can simply be removed from the ArrayList, using the specified index.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-images"><a class="link" href="#implementation-of-images">4.6.4. Implementation of Images</a></h4>
+<h4 id="implementation-of-images"><a class="link" href="#implementation-of-images">4.7.4. Implementation of Images</a></h4>
 <div class="paragraph">
 <p>All images used in DukeCooks are copied into an internal data folder and all subsequent loading of images is done from
 within this internal folder. The following activity diagram explains how an image is created in DukeCooks:</p>
@@ -1347,11 +1457,11 @@ within this internal folder. The following activity diagram explains how an imag
 <div class="content">
 <img src="images/ImageActivityDiagram.png" alt="ImageActivityDiagram">
 </div>
-<div class="title">Figure 17. Activity diagram of adding images</div>
+<div class="title">Figure 19. Activity diagram of adding images</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.5. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.5. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This current implementation of images defensively copies the images into the internal data folder, instead of loading images
 from the user&#8217;s local directory. While it may be slower in terms of performance, it is less prone to unexpected errors when
@@ -1375,14 +1485,14 @@ image in their local directory.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1413,7 +1523,7 @@ image in their local directory.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1485,7 +1595,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 18. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 20. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2369,4 +2479,4 @@ It should be one of the following:</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:07:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:11:41 UTC</div></div></div></body></html>
