@@ -259,49 +259,6 @@ you wish to utilise and the predicate.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-workout-code-view-workout-code"><a class="link" href="#view-workout-code-view-workout-code">View Workout: <code>view workout</code></a></h4>
-<div class="paragraph">
-<p>You&#8217;ve created your workout regime, but you&#8217;re unsure of the details and your progress. With
-the <code>view workout</code> feature, you can check all the details of your workout as well as its
-history!</p>
-</div>
-<div class="paragraph">
-<p>Similar to <code>view exercise</code>, type in <code>view workout</code> followed by the index of the workout you&#8217;re
-interested in.</p>
-</div>
-<div class="paragraph">
-<p>The following screen will now appear. To orientate you, here are the components of the screen:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Basic Details<br>
-This component shows the Name, Intensity, Number of times completed, Average Run Time and
-Muscles Trained by the workout.</p>
-</li>
-<li>
-<p>Exercises<br>
-The exercises segment show a list of all exercises contained in the workout as well as its
-exercise details</p>
-</li>
-<li>
-<p>Workout History<br>
-The workout history compiles a list of all the times you have ran and completed this workout</p>
-</li>
-</ol>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/viewWorkoutOutput.png" alt="viewWorkoutOutput">
-</div>
-<div class="title">Figure 6. Chest Day Screen</div>
-</div>
-<div class="paragraph">
-<p>Similarly to <code>view Exercise</code> command, this page will be automatically updated after each run
-of the workout. You can also return to the workout planner page with <code>goto exercise</code>.</p>
-</div>
-</div>
-<div class="sect3">
 <h4 id="run-workout-code-run-workout-code"><a class="link" href="#run-workout-code-run-workout-code">Run Workout: <code>run workout</code></a></h4>
 <div class="paragraph">
 <p>You&#8217;ve created all your exercises and added it into your ultimate workout. Now you&#8217;re ready
@@ -312,7 +269,7 @@ ultimate workout.</p>
 <div class="content">
 <img src="../images/runWorkoutWindow1.png" alt="runWorkoutWindow1">
 </div>
-<div class="title">Figure 7. Run Workout Window</div>
+<div class="title">Figure 6. Run Workout Window</div>
 </div>
 <div class="paragraph">
 <p>The window above will pop up upon inputting the command. The window can be broken down into 5
@@ -345,7 +302,7 @@ the set as completed as shown below.</p>
 <div class="content">
 <img src="../images/runWorkoutWindow2.png" alt="runWorkoutWindow2">
 </div>
-<div class="title">Figure 8. Marking a set as Done</div>
+<div class="title">Figure 7. Marking a set as Done</div>
 </div>
 <div class="paragraph">
 <p>After completing all the sets in all exercises, you will be brought back to the main page
@@ -424,7 +381,7 @@ method which instead opts to use the pre-built Set of <code>ExerciseDetails</cod
 <div class="content">
 <img src="../images/WorkoutClassDiagram.png" alt="WorkoutClassDiagram">
 </div>
-<div class="title">Figure 9. Workout Class Diagram</div>
+<div class="title">Figure 8. Workout Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The Workout Class is managed by the following commands:</p>
@@ -481,7 +438,7 @@ Users can use existing exercises or create their own custom exercises. Every exe
 <div class="content">
 <img src="../images/ExerciseClassDiagram.png" alt="ExerciseClassDiagram">
 </div>
-<div class="title">Figure 10. Exercise Class Diagram</div>
+<div class="title">Figure 9. Exercise Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>Exercise</code> class is managed by the following commands :</p>
@@ -531,7 +488,7 @@ what happens when the command is invoked.</p>
 <div class="content">
 <img src="../images/RunWorkoutSequenceDiagram.png" alt="RunWorkoutSequenceDiagram">
 </div>
-<div class="title">Figure 11. Sequence Diagram of RunWorkoutCommand</div>
+<div class="title">Figure 10. Sequence Diagram of RunWorkoutCommand</div>
 </div>
 <div class="paragraph">
 <p>As seen in the diagram above, when the command is invoked, the <code>RunWorkoutParser</code> is initialised to parse the argument String
@@ -543,7 +500,7 @@ the CommandResult object. The Ui will then boot a new <code>RunWorkoutWindow</co
 <div class="content">
 <img src="../images/RunWorkoutActivityDiagram.png" alt="RunWorkoutActivityDiagram">
 </div>
-<div class="title">Figure 12. Activity Diagram of RunWorkoutWindow</div>
+<div class="title">Figure 11. Activity Diagram of RunWorkoutWindow</div>
 </div>
 <div class="paragraph">
 <p>The user will then run each set of each exercise until the workout is complete. The full loop is demonstrated in the
@@ -553,7 +510,7 @@ activity diagram in Figure 17.</p>
 <div class="content">
 <img src="../images/RunWorkoutSequenceDiagram1.png" alt="RunWorkoutSequenceDiagram1">
 </div>
-<div class="title">Figure 13. Sequence Diagram of UpdateWorkoutCommand</div>
+<div class="title">Figure 12. Sequence Diagram of UpdateWorkoutCommand</div>
 </div>
 <div class="paragraph">
 <p>Upon completion of the workout, the Ui will immediately generate a new <code>UpdateWorkoutCommand</code> containing the <code>Workout</code>
@@ -637,4 +594,4 @@ binary search.</p></td>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:02:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:09:23 UTC</div></div></div></body></html>
